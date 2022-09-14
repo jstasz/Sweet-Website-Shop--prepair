@@ -1,0 +1,23 @@
+.nav {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.8rem;
+
+	&__logo {
+		padding: 1em;
+
+		&--img {
+			width: 3em;
+			height: 3em;
+		}
+	}
+
+	&__link {
+		padding: 1em;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+}
