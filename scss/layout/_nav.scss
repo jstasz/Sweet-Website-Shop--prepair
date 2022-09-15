@@ -1,23 +1,96 @@
+.hamburger {
+	position: fixed;
+	z-index: 100;
+}
+
 .nav {
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 1.8rem;
+	background-color: rgb(232, 232, 232);
+	background-image: radial-gradient(
+		circle,
+		rgba(241, 241, 241, 1) 31%,
+		rgba(232, 232, 232, 1) 63%,
+		rgb(255, 217, 224) 100%
+	);
 
 	&__logo {
 		padding: 1em;
 
 		&--img {
+			display: block;
+			margin: 0 auto;
 			width: 3em;
 			height: 3em;
 		}
 	}
 
+	&__links {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
 	&__link {
+		position: relative;
+		width: 70%;
 		padding: 1em;
+		text-align: center;
 		text-transform: uppercase;
 		text-decoration: none;
+		font-weight: bold;
+		color: rgb(108, 108, 108);
+		border-radius: 0.5em;
+
+		&:hover {
+			box-shadow: inset 0px 0px 21px -9px rgb(141, 141, 141);
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.hamburger {
+		display: none;
+	}
+
+	.nav {
+		padding: 0 2em;
+		height: 10vh;
+		flex-direction: row;
+		justify-content: space-between;
+		background-image: none;
+
+		&__logo {
+			width: 15%;
+		}
+
+		&__links {
+			flex-direction: row;
+			width: 60%;
+			margin: 0 0.5em;
+		}
+
+		&__shopping {
+			display: flex;
+			width: 15%;
+
+			&-icon {
+				display: block;
+				margin: 1em;
+				padding: 0.5em;
+				background-color: rgb(255, 217, 224);
+				border-radius: 50%;
+
+				&--img {
+					width: 2em;
+					height: 2em;
+				}
+			}
+		}
 	}
 }
