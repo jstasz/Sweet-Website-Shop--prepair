@@ -1,0 +1,45 @@
+.main-image {
+	width: 100%;
+	height: 100vh;
+	background-image: url(../../img/cream_small.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	&__content {
+		width: 80%;
+		height: 100%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		&-box {
+			position: relative;
+			width: 25%;
+			height: 60%;
+			padding: 1em;
+			background-color: rgb(211, 211, 211);
+			box-shadow: 13px 10px 27px -5px rgb(77, 77, 77);
+			border-radius: 1em;
+
+			&-button {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 5em;
+				height: 5em;
+				background-color: rgb(136, 136, 136);
+				border: 3px solid rgb(55, 55, 55);
+				border-radius: 50%;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.main-image {
+		height: 90vh;
+	}
+}

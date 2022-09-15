@@ -5,28 +5,18 @@
 
 .nav {
 	height: 100vh;
-	display: flex;
+	// display: flex;
+	display: none;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: rgb(232, 232, 232);
+	background-color: rgb(211, 211, 211);
 	background-image: radial-gradient(
 		circle,
 		rgba(241, 241, 241, 1) 31%,
 		rgba(232, 232, 232, 1) 63%,
 		rgb(255, 217, 224) 100%
 	);
-
-	&__logo {
-		padding: 1em;
-
-		&--img {
-			display: block;
-			margin: 0 auto;
-			width: 3em;
-			height: 3em;
-		}
-	}
 
 	&__links {
 		width: 100%;
@@ -59,15 +49,12 @@
 	}
 
 	.nav {
+		display: flex;
 		padding: 0 2em;
 		height: 10vh;
 		flex-direction: row;
 		justify-content: space-between;
 		background-image: none;
-
-		&__logo {
-			width: 15%;
-		}
 
 		&__links {
 			flex-direction: row;
@@ -77,18 +64,24 @@
 
 		&__shopping {
 			display: flex;
-			width: 15%;
+			justify-content: end;
+			width: 30%;
 
 			&-icon {
 				display: block;
 				margin: 1em;
 				padding: 0.5em;
-				background-color: rgb(255, 217, 224);
+				background-color: rgb(249, 201, 201);
 				border-radius: 50%;
+				cursor: pointer;
 
-				&--img {
+				&-img {
 					width: 2em;
 					height: 2em;
+				}
+
+				&--cart {
+					background-color: rgb(199, 248, 223);
 				}
 			}
 		}
