@@ -4,8 +4,8 @@
 }
 
 .nav {
+	width: 100%;
 	height: 100vh;
-	// display: flex;
 	display: none;
 	flex-direction: column;
 	justify-content: center;
@@ -17,9 +17,12 @@
 		rgba(232, 232, 232, 1) 63%,
 		rgb(255, 217, 224) 100%
 	);
+	// border-bottom: thin solid rgb(85, 85, 85);
+	z-index: 10;
 
 	&__links {
 		width: 100%;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -28,7 +31,7 @@
 
 	&__link {
 		position: relative;
-		width: 70%;
+		width: 90%;
 		padding: 1em;
 		text-align: center;
 		text-transform: uppercase;
@@ -58,8 +61,11 @@
 
 		&__links {
 			flex-direction: row;
-			width: 60%;
 			margin: 0 0.5em;
+		}
+
+		&__link {
+			width: 30%;
 		}
 
 		&__shopping {
