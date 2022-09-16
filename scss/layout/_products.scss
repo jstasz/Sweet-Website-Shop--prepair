@@ -1,0 +1,54 @@
+.products {
+	background-color: rgb(236, 236, 236);
+
+	&__container {
+		padding: 1em;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: stretch;
+		text-align: center;
+	}
+
+	&__card {
+		position: relative;
+		margin: 2em 0;
+		padding: 1em;
+		width: 100%;
+		box-shadow: 0px 0px 24px 0px rgba(115, 115, 115, 1);
+		border-radius: 10px;
+
+		&-title {
+			padding: 2em 0 1em;
+			color: rgb(104, 104, 104);
+		}
+
+		&-description {
+			padding: 0 1em 2em;
+		}
+
+		&-button {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 4em;
+			height: 4em;
+			transform: translate(-50%, -50%);
+			background-color: rgb(255, 255, 255);
+			border: 5px solid rgb(251, 190, 186);
+			border-radius: 50%;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.products {
+		&__container {
+			flex-direction: row;
+		}
+
+		&__card {
+			margin: 3em 2em;
+		}
+	}
+}
