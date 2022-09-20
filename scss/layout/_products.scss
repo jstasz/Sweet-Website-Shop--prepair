@@ -1,42 +1,53 @@
 .products {
-	background-color: rgb(236, 236, 236);
+	background-color: rgb(228, 228, 228);
 
 	&__container {
-		padding: 1em;
+		padding: 3em 2em;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
-		align-items: stretch;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
 		text-align: center;
 	}
 
 	&__card {
-		position: relative;
-		margin: 2em 0;
-		padding: 1em;
 		width: 100%;
+		margin: 1em 0;
+		padding: 1.5em;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		background-color: rgb(243, 243, 243);
 		box-shadow: 0px 0px 24px 0px rgba(115, 115, 115, 1);
 		border-radius: 10px;
 
+		&-content {
+			height: 50%;
+			width: auto;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&-img {
+			height: 50%;
+			width: 100%;
+
+			&--bottom {
+				padding-top: 1em;
+			}
+
+			&--top {
+				padding-bottom: 1em;
+			}
+		}
+
 		&-title {
-			padding: 2em 0 1em;
+			margin-bottom: 1em;
 			color: rgb(104, 104, 104);
-		}
-
-		&-description {
-			padding: 0 1em 2em;
-		}
-
-		&-button {
-			position: absolute;
-			top: 0;
-			left: 50%;
-			width: 4em;
-			height: 4em;
-			transform: translate(-50%, -50%);
-			background-color: rgb(255, 255, 255);
-			border: 5px solid rgb(251, 190, 186);
-			border-radius: 50%;
 		}
 	}
 }
@@ -44,11 +55,21 @@
 @media (min-width: 768px) {
 	.products {
 		&__container {
+			padding: 5em 2em;
 			flex-direction: row;
 		}
 
 		&__card {
-			margin: 3em 2em;
+			width: 40%;
+			margin: 1em 1em;
+		}
+	}
+}
+
+@media (min-width: 976px) {
+	.products {
+		&__card {
+			width: 30%;
 		}
 	}
 }
