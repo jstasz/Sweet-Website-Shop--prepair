@@ -2,7 +2,6 @@
 	background-color: rgb(243, 243, 243);
 
 	&__container {
-		padding: 2em 1em;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -11,6 +10,10 @@
 	}
 
 	&__content {
+		&-title {
+			padding-bottom: 0;
+		}
+
 		&-description {
 			padding: 1.5em 0;
 		}
@@ -35,12 +38,21 @@
 	}
 }
 
-// @media (min-width: 768px) {
-// 	.about-me {
-// 		height: 50vh;
+@media (min-width: 768px) {
+	.about-me {
+		&__container {
+			flex-direction: row;
+		}
 
-// 		&__container {
-// 			flex-direction: row;
-// 		}
-// 	}
-// }
+		&__content {
+			width: 40%;
+			position: relative;
+			left: 10%;
+			z-index: 1;
+		}
+
+		&__image {
+			width: 60%;
+		}
+	}
+}

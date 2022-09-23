@@ -8,10 +8,14 @@
 	display: none;
 }
 
+section {
+	padding: 3em 1em;
+}
+
 .section-title {
-	padding-top: 2em;
+	padding-bottom: 1.5em;
+	font-family: "Satisfy", cursive;
+	font-size: 3rem;
 	text-align: center;
-	text-transform: uppercase;
 	color: rgb(107, 105, 106);
-	// text-shadow: 5px 5px 19px rgb(85, 85, 85);
 }

@@ -166,10 +166,15 @@ body {
   display: none;
 }
 
+section {
+  padding: 3em 1em;
+}
+
 .section-title {
-  padding-top: 2em;
+  padding-bottom: 1.5em;
+  font-family: "Satisfy", cursive;
+  font-size: 3rem;
   text-align: center;
-  text-transform: uppercase;
   color: #6b696a;
 }
 
@@ -325,6 +330,7 @@ body {
 
 .main-image__content-title {
   font-family: "Satisfy", cursive;
+  font-size: 5rem;
   text-shadow: 0px 0px 19px black;
 }
 
@@ -336,6 +342,9 @@ body {
   .main-image {
     height: 40vh;
   }
+  .main-image__content-title {
+    font-size: 8rem;
+  }
 }
 
 .products {
@@ -343,7 +352,6 @@ body {
 }
 
 .products__container {
-  padding: 2em 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -435,7 +443,6 @@ body {
 
 @media (min-width: 768px) {
   .products__container {
-    padding: 5em 2em;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -458,7 +465,6 @@ body {
 }
 
 .about-me__container {
-  padding: 2em 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -473,6 +479,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+}
+
+.about-me__content-title {
+  padding-bottom: 0;
 }
 
 .about-me__content-description {
@@ -496,5 +506,23 @@ body {
   background-color: transparent;
   -webkit-box-shadow: inset 0px 0px 45px 56px #f3f3f3;
           box-shadow: inset 0px 0px 45px 56px #f3f3f3;
+}
+
+@media (min-width: 768px) {
+  .about-me__container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .about-me__content {
+    width: 40%;
+    position: relative;
+    left: 10%;
+    z-index: 1;
+  }
+  .about-me__image {
+    width: 60%;
+  }
 }
 /*# sourceMappingURL=main.css.map */
