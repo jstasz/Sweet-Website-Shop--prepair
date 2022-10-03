@@ -35,9 +35,11 @@
 
 @media (min-width: 768px) {
 	.main-image {
-		height: 40vh;
+		height: 50vh;
 
 		&__content {
+			padding: 2em 0 1em 0;
+
 			&-title {
 				font-size: 8rem;
 			}

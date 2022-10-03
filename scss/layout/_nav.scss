@@ -38,11 +38,10 @@
 		text-transform: uppercase;
 		text-decoration: none;
 		font-weight: bold;
-		color: rgb(108, 108, 108);
+		color: rgb(61, 61, 61);
 		border-radius: 0.5em;
-
 		&:hover {
-			box-shadow: inset 0px 0px 21px -9px rgb(141, 141, 141);
+			box-shadow: inset 0px 0px 21px -9px rgb(44, 44, 44);
 		}
 	}
 }
@@ -53,12 +52,15 @@
 	}
 
 	.nav {
+		position: fixed;
 		display: flex;
 		padding: 0 2em;
 		height: 10vh;
 		flex-direction: row;
 		justify-content: space-between;
+		background-color: transparent;
 		background-image: none;
+		// background-color: rgba(44, 44, 44, 0.3);
 
 		&__links {
 			flex-direction: row;
