@@ -178,6 +178,15 @@ body {
   color: #6b696a;
 }
 
+.white-card {
+  margin: 1em 0;
+  padding: 1.5em;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: 0px 0px 24px 0px #737373;
+          box-shadow: 0px 0px 24px 0px #737373;
+  border-radius: 10px;
+}
+
 .hamburger {
   position: fixed;
   z-index: 100;
@@ -443,8 +452,6 @@ body {
 
 .products__card {
   width: 100%;
-  margin: 1em 0;
-  padding: 1.5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -458,10 +465,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #f3f3f3;
-  -webkit-box-shadow: 0px 0px 24px 0px #737373;
-          box-shadow: 0px 0px 24px 0px #737373;
-  border-radius: 10px;
 }
 
 .products__card-content {
@@ -569,5 +572,78 @@ body {
 
 .feedback {
   background-color: #e4e4e4;
+}
+
+.feedback__card {
+  width: 80%;
+  margin: 3em 0;
+}
+
+.feedback__card-quote {
+  font-size: 2rem;
+  color: #fc869a;
+}
+
+.feedback__card-opinion {
+  padding: 1em 0 2em 0;
+}
+
+.feedback__card-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5d5d5d;
+}
+
+.feedback__card-name-stars {
+  margin-top: 0.5em;
+  color: #fabcc6;
+}
+
+.feedback__card--right {
+  margin-left: auto;
+}
+
+.feedback__card--right .feedback__card-name {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+@media (min-width: 768px) {
+  .feedback__card-name {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  .feedback__card-name-stars {
+    margin-top: 0;
+    margin-left: 1em;
+    color: #fabcc6;
+  }
+  .feedback__card--right .feedback__card-name-stars {
+    margin: 0 1em;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  .feedback__card--right .feedback__card-quote,
+  .feedback__card--right .feedback__card-opinion {
+    text-align: end;
+  }
 }
 /*# sourceMappingURL=main.css.map */
