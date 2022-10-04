@@ -561,4 +561,9 @@ body {
   padding-right: 0.5em;
   color: #6e6e6e;
 }
+
+.gallery {
+  background-color: #f3f3f3;
+  height: 500px;
+}
 /*# sourceMappingURL=main.css.map */
