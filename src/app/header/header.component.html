@@ -1,0 +1,24 @@
+<button class="hamburger hamburger--spin" type="button">
+    <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+    </span>
+</button>
+<nav class="nav">
+    <div class="nav__links">
+        <a *ngFor="let navLink of navLinks" class="nav__link">{{navLink}}</a>
+    </div>
+    <div class="nav__shopping">
+        <div *ngFor="let icon of shoppingIcons" class="nav__shopping-icon nav__shopping-icon--{{icon.name}} hidden">
+            <img class="nav__shopping-icon-img" src="{{icon.src}}" alt="{{icon.name}}" />
+        </div>
+    </div>
+</nav>
+<div class="main-image">
+    <div class="main-image__img"></div>
+    <div class="main-image__content">
+        <h1 class="main-image__content-title">Just Sweet</h1>
+        <p class="main-image__content-description">
+            best cakes based on your own project
+        </p>
+    </div>
+</div>
