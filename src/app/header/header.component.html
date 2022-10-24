@@ -4,11 +4,17 @@
     </span>
 </button>
 <nav class="nav">
+    <!-- <div class="nav__links">
+        <a class="nav__link" routerLink="/shop-online">shop online</a>
+        <a class="nav__link" routerLink="/cake-designer">cake designer</a>
+        <a class="nav__link" routerLink="/contact">contact us</a>
+    </div> -->
     <div class="nav__links">
-        <a *ngFor="let navLink of navLinks" class="nav__link">{{navLink}}</a>
+        <a *ngFor="let navLink of navLinks" (click)="onNavLink(navLink)" class="nav__link"> {{ navLink }}</a>
     </div>
     <div class="nav__shopping">
-        <div *ngFor="let icon of shoppingIcons" class="nav__shopping-icon nav__shopping-icon--{{icon.name}} hidden">
+        <div *ngFor="let icon of shoppingIcons" (click)="onNavIcon(icon)"
+            class="nav__shopping-icon nav__shopping-icon--{{icon.name}} hidden">
             <img class="nav__shopping-icon-img" src="{{icon.src}}" alt="{{icon.name}}" />
         </div>
     </div>
