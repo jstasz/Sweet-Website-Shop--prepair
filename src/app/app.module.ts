@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.model';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutMeComponent } from './main-page/about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     FavouritesComponent,
     CartComponent,
     ContactUsComponent,
+    AboutMeComponent,
   ],
   imports: [
     BrowserModule,
