@@ -11,6 +11,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutMeComponent } from './main-page/about-me/about-me.component';
+import { ProductsComponent } from './main-page/products/products.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AboutMeComponent } from './main-page/about-me/about-me.component';
     CartComponent,
     ContactUsComponent,
     AboutMeComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
