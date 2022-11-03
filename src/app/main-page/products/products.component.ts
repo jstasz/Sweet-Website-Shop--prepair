@@ -11,16 +11,16 @@ export class ProductsComponent implements OnInit {
     new ProductsCard('artistic cakes',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sintut nisi debitis illo voluptate doloremque sequi ullam quisquam Loremipsum dolor sit amet consectetur adipisicing elit. Nam cumque sequi ipsum distinctio delectus accusamus',
       'create your cake',
-      './img/cake_small.jpg'
+      'assets/img/cake_small.jpg'
     ),
     new ProductsCard('cookies and sweets',
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sin ut nisi debitis illo voluptate doloremque sequi ullam quisquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam cumque',
       'shop online',
-      './img/sweets_small.jpg'),
+      'assets/img/sweets_small.jpg'),
     new ProductsCard('events',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sint Illum sin ut nisi debitis illo voluptate doloremque sequi ullam quisquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam cumque',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum sint Illum sin ut nisi debitis illo voluptate doloremque sequi ullam quisquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam cumque ',
       'contact us',
-      './img/sweettable_small.jpg'
+      'assets/img/sweettable_small.jpg'
     )]
 
   constructor() {
