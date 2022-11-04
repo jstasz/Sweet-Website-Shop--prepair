@@ -1,0 +1,25 @@
+<section class="feedback section">
+    <h2 class="section-title">feedback</h2>
+    <div class="feedback__cards">
+        <div class="feedback__container wrapper">
+            <div *ngFor="let feedbackCard of feedbackCards" class="white-card feedback__card">
+                <div class="feedback__card-quote">
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <p class="feedback__card-opinion">
+                    {{feedbackCard.description}}
+                </p>
+                <div class="feedback__card-name">
+                    <p class="feedback__card-name-title">{{feedbackCard.userName}}</p>
+                    <div class="feedback__card-name-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
