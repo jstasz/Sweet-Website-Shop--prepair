@@ -1,0 +1,44 @@
+.cake {
+    &__instruction {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &-stage {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            margin: 1em;
+            background-color: rgb(216, 216, 216);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+
+            &.active {
+                background-color: rgb(252, 231, 235);
+            }
+
+            &-icon {
+                font-size: 1.5em;
+                color: rgb(89, 89, 89);
+                padding-bottom: 0.5em;
+            }
+        }
+
+
+    }
+}
+
+@media (min-width: 768px) {
+    .cake {
+        &__instruction {
+            flex-direction: row;
+
+
+            // &-stage {}
+        }
+    }
+}

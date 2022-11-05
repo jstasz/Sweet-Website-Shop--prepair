@@ -1,1 +1,10 @@
-<p>cake-designer works!</p>
+<section class="cake section">
+    <h1 class="section-title">Create your own cake</h1>
+    <div class="cake__instruction">
+        <div *ngFor="let createCakeElement of createCakeInstruction" class="cake__instruction-stage">
+            <i class="cake__instruction-stage-icon {{createCakeElement.elementIcon}}"></i>
+            <p class="cake__instruction__stage-title">{{createCakeElement.elementName}}</p>
+            <div class="cake__instruction__stage-separator"></div>
+        </div>
+    </div>
+</section>
