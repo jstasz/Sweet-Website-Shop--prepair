@@ -28,12 +28,9 @@
         &-img {
             width: 100%;
 
-            &--bottom {
-                padding-top: 1em;
-            }
-
             &--top {
                 padding-bottom: 1em;
+                order: -1
             }
         }
 

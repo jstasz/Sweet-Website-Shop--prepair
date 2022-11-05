@@ -1,7 +1,7 @@
 <section class="products section">
     <h2 class="section-title">our products</h2>
     <div class="products__container wrapper">
-        <div class="white-card products__card" *ngFor="let card of productsCards">
+        <div class="white-card products__card" *ngFor="let card of productsCards, let i = index">
             <h3 class="products__card-title">{{card.title}}</h3>
             <p class="products__card-description">
                 {{card.description}}
@@ -9,7 +9,8 @@
             <a href="#" class="">
                 <p class="products__card-link">{{card.link}}</p>
             </a>
-            <img class="products__card-img" src="{{card.imagePath}}" alt="{{card.title}}" />
+            <img class="products__card-img" [ngClass]="{'products__card-img--top': i % 2 !== 0}"
+                src="{{card.imagePath}}" alt="{{card.title}}" />
         </div>
     </div>
 </section>
