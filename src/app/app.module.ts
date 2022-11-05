@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ShopOnlineComponent } from './shop-online/shop-online.component';
-import { CakeDesignerComponent } from './cake-designer/cake-desgner.component';
+import { CakeDesignerComponent } from './cake-designer/cake-designer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.model';
 import { FavouritesComponent } from './favourites/favourites.component';
