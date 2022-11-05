@@ -13,6 +13,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutMeComponent } from './main-page/about-me/about-me.component';
 import { ProductsComponent } from './main-page/products/products.component';
 import { FeedbackComponent } from './main-page/feedback/feedback.component';
+import { GalleryComponent } from './main-page/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FeedbackComponent } from './main-page/feedback/feedback.component';
     AboutMeComponent,
     ProductsComponent,
     FeedbackComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
