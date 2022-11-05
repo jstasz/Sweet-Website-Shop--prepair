@@ -14,6 +14,7 @@ import { AboutMeComponent } from './main-page/about-me/about-me.component';
 import { ProductsComponent } from './main-page/products/products.component';
 import { FeedbackComponent } from './main-page/feedback/feedback.component';
 import { GalleryComponent } from './main-page/gallery/gallery.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { GalleryComponent } from './main-page/gallery/gallery.component';
     ProductsComponent,
     FeedbackComponent,
     GalleryComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
