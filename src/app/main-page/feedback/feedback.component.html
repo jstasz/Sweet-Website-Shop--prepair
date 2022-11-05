@@ -2,7 +2,8 @@
     <h2 class="section-title">feedback</h2>
     <div class="feedback__cards">
         <div class="feedback__container wrapper">
-            <div *ngFor="let feedbackCard of feedbackCards" class="white-card feedback__card">
+            <div *ngFor="let feedbackCard of feedbackCards; let i = index" class="white-card feedback__card"
+                [ngClass]="{'feedback__card--right': i % 2 !== 0}">
                 <div class="feedback__card-quote">
                     <i class="fas fa-quote-right"></i>
                 </div>

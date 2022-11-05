@@ -1,0 +1,10 @@
+<footer class="footer section">
+    <div class="footer__contact">
+        <a class="footer__contact-item" *ngFor="let contactDetail of contactDetails"><i
+                class="footer__contact-icon {{contactDetail.contactIcon}}"></i>{{contactDetail.contactInfo}}</a>
+    </div>
+    <div class="footer__description">
+        Copyright &copy; <span class="footer__year"></span> Justyna Szajuk | all
+        rights reserved
+    </div>
+</footer>
