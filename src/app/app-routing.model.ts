@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { CakeDesignerComponent } from "./cake-designer/cake-desgner.component";
+import { CakeDesignerComponent } from "./cake-designer/cake-designer.component";
 import { CartComponent } from "./cart/cart.component";
 import { ContactUsComponent } from "./contact-us/contact-us.component";
 import { FavouritesComponent } from "./favourites/favourites.component";
