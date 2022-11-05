@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsCard } from '../products/products-card.model';
-import { FeedbackCard } from './feedback-card.model';
+
+class FeedbackCard {
+  constructor(public userName: string, public description: string) {
+    this.userName = userName;
+    this.description = description
+  }
+}
 
 @Component({
   selector: 'app-feedback',
