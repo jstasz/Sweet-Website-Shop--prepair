@@ -12,12 +12,7 @@
                 </p>
                 <div class="feedback__card-name">
                     <p class="feedback__card-name-title">{{feedbackCard.userName}}</p>
-                    <div class="feedback__card-name-stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <div class="feedback__card-name-stars" [innerHtml]="createStars(feedbackCard.opinion)">
                     </div>
                 </div>
             </div>
