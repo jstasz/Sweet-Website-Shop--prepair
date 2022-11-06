@@ -1,3 +1,7 @@
+.active {
+    background-color: red;
+}
+
 .cake {
     &__instruction {
         display: flex;

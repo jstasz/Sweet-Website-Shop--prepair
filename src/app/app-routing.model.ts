@@ -1,6 +1,10 @@
-import { NgModule } from "@angular/core";
+import { Component, NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { CakeDesignerComponent } from "./cake-designer/cake-designer.component";
+import { DateComponent } from "./cake-designer/date/date.component";
+import { FlavourComponent } from "./cake-designer/flavour/flavour.component";
+import { SizeComponent } from "./cake-designer/size/size.component";
+import { TypeComponent } from "./cake-designer/type/type.component";
 import { CartComponent } from "./cart/cart.component";
 import { ContactUsComponent } from "./contact-us/contact-us.component";
 import { FavouritesComponent } from "./favourites/favourites.component";
@@ -10,7 +14,16 @@ import { ShopOnlineComponent } from "./shop-online/shop-online.component";
 
 const appRoutes: Routes = [
     { path: '', component: MainPageComponent },
-    { path: 'cake-designer', component: CakeDesignerComponent },
+    {
+        path: 'cake-designer', component: CakeDesignerComponent, children: [
+            { path: '', redirectTo: 'type', pathMatch: 'full' },
+            { path: 'type', component: TypeComponent },
+            { path: 'size', component: SizeComponent },
+            { path: 'flavour', component: FlavourComponent },
+            { path: 'date', component: DateComponent },
+
+        ]
+    },
     { path: 'shop-online', component: ShopOnlineComponent },
     { path: 'contact-us', component: ContactUsComponent },
     { path: 'favourites', component: FavouritesComponent },

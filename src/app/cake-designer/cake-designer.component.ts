@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 class CreateCakeElement {
   constructor(public elementName: string, public elementIcon: string) {
@@ -21,9 +22,16 @@ export class CakeDesignerComponent implements OnInit {
     new CreateCakeElement('date', 'fa-solid fa-calendar-days')
 
   ]
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+
+  onChooseData(createCakeElement: CreateCakeElement) {
+    const activeRoute = createCakeElement.elementName
+    this.router.navigate([activeRoute], { relativeTo: this.route })
+  }
+
+
 
 }
