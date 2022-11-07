@@ -20,6 +20,7 @@ import { SizeComponent } from './cake-designer/size/size.component';
 import { FlavourComponent } from './cake-designer/flavour/flavour.component';
 import { DateComponent } from './cake-designer/date/date.component';
 import { DecorationComponent } from './cake-designer/decoration/decoration.component';
+import { ColorComponent } from './cake-designer/color/color.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { DecorationComponent } from './cake-designer/decoration/decoration.compo
     FlavourComponent,
     DateComponent,
     DecorationComponent,
+    ColorComponent,
   ],
   imports: [
     BrowserModule,

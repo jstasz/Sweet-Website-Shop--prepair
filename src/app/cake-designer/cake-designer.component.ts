@@ -19,9 +19,9 @@ export class CakeDesignerComponent implements OnInit {
     new CreateCakeElement('type', 'fa-solid fa-cake-candles'),
     new CreateCakeElement('size', 'fa-solid fa-scale-unbalanced'),
     new CreateCakeElement('flavour', 'fa-solid fa-cookie-bite'),
+    new CreateCakeElement('color', 'fa-solid fa-brush'),
     new CreateCakeElement('decoration', 'fa-solid fa-star'),
     new CreateCakeElement('date', 'fa-solid fa-calendar-days')
-
   ]
   constructor(private router: Router, private route: ActivatedRoute) { }
 
