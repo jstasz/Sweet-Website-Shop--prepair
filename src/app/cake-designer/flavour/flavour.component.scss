@@ -1,0 +1,51 @@
+.cake-flavours {
+    margin: 1em;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+        padding: 1em;
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+
+        &:hover .cake-flavours__item-img {
+            filter: grayscale(0);
+        }
+
+        &-img {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(1);
+        }
+
+        &-flavour {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    }
+}
+
+@media (min-width: 476px) {
+    .cake-flavours {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        &__item {
+            width: 50%;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .cake-flavours {
+        &__item {
+            width: 30%;
+        }
+    }
+}
