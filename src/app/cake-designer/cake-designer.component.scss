@@ -36,10 +36,63 @@
     }
 }
 
+.cake-design {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__item {
+        margin: 1em;
+        padding: 1em;
+        width: 90%;
+        height: auto;
+        cursor: pointer;
+        box-shadow: 0px 0px 12px 0px rgb(167, 166, 166);
+
+        &:hover .cake-design__item-img {
+            filter: grayscale(0);
+        }
+
+        &-img {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: grayscale(0.7);
+        }
+
+        &-title {
+            font-size: 2rem;
+            text-align: center;
+        }
+    }
+}
+
+@media (min-width: 476px) {
+    .cake-design {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        &__item {
+            margin: 0.5em;
+            width: 45%;
+        }
+    }
+}
+
 @media (min-width: 768px) {
     .cake {
         &__instruction {
             flex-direction: row;
+        }
+    }
+
+    .cake-design {
+        &__item {
+            width: 30%;
         }
     }
 }

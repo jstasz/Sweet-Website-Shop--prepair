@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 class CreateCakeElement {
@@ -11,7 +11,8 @@ class CreateCakeElement {
 @Component({
   selector: 'app-cake-designer',
   templateUrl: './cake-designer.component.html',
-  styleUrls: ['./cake-designer.component.scss']
+  styleUrls: ['./cake-designer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CakeDesignerComponent implements OnInit {
 
