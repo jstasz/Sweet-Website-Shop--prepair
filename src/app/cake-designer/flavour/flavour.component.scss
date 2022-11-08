@@ -19,11 +19,12 @@
             height: 200px;
             background-size: cover;
             background-position: center;
-            filter: grayscale(1);
+            background-repeat: no-repeat;
+            filter: grayscale(0.7);
         }
 
         &-flavour {
-            font-size: 1.5rem;
+            font-size: 2rem;
             text-align: center;
         }
     }
