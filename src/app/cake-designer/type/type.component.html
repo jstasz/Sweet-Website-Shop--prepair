@@ -1,1 +1,7 @@
-<p>type works!</p>
+<div class="cake-design wrapper">
+    <div class="cake-design__item" *ngFor="let type of cakeTypes">
+        <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + type.imagePath + ')'}">
+        </div>
+        <p class="cake-design__item-title">{{type.name}}</p>
+    </div>
+</div>

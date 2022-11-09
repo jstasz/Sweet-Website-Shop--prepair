@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DesignElement } from '../desig-element.model';
 
 @Component({
   selector: 'app-type',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypeComponent implements OnInit {
 
+  cakeTypes: DesignElement[] = [
+    new DesignElement('sugar', '../../../assets/img/create-cake/type/sugar.jpeg'),
+    new DesignElement('creamy', '../../../assets/img/create-cake/type/creamy.jpeg'),
+  ]
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
