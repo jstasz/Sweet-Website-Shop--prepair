@@ -8,6 +8,9 @@ import { DesignElement } from '../desig-element.model';
 })
 export class ColorComponent implements OnInit {
 
+  selectedColor = false;
+  colorOfCake = ''
+
   cakeColors: DesignElement[] = [
     new DesignElement('pink', '../../../assets/img/create-cake/color/pink.jpeg'),
     new DesignElement('blue', '../../../assets/img/create-cake/color/blue.jpeg'),
@@ -20,6 +23,17 @@ export class ColorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onAddElement(element: DesignElement) {
+    this.selectedColor = true;
+    this.colorOfCake = element.name
+    console.log(`selected color: ${this.colorOfCake}`)
+  }
+
+  onRemoveElement(element: DesignElement) {
+    this.selectedColor = false;
+    this.colorOfCake = '';
   }
 
 }

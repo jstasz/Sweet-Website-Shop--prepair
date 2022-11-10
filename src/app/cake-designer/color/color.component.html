@@ -5,8 +5,11 @@
         <p class="cake-design__item-title">{{color.name}}</p>
         <div class="cake-design__item-details">
             <div class="details-select">
-                <button class="details-select__btn details-select__btn--add">+</button>
-                <button class="details-select__btn details-select__btn--remove">-</button>
+                <button class="details-select__btn details-select__btn--add"
+                    *ngIf="colorOfCake === '' || colorOfCake !== color.name" (click)="onAddElement(color)"
+                    [disabled]="color.name === colorOfCake">+</button>
+                <button class="details-select__btn details-select__btn--remove" *ngIf="color.name === colorOfCake"
+                    (click)="onRemoveElement(color)">-</button>
             </div>
             <p class="details-price">+ {{color.price}} EUR</p>
         </div>

@@ -8,6 +8,9 @@ import { DesignElement } from '../desig-element.model';
 })
 export class FlavourComponent implements OnInit {
 
+  selectedFlavour = false;
+  flavourOfCake = ''
+
   cakeFlavours: DesignElement[] = [
     new DesignElement('vanilla', '../../../assets/img/create-cake/flavour/vanilla.webp'),
     new DesignElement('chocolate', '../../../assets/img/create-cake/flavour/chocolate.webp', 0),
@@ -17,6 +20,17 @@ export class FlavourComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onAddElement(element: DesignElement) {
+    this.selectedFlavour = true;
+    this.flavourOfCake = element.name
+    console.log(`selected flavour: ${this.flavourOfCake}`)
+  }
+
+  onRemoveElement(element: DesignElement) {
+    this.selectedFlavour = false;
+    this.flavourOfCake = '';
   }
 
 }

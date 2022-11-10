@@ -5,8 +5,11 @@
         <p class="cake-design__item-title">{{flavour.name}}</p>
         <div class="cake-design__item-details">
             <div class="details-select">
-                <button class="details-select__btn details-select__btn--add">+</button>
-                <button class="details-select__btn details-select__btn--remove">-</button>
+                <button class="details-select__btn details-select__btn--add"
+                    *ngIf="flavourOfCake === '' || flavourOfCake !== flavour.name" (click)="onAddElement(flavour)"
+                    [disabled]="flavour.name === flavourOfCake">+</button>
+                <button class="details-select__btn details-select__btn--remove" *ngIf="flavour.name === flavourOfCake"
+                    (click)="onRemoveElement(flavour)">-</button>
             </div>
             <p class="details-price">+ {{flavour.price}} EUR</p>
         </div>
