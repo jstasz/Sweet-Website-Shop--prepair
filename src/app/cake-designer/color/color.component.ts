@@ -9,15 +9,12 @@ import { DesignElement } from '../desig-element.model';
 export class ColorComponent implements OnInit {
 
   cakeColors: DesignElement[] = [
-    new DesignElement('pink', '../../../assets/img/create-cake/colour/pink.png'),
-    new DesignElement('grey', '../../../assets/img/create-cake/colour/grey.png'),
-    new DesignElement('yellow', '../../../assets/img/create-cake/colour/yellow.png'),
-    new DesignElement('blue', '../../../assets/img/create-cake/colour/blue.png'),
-    new DesignElement('white', '../../../assets/img/create-cake/colour/white.png'),
-    new DesignElement('violet', '../../../assets/img/create-cake/colour/violet.png'),
-    new DesignElement('black', '../../../assets/img/create-cake/colour/black.png'),
-    new DesignElement('green', '../../../assets/img/create-cake/colour/green.png'),
-    new DesignElement('marmur', '../../../assets/img/create-cake/colour/marmur.jpeg'),
+    new DesignElement('pink', '../../../assets/img/create-cake/color/pink.jpeg'),
+    new DesignElement('blue', '../../../assets/img/create-cake/color/blue.jpeg'),
+    new DesignElement('white', '../../../assets/img/create-cake/color/white.jpeg'),
+    new DesignElement('black', '../../../assets/img/create-cake/color/black.jpeg'),
+    new DesignElement('green', '../../../assets/img/create-cake/color/green.jpeg'),
+    new DesignElement('marmur', '../../../assets/img/create-cake/color/marmur.webp'),
   ]
 
   constructor() { }

@@ -12,7 +12,6 @@ export class SizeComponent implements OnInit {
     new DesignElement('single', '../../../assets/img/create-cake/size/single.jpeg'),
     new DesignElement('double', '../../../assets/img/create-cake/size/double.jpeg'),
     new DesignElement('triple', '../../../assets/img/create-cake/size/triple.jpeg'),
-    new DesignElement('triple', '../../../assets/img/create-cake/size/triple.jpeg'),
   ]
 
   constructor() { }
