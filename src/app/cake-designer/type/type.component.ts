@@ -9,8 +9,8 @@ import { DesignElement } from '../desig-element.model';
 export class TypeComponent implements OnInit {
 
   cakeTypes: DesignElement[] = [
-    new DesignElement('sugar', '../../../assets/img/create-cake/type/sugar.jpeg'),
-    new DesignElement('creamy', '../../../assets/img/create-cake/type/creamy.jpeg'),
+    new DesignElement('sugar', '../../../assets/img/create-cake/type/sugar.jpeg', 24.99),
+    new DesignElement('creamy', '../../../assets/img/create-cake/type/creamy.jpeg', 20.99),
   ]
 
   constructor() { }

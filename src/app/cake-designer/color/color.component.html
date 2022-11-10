@@ -3,5 +3,12 @@
         <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + color.imagePath + ')'}">
         </div>
         <p class="cake-design__item-title">{{color.name}}</p>
+        <div class="cake-design__item-details">
+            <div class="details-select">
+                <button class="details-select__btn details-select__btn--add">+</button>
+                <button class="details-select__btn details-select__btn--remove">-</button>
+            </div>
+            <p class="details-price">+ {{color.price}} EUR</p>
+        </div>
     </div>
 </div>

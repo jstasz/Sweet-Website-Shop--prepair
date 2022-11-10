@@ -9,15 +9,15 @@ import { DesignElement } from '../desig-element.model';
 export class DetailsComponent implements OnInit {
 
   cakeDetails: DesignElement[] = [
-    new DesignElement('candles', '../../../assets/img/create-cake/details/candles.jpg'),
-    new DesignElement('topper', '../../../assets/img/create-cake/details/topper.jpeg'),
-    new DesignElement('cookiese', '../../../assets/img/create-cake/details/cookies.jpeg'),
-    new DesignElement('balloons', '../../../assets/img/create-cake/details/balloons.jpeg'),
-    new DesignElement('flare', '../../../assets/img/create-cake/details/flare.jpeg'),
-    new DesignElement('flowers', '../../../assets/img/create-cake/details/flowers.jpeg'),
-    new DesignElement('sweets', '../../../assets/img/create-cake/details/sweets.jpeg'),
-    new DesignElement('alcohol', '../../../assets/img/create-cake/details/alcohol.jpeg'),
-    new DesignElement('ganage', '../../../assets/img/create-cake/details/ganage.jpeg'),
+    new DesignElement('candles', '../../../assets/img/create-cake/details/candles.jpg', 1.99),
+    new DesignElement('topper', '../../../assets/img/create-cake/details/topper.jpeg', 3.99),
+    new DesignElement('cookiese', '../../../assets/img/create-cake/details/cookies.jpeg', 6.99),
+    new DesignElement('balloons', '../../../assets/img/create-cake/details/balloons.jpeg', 7.99),
+    new DesignElement('flare', '../../../assets/img/create-cake/details/flare.jpeg', 3.99),
+    new DesignElement('flowers', '../../../assets/img/create-cake/details/flowers.jpeg', 7.99),
+    new DesignElement('sweets', '../../../assets/img/create-cake/details/sweets.jpeg', 9.99),
+    new DesignElement('alcohol', '../../../assets/img/create-cake/details/alcohol.jpeg', 11.99),
+    new DesignElement('ganage', '../../../assets/img/create-cake/details/ganage.jpeg', 8.99),
   ]
 
   constructor() { }

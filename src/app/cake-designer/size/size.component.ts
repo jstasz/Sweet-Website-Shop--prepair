@@ -9,9 +9,9 @@ import { DesignElement } from '../desig-element.model';
 export class SizeComponent implements OnInit {
 
   cakeSize: DesignElement[] = [
-    new DesignElement('single', '../../../assets/img/create-cake/size/single.jpeg'),
-    new DesignElement('double', '../../../assets/img/create-cake/size/double.jpeg'),
-    new DesignElement('triple', '../../../assets/img/create-cake/size/triple.jpeg'),
+    new DesignElement('single', '../../../assets/img/create-cake/size/single.webp'),
+    new DesignElement('double', '../../../assets/img/create-cake/size/double.jpeg', 12.99),
+    new DesignElement('triple', '../../../assets/img/create-cake/size/triple.jpeg', 22.99),
   ]
 
   constructor() { }

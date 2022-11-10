@@ -67,6 +67,38 @@
         &-title {
             font-size: 2rem;
             text-align: center;
+            margin: 0.5em 0;
+        }
+
+        &-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & .details-select {
+                display: flex;
+                align-items: center;
+
+                &__btn {
+                    margin: 0 0.2em;
+                    width: 2em;
+                    height: 2em;
+                    padding: 0.2em;
+                    border-radius: 50%;
+
+                    &--add {
+                        background-color: rgb(212, 235, 178);
+                    }
+
+                    &--remove {
+                        background-color: rgb(231, 128, 128);
+                    }
+                }
+            }
+
+            & .details.price {
+                line-height: 2em;
+            }
         }
     }
 }

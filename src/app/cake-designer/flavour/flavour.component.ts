@@ -10,8 +10,8 @@ export class FlavourComponent implements OnInit {
 
   cakeFlavours: DesignElement[] = [
     new DesignElement('vanilla', '../../../assets/img/create-cake/flavour/vanilla.webp'),
-    new DesignElement('chocolate', '../../../assets/img/create-cake/flavour/chocolate.webp'),
-    new DesignElement('rainbow', '../../../assets/img/create-cake/flavour/rainbow.jpeg')
+    new DesignElement('chocolate', '../../../assets/img/create-cake/flavour/chocolate.webp', 0),
+    new DesignElement('rainbow', '../../../assets/img/create-cake/flavour/rainbow.jpeg', 9.99)
   ]
 
   constructor() { }
