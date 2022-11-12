@@ -28,12 +28,4 @@ export class CakeDesignerComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onChooseData(createCakeElement: CreateCakeElement) {
-    const activeRoute = createCakeElement.elementName
-    this.router.navigate([activeRoute], { relativeTo: this.route })
-  }
-
-
-
 }

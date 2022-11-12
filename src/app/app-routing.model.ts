@@ -25,7 +25,6 @@ const appRoutes: Routes = [
             { path: 'color', component: ColorComponent },
             { path: 'details', component: DetailsComponent },
             { path: 'date', component: DateComponent },
-
         ]
     },
     { path: 'shop-online', component: ShopOnlineComponent },
