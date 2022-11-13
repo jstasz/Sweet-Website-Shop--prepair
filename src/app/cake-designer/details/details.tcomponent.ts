@@ -8,6 +8,8 @@ import { DesignElement } from '../desig-element.model';
 })
 export class DetailsComponent implements OnInit {
 
+  detailOfCake: string[] = [];
+
   cakeDetails: DesignElement[] = [
     new DesignElement('candles', '../../../assets/img/create-cake/details/candles.jpg', 1.99),
     new DesignElement('topper', '../../../assets/img/create-cake/details/topper.jpeg', 3.99),
@@ -25,6 +27,12 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onAddElement(element: DesignElement) {
+    this.detailOfCake.push(element.name)
+  }
 
-
+  onRemoveElement(element: DesignElement) {
+    this.detailOfCake.splice(this.detailOfCake.indexOf(element.name), 1)
+  }
 }
+

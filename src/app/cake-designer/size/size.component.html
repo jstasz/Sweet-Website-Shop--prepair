@@ -11,7 +11,7 @@
                 <button class="details-select__btn details-select__btn--remove" *ngIf="size.name === sizeOfCake"
                     (click)="onRemoveElement(size)">-</button>
             </div>
-            <p class="details-price">+ {{size.price}} EUR</p>
+            <p class="details-price">+ {{size.price | currency: 'EUR'}}</p>
         </div>
     </div>
 </div>

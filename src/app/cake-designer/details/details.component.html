@@ -5,10 +5,12 @@
         <p class="cake-design__item-title">{{detail.name}}</p>
         <div class="cake-design__item-details">
             <div class="details-select">
-                <button class="details-select__btn details-select__btn--add">+</button>
-                <button class="details-select__btn details-select__btn--remove">-</button>
+                <button type="button" class="details-select__btn details-select__btn--add"
+                    (click)="onAddElement(detail)">+</button>
+                <button class="details-select__btn details-select__btn--remove" (click)="onRemoveElement(detail)"
+                    *ngIf="this.detailOfCake.indexOf(detail.name) !== -1">-</button>
             </div>
-            <p class="details-price">+ {{detail.price}} EUR</p>
+            <p class="details-price">+ {{detail.price | currency: 'EUR'}} </p>
         </div>
     </div>
 </div>

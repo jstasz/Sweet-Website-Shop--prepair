@@ -11,7 +11,7 @@
                 <button class="details-select__btn details-select__btn--remove" *ngIf="color.name === colorOfCake"
                     (click)="onRemoveElement(color)">-</button>
             </div>
-            <p class="details-price">+ {{color.price}} EUR</p>
+            <p class="details-price">+ {{color.price | currency: 'EUR'}}</p>
         </div>
     </div>
 </div>
