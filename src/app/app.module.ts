@@ -15,6 +15,13 @@ import { ProductsComponent } from './main-page/products/products.component';
 import { FeedbackComponent } from './main-page/feedback/feedback.component';
 import { GalleryComponent } from './main-page/gallery/gallery.component';
 import { FooterComponent } from './footer/footer.component';
+import { TypeComponent } from './cake-designer/type/type.component';
+import { SizeComponent } from './cake-designer/size/size.component';
+import { FlavourComponent } from './cake-designer/flavour/flavour.component';
+import { DateComponent } from './cake-designer/date/date.component';
+import { ColorComponent } from './cake-designer/color/color.component';
+import { DetailsComponent } from './cake-designer/details/details.tcomponent';
+import { SpacePipe } from './header/nav-links.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +39,13 @@ import { FooterComponent } from './footer/footer.component';
     FeedbackComponent,
     GalleryComponent,
     FooterComponent,
+    TypeComponent,
+    SizeComponent,
+    FlavourComponent,
+    DateComponent,
+    DetailsComponent,
+    ColorComponent,
+    SpacePipe
   ],
   imports: [
     BrowserModule,
