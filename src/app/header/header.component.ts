@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NavIcon } from './nav-icons.model';
 
 @Component({
@@ -9,7 +8,7 @@ import { NavIcon } from './nav-icons.model';
 })
 export class HeaderComponent implements OnInit {
 
-  navLinks: string[] = ['shop online', 'cake designer', 'contact us']
+  navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us']
 
   shoppingIcons: NavIcon[] = [
     new NavIcon('home', 'assets/img/icons/home.png', ''),
@@ -17,18 +16,8 @@ export class HeaderComponent implements OnInit {
     new NavIcon('cart', 'assets/img/icons/cart.png', 'cart')
   ]
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  onNavIcon(icon: NavIcon) {
-    icon.name === 'home' ? this.router.navigate(['/']) : this.router.navigate(['/' + icon.name])
-  }
-
-  onNavLink(link: string) {
-    const linkPath = link.replace(' ', '-')
-    this.router.navigate(['/' + linkPath])
-    console.log(linkPath)
   }
 }
