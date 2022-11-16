@@ -1,0 +1,17 @@
+<div class="cake-design wrapper">
+    <div class="cake-design__item" *ngFor="let size of cakeSize">
+        <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + size.imagePath + ')'}">
+        </div>
+        <p class="cake-design__item-title">{{size.name}}</p>
+        <div class="cake-design__item-details">
+            <div class="details-select">
+                <button class="details-select__btn details-select__btn--add"
+                    *ngIf="sizeOfCake === '' || sizeOfCake !== size.name" (click)="onAddElement(size)"
+                    [disabled]="size.name === sizeOfCake">+</button>
+                <button class="details-select__btn details-select__btn--remove" *ngIf="size.name === sizeOfCake"
+                    (click)="onRemoveElement(size)">-</button>
+            </div>
+            <p class="details-price">+ {{size.price}} EUR</p>
+        </div>
+    </div>
+</div>

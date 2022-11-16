@@ -41,13 +41,17 @@
         color: rgb(61, 61, 61);
         border-radius: 0.5em;
         cursor: pointer;
+
+        &.active {
+            color: rgb(133, 65, 65);
+        }
     }
 }
 
 .main-image {
     width: 100%;
     height: 100vh;
-    background-image: url(../../assets/img/cream_small.jpg);
+    background-image: url('../../assets/img/cream_small.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -119,6 +123,10 @@
                 background-color: rgb(255, 224, 224);
                 border-radius: 50%;
                 cursor: pointer;
+
+                &.active {
+                    border: 1px solid black;
+                }
 
                 &-img {
                     display: block;

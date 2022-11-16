@@ -5,11 +5,12 @@
 </button>
 <nav class="nav">
     <div class="nav__links">
-        <a *ngFor="let navLink of navLinks" (click)="onNavLink(navLink)" class="nav__link"> {{ navLink | uppercase
+        <a *ngFor="let navLink of navLinks" [routerLink]="'/' + navLink" routerLinkActive="active" class="nav__link"> {{
+            navLink | space |uppercase
             }}</a>
     </div>
     <div class="nav__shopping">
-        <div *ngFor="let icon of shoppingIcons" (click)="onNavIcon(icon)"
+        <div *ngFor="let icon of shoppingIcons" [routerLink]="'/' + icon.name" routerLinkActive="active"
             class="nav__shopping-icon nav__shopping-icon--{{icon.name}} hidden">
             <img class="nav__shopping-icon-img" src="{{icon.src}}" alt="{{icon.name}}" />
         </div>
