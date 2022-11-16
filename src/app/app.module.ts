@@ -31,7 +31,7 @@ import { FooterComponent } from './footer/footer.component';
     ProductsComponent,
     FeedbackComponent,
     GalleryComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,4 +40,5 @@ import { FooterComponent } from './footer/footer.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
