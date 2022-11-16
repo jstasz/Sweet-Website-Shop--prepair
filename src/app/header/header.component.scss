@@ -136,7 +136,7 @@
 
     .main-image {
         height: 50vh;
-        background-image: url(../../assets/img/cream_medium.jpg);
+        background-image: url('../../assets/img/cream_medium.jpg');
 
         &__content {
             padding: 2em 0 1em 0;
@@ -150,6 +150,6 @@
 
 @media (min-width: 1200px) {
     .main-image {
-        background-image: url(../../assets/img/cream_large.jpg);
+        background-image: url('../../assets/img/cream_large.jpg');
     }
 }
