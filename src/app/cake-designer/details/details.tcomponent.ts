@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CakeService } from '../cake-designer.servis';
 import { DesignElement } from '../desig-element.model';
 
 @Component({
@@ -8,7 +9,7 @@ import { DesignElement } from '../desig-element.model';
 })
 export class DetailsComponent implements OnInit {
 
-  detailOfCake: string[] = [];
+  detailOfCake: string[] = this.cakeService.selectedDetails;
 
   cakeDetails: DesignElement[] = [
     new DesignElement('candles', '../../../assets/img/create-cake/details/candles.jpg', 1.99),
@@ -22,13 +23,14 @@ export class DetailsComponent implements OnInit {
     new DesignElement('ganage', '../../../assets/img/create-cake/details/ganage.jpeg', 8.99),
   ]
 
-  constructor() { }
+  constructor(private cakeService: CakeService) { }
 
   ngOnInit() {
   }
 
   onAddElement(element: DesignElement) {
     this.detailOfCake.push(element.name)
+    this.cakeService.getDetails(this.detailOfCake)
   }
 
   onRemoveElement(element: DesignElement) {

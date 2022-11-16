@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CakeService } from '../cake-designer.servis';
 import { DesignElement } from '../desig-element.model';
 
 @Component({
@@ -9,7 +10,7 @@ import { DesignElement } from '../desig-element.model';
 export class ColorComponent implements OnInit {
 
   selectedColor = false;
-  colorOfCake = ''
+  colorOfCake = this.cakeService.selectedColor
 
   cakeColors: DesignElement[] = [
     new DesignElement('pink', '../../../assets/img/create-cake/color/pink.jpeg'),
@@ -20,7 +21,7 @@ export class ColorComponent implements OnInit {
     new DesignElement('marmur', '../../../assets/img/create-cake/color/marmur.webp'),
   ]
 
-  constructor() { }
+  constructor(private cakeService: CakeService) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +29,8 @@ export class ColorComponent implements OnInit {
   onAddElement(element: DesignElement) {
     this.selectedColor = true;
     this.colorOfCake = element.name
-    console.log(`selected color: ${this.colorOfCake}`)
+    this.cakeService.getColor(this.colorOfCake)
+
   }
 
   onRemoveElement(element: DesignElement) {

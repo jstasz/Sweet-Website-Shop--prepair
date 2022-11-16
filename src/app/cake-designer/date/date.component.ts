@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CakeService } from '../cake-designer.servis';
 
 @Component({
   selector: 'app-date',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cakeService: CakeService) { }
 
   ngOnInit(): void {
   }
 
+  onCreateCake() {
+    this.cakeService.createCake()
+  }
 }
