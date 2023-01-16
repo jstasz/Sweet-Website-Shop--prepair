@@ -153,18 +153,30 @@
 
             &-menu {
                 background-color: white;
+                box-shadow: inset 0px 0px 24px 0px rgba(203, 203, 203, 1);
                 padding: 2em;
                 position: absolute;
                 top: 70px;
                 width: 150%;
                 border-radius: 5px;
-                border: 1px solid black;
+                border: 1px solid rgb(186, 186, 186);
 
-                &-main {
+                &-view {
                     padding-bottom: 2em;
                     display: flex;
-                    justify-content: space-around;
-                    border-bottom: 1px solid rgb(197, 197, 197);
+                    justify-content: flex-end;
+
+                    & .view {
+                        text-decoration: none;
+                        color: rgb(233, 195, 195);
+                        font-weight: bold;
+                    }
+
+                    & .view-icon {
+                        margin-left: 0.5em;
+                        font-size: 2rem;
+                        cursor: pointer;
+                    }
                 }
 
                 &-items {
@@ -176,12 +188,12 @@
                         margin: 1em 0;
 
                         &-img {
-                            width: 30%;
-                            height: auto;
+                            width: 80px;
+                            height: 60px;
                         }
 
                         &-name {
-                            padding: 0 1em;
+                            padding: 0 2em;
                         }
 
                         &-price {
@@ -195,7 +207,7 @@
                     padding-top: 2em;
                     display: flex;
                     justify-content: flex-end;
-                    border-top: 1px solid rgb(197, 197, 197);
+                    border-top: 1px solid rgb(220, 220, 220);
 
                     & .total {
                         font-weight: bold;
@@ -203,18 +215,23 @@
                 }
 
                 &-select {
-                    margin-top: 2em;
+                    margin-top: 1em;
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
 
-                    & .delete-icon,
                     & .buy-icon {
-                        margin: 0.5em;
+                        margin-left: 0.5em;
                         font-size: 2rem;
+                        cursor: pointer;
                     }
 
                     & .delete-icon {
-                        color: rgb(248, 112, 112);
+                        cursor: pointer;
+
+                        &:hover {
+                            color: rgb(247, 117, 117);
+                        }
                     }
 
                     & .buy-icon {
