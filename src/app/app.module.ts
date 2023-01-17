@@ -43,7 +43,8 @@ import { DetailsComponent } from './cake-designer/details/details.tcomponent';
     FlavourComponent,
     DateComponent,
     DetailsComponent,
-    ColorComponent
+    ColorComponent,
+    ShortenPipe
   ],
   imports: [
     BrowserModule,

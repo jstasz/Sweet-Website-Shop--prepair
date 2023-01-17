@@ -6,13 +6,56 @@
 <nav class="nav">
     <div class="nav__links">
         <a *ngFor="let navLink of navLinks" [routerLink]="'/' + navLink" routerLinkActive="active" class="nav__link"> {{
-            navLink |uppercase
+            navLink | space | uppercase
             }}</a>
     </div>
     <div class="nav__shopping">
-        <div *ngFor="let icon of shoppingIcons" [routerLink]="'/' + icon.name" routerLinkActive="active"
-            class="nav__shopping-icon nav__shopping-icon--{{icon.name}} hidden">
-            <img class="nav__shopping-icon-img" src="{{icon.src}}" alt="{{icon.name}}" />
+        <div [routerLink]="'/home'" class="nav__shopping-icon nav__shopping-icon--home">
+            <img class="nav__shopping-icon-img" src="assets/img/icons/home.png" alt="home" />
+        </div>
+        <div [routerLink]="'/favourites'" class="nav__shopping-icon nav__shopping-icon--favourites">
+            <img class="nav__shopping-icon-img" src="assets/img/icons/favourites.png" alt="favourites" />
+        </div>
+        <div class="nav__shopping-icon nav__shopping-icon--cart" (click)="activeCartMenu()">
+            <div class="nav__shopping-icon--counter">1</div>
+            <img class="nav__shopping-icon-img" src="assets/img/icons/cart.png" alt="cart" />
+        </div>
+        <div *ngIf="cartMenuIsActive" class="nav__shopping-menu">
+            <div class="nav__shopping-menu-view">
+                <a class="view" [routerLink]="'/cart'" (click)="activeCartMenu()"> {{ 'view Cart' | uppercase }}
+                    <i class="fa-solid fa-magnifying-glass view-icon"></i>
+                </a>
+            </div>
+            <div class="nav__shopping-menu-items">
+                <div class="item">
+                    <img src="https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-500x500.jpg"
+                        alt="item name" class="item-img">
+                    <p class="item-name"> {{ 'cake jsbefwkefefw kdbewf kqwbdfe' | shorten:25 }}</p>
+                    <p class="item-price">{{ '150' | currency }}</p>
+                </div>
+                <div class="item">
+                    <img src="https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-500x500.jpg"
+                        alt="item name" class="item-img">
+                    <p class="item-name">{{ 'cake jsbefwkefefw kdbewf kqwbdfe' | shorten:25 }}</p>
+                    <p class="item-price">{{ '150' | currency }}</p>
+                </div>
+                <div class="item">
+                    <img src="https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-500x500.jpg"
+                        alt="item name" class="item-img">
+                    <p class="item-name">{{ 'cake jsbefwkefefw kdbewf kqwbdfe' | shorten:25 }}</p>
+                    <p class="item-price">{{ '150' | currency }}</p>
+                </div>
+                <div class="nav__shopping-menu-summary">
+                    <p>total: <span class="total"> {{'450' | currency}} </span></p>
+                </div>
+                <div class="nav__shopping-menu-select">
+                    <a class="delete-icon">remove all</a>
+                    <div class="buy">
+                        <p>buy<i [routerLink]="'/cart'" (click)="activeCartMenu()"
+                                class="fa-solid fa-circle-check buy-icon"></i></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

@@ -115,6 +115,7 @@
             margin: 0 1em;
             display: flex;
             justify-content: end;
+            position: relative;
 
             &-icon {
                 margin: 1em;
@@ -123,10 +124,7 @@
                 background-color: rgb(255, 224, 224);
                 border-radius: 50%;
                 cursor: pointer;
-
-                &.active {
-                    border: 1px solid black;
-                }
+                position: relative;
 
                 &-img {
                     display: block;
@@ -137,6 +135,108 @@
 
                 &--cart {
                     background-color: rgb(199, 248, 223);
+                }
+
+                &--counter {
+                    position: absolute;
+                    width: 50%;
+                    height: 50%;
+                    border-radius: 50%;
+                    background-color: rgb(247, 117, 117);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    left: 60%;
+                    top: -25%;
+                }
+            }
+
+            &-menu {
+                background-color: white;
+                box-shadow: inset 0px 0px 24px 0px rgba(203, 203, 203, 1);
+                padding: 2em;
+                position: absolute;
+                top: 70px;
+                width: 150%;
+                border-radius: 5px;
+                border: 1px solid rgb(186, 186, 186);
+
+                &-view {
+                    padding-bottom: 2em;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    & .view {
+                        text-decoration: none;
+                        color: rgb(233, 195, 195);
+                        font-weight: bold;
+                    }
+
+                    & .view-icon {
+                        margin-left: 0.5em;
+                        font-size: 2rem;
+                        cursor: pointer;
+                    }
+                }
+
+                &-items {
+                    padding: 1em;
+
+                    & .item {
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 1em 0;
+
+                        &-img {
+                            width: 80px;
+                            height: 60px;
+                        }
+
+                        &-name {
+                            padding: 0 2em;
+                        }
+
+                        &-price {
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                &-summary {
+                    margin-top: 2em;
+                    padding-top: 2em;
+                    display: flex;
+                    justify-content: flex-end;
+                    border-top: 1px solid rgb(220, 220, 220);
+
+                    & .total {
+                        font-weight: bold;
+                    }
+                }
+
+                &-select {
+                    margin-top: 1em;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    & .buy-icon {
+                        margin-left: 0.5em;
+                        font-size: 2rem;
+                        cursor: pointer;
+                    }
+
+                    & .delete-icon {
+                        cursor: pointer;
+
+                        &:hover {
+                            color: rgb(247, 117, 117);
+                        }
+                    }
+
+                    & .buy-icon {
+                        color: rgb(115, 214, 150);
+                    }
                 }
             }
         }
