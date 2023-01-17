@@ -1,0 +1,35 @@
+.products {
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        box-shadow: inset 0px 0px 14px 0px rgb(236, 236, 236);
+        padding: 1em 2em;
+        border-radius: 5px;
+        border: 1px solid rgb(222, 222, 222);
+
+        & .select {
+            padding: 0.2em 0.5em;
+            margin-left: 0.5em;
+            border: thin solid rgb(202, 202, 202);
+            font-family: "Open Sans", sans-serif;
+            border-radius: 2px;
+        }
+
+        &-layout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & .layout-amount {
+                margin-right: 1.5em;
+            }
+
+            & .icon {
+                padding: 0.2em;
+                color: grey;
+                font-size: 2rem;
+            }
+        }
+    }
+}

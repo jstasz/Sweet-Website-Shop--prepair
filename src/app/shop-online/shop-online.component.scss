@@ -1,0 +1,16 @@
+.shop {
+    min-height: 150px;
+    width: 100vw;
+    display: flex;
+
+    &-filters {
+        width: 20%;
+        padding: 2em;
+        border-right: 1px solid rgb(227, 227, 227);
+    }
+
+    &-products {
+        width: 80%;
+        padding: 2em;
+    }
+}

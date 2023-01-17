@@ -17,6 +17,10 @@ body {
     font-size: 1.8rem;
 }
 
+app-root {
+    min-height: 100vh;
+}
+
 @media (min-width: 768px) {
     body {
         font-size: 1.4rem;
