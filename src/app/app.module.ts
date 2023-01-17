@@ -22,6 +22,7 @@ import { DateComponent } from './cake-designer/date/date.component';
 import { ColorComponent } from './cake-designer/color/color.component';
 import { DetailsComponent } from './cake-designer/details/details.tcomponent';
 import { ShortenPipe } from './shared/shorten.pipe';
+import { SpacePipe } from './header/nav-links.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ShortenPipe } from './shared/shorten.pipe';
     DateComponent,
     DetailsComponent,
     ColorComponent,
-    ShortenPipe
+    ShortenPipe,
+    SpacePipe
   ],
   imports: [
     BrowserModule,
