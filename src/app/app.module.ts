@@ -24,7 +24,7 @@ import { DetailsComponent } from './cake-designer/details/details.tcomponent';
 import { ShortenPipe } from './shared/shorten.pipe';
 import { SpacePipe } from './header/nav-links.pipe';
 import { ShopProductsComponent } from './shop-online/shop-products/shop-products.component';
-import { ShopFiltersComponent } from './shop-online/shop-filters/shop-filters.component';
+import { ShopCategoriesComponent } from './shop-online/shop-categories/shop-categories.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,7 @@ import { ShopFiltersComponent } from './shop-online/shop-filters/shop-filters.co
     ShortenPipe,
     SpacePipe,
     ShopProductsComponent,
-    ShopFiltersComponent
+    ShopCategoriesComponent
   ],
   imports: [
     BrowserModule,
