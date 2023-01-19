@@ -17,7 +17,7 @@ export class ShopCategoriesComponent implements OnInit {
     {name: 'accessories', icon: 'fa-shapes'},
     {name: 'drinks', icon: 'fa-wine-glass-empty'}]
 
-  selectedCategory: string = 'cakes';
+  selectedCategory: string = '';
 
   constructor() { }
 
