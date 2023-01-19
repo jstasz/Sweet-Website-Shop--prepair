@@ -1,6 +1,11 @@
 .categories {
+
+    &__title {
+        font-weight: bold;
+    }
+
     &__items {
-        margin-top: 2em;
+        margin: 2em 0;
 
         & .item {
             display: flex;
@@ -20,10 +25,14 @@
                 background-color: rgb(216, 216, 216);
                 cursor: pointer;
                 
-                & .active {
+                &.active {
                     background-color: rgb(252, 231, 235)
                 }
             }
         }
+    }
+
+    &__show-all {
+        cursor: pointer;
     }
 }

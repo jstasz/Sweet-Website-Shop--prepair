@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Amount, Layout, Sort } from './products.model';
 
 @Component({
   selector: 'app-shop-products',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopProductsComponent implements OnInit {
 
+  selectedSort: Sort = 'name';
+  selectedAmount: Amount = '6';
+  selectedLayout: Layout = 'list';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSelectLayout(layout: Layout) {
+    this.selectedLayout = layout;
+  }
 }
