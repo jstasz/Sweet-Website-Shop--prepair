@@ -9,9 +9,13 @@ import { Categories } from './categories.model';
 export class ShopCategoriesComponent implements OnInit {
 
   productsCategories: Categories[] = [
-    {name: 'cakes', icon: 'fa-cake-candles'},
+    {name: 'cookies', icon: 'fa-cookie'},
+    {name: 'cakes', icon: 'fa-cloud'},
+    {name: 'birthday cakes', icon: 'fa-cake-candles'},
     {name: 'sweets', icon: 'fa-ice-cream'},
-    {name: 'accessories', icon: 'fa-shapes'}]
+    {name: 'balloons', icon: 'fa-golf-ball-tee'},
+    {name: 'accessories', icon: 'fa-shapes'},
+    {name: 'drinks', icon: 'fa-wine-glass-empty'}]
 
   selectedCategory: string = 'cakes';
 
