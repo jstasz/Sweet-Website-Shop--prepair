@@ -26,6 +26,7 @@ import { SpacePipe } from './header/nav-links.pipe';
 import { ShopProductsComponent } from './shop-online/shop-products/shop-products.component';
 import { ShopCategoriesComponent } from './shop-online/shop-categories/shop-categories.component';
 import { FormsModule } from '@angular/forms';
+import { ShopProductComponent } from './shop-online/shop-products/shop-product/shop-product.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FormsModule } from '@angular/forms';
     ShortenPipe,
     SpacePipe,
     ShopProductsComponent,
-    ShopCategoriesComponent
+    ShopCategoriesComponent,
+    ShopProductComponent
   ],
   imports: [
     BrowserModule,
