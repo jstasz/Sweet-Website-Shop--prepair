@@ -1,13 +1,13 @@
-<div class="product">
-    <img class="product__img" src="https://img.jamieoliver.com/jamieoliver/recipe-database/106283051.jpg?tr=w-330"
-        alt="">
+<div *ngFor="let product of shopProducts" class="product">
+    <div class="product__img">
+        <img class="img" src="{{product.imagePath}}" alt="">
+    </div>
     <div class="product__content">
-        <h2 class="product__title">Cake</h2>
-        <p class="product__description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque, consectetur!
-        </p>
+        <h2 class="product__content-title">{{product.name}}</h2>
+        <p class="product__content-description">{{product.description}}</p>
     </div>
     <div class="product__summary">
-        <p class="product__summary-price">{{ '50' | currency }}</p>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <p class="product__summary-price">{{ product.price | currency }}</p>
+        <i class="product__summary-icon fa-solid fa-cart-shopping"></i>
     </div>
 </div>
