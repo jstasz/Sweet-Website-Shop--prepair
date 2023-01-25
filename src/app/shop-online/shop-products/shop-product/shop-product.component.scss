@@ -43,17 +43,17 @@
     &.list {
         display: flex;
 
-        &__img {
+        & .product__img {
             height: 10em;
             width: 25%;
         }
 
-        &__content {
+        & .product__content {
             width: 70%;
             padding-left: 2em;
         }
 
-        &__summary {
+        & .product__summary {
             align-items: flex-end;
             padding: 1em;
 

@@ -1,4 +1,4 @@
-<div *ngFor="let product of shopProducts" class="product">
+<div *ngFor="let product of shopProducts" class="product" [ngClass]="{list: layout === 'list'}">
     <div class="product__img">
         <img class="img" src="{{product.imagePath}}" alt="">
     </div>
