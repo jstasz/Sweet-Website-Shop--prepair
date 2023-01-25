@@ -4,3 +4,5 @@ export class Categories {
       this.icon = icon
     }
 }
+
+export type Category = 'cookies' | 'cakes' | 'birthday cakes'| 'sweets'| 'balloons'| 'accessories' | 'drinks'
