@@ -4,6 +4,7 @@
 
     &__img {
         height: 15em;
+        width: 100%;
 
         & .img {
             display: block;
@@ -23,8 +24,7 @@
     &__summary {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        padding-top: 1em;
+        padding-top: 2em;
 
         &-price {
             font-weight: bold;
@@ -32,9 +32,33 @@
 
         &-icon {
             cursor: pointer;
+            font-size: 1.7rem;
 
             &:hover {
                 color: pink;
+            }
+        }
+    }
+
+    &.list {
+        display: flex;
+
+        &__img {
+            height: 10em;
+            width: 25%;
+        }
+
+        &__content {
+            width: 70%;
+            padding-left: 2em;
+        }
+
+        &__summary {
+            align-items: flex-end;
+            padding: 1em;
+
+            &-price {
+                padding-right: 1em;
             }
         }
     }

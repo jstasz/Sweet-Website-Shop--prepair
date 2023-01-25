@@ -18,5 +18,6 @@ export class ShopProductsComponent implements OnInit {
 
   onSelectLayout(layout: Layout) {
     this.selectedLayout = layout;
+    console.log(this.selectedLayout)
   }
 }
