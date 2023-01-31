@@ -1,26 +1,84 @@
 .cart {
     width: 70%;
-    margin: 0 auto;
+    margin: 5em auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
 
-    // &__header {
-    //     display: flex;
-    //     justify-content: space-around;
-    // }
+    &__header {
+        text-transform: uppercase;
+        color: rgb(182, 182, 182);
+        padding: 2em 0;
+        grid-column: 2 / 6;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        &-title {
+            justify-self: center;
+        }
+    }
 
     &__items {
-        display: flex;
-        justify-content: space-between;
         padding: 1em 0;
         align-items: center;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-column: 1 / 7;
+        border-bottom: thin solid rgb(235, 235, 235);
 
-        & img {
-            width: 7em;
-            height: 7em;
+
+        &-img {
+            width: 6em;
+            height: 6em;
+            display: block;
+            margin: 0 auto;
+        }
+
+        &-item {
+            justify-self: center;
+        }
+
+        & .icon {
+            padding: 1em;
         }
     }
 
     &__summary {
+        grid-column: 6 / 7;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        padding-top: 3em;
+
+        &-continue {
+            color: grey;
+            cursor: pointer;
+        }
+
+        &-total {
+            font-size: 1.5rem;
+            
+            & .total-price {
+                font-weight: bold;
+                margin-left: 0.3em;
+            }
+        }
+
+        &-submit {
+            margin: 1em 0;
+            padding: 0.5em 1em;
+            width: 100%;
+            border: thin solid rgb(220, 220, 220);
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: rgb(247, 247, 247);
+            text-transform: uppercase;
+    
+                & .buy-icon {
+                    color: rgb(115, 214, 150);
+                    margin-left: 0.5em;
+                    font-size: 2rem;
+                }
+        }
     }
 }

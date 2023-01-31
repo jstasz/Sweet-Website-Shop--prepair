@@ -8,14 +8,14 @@ import { Cart, CartItem } from './cart.model';
 })
 export class CartComponent implements OnInit {
   cart: Cart = { items: [{
-    product: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm2GEwY-QGtOjmIVZSeQEfo-7QJGQpVRtZO4KO70NizPiE5TTj4D3HMZgJiiG4Fqd32n0&usqp=CAU',
+    product: 'https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-e1563420600943.jpg',
     name: 'cake',
     price: 150,
     quantity: 2,
     id: 1
   },
   {
-    product: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm2GEwY-QGtOjmIVZSeQEfo-7QJGQpVRtZO4KO70NizPiE5TTj4D3HMZgJiiG4Fqd32n0&usqp=CAU',
+    product: 'https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-e1563420600943.jpg',
     name: 'cake',
     price: 100,
     quantity: 5,
