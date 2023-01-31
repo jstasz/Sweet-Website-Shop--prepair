@@ -1,4 +1,4 @@
-<div class="cart">
+<div class="cart" *ngIf="cart.items.length, else noItems">
     <div class="cart__header">
         <p class="cart__header-title">Name</p>
         <p class="cart__header-title">Price</p>
@@ -20,3 +20,12 @@
         <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
     </div>
 </div>
+<ng-template #noItems>
+    <div class="cart-empty">
+        <p>There are no items in your cart !</p>
+        <div class="cart-empty-actions">
+            <p><span [routerLink]="['/shop-online']" class="link">Start Shopping</span> or <span
+                    [routerLink]="['/cake-designer']" class="link">Create Your Own Cake</span></p>
+        </div>
+    </div>
+</ng-template>

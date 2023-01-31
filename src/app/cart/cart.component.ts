@@ -7,20 +7,7 @@ import { Cart, CartItem } from './cart.model';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  cart: Cart = { items: [{
-    product: 'https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-e1563420600943.jpg',
-    name: 'cake',
-    price: 150,
-    quantity: 2,
-    id: 1
-  },
-  {
-    product: 'https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-e1563420600943.jpg',
-    name: 'cake',
-    price: 100,
-    quantity: 5,
-    id: 1
-  }]}
+  cart: Cart = { items: []}
   dataSource: CartItem[] = []
   totalPrice: number = 0;
 

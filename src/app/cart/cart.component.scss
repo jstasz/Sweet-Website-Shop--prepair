@@ -57,7 +57,7 @@
 
         &-total {
             font-size: 1.5rem;
-            
+
             & .total-price {
                 font-weight: bold;
                 margin-left: 0.3em;
@@ -79,6 +79,25 @@
                     margin-left: 0.5em;
                     font-size: 2rem;
                 }
+        }
+    }
+}
+
+.cart-empty {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-actions {
+        display: flex;
+        color: grey;
+        padding: 2em 0;
+
+        & .link {
+            cursor: pointer;
+            font-weight: bold;
         }
     }
 }
