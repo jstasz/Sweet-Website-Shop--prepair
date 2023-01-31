@@ -1,1 +1,24 @@
-<p>cart works!</p>
+<div class="cart">
+    <!-- <div class="cart__header">
+        <p>Product</p>
+        <p>Name</p>
+        <p>Price</p>
+        <p>Quantity</p>
+        <p>Total</p>
+    </div> -->
+    <div class="cart__items" *ngFor="let item of cart.items">
+        <img src="{{item.product}}" alt="">
+        <p>{{item.name}}</p>
+        <p>{{item.price}}</p>
+        <p>{{item.quantity}}</p>
+        <!-- <p>{{getTotalPrice(item)}}</p> -->
+        <p>{{getTotalPrice(item)}}</p>
+    </div>
+    <div class="cart__summary">
+        <button>Continue Shopping</button>
+        <div class="cart__summary-buy">
+            <h3>Total: {{getTotalCart(cart.items)}} </h3>
+            <button>buy</button>
+        </div>
+    </div>
+</div>

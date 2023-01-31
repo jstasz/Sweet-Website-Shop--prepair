@@ -1,0 +1,26 @@
+.cart {
+    width: 70%;
+    margin: 0 auto;
+
+    // &__header {
+    //     display: flex;
+    //     justify-content: space-around;
+    // }
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        padding: 1em 0;
+        align-items: center;
+
+        & img {
+            width: 7em;
+            height: 7em;
+        }
+    }
+
+    &__summary {
+        display: flex;
+        justify-content: space-between;
+    }
+}
