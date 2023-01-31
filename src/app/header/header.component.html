@@ -27,23 +27,13 @@
                 </a>
             </div>
             <div class="nav__shopping-menu-items">
-                <div class="item">
-                    <img src="https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-500x500.jpg"
-                        alt="item name" class="item-img">
-                    <p class="item-name"> {{ 'cake jsbefwkefefw kdbewf kqwbdfe' | shorten:25 }}</p>
-                    <p class="item-price">{{ '150' | currency }}</p>
-                </div>
-                <div class="item">
-                    <img src="https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-500x500.jpg"
-                        alt="item name" class="item-img">
-                    <p class="item-name">{{ 'cake jsbefwkefefw kdbewf kqwbdfe' | shorten:25 }}</p>
-                    <p class="item-price">{{ '150' | currency }}</p>
-                </div>
-                <div class="item">
-                    <img src="https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-500x500.jpg"
-                        alt="item name" class="item-img">
-                    <p class="item-name">{{ 'cake jsbefwkefefw kdbewf kqwbdfe' | shorten:25 }}</p>
-                    <p class="item-price">{{ '150' | currency }}</p>
+                <div class="item" *ngFor="let item of cart.items">
+                    <div class="item__product">
+                        <img src="{{item.imagePath}}" alt="{{item.name}}" class="item__product-img">
+                        <p class="item__product-name">{{item.name | shorten: 15}}</p>
+                        <p class="item__product-quantity">({{item.quantity}})</p>
+                    </div>
+                    <p class="item__product-price">{{ item.price| currency }}</p>
                 </div>
                 <div class="nav__shopping-menu-summary">
                     <p>total: <span class="total"> {{'450' | currency}} </span></p>

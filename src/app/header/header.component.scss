@@ -153,7 +153,6 @@
 
             &-menu {
                 background-color: white;
-                box-shadow: inset 0px 0px 24px 0px rgba(203, 203, 203, 1);
                 padding: 2em;
                 position: absolute;
                 top: 70px;
@@ -187,17 +186,24 @@
                         justify-content: space-between;
                         margin: 1em 0;
 
-                        &-img {
-                            width: 80px;
-                            height: 60px;
-                        }
+                        &__product {
+                            display: flex;
+                            align-items: center;
 
-                        &-name {
-                            padding: 0 2em;
-                        }
-
-                        &-price {
-                            font-weight: bold;
+                            &-img {
+                                width: 80px;
+                                height: 60px;
+                            }
+    
+                            &-name {
+                                padding: 0 2em;
+                                font-weight: bold;
+                            }
+    
+                            &-price {
+                                display: flex;
+                                align-items: center;
+                            }
                         }
                     }
                 }

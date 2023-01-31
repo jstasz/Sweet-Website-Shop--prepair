@@ -1,11 +1,5 @@
-export interface CartItem {
-    product: string, 
-    name: string, 
-    price: number, 
-    quantity: number, 
-    id: number
-}
+import { ShopProduct } from "../shop-online/shop-products/shop-product/product.model"
 
 export interface Cart {
-    items: CartItem[]
+    items: ShopProduct[]
 }
