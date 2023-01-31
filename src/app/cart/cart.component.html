@@ -7,16 +7,23 @@
     </div>
     <div class="cart__items" *ngFor="let item of cart.items">
         <img class="cart__items-img" src="{{item.product}}" alt="">
-        <p class="cart__items-item">{{item.name}}</p>
+        <p class="cart__items-item">{{item.name | shorten: 15}}</p>
         <p class="cart__items-item">{{item.price | currency}}</p>
-        <p class="cart__items-item">{{item.quantity}}</p>
+        <p class="cart__items-item">
+            <i class="fa-solid fa-circle-plus quantity-icon"></i>
+            {{item.quantity}}
+            <i class="fa-solid fa-circle-minus quantity-icon"></i>
+        </p>
         <p class="cart__items-item">{{getTotalPrice(item) | currency}}</p>
-        <i class="fa-solid fa-trash cart__items-item icon"></i>
+        <i class="fa-solid fa-trash cart__items-item remove-icon"></i>
     </div>
     <div class="cart__summary">
-        <p class="cart__summary-total">Total: <span class="total-price">{{ getTotalCart(cart.items) | currency }}</span>
+        <p class="cart__summary-total">Total:
+            <span class="total-price">{{getTotalCart(cart.items) | currency}}</span>
         </p>
-        <button class="cart__summary-submit">submit <i class="fa-solid fa-circle-check buy-icon"></i></button>
+        <button class="cart__summary-submit">submit
+            <i class="fa-solid fa-circle-check buy-icon"></i>
+        </button>
         <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
     </div>
 </div>
@@ -24,8 +31,10 @@
     <div class="cart-empty">
         <p>There are no items in your cart !</p>
         <div class="cart-empty-actions">
-            <p><span [routerLink]="['/shop-online']" class="link">Start Shopping</span> or <span
-                    [routerLink]="['/cake-designer']" class="link">Create Your Own Cake</span></p>
+            <p>
+                <span [routerLink]="['/shop-online']" class="link">Start Shopping</span> or
+                <span [routerLink]="['/cake-designer']" class="link">Create Your Own Cake</span>
+            </p>
         </div>
     </div>
 </ng-template>

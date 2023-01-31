@@ -37,8 +37,19 @@
             justify-self: center;
         }
 
-        & .icon {
+        & .remove-icon,
+        & .quantity-icon {
             padding: 1em;
+            cursor: pointer;
+            font-size: 1.7rem;
+        }
+
+        & .quantity-icon {
+            color: rgb(202, 202, 202);
+        }
+
+        & .remove-icon {
+            color: rgb(125, 125, 125);
         }
     }
 
