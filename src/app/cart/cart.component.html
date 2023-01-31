@@ -5,7 +5,7 @@
         <p class="cart__header-title">Quantity</p>
         <p class="cart__header-title">Total</p>
     </div>
-    <div class="cart__items" *ngFor="let item of cart.items">
+    <div class="cart__items" *ngFor="let item of cart.items, let i = index">
         <img class="cart__items-img" src="{{item.imagePath}}" alt="">
         <p class="cart__items-item">{{item.name | shorten: 15}}</p>
         <p class="cart__items-item">{{item.price | currency}}</p>
@@ -15,7 +15,7 @@
             <i class="fa-solid fa-circle-minus quantity-icon"></i>
         </p>
         <p class="cart__items-item">{{getTotalPrice(item) | currency}}</p>
-        <i class="fa-solid fa-trash cart__items-item remove-icon"></i>
+        <i class="fa-solid fa-trash cart__items-item remove-icon" (click)="onRemoveFromCart(i)"></i>
     </div>
     <div class="cart__summary">
         <p class="cart__summary-total">Total:

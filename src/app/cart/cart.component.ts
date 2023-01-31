@@ -25,4 +25,8 @@ export class CartComponent implements OnInit {
   getTotalCart(items: ShopProduct[]) {
     return items.map((item) => item.price * item.quantity).reduce((prev, cur) => prev + cur, 0)
   }
+
+  onRemoveFromCart(index: number) {
+    this.cartService.removeFromCart(index)
+  }
 }
