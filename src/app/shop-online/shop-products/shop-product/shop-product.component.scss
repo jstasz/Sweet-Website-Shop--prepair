@@ -1,0 +1,65 @@
+.product {
+    padding: 1em;
+    border: thin solid rgb(235, 235, 235);
+
+    &__img {
+        height: 15em;
+        width: 100%;
+
+        & .img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__content {
+
+        &-title {
+            padding: 0.7em 0;
+            color: pink;
+        }
+    }
+
+    &__summary {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2em;
+
+        &-price {
+            font-weight: bold;
+        }
+
+        &-icon {
+            cursor: pointer;
+            font-size: 1.7rem;
+
+            &:hover {
+                color: pink;
+            }
+        }
+    }
+
+    &.list {
+        display: flex;
+
+        & .product__img {
+            height: 10em;
+            width: 25%;
+        }
+
+        & .product__content {
+            width: 70%;
+            padding-left: 2em;
+        }
+
+        & .product__summary {
+            align-items: flex-end;
+            padding: 1em;
+
+            &-price {
+                padding-right: 1em;
+            }
+        }
+    }
+}

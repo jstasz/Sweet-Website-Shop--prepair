@@ -1,0 +1,12 @@
+<div class="categories">
+    <p class="categories__title">Categories</p>
+    <div class="categories__items">
+        <div class="item" *ngFor="let category of productsCategories" (click)="onSelectCategory(category.name)">
+            <div class="item__icon" [ngClass]="{'active': selectedCategory === category.name}">
+                <i class="fa-solid {{category.icon}} "></i>
+            </div>
+            <p class="item__name">{{category.name}}</p>
+        </div>
+    </div>
+    <p class="categories__show-all" (click)="onSelectCategory('')">show all</p>
+</div>
