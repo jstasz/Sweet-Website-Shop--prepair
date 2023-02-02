@@ -17,7 +17,7 @@
             <img class="nav__shopping-icon-img" src="assets/img/icons/favourites.png" alt="favourites" />
         </div>
         <div class="nav__shopping-icon nav__shopping-icon--cart" (click)="activeCartMenu()">
-            <div class="nav__shopping-icon--counter">1</div>
+            <div class="nav__shopping-icon--counter" *ngIf="cart.items.length">{{showCartCounter(cart.items)}}</div>
             <img class="nav__shopping-icon-img" src="assets/img/icons/cart.png" alt="cart" />
         </div>
         <div *ngIf="cartMenuIsActive" class="nav__shopping-menu">

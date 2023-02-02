@@ -27,4 +27,8 @@ export class HeaderComponent implements OnInit {
   onGetTotalCartPrice(items: ShopProduct[]) {
     return this.cartService.getTotalCartPrice(items)
   }
+
+  showCartCounter(items: ShopProduct[]) {
+    return this.cart.items.length
+  }
 }
