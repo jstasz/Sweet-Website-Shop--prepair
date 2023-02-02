@@ -26,7 +26,7 @@
                     <i class="fa-solid fa-magnifying-glass view-icon"></i>
                 </a>
             </div>
-            <div class="nav__shopping-menu-items">
+            <div class="nav__shopping-menu-items" *ngIf="cart.items.length else noItems">
                 <div class="item" *ngFor="let item of cart.items">
                     <div class="item__product">
                         <img src="{{item.imagePath}}" alt="{{item.name}}" class="item__product-img">
@@ -46,6 +46,17 @@
                     </div>
                 </div>
             </div>
+            <ng-template #noItems>
+                <div class="cart-empty">
+                    <p>There are no items in your cart !</p>
+                    <div class="cart-empty-actions">
+                        <p>
+                            <span [routerLink]="['/shop-online']" class="link">Start Shopping</span> or
+                            <span [routerLink]="['/cake-designer']" class="link">Create Your Own Cake</span>
+                        </p>
+                    </div>
+                </div>
+            </ng-template>
         </div>
     </div>
 </nav>
