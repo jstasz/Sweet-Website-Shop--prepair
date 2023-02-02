@@ -36,7 +36,7 @@
                     <p class="item__product-price">{{ item.price| currency }}</p>
                 </div>
                 <div class="nav__shopping-menu-summary">
-                    <p>total: <span class="total"> {{'450' | currency}} </span></p>
+                    <p>total: <span class="total"> {{onGetTotalCartPrice(cart.items) | currency}} </span></p>
                 </div>
                 <div class="nav__shopping-menu-select">
                     <a class="delete-icon">remove all</a>

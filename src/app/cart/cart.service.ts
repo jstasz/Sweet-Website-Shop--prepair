@@ -12,6 +12,10 @@ export class CartService {
 
     constructor() {}
 
+    getTotalCartPrice(items: ShopProduct[]): number {
+        return items.map((item) => item.price * item.quantity).reduce((prev, cur) => prev + cur, 0)
+    }
+
     addToCart(item: ShopProduct) {
         this.cart.items.push(item);
         this.cartChanges.next(this.cart);

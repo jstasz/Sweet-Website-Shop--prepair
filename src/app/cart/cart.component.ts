@@ -22,11 +22,11 @@ export class CartComponent implements OnInit {
     return item.quantity * item.price
   }
 
-  getTotalCart(items: ShopProduct[]) {
-    return items.map((item) => item.price * item.quantity).reduce((prev, cur) => prev + cur, 0)
+  onGetTotalCartPrice(items: ShopProduct[]) {
+    return this.cartService.getTotalCartPrice(items)
   }
 
   onRemoveFromCart(index: number) {
-    this.cartService.removeFromCart(index)
+    return this.cartService.removeFromCart(index)
   }
 }

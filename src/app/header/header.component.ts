@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../cart/cart.model';
 import { CartService } from '../cart/cart.service';
+import { ShopProduct } from '../shop-online/shop-products/shop-product/product.model';
 
 @Component({
   selector: 'app-header',
@@ -21,5 +22,9 @@ export class HeaderComponent implements OnInit {
 
   activeCartMenu() {
     this.cartMenuIsActive = !this.cartMenuIsActive
+  }
+
+  onGetTotalCartPrice(items: ShopProduct[]) {
+    return this.cartService.getTotalCartPrice(items)
   }
 }

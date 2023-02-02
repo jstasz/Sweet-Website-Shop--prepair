@@ -19,7 +19,7 @@
     </div>
     <div class="cart__summary">
         <p class="cart__summary-total">Total:
-            <span class="total-price">{{getTotalCart(cart.items) | currency}}</span>
+            <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>
         </p>
         <button class="cart__summary-submit">submit
             <i class="fa-solid fa-circle-check buy-icon"></i>
