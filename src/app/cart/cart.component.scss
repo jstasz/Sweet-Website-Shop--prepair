@@ -53,6 +53,17 @@
         }
     }
 
+    &__clear {
+        grid-column: 1 / 2;
+        color: grey;
+        padding: 1em 0;
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(245, 93, 93);
+        }
+    }
+
     &__summary {
         grid-column: 6 / 7;
         display: flex;

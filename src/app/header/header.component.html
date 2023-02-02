@@ -39,7 +39,7 @@
                     <p>total: <span class="total"> {{onGetTotalCartPrice(cart.items) | currency}} </span></p>
                 </div>
                 <div class="nav__shopping-menu-select">
-                    <a class="delete-icon">remove all</a>
+                    <a class="delete-icon" (click)="onClearCart()">remove all</a>
                     <div class="buy">
                         <p>buy<i [routerLink]="'/cart'" (click)="activeCartMenu()"
                                 class="fa-solid fa-circle-check buy-icon"></i></p>

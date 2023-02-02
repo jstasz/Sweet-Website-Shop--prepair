@@ -31,4 +31,8 @@ export class HeaderComponent implements OnInit {
   showCartCounter(items: ShopProduct[]) {
     return this.cart.items.length
   }
+
+  onClearCart() {
+    this.cartService.clearCart()
+  }
 }
