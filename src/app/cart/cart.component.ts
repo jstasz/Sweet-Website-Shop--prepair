@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart, CartItem } from './cart.model';
+import { ShopProduct } from '../shop-online/shop-products/shop-product/product.model';
+import { Cart} from './cart.model';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,34 +9,28 @@ import { Cart, CartItem } from './cart.model';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  cart: Cart = { items: [{
-    product: 'https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-e1563420600943.jpg',
-    name: 'cake',
-    price: 150,
-    quantity: 2,
-    id: 1
-  },
-  {
-    product: 'https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-e1563420600943.jpg',
-    name: 'cake jsgd jdgsdgwu jd',
-    price: 100,
-    quantity: 5,
-    id: 1
-  }]}
-  dataSource: CartItem[] = []
+  cart: Cart = {items: []}
   totalPrice: number = 0;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.dataSource = this.cart.items
+    this.cart = this.cartService.cart
   }
 
-  getTotalPrice(item: CartItem) {
+  getTotalPrice(item: ShopProduct) {
     return item.quantity * item.price
   }
 
-  getTotalCart(items: CartItem[]) {
-    return items.map((item) => item.price * item.quantity).reduce((prev, cur) => prev + cur, 0)
+  onGetTotalCartPrice(items: ShopProduct[]) {
+    return this.cartService.getTotalCartPrice(items)
+  }
+
+  onRemoveFromCart(index: number) {
+    return this.cartService.removeFromCart(index)
+  }
+
+  onClearCart() {
+    this.cartService.clearCart()
   }
 }
