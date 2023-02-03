@@ -1,12 +1,16 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { Categories, Category } from "./shop-categories/categories.model";
 import { Layout } from "./shop-products/products.model";
 import { ShopProduct } from "./shop-products/shop-product/product.model";
 
 @Injectable()
 export class ShopOnlineService {
-    selectedLayout: Layout = 'grid'
-    layoutChanges = new Subject<Layout>()
+    selectedLayout: Layout | '' = '';
+    layoutChanges = new Subject<Layout>();
+
+    selectedCategory: Category = 'cakes';
+    categoryChanges = new Subject<Category>();
 
     shopProducts : ShopProduct[] = [
         {id: 1, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
@@ -59,12 +63,31 @@ export class ShopOnlineService {
         {id: 48, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
         {id: 49, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
         {id: 50, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
-    ]
+    ];
+
+    productsCategories: Categories[] = [
+        {name: 'cookies', icon: 'fa-cookie'},
+        {name: 'cakes', icon: 'fa-cloud'},
+        {name: 'birthday cakes', icon: 'fa-cake-candles'},
+        {name: 'sweets', icon: 'fa-ice-cream'},
+        {name: 'balloons', icon: 'fa-golf-ball-tee'},
+        {name: 'accessories', icon: 'fa-shapes'},
+        {name: 'drinks', icon: 'fa-wine-glass-empty'}]
+
+    productsToShow: ShopProduct[] = [];
+    productsChanges = new Subject<ShopProduct[]>();
 
     constructor() {}
 
     changeLayout(layout: Layout) {
         this.selectedLayout = layout
         this.layoutChanges.next(layout)
+    }
+
+    showCategory(category: Category) {
+        this.selectedCategory = category;
+        this.categoryChanges.next(category);
+        this.productsToShow = this.shopProducts.filter( cat => cat.category === category)
+        this.productsChanges.next(this.productsToShow)
     }
 }

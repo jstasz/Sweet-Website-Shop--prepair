@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CartService } from 'src/app/cart/cart.service';
+import { Category } from '../../shop-categories/categories.model';
 import { ShopOnlineService } from '../../shop-online.servis';
 import { Layout } from '../products.model';
 import { ShopProduct } from './product.model';
@@ -11,16 +12,23 @@ import { ShopProduct } from './product.model';
 })
 export class ShopProductComponent implements OnInit {
 
-@Input() layout: Layout = 'grid'
+@Input() layout: Layout = 'grid';
 shopProducts : ShopProduct[] = [];
+category: Category = 'cakes';
 
   constructor(private cartService: CartService, private shopOnlineService: ShopOnlineService) { }
 
   ngOnInit(): void {
-    this.shopProducts = this.shopOnlineService.shopProducts
+    this.shopOnlineService.productsChanges.subscribe(products => {
+      this.shopProducts = products
+    })
   }
 
   onAddToCart(product: ShopProduct) {
     this.cartService.addToCart(product)
+  }
+
+  onShowCategory(category: Category) {
+    this.shopOnlineService.showCategory(category)
   }
 }
