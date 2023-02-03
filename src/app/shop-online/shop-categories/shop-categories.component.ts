@@ -19,9 +19,10 @@ export class ShopCategoriesComponent implements OnInit {
   }
 
   onSelectCategory(category: Category) {
-    // this.shopOnlineService.categoryChanges.subscribe(category => {
-    //   this.selectedCategory = this.shopOnlineService.selectedCategory
-    // })
     this.shopOnlineService.selectCategory(category)
+  }
+
+  onShowAllProducts() {
+    this.shopOnlineService.showAllProducts()
   }
 }
