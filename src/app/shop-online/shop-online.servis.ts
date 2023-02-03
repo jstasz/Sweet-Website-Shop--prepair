@@ -9,7 +9,7 @@ export class ShopOnlineService {
     selectedLayout: Layout | '' = '';
     layoutChanges = new Subject<Layout>();
 
-    selectedCategory: Category = 'cakes';
+    selectedCategory: Category[] = [];
     categoryChanges = new Subject<Category>();
 
     shopProducts : ShopProduct[] = [
@@ -84,10 +84,17 @@ export class ShopOnlineService {
         this.layoutChanges.next(layout)
     }
 
-    showCategory(category: Category) {
-        this.selectedCategory = category;
-        this.categoryChanges.next(category);
-        this.productsToShow = this.shopProducts.filter( cat => cat.category === category)
+    selectCategory(category: Category) {
+        
+        if(this.selectedCategory.indexOf(category) < 0) {
+            this.selectedCategory.push(category);
+            this.categoryChanges.next(category);
+        } else {
+            this.selectedCategory.splice(this.selectedCategory.indexOf(category), 1);
+            this.categoryChanges.next(category);
+        }
+
+        this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0)
         this.productsChanges.next(this.productsToShow)
     }
 }

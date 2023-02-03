@@ -10,7 +10,7 @@ import { Categories, Category } from './categories.model';
 export class ShopCategoriesComponent implements OnInit {
 
   productsCategories: Categories[] = [];
-  selectedCategory: Category = 'cakes';
+  selectedCategory: Category[] = [];
 
   constructor(private shopOnlineService : ShopOnlineService) { }
 
@@ -19,9 +19,9 @@ export class ShopCategoriesComponent implements OnInit {
   }
 
   onSelectCategory(category: Category) {
-    this.shopOnlineService.categoryChanges.subscribe(category => {
-      this.selectedCategory = category
-    })
-    this.shopOnlineService.showCategory(category)
+    // this.shopOnlineService.categoryChanges.subscribe(category => {
+    //   this.selectedCategory = this.shopOnlineService.selectedCategory
+    // })
+    this.shopOnlineService.selectCategory(category)
   }
 }

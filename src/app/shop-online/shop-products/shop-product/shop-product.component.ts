@@ -14,7 +14,7 @@ export class ShopProductComponent implements OnInit {
 
 @Input() layout: Layout = 'grid';
 shopProducts : ShopProduct[] = [];
-category: Category = 'cakes';
+category: Category[] = [];
 
   constructor(private cartService: CartService, private shopOnlineService: ShopOnlineService) { }
 
@@ -29,6 +29,6 @@ category: Category = 'cakes';
   }
 
   onShowCategory(category: Category) {
-    this.shopOnlineService.showCategory(category)
+    this.shopOnlineService.selectCategory(category)
   }
 }
