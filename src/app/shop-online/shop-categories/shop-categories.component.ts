@@ -15,11 +15,12 @@ export class ShopCategoriesComponent implements OnInit {
   constructor(private shopOnlineService : ShopOnlineService) { }
 
   ngOnInit(): void {
-    this.productsCategories = this.shopOnlineService.productsCategories
+    this.productsCategories = this.shopOnlineService.productsCategories;
+    this.selectedCategory = this.shopOnlineService.selectedCategory
   }
 
   onSelectCategory(category: Category) {
-    this.shopOnlineService.selectCategory(category)
+    this.shopOnlineService.selectCategory(category);
   }
 
   onShowAllProducts() {
