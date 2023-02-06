@@ -9,7 +9,7 @@ import { Amount, Layout, Sort } from '../products.model';
 })
 export class ShopFiltersComponent implements OnInit {
   selectedSort: Sort = 'name';
-  selectedAmount: Amount = '6';
+  selectedAmount: Amount = '8';
   selectedLayout: Layout = 'grid';
 
   constructor(private shopOnlineService: ShopOnlineService) { }

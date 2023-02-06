@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Categories, Category } from "./shop-categories/categories.model";
-import { Layout } from "./shop-products/products.model";
+import { Layout, Sort } from "./shop-products/products.model";
 import { ShopProduct } from "./shop-products/shop-product/product.model";
 
 @Injectable()
@@ -11,7 +11,7 @@ export class ShopOnlineService {
 
     selectedCategory: Category[] = [];
     categoryChanges = new Subject<Category[]>();
-
+    
     shopProducts : ShopProduct[] = [
         {id: 1, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
         {id: 2, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
@@ -84,22 +84,24 @@ export class ShopOnlineService {
         this.layoutChanges.next(layout)
     }
 
+    setAllCategories() {
+        this.selectedCategory = this.productsCategories.map(category => category.name)
+        this.categoryChanges.next(this.selectedCategory)
+    }
+
     selectCategory(category: Category) {
         if(this.selectedCategory.indexOf(category) < 0) {
             this.selectedCategory.push(category);
-            this.categoryChanges.next([category]);
         } else {
-            this.selectedCategory.splice(this.selectedCategory.indexOf(category), 1);
-            this.categoryChanges.next([category]);
-        }
+            this.selectedCategory.splice(this.selectedCategory.indexOf(category), 1)}
 
+        this.categoryChanges.next(this.selectedCategory);
         this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0)
         this.productsChanges.next(this.productsToShow)
     }
 
     showAllProducts() {
-        const allCategories = this.productsCategories.map(category => category.name)
-        this.selectedCategory.push(...allCategories)
+        this.selectedCategory = this.productsCategories.map(category => category.name)
         this.categoryChanges.next(this.selectedCategory);
         this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0)
         this.productsChanges.next(this.productsToShow)

@@ -16,7 +16,9 @@ export class ShopCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsCategories = this.shopOnlineService.productsCategories;
-    this.selectedCategory = this.shopOnlineService.selectedCategory
+    this.shopOnlineService.setAllCategories();
+    this.selectedCategory = this.shopOnlineService.selectedCategory;
+    this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories)
   }
 
   onSelectCategory(category: Category) {
