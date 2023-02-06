@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Categories } from './categories.model';
+import { ShopOnlineService } from '../shop-online.servis';
+import { Categories, Category } from './categories.model';
 
 @Component({
   selector: 'app-shop-categories',
@@ -8,23 +9,21 @@ import { Categories } from './categories.model';
 })
 export class ShopCategoriesComponent implements OnInit {
 
-  productsCategories: Categories[] = [
-    {name: 'cookies', icon: 'fa-cookie'},
-    {name: 'cakes', icon: 'fa-cloud'},
-    {name: 'birthday cakes', icon: 'fa-cake-candles'},
-    {name: 'sweets', icon: 'fa-ice-cream'},
-    {name: 'balloons', icon: 'fa-golf-ball-tee'},
-    {name: 'accessories', icon: 'fa-shapes'},
-    {name: 'drinks', icon: 'fa-wine-glass-empty'}]
+  productsCategories: Categories[] = [];
+  selectedCategory: Category[] = [];
 
-  selectedCategory: string = '';
-
-  constructor() { }
+  constructor(private shopOnlineService : ShopOnlineService) { }
 
   ngOnInit(): void {
+    this.productsCategories = this.shopOnlineService.productsCategories;
+    this.selectedCategory = this.shopOnlineService.selectedCategory
   }
 
-  onSelectCategory(category: string) {
-    this.selectedCategory = category;
+  onSelectCategory(category: Category) {
+    this.shopOnlineService.selectCategory(category);
+  }
+
+  onShowAllProducts() {
+    this.shopOnlineService.showAllProducts()
   }
 }
