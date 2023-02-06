@@ -22,13 +22,15 @@ category: Category[] = [];
     this.shopOnlineService.productsChanges.subscribe(products => {
       this.shopProducts = products
     })
+
+    this.shopOnlineService.showAllProducts();
   }
 
   onAddToCart(product: ShopProduct) {
-    this.cartService.addToCart(product)
+    this.cartService.addToCart(product);
   }
 
   onShowCategory(category: Category) {
-    this.shopOnlineService.selectCategory(category)
+    this.shopOnlineService.selectCategory(category);
   }
 }
