@@ -2,6 +2,7 @@
     <div class="products-header-sort">
         <label for="sort">Sort by</label>
         <select id="sort" name="sort" class="select" [(ngModel)]="selectedSort" (change)="onSelectSort(selectedSort)">
+            <option value="category">category</option>
             <option value="name">name</option>
             <option value="price">price</option>
         </select>

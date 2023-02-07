@@ -115,6 +115,12 @@ export class ShopOnlineService {
     selectSort(sort: Sort) {
         this.selectedSort = sort;
 
+        if(sort === 'category') {
+            this.productsToShow.sort(function(a: ShopProduct, b: ShopProduct) {
+                return a.category.localeCompare( b.category);
+            })
+        }
+
         if(sort === 'name') {
             this.productsToShow.sort(function(a: ShopProduct, b: ShopProduct) {
                 return a.name.localeCompare( b.name);

@@ -9,7 +9,7 @@ import { Amount, Layout, Sort } from '../products.model';
 })
 export class ShopFiltersComponent implements OnInit {
 
-  @Input() selectedSort: Sort = 'name';
+  selectedSort: Sort = 'category';
   selectedAmount: Amount = '4';
   selectedLayout: Layout = 'grid';
 
@@ -25,10 +25,6 @@ export class ShopFiltersComponent implements OnInit {
   }
 
   onSelectSort(selectedSort: Sort) {
-    // this.shopOnlineService.sortChanges.subscribe(sort => {
-    //   this.selectedSort = sort
-    // })
-    // console.log(this.selectedSort)
     this.shopOnlineService.selectSort(selectedSort)
   }
 }
