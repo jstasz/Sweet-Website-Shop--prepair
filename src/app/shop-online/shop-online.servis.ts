@@ -11,14 +11,17 @@ export class ShopOnlineService {
 
     selectedCategory: Category[] = [];
     categoryChanges = new Subject<Category[]>();
+
+    selectedSort: Sort = 'name';
+    sortChanges = new Subject<Sort>();
     
     shopProducts : ShopProduct[] = [
-        {id: 1, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
-        {id: 2, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
-        {id: 3, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
-        {id: 4, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
-        {id: 5, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
-        {id: 6, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
+        {id: 1, name: 'Aake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 10, category: 'cakes', quantity: 1},
+        {id: 2, name: 'Zake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
+        {id: 3, name: 'Fake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 20, category: 'cakes', quantity: 1},
+        {id: 4, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 100, category: 'cakes', quantity: 1},
+        {id: 5, name: 'Dake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
+        {id: 6, name: 'Zake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 70, category: 'cakes', quantity: 1},
         {id: 7, name: 'Cake1', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://nietylkopasta.pl/wp-content/uploads/2021/10/ciastokukulka-1.jpg', price: 50, category: 'cakes', quantity: 1},
         {id: 8, name: 'Cake2', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://ilovebake.pl/wp-content/uploads/2015/04/kruche-ciastka-przepis-7.jpg', price: 10, category: 'cookies', quantity: 1},
         {id: 9, name: 'Cake2', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://ilovebake.pl/wp-content/uploads/2015/04/kruche-ciastka-przepis-7.jpg', price: 10, category: 'cookies', quantity: 1},
@@ -36,7 +39,7 @@ export class ShopOnlineService {
         {id: 21, name: 'Cake3', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://cakebycourtney.com/wp-content/uploads/2015/08/Cookies-and-Cream-Cake-4-e1563420600943.jpg', price: 150, category: 'birthday cakes', quantity: 1},
         {id: 22, name: 'Cake4', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://orzechyplus.pl/wp-content/uploads/2021/03/DSC_5888-copy-pl.jpg', price: 150, category: 'sweets', quantity: 1},
         {id: 23, name: 'Cake4', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://orzechyplus.pl/wp-content/uploads/2021/03/DSC_5888-copy-pl.jpg', price: 150, category: 'sweets', quantity: 1},
-        {id: 24, name: 'Cake4', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://orzechyplus.pl/wp-content/uploads/2021/03/DSC_5888-copy-pl.jpg', price: 150, category: 'sweets', quantity: 1},
+        {id: 24, name: 'Zake4', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://orzechyplus.pl/wp-content/uploads/2021/03/DSC_5888-copy-pl.jpg', price: 150, category: 'sweets', quantity: 1},
         {id: 25, name: 'Cake4', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://orzechyplus.pl/wp-content/uploads/2021/03/DSC_5888-copy-pl.jpg', price: 150, category: 'sweets', quantity: 1},
         {id: 26, name: 'Cake4', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://orzechyplus.pl/wp-content/uploads/2021/03/DSC_5888-copy-pl.jpg', price: 150, category: 'sweets', quantity: 1},
         {id: 27, name: 'Cake4', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://orzechyplus.pl/wp-content/uploads/2021/03/DSC_5888-copy-pl.jpg', price: 150, category: 'sweets', quantity: 1},
@@ -59,7 +62,7 @@ export class ShopOnlineService {
         {id: 44, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
         {id: 45, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
         {id: 46, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
-        {id: 47, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
+        {id: 47, name: 'Sake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
         {id: 48, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
         {id: 49, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
         {id: 50, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
@@ -98,6 +101,7 @@ export class ShopOnlineService {
         this.categoryChanges.next(this.selectedCategory);
         this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0)
         this.productsChanges.next(this.productsToShow)
+        this.selectSort(this.selectedSort)
     }
 
     showAllProducts() {
@@ -105,5 +109,22 @@ export class ShopOnlineService {
         this.categoryChanges.next(this.selectedCategory);
         this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0)
         this.productsChanges.next(this.productsToShow)
+        this.selectSort(this.selectedSort)
+    }
+
+    selectSort(sort: Sort) {
+        this.selectedSort = sort;
+
+        if(sort === 'name') {
+            this.productsToShow.sort(function(a: ShopProduct, b: ShopProduct) {
+                return a.name.localeCompare( b.name);
+            })
+        }
+
+        if(sort === 'price') {
+            this.productsToShow.sort(function(a: ShopProduct, b: ShopProduct) {
+                return a.price - b.price
+            })
+        }
     }
 }

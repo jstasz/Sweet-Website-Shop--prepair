@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { ShopOnlineService } from '../../shop-online.servis';
 import { Amount, Layout, Sort } from '../products.model';
 
@@ -8,16 +8,27 @@ import { Amount, Layout, Sort } from '../products.model';
   styleUrls: ['./shop-filters.component.scss']
 })
 export class ShopFiltersComponent implements OnInit {
-  selectedSort: Sort = 'name';
-  selectedAmount: Amount = '8';
+
+  @Input() selectedSort: Sort = 'name';
+  selectedAmount: Amount = '4';
   selectedLayout: Layout = 'grid';
 
   constructor(private shopOnlineService: ShopOnlineService) { }
 
   ngOnInit(): void {
+    console.log(this.selectedSort)
+    this.onSelectSort(this.selectedSort)
   }
 
   onSelectLayout(layout: Layout) {
     this.shopOnlineService.changeLayout(layout)
+  }
+
+  onSelectSort(selectedSort: Sort) {
+    // this.shopOnlineService.sortChanges.subscribe(sort => {
+    //   this.selectedSort = sort
+    // })
+    // console.log(this.selectedSort)
+    this.shopOnlineService.selectSort(selectedSort)
   }
 }
