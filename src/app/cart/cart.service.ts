@@ -33,6 +33,16 @@ export class CartService {
         this.cartChanges.next(this.cart);
     }
 
+    changeQuantity(item: ShopProduct, index: number) {
+        const productInCart = this.cart.items.find(prod => prod.id === item.id);
+
+        if(productInCart && productInCart.quantity > 1) {
+            productInCart.quantity -= 1;
+        } else {
+            this.removeFromCart(index)
+        }
+    }
+
     clearCart() {
         this.cart.items.splice(0, this.cart.items.length);
         this.cartChanges.next(this.cart);
