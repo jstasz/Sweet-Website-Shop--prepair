@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ShopOnlineService } from '../../shop-online.servis';
 import { Amount, Layout, Sort } from '../products.model';
 
@@ -16,15 +16,14 @@ export class ShopFiltersComponent implements OnInit {
   constructor(private shopOnlineService: ShopOnlineService) { }
 
   ngOnInit(): void {
-    console.log(this.selectedSort)
-    this.onSelectSort(this.selectedSort)
+    this.onSelectSort(this.selectedSort);
   }
 
   onSelectLayout(layout: Layout) {
-    this.shopOnlineService.changeLayout(layout)
+    this.shopOnlineService.selectLayout(layout);
   }
 
-  onSelectSort(selectedSort: Sort) {
-    this.shopOnlineService.selectSort(selectedSort)
+  onSelectSort(sort: Sort) {
+    this.shopOnlineService.selectSort(sort);
   }
 }
