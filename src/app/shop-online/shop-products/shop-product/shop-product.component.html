@@ -1,4 +1,13 @@
-<div *ngFor="let product of shopProducts" class="product" [ngClass]="{list: layout === 'list'}">
+<div class="layout-amount">
+    <label for="amount">Show</label>
+    <select id="amount" name="amount" class="select" (change)="onTableSizeChange($event)">
+        <option *ngFor="let size of tableSizes">{{size}}</option>
+    </select>
+</div>
+<div *ngFor="let product of shopProducts | paginate : {
+    itemsPerPage: tableSize, 
+    currentPage: page, 
+    totalItems: count}; let i = index" class="product" [ngClass]="{list: layout === 'list'}">
     <div class="product__img">
         <img class="img" src="{{product.imagePath}}" alt="">
     </div>
@@ -10,4 +19,8 @@
         <p class="product__summary-price">{{ product.price | currency }}</p>
         <i class="product__summary-icon fa-solid fa-cart-shopping" (click)="onAddToCart(product)"></i>
     </div>
+</div>
+<div>
+    <pagination-controls previouslabel='Prev' nextLabel='next' (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
 </div>

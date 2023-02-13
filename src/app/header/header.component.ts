@@ -12,27 +12,27 @@ export class HeaderComponent implements OnInit {
   cartMenuIsActive = false;
   cart: Cart = {items: []};
 
-  navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us']
+  navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cart = this.cartService.cart
+    this.cart = this.cartService.cart;
   }
 
   activeCartMenu() {
-    this.cartMenuIsActive = !this.cartMenuIsActive
+    this.cartMenuIsActive = !this.cartMenuIsActive;
   }
 
   onGetTotalCartPrice(items: ShopProduct[]) {
-    return this.cartService.getTotalCartPrice(items)
+    return this.cartService.getTotalCartPrice(items);
   }
 
-  showCartCounter(items: ShopProduct[]) {
-    return this.cart.items.length
+  showCartCounter() {
+    return this.cart.items.map(items => items.quantity).reduce((prev, curr) => prev + curr);
   }
 
   onClearCart() {
-    this.cartService.clearCart()
+    return this.cartService.clearCart();
   }
 }
