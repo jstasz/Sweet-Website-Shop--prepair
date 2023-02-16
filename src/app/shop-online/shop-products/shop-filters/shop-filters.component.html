@@ -10,10 +10,9 @@
     <div class="products-header-layout">
         <div class="layout-amount">
             <label for="amount">Show</label>
-            <select id="amount" name="amount" class="select" [(ngModel)]="selectedAmount">
-                <option value="4">4</option>
-                <option value="8">8</option>
-                <option value="12">12</option>
+            <select id="amount" name="amount" class="select" [(ngModel)]="selectedAmount"
+                (change)="onTableSizeChange($event)">
+                <option *ngFor="let size of amountToSelect">{{size}}</option>
             </select>
         </div>
         <div class="layout-style">

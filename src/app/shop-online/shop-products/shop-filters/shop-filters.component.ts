@@ -10,8 +10,11 @@ import { Amount, Layout, Sort } from '../products.model';
 export class ShopFiltersComponent implements OnInit {
 
   selectedSort: Sort = 'category';
-  selectedAmount: Amount = '4';
+  selectedAmount: Amount = 8;
   selectedLayout: Layout = 'grid';
+  tableSize: Amount = 8;
+  page: number = 1;
+  amountToSelect: Amount[] = [4, 8, 12];
 
   constructor(private shopOnlineService: ShopOnlineService) { }
 
@@ -25,5 +28,11 @@ export class ShopFiltersComponent implements OnInit {
 
   onSelectSort(sort: Sort) {
     this.shopOnlineService.selectSort(sort);
+  }
+
+  onTableSizeChange(event: any) {
+    this.shopOnlineService.tableSizeChange(event);
+    this.tableSize = this.shopOnlineService.tableSize;
+    this.page = this.shopOnlineService.page;
   }
 }

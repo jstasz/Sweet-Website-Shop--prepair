@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Categories, Category, productsCategories } from "./shop-categories/categories.model";
-import { Layout, Sort } from "./shop-products/products.model";
+import { Amount, Layout, Sort } from "./shop-products/products.model";
 import { ShopProduct, shopProducts } from "./shop-products/shop-product/product.model";
 
 @Injectable()
@@ -21,6 +21,10 @@ export class ShopOnlineService {
 
     productsToShow: ShopProduct[] = [];
     productsChanges = new Subject<ShopProduct[]>();
+
+    tableSize: Amount = 8;
+    tableSizeChanges = new Subject<Amount>();
+    page: number = 1;
 
     constructor() {}
 
@@ -76,4 +80,10 @@ export class ShopOnlineService {
         this.productsChanges.next(this.productsToShow);
         this.selectSort(this.selectedSort);
     }
+
+    tableSizeChange(event: any) {
+        this.tableSize = event.target.value
+        this.tableSizeChanges.next(this.tableSize);
+        this.page = 1;
+      }
 }
