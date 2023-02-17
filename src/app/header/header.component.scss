@@ -263,6 +263,16 @@
     }
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+}
+
+.pagination-controls::ng-deep .ngx-pagination .current {
+    background: pink;
+}
+
 @media (min-width: 1200px) {
     .main-image {
         background-image: url(../../assets/img/cream_large.jpg);

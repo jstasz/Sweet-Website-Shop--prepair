@@ -27,7 +27,10 @@
                 </a>
             </div>
             <div class="nav__shopping-menu-items" *ngIf="cart.items.length else noItems">
-                <div class="item" *ngFor="let item of cart.items">
+                <div class="item" *ngFor="let item of cart.items | paginate : {
+                    itemsPerPage: tableSize, 
+                    currentPage: page, 
+                    totalItems: count}">
                     <div class="item__product">
                         <img src="{{item.imagePath}}" alt="{{item.name}}" class="item__product-img">
                         <p class="item__product-name">{{item.name | shorten: 15}}</p>
@@ -44,6 +47,11 @@
                         <p>buy<i [routerLink]="'/cart'" (click)="activeCartMenu()"
                                 class="fa-solid fa-circle-check buy-icon"></i></p>
                     </div>
+                </div>
+                <div class="pagination">
+                    <pagination-controls class="pagination-controls" previouslabel='Prev' nextLabel='next'
+                        (pageChange)="onTableDataChange($event)">
+                    </pagination-controls>
                 </div>
             </div>
             <ng-template #noItems>
