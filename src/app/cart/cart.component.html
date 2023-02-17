@@ -5,7 +5,10 @@
         <p class="cart__header-title">Quantity</p>
         <p class="cart__header-title">Total</p>
     </div>
-    <div class="cart__items" *ngFor="let item of cart.items, let i = index">
+    <div class="cart__items" *ngFor="let item of cart.items | paginate : {
+        itemsPerPage: tableSize, 
+        currentPage: page, 
+        totalItems: count}, let i = index">
         <img class="cart__items-img" src="{{item.imagePath}}" alt="">
         <p class="cart__items-item">{{item.name | shorten: 15}}</p>
         <p class="cart__items-item">{{item.price | currency}}</p>
@@ -26,6 +29,11 @@
             <i class="fa-solid fa-circle-check buy-icon"></i>
         </button>
         <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
+    </div>
+    <div class="pagination">
+        <pagination-controls class="pagination-controls" previouslabel='Prev' nextLabel='next'
+            (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
     </div>
 </div>
 <ng-template #noItems>

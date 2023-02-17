@@ -10,6 +10,10 @@ export class CartService {
     cart: Cart = {items: []}
     cartChanges = new Subject<Cart>()
 
+    page: number = 1;
+    // tableSizeChanges = new Subject<number>();
+    // tableSize: number = 3;
+
     constructor() {}
 
     getTotalCartPrice(items: ShopProduct[]): number {
@@ -47,4 +51,15 @@ export class CartService {
         this.cart.items.splice(0, this.cart.items.length);
         this.cartChanges.next(this.cart);
     }
+
+    // onTableDataChange(event: any) {
+    //     this.page = event;
+    //     this.cartChanges.subscribe(cart => this.cart = cart)
+    // }
+
+    // tableSizeChange(event: any) {
+    //     this.tableSize = event.target.value
+    //     this.tableSizeChanges.next(this.tableSize);
+    //     this.page = 1;
+    // }
 }

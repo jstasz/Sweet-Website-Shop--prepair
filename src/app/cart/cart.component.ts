@@ -12,6 +12,10 @@ export class CartComponent implements OnInit {
   cart: Cart = {items: []}
   totalPrice: number = 0;
 
+  page = 0;
+  tableSize: number = 10;
+  count: number = 0;
+
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -40,5 +44,10 @@ export class CartComponent implements OnInit {
 
   onClearCart() {
     this.cartService.clearCart()
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.cartService.cartChanges.subscribe(cart => this.cart = cart)
   }
 }

@@ -14,8 +14,9 @@ export class HeaderComponent implements OnInit {
 
   navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
 
-  page: number = 1;
   count: number = 0;
+
+  page: number = 1;
   tableSize: number = 3;
 
   constructor(private cartService: CartService) { }
@@ -45,9 +46,9 @@ export class HeaderComponent implements OnInit {
     this.cartService.cartChanges.subscribe(cart => this.cart = cart)
   }
 
-  tableSizeChange(event: any) {
-    this.tableSize = event.target.value
-    this.page = 1;
-    this.cartService.cartChanges.subscribe(cart => this.cart = cart)
-  }
+  // onTableSizeChange(event: any) {
+  //   this.tableSize = event.target.value
+  //   this.page = 1;
+  //   this.cartService.cartChanges.subscribe(cart => this.cart = cart)
+  // }
 }
