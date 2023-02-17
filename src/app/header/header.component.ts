@@ -14,11 +14,6 @@ export class HeaderComponent implements OnInit {
 
   navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
 
-  count: number = 0;
-
-  page: number = 1;
-  tableSize: number = 3;
-
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
@@ -40,15 +35,4 @@ export class HeaderComponent implements OnInit {
   onClearCart() {
     return this.cartService.clearCart();
   }
-
-  onTableDataChange(event: any) {
-    this.page = event;
-    this.cartService.cartChanges.subscribe(cart => this.cart = cart)
-  }
-
-  // onTableSizeChange(event: any) {
-  //   this.tableSize = event.target.value
-  //   this.page = 1;
-  //   this.cartService.cartChanges.subscribe(cart => this.cart = cart)
-  // }
 }

@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
 
   count = 0;
-  page = 0;
+  page = 1;
   tableSize: number = 10;
 
 
