@@ -104,3 +104,13 @@
         }
     }
 }
+
+.pagination {
+    grid-column: 3/5;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.pagination-controls::ng-deep .ngx-pagination .current {
+    background: pink;
+}

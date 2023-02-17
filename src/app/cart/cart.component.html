@@ -21,6 +21,11 @@
         <i class="fa-solid fa-trash cart__items-item remove-icon" (click)="onRemoveFromCart(i)"></i>
     </div>
     <a class="cart__clear" (click)="onClearCart()">remove all</a>
+    <div class="pagination">
+        <pagination-controls class="pagination-controls" previouslabel='Prev' nextLabel='next'
+            (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+    </div>
     <div class="cart__summary">
         <p class="cart__summary-total">Total:
             <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>
@@ -29,11 +34,6 @@
             <i class="fa-solid fa-circle-check buy-icon"></i>
         </button>
         <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
-    </div>
-    <div class="pagination">
-        <pagination-controls class="pagination-controls" previouslabel='Prev' nextLabel='next'
-            (pageChange)="onTableDataChange($event)">
-        </pagination-controls>
     </div>
 </div>
 <ng-template #noItems>

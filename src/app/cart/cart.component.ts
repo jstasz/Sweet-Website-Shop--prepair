@@ -12,9 +12,10 @@ export class CartComponent implements OnInit {
   cart: Cart = {items: []}
   totalPrice: number = 0;
 
+  count = 0;
   page = 0;
   tableSize: number = 10;
-  count: number = 0;
+
 
   constructor(private cartService: CartService) { }
 
