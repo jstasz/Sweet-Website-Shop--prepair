@@ -10,9 +10,9 @@
         <p class="cart__items-item">{{item.name | shorten: 15}}</p>
         <p class="cart__items-item">{{item.price | currency}}</p>
         <p class="cart__items-item">
-            <i class="fa-solid fa-circle-plus quantity-icon"></i>
+            <i class="fa-solid fa-circle-minus quantity-icon" (click)="onChangeQuantity(item, i)"></i>
             {{item.quantity}}
-            <i class="fa-solid fa-circle-minus quantity-icon"></i>
+            <i class="fa-solid fa-circle-plus quantity-icon" (click)="onAddToCart(item)"></i>
         </p>
         <p class="cart__items-item">{{getTotalPrice(item) | currency}}</p>
         <i class="fa-solid fa-trash cart__items-item remove-icon" (click)="onRemoveFromCart(i)"></i>

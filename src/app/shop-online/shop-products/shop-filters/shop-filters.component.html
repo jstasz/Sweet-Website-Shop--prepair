@@ -1,7 +1,8 @@
 <div class="products-header">
     <div class="products-header-sort">
         <label for="sort">Sort by</label>
-        <select id="sort" name="sort" class="select" [(ngModel)]="selectedSort">
+        <select id="sort" name="sort" class="select" [(ngModel)]="selectedSort" (change)="onSelectSort(selectedSort)">
+            <option value="category">category</option>
             <option value="name">name</option>
             <option value="price">price</option>
         </select>
@@ -9,10 +10,9 @@
     <div class="products-header-layout">
         <div class="layout-amount">
             <label for="amount">Show</label>
-            <select id="amount" name="amount" class="select" [(ngModel)]="selectedAmount">
-                <option value="6">6</option>
-                <option value="12">12</option>
-                <option value="18">18</option>
+            <select id="amount" name="amount" class="select" [(ngModel)]="selectedAmount"
+                (change)="onTableSizeChange($event)">
+                <option *ngFor="let size of amountToSelect">{{size}}</option>
             </select>
         </div>
         <div class="layout-style">

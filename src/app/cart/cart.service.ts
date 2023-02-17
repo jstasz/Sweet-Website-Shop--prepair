@@ -17,13 +17,30 @@ export class CartService {
     }
 
     addToCart(item: ShopProduct) {
-        this.cart.items.push(item);
+        const productInCart = this.cart.items.find(prod => prod.id === item.id);
+
+        if(productInCart) {
+            productInCart.quantity += 1
+        } else {
+            this.cart.items.push(item);
+        }
+
         this.cartChanges.next(this.cart);
     }
 
     removeFromCart(index: number) {
         this.cart.items.splice(index, 1);
         this.cartChanges.next(this.cart);
+    }
+
+    changeQuantity(item: ShopProduct, index: number) {
+        const productInCart = this.cart.items.find(prod => prod.id === item.id);
+
+        if(productInCart && productInCart.quantity > 1) {
+            productInCart.quantity -= 1;
+        } else {
+            this.removeFromCart(index)
+        }
     }
 
     clearCart() {

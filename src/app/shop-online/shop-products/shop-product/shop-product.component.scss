@@ -42,14 +42,16 @@
 
     &.list {
         display: flex;
+        margin: 1em;
 
         & .product__img {
             height: 10em;
-            width: 25%;
+            width: 20%;
+            padding: 1em 2em;
         }
 
         & .product__content {
-            width: 70%;
+            width: 80%;
             padding-left: 2em;
         }
 
@@ -62,4 +64,16 @@
             }
         }
     }
+
+    &__pagination {
+        grid-column: 1/5;
+        display: flex;
+        justify-content: center;
+    }
 }
+
+.pagination-controls::ng-deep .ngx-pagination .current {
+    background: pink;
+}
+
+

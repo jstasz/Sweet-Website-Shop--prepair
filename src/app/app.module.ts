@@ -30,6 +30,7 @@ import { ShopProductComponent } from './shop-online/shop-products/shop-product/s
 import { ShopFiltersComponent } from './shop-online/shop-products/shop-filters/shop-filters.component';
 import { ShopOnlineService } from './shop-online/shop-online.servis';
 import { CartService } from './cart/cart.service';
+import { NgxPaginationModule } from 'ngx-pagination'
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { CartService } from './cart/cart.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [ShopOnlineService, CartService],
   bootstrap: [AppComponent]

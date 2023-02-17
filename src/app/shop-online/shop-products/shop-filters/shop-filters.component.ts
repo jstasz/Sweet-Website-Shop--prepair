@@ -8,16 +8,31 @@ import { Amount, Layout, Sort } from '../products.model';
   styleUrls: ['./shop-filters.component.scss']
 })
 export class ShopFiltersComponent implements OnInit {
-  selectedSort: Sort = 'name';
-  selectedAmount: Amount = '6';
+
+  selectedSort: Sort = 'category';
+  selectedAmount: Amount = 8;
   selectedLayout: Layout = 'grid';
+  tableSize: Amount = 8;
+  page: number = 1;
+  amountToSelect: Amount[] = [4, 8, 12];
 
   constructor(private shopOnlineService: ShopOnlineService) { }
 
   ngOnInit(): void {
+    this.onSelectSort(this.selectedSort);
   }
 
   onSelectLayout(layout: Layout) {
-    this.shopOnlineService.changeLayout(layout)
+    this.shopOnlineService.selectLayout(layout);
+  }
+
+  onSelectSort(sort: Sort) {
+    this.shopOnlineService.selectSort(sort);
+  }
+
+  onTableSizeChange(event: any) {
+    this.shopOnlineService.tableSizeChange(event);
+    this.tableSize = this.shopOnlineService.tableSize;
+    this.page = this.shopOnlineService.page;
   }
 }
