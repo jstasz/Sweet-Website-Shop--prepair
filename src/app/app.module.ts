@@ -31,6 +31,7 @@ import { ShopFiltersComponent } from './shop-online/shop-products/shop-filters/s
 import { ShopOnlineService } from './shop-online/shop-online.servis';
 import { CartService } from './cart/cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SummaryComponent } from './cake-designer/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ShopProductsComponent,
     ShopCategoriesComponent,
     ShopProductComponent,
-    ShopFiltersComponent
+    ShopFiltersComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

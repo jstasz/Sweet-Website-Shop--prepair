@@ -6,6 +6,7 @@ import { DateComponent } from "./cake-designer/date/date.component";
 import { DetailsComponent } from "./cake-designer/details/details.tcomponent";
 import { FlavourComponent } from "./cake-designer/flavour/flavour.component";
 import { SizeComponent } from "./cake-designer/size/size.component";
+import { SummaryComponent } from "./cake-designer/summary/summary.component";
 import { TypeComponent } from "./cake-designer/type/type.component";
 import { CartComponent } from "./cart/cart.component";
 import { ContactUsComponent } from "./contact-us/contact-us.component";
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
             { path: 'color', component: ColorComponent },
             { path: 'details', component: DetailsComponent },
             { path: 'date', component: DateComponent },
+            { path: 'summary', component: SummaryComponent },
         ]
     },
     { path: 'shop-online', component: ShopOnlineComponent },

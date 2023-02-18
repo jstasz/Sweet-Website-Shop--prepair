@@ -1,12 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
-class CreateCakeElement {
-  constructor(public elementName: string, public elementIcon: string) {
-    this.elementName = elementName,
-      this.elementIcon = elementIcon
-  }
-}
+import { CreateCakeElement } from './desig-element.model';
 
 @Component({
   selector: 'app-cake-designer',
@@ -22,7 +16,8 @@ export class CakeDesignerComponent implements OnInit {
     new CreateCakeElement('flavour', 'fa-solid fa-cookie-bite'),
     new CreateCakeElement('color', 'fa-solid fa-brush'),
     new CreateCakeElement('details', 'fa-solid fa-star'),
-    new CreateCakeElement('date', 'fa-solid fa-calendar-days')
+    new CreateCakeElement('date', 'fa-solid fa-calendar-days'),
+    new CreateCakeElement('summary', 'fa-solid fa-calendar-days')
   ]
   constructor(private router: Router, private route: ActivatedRoute) { }
 
