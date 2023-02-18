@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
   disactiveCartMenu() {
       this.cartDisactiveTime = setTimeout(() => {
         this.cartMenuIsActive = false
-      }, 1000)
+      }, 500)
   }
 
   onGetTotalCartPrice(items: ShopProduct[]) {
@@ -41,6 +41,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onClearCart() {
-    return this.cartService.clearCart();
+    this.cartService.clearCart();
+    this.cartMenuIsActive = false;
   }
 }

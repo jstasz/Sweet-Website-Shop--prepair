@@ -123,10 +123,10 @@
                 display: block;
                 background-color: rgb(255, 224, 224);
                 border-radius: 50%;
-                cursor: pointer;
                 position: relative;
 
                 &-img {
+                    cursor: pointer;
                     display: block;
                     margin: 0 auto;
                     width: 2.5rem;
@@ -153,10 +153,11 @@
 
             &-menu {
                 background-color: white;
-                padding: 2em;
+                padding: 1em;
                 position: absolute;
-                top: 70px;
-                width: 150%;
+                top: 50px;
+                width: 25vw;
+                right: 0;
                 max-height: 80vh;
                 overflow: scroll;
                 border-radius: 5px;
