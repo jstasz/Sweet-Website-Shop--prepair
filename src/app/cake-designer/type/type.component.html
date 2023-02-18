@@ -5,9 +5,8 @@
         <p class="cake-design__item-title">{{type.name}}</p>
         <div class="cake-design__item-details">
             <div class="details-select">
-                <button class="details-select__btn details-select__btn--add"
-                    *ngIf="typeOfCake === '' || typeOfCake !== type.name" (click)="onAddElement(type)"
-                    [disabled]="type.name === typeOfCake">+</button>
+                <button class="details-select__btn details-select__btn--add" *ngIf="typeOfCake !== type.name"
+                    (click)="onSelectType(type.name)" [disabled]="type.name === typeOfCake">+</button>
                 <button class="details-select__btn details-select__btn--remove" *ngIf="type.name === typeOfCake"
                     (click)="onRemoveElement(type)">-</button>
             </div>

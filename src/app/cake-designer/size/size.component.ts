@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CakeDesignerService } from '../cake-designer.service';
 import { DesignElement } from '../desig-element.model';
 
 @Component({
@@ -9,7 +10,7 @@ import { DesignElement } from '../desig-element.model';
 export class SizeComponent implements OnInit {
 
   selectedSize = false;
-  sizeOfCake = ''
+  sizeOfCake!: string
 
   cakeSize: DesignElement[] = [
     new DesignElement('single', '../../../assets/img/create-cake/size/single.webp'),
@@ -17,21 +18,19 @@ export class SizeComponent implements OnInit {
     new DesignElement('triple', '../../../assets/img/create-cake/size/triple.jpeg', 22.99),
   ]
 
-  constructor() { }
+  constructor(private cakeDesignerService : CakeDesignerService) { }
 
   ngOnInit() {
+    this.sizeOfCake = this.cakeDesignerService.sizeOfCake
+    this.cakeDesignerService.sizeChanges.subscribe(size => this.sizeOfCake = size);
   }
 
-  onAddElement(element: DesignElement) {
-    this.selectedSize = true;
-    this.sizeOfCake = element.name
-    console.log(`selected size: ${this.sizeOfCake}`)
+  onSelectSize(size: string) {
+    this.cakeDesignerService.selectSize(size)
   }
 
   onRemoveElement(element: DesignElement) {
     this.selectedSize = false;
     this.sizeOfCake = '';
   }
-
-
 }
