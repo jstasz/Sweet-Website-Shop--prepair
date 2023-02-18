@@ -16,13 +16,13 @@
         <div [routerLink]="'/favourites'" class="nav__shopping-icon nav__shopping-icon--favourites">
             <img class="nav__shopping-icon-img" src="assets/img/icons/favourites.png" alt="favourites" />
         </div>
-        <div class="nav__shopping-icon nav__shopping-icon--cart" (click)="activeCartMenu()">
+        <div class="nav__shopping-icon nav__shopping-icon--cart" (mouseenter)="activeCartMenu()">
             <div class="nav__shopping-icon--counter" *ngIf="cart.items.length">{{showCartCounter()}}</div>
             <img class="nav__shopping-icon-img" src="assets/img/icons/cart.png" alt="cart" />
         </div>
-        <div *ngIf="cartMenuIsActive" class="nav__shopping-menu">
+        <div *ngIf="cartMenuIsActive" class="nav__shopping-menu" (mouseleave)="activeCartMenu()">
             <div class="nav__shopping-menu-view">
-                <a class="view" [routerLink]="'/cart'" (click)="activeCartMenu()"> {{ 'view Cart' | uppercase }}
+                <a class="view" [routerLink]="'/cart'"> {{ 'view Cart' | uppercase }}
                     <i class="fa-solid fa-magnifying-glass view-icon"></i>
                 </a>
             </div>
