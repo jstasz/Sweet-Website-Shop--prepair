@@ -16,6 +16,9 @@ export class CakeDesignerService {
   flavourOfCake!: string;
   flavourChanges = new Subject<string>();
 
+  colorOfCake!: string;
+  colorChanges = new Subject<string>();
+
   constructor() { }
 
   selectType(type: string) {
@@ -31,5 +34,10 @@ export class CakeDesignerService {
   selectFlavour(flavour: string) {
     this.flavourOfCake = flavour;
     this.flavourChanges.next(this.flavourOfCake)
+  }
+
+  selectColor(color: string) {
+    this.colorOfCake = color;
+    this.colorChanges.next(this.colorOfCake)
   }
 }
