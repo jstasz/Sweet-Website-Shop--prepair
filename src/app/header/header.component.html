@@ -16,47 +16,47 @@
         <div [routerLink]="'/favourites'" class="nav__shopping-icon nav__shopping-icon--favourites">
             <img class="nav__shopping-icon-img" src="assets/img/icons/favourites.png" alt="favourites" />
         </div>
-        <div class="nav__shopping-icon nav__shopping-icon--cart" (mouseenter)="activeCartMenu()">
+        <div class="nav__shopping-icon nav__shopping-icon--cart" (mouseenter)="activeCartMenu()"
+            (mouseleave)="disactiveCartMenu()">
             <div class="nav__shopping-icon--counter" *ngIf="cart.items.length">{{showCartCounter()}}</div>
             <img class="nav__shopping-icon-img" src="assets/img/icons/cart.png" alt="cart" />
-        </div>
-        <div *ngIf="cartMenuIsActive" class="nav__shopping-menu" (mouseleave)="activeCartMenu()">
-            <div class="nav__shopping-menu-view">
-                <a class="view" [routerLink]="'/cart'"> {{ 'view Cart' | uppercase }}
-                    <i class="fa-solid fa-magnifying-glass view-icon"></i>
-                </a>
+            <div *ngIf="cartMenuIsActive" class="nav__shopping-menu" (mouseenter)="activeCartMenu()">
+                <div class="nav__shopping-menu-view">
+                    <a class="view" [routerLink]="'/cart'"> {{ 'view Cart' | uppercase }}
+                        <i class="fa-solid fa-magnifying-glass view-icon"></i>
+                    </a>
+                </div>
+                <div class="nav__shopping-menu-items" *ngIf="cart.items.length else noItems">
+                    <div class="item" *ngFor="let item of cart.items">
+                        <div class="item__product">
+                            <img src="{{item.imagePath}}" alt="{{item.name}}" class="item__product-img">
+                            <p class="item__product-name">{{item.name | shorten: 15}}</p>
+                            <p class="item__product-quantity">({{item.quantity}})</p>
+                        </div>
+                        <p class="item__product-price">{{ item.price| currency }}</p>
+                    </div>
+                    <div class="nav__shopping-menu-summary">
+                        <p>total: <span class="total"> {{onGetTotalCartPrice(cart.items) | currency}} </span></p>
+                    </div>
+                    <div class="nav__shopping-menu-select">
+                        <a class="delete-icon" (click)="onClearCart()">remove all</a>
+                        <div class="buy">
+                            <p>buy<i [routerLink]="'/cart'" class="fa-solid fa-circle-check buy-icon"></i></p>
+                        </div>
+                    </div>
+                </div>
+                <ng-template #noItems>
+                    <div class="cart-empty">
+                        <p>There are no items in your cart !</p>
+                        <div class="cart-empty-actions">
+                            <p>
+                                <span [routerLink]="['/shop-online']" class="link">Start Shopping</span> or
+                                <span [routerLink]="['/cake-designer']" class="link">Create Your Own Cake</span>
+                            </p>
+                        </div>
+                    </div>
+                </ng-template>
             </div>
-            <div class="nav__shopping-menu-items" *ngIf="cart.items.length else noItems">
-                <div class="item" *ngFor="let item of cart.items">
-                    <div class="item__product">
-                        <img src="{{item.imagePath}}" alt="{{item.name}}" class="item__product-img">
-                        <p class="item__product-name">{{item.name | shorten: 15}}</p>
-                        <p class="item__product-quantity">({{item.quantity}})</p>
-                    </div>
-                    <p class="item__product-price">{{ item.price| currency }}</p>
-                </div>
-                <div class="nav__shopping-menu-summary">
-                    <p>total: <span class="total"> {{onGetTotalCartPrice(cart.items) | currency}} </span></p>
-                </div>
-                <div class="nav__shopping-menu-select">
-                    <a class="delete-icon" (click)="onClearCart()">remove all</a>
-                    <div class="buy">
-                        <p>buy<i [routerLink]="'/cart'" (click)="activeCartMenu()"
-                                class="fa-solid fa-circle-check buy-icon"></i></p>
-                    </div>
-                </div>
-            </div>
-            <ng-template #noItems>
-                <div class="cart-empty">
-                    <p>There are no items in your cart !</p>
-                    <div class="cart-empty-actions">
-                        <p>
-                            <span [routerLink]="['/shop-online']" class="link">Start Shopping</span> or
-                            <span [routerLink]="['/cake-designer']" class="link">Create Your Own Cake</span>
-                        </p>
-                    </div>
-                </div>
-            </ng-template>
         </div>
     </div>
 </nav>

@@ -11,6 +11,7 @@ import { ShopProduct } from '../shop-online/shop-products/shop-product/product.m
 export class HeaderComponent implements OnInit {
   cartMenuIsActive = false;
   cart: Cart = {items: []};
+  cartDisactiveTime: any = '';
 
   navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
 
@@ -21,7 +22,14 @@ export class HeaderComponent implements OnInit {
   }
 
   activeCartMenu() {
-    this.cartMenuIsActive = !this.cartMenuIsActive;
+    clearTimeout(this.cartDisactiveTime)
+    this.cartMenuIsActive = true;
+  }
+
+  disactiveCartMenu() {
+      this.cartDisactiveTime = setTimeout(() => {
+        this.cartMenuIsActive = false
+      }, 1000)
   }
 
   onGetTotalCartPrice(items: ShopProduct[]) {
