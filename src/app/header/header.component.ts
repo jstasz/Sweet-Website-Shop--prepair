@@ -11,17 +11,25 @@ import { ShopProduct } from '../shop-online/shop-products/shop-product/product.m
 export class HeaderComponent implements OnInit {
   cartMenuIsActive = false;
   cart: Cart = {items: []};
+  cartDisactiveTime: any = '';
 
   navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cart = this.cartService.cart;
+    this.cartService.cartChanges.subscribe(cart => this.cart = cart)
   }
 
   activeCartMenu() {
-    this.cartMenuIsActive = !this.cartMenuIsActive;
+    clearTimeout(this.cartDisactiveTime)
+    this.cartMenuIsActive = true;
+  }
+
+  disactiveCartMenu() {
+      this.cartDisactiveTime = setTimeout(() => {
+        this.cartMenuIsActive = false
+      }, 500)
   }
 
   onGetTotalCartPrice(items: ShopProduct[]) {
@@ -33,6 +41,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onClearCart() {
-    return this.cartService.clearCart();
+    this.cartService.clearCart();
+    this.cartMenuIsActive = false;
   }
 }
