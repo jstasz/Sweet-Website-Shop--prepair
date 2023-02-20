@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CakeDesignerService } from '../cake-designer.service';
-import { DesignElement, Type } from '../desig-element.model';
+import { DesignTypeElement, Type} from '../desig-element.model';
 
 @Component({
   selector: 'app-type',
@@ -9,12 +9,11 @@ import { DesignElement, Type } from '../desig-element.model';
 })
 export class TypeComponent implements OnInit {
 
-  selectedType = false;
-  typeOfCake!: string 
+  typeOfCake: Type = 'sugar'; 
 
-  cakeTypes: DesignElement[] = [
-    new DesignElement('sugar', '../../../assets/img/create-cake/type/sugar.jpeg', 24.99),
-    new DesignElement('creamy', '../../../assets/img/create-cake/type/creamy.jpeg', 20.99),
+  cakeTypes: DesignTypeElement[] = [
+    new DesignTypeElement('sugar', '../../../assets/img/create-cake/type/sugar.jpeg', 24.99),
+    new DesignTypeElement('creamy', '../../../assets/img/create-cake/type/creamy.jpeg', 20.99),
   ]
 
   constructor(private cakeDesignerService : CakeDesignerService) { }
@@ -24,12 +23,7 @@ export class TypeComponent implements OnInit {
     this.cakeDesignerService.typeChanges.subscribe(type => this.typeOfCake = type);
   }
 
-  onSelectType(type: string) {
+  onSelectType(type: Type) {
     this.cakeDesignerService.selectType(type)
-  }
-
-  onRemoveElement(element: DesignElement) {
-    this.selectedType = false;
-    this.typeOfCake = '';
   }
 }

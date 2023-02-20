@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CakeDesignerService } from '../cake-designer.service';
-import { DesignElement } from '../desig-element.model';
+import { DesignFlavourElement, Flavour } from '../desig-element.model';
 
 @Component({
   selector: 'app-flavour',
@@ -9,13 +9,12 @@ import { DesignElement } from '../desig-element.model';
 })
 export class FlavourComponent implements OnInit {
 
-  selectedFlavour = false;
-  flavourOfCake! : string; 
+  flavourOfCake : Flavour = 'vanilla'; 
 
-  cakeFlavours: DesignElement[] = [
-    new DesignElement('vanilla', '../../../assets/img/create-cake/flavour/vanilla.webp'),
-    new DesignElement('chocolate', '../../../assets/img/create-cake/flavour/chocolate.webp', 0),
-    new DesignElement('rainbow', '../../../assets/img/create-cake/flavour/rainbow.jpeg', 9.99)
+  cakeFlavours: DesignFlavourElement[] = [
+    new DesignFlavourElement('vanilla', '../../../assets/img/create-cake/flavour/vanilla.webp'),
+    new DesignFlavourElement('chocolate', '../../../assets/img/create-cake/flavour/chocolate.webp', 0),
+    new DesignFlavourElement('rainbow', '../../../assets/img/create-cake/flavour/rainbow.jpeg', 9.99)
   ]
 
   constructor(private cakeDesignerService: CakeDesignerService) { }
@@ -25,12 +24,7 @@ export class FlavourComponent implements OnInit {
     this.cakeDesignerService.flavourChanges.subscribe(flavour => this.flavourOfCake = flavour);
   }
 
-  onSelectFlavour(flavour: string) {
+  onSelectFlavour(flavour: Flavour) {
     this.cakeDesignerService.selectFlavour(flavour)
-  }
-
-  onRemoveElement(element: DesignElement) {
-    this.selectedFlavour = false;
-    this.flavourOfCake = '';
   }
 }

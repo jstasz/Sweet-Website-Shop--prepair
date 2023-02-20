@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CakeDesignerService } from '../cake-designer.service';
-import { DesignElement } from '../desig-element.model';
+import { Color, DesignColorElement } from '../desig-element.model';
 
 @Component({
   selector: 'app-color',
@@ -9,16 +9,15 @@ import { DesignElement } from '../desig-element.model';
 })
 export class ColorComponent implements OnInit {
 
-  selectedColor = false;
-  colorOfCake! : string;
+  colorOfCake : Color = 'white';
 
-  cakeColors: DesignElement[] = [
-    new DesignElement('pink', '../../../assets/img/create-cake/color/pink.jpeg'),
-    new DesignElement('blue', '../../../assets/img/create-cake/color/blue.jpeg'),
-    new DesignElement('white', '../../../assets/img/create-cake/color/white.jpeg'),
-    new DesignElement('black', '../../../assets/img/create-cake/color/black.jpeg'),
-    new DesignElement('green', '../../../assets/img/create-cake/color/green.jpeg'),
-    new DesignElement('marmur', '../../../assets/img/create-cake/color/marmur.webp'),
+  cakeColors: DesignColorElement[] = [
+    new DesignColorElement('white', '../../../assets/img/create-cake/color/white.jpeg'),
+    new DesignColorElement('pink', '../../../assets/img/create-cake/color/pink.jpeg'),
+    new DesignColorElement('blue', '../../../assets/img/create-cake/color/blue.jpeg'),
+    new DesignColorElement('black', '../../../assets/img/create-cake/color/black.jpeg'),
+    new DesignColorElement('green', '../../../assets/img/create-cake/color/green.jpeg'),
+    new DesignColorElement('marmur', '../../../assets/img/create-cake/color/marmur.webp'),
   ]
 
   constructor(private cakeDesignerService: CakeDesignerService) { }
@@ -28,13 +27,7 @@ export class ColorComponent implements OnInit {
     this.cakeDesignerService.colorChanges.subscribe(color => this.colorOfCake = color);
   }
 
-  onSelectColor(color: string) {
+  onSelectColor(color: Color) {
     this.cakeDesignerService.selectColor(color)
   }
-
-  onRemoveElement(element: DesignElement) {
-    this.selectedColor = false;
-    this.colorOfCake = '';
-  }
-
 }

@@ -7,8 +7,8 @@
             <div class="details-select">
                 <button class="details-select__btn details-select__btn--add" *ngIf="sizeOfCake !== size.name"
                     (click)="onSelectSize(size.name)" [disabled]="size.name === sizeOfCake">+</button>
-                <button class="details-select__btn details-select__btn--remove" *ngIf="size.name === sizeOfCake"
-                    (click)="onRemoveElement(size)">-</button>
+                <button class="details-select__btn details-select__btn--remove"
+                    *ngIf="size.name === sizeOfCake">-</button>
             </div>
             <p class="details-price">+ {{size.price}} EUR</p>
         </div>

@@ -5,20 +5,52 @@ export class CreateCakeElement {
     }
   }
 
+export class DesignColorElement {
+    constructor(public name: Color, public imagePath: string, public price: number = 0) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.price = price;
+    }
+}
+
+export class DesignTypeElement {
+    constructor(public name: Type, public imagePath: string, public price: number = 0) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.price = price;
+    }
+}
+
+export class DesignSizeElement {
+    constructor(public name: Size, public imagePath: string, public price: number = 0) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.price = price;
+    }
+}
+
+export class DesignFlavourElement {
+    constructor(public name: Flavour, public imagePath: string, public price: number = 0) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.price = price;
+    }
+}
+
 export class DesignElement {
     constructor(public name: Type | Color | Size | Flavour | Details, public imagePath: string, public price: number = 0) {
         this.name = name;
         this.imagePath = imagePath;
-        this.price = price
+        this.price = price;
     }
 }
 
 export class Cake {
-    constructor(public type: string, public color: string, public size: string, public flavour: string) {
+    constructor(public type: string, public color: Color, public size: string, public flavour: string) {
         this.type = type;
         this.color = color;
         this.size = size;
-        this.flavour = flavour
+        this.flavour = flavour;
     }
 }
 

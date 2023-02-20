@@ -1,51 +1,49 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, Type } from './desig-element.model';
+import { Cake, Color, Flavour, Size, Type } from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CakeDesignerService {
 
-  typeOfCake!: string;
-  typeChanges = new Subject<string>();
+  typeOfCake: Type = 'sugar';
+  typeChanges = new Subject<Type>();
 
-  sizeOfCake!: string;
-  sizeChanges = new Subject<string>();
+  sizeOfCake: Size = 'single';
+  sizeChanges = new Subject<Size>();
 
-  flavourOfCake!: string;
-  flavourChanges = new Subject<string>();
+  flavourOfCake: Flavour = 'vanilla';
+  flavourChanges = new Subject<Flavour>();
 
-  colorOfCake!: string;
-  colorChanges = new Subject<string>();
+  colorOfCake: Color = 'white';
+  colorChanges = new Subject<Color>();
 
-  Cake!: Cake
+  cake! : Cake;
 
   constructor() { }
 
-  selectType(type: string) {
+  selectType(type: Type) {
     this.typeOfCake = type;
     this.typeChanges.next(this.typeOfCake)
   }
 
-  selectSize(size: string) {
+  selectSize(size: Size) {
     this.sizeOfCake = size;
     this.sizeChanges.next(this.sizeOfCake)
   }
 
-  selectFlavour(flavour: string) {
+  selectFlavour(flavour: Flavour) {
     this.flavourOfCake = flavour;
     this.flavourChanges.next(this.flavourOfCake)
   }
 
-  selectColor(color: string) {
+  selectColor(color: Color) {
     this.colorOfCake = color;
     this.colorChanges.next(this.colorOfCake)
   }
 
-  createdCake() {
-    this.Cake = new Cake(this.typeOfCake, this.colorOfCake, this.sizeOfCake, this.flavourOfCake)
-    console.log(this.Cake)
+  createCake() {
+    this.cake = new Cake(this.typeOfCake, this.colorOfCake, this.sizeOfCake, this.flavourOfCake);
   }
-
 }
