@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, Color, Flavour, Size, Type } from './desig-element.model';
+import { Cake, Color, Details, Flavour, Size, Type } from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,8 @@ export class CakeDesignerService {
 
   colorOfCake: Color = 'white';
   colorChanges = new Subject<Color>();
+
+  detailsOfCake: {detail : Details, count: number}[] = [{detail : 'topper', count: 1}, ];
 
   cake! : Cake;
 
@@ -43,7 +45,16 @@ export class CakeDesignerService {
     this.colorChanges.next(this.colorOfCake)
   }
 
-  createCake() {
-    this.cake = new Cake(this.typeOfCake, this.colorOfCake, this.sizeOfCake, this.flavourOfCake);
+  addDetailElement(det: Details) {
+
   }
+
+  removeDetailElement(detail: Details) {
+
+  }
+
+  createCake() {
+    this.cake = new Cake(this.typeOfCake, this.colorOfCake, this.sizeOfCake, this.flavourOfCake, this.detailsOfCake);
+  }
+
 }
