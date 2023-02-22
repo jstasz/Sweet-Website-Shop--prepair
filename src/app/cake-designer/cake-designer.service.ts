@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, Color, Details, Flavour, Size, Type } from './desig-element.model';
+import { Cake, Color, CountedDetails, Details, Flavour, Size, Type } from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,8 @@ export class CakeDesignerService {
   colorOfCake: Color = 'white';
   colorChanges = new Subject<Color>();
 
-  detailsOfCake: Details[] = [];
-
+  addedDetails: Details[] = [];
+  detailsOfCake: CountedDetails[] = [];
 
   cake! : Cake;
 
@@ -47,16 +47,30 @@ export class CakeDesignerService {
   }
 
   addDetailElement(detail: Details) {
-    this.detailsOfCake.push(detail);
+    this.addedDetails.push(detail);
+    this.detailsWithCount(this.addedDetails)
+  }
+
+  detailsWithCount(tab: Details[]) {
+    const details: Record<string, number> = {};
+    tab.forEach(item => {
+      details[item] = details[item] ? details[item] + 1 : 1;
+    });
+
+    const detailsOfCake: CountedDetails[] = [];
+    Object.keys(details).forEach(key => {
+      detailsOfCake.push({ detail: key, count: details[key]});
+    });
+    
+    return this.detailsOfCake = detailsOfCake;
   }
 
   removeDetailElement(detail: Details) {
-    const index = this.detailsOfCake.indexOf(detail);
-    this.detailsOfCake.splice(index, 1);
+    const index = this.addedDetails.indexOf(detail);
+    this.addedDetails.splice(index, 1);
   }
 
   createCake() {
     this.cake = new Cake(this.typeOfCake, this.colorOfCake, this.sizeOfCake, this.flavourOfCake, this.detailsOfCake);
   }
-
 }

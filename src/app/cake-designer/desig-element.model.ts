@@ -46,7 +46,7 @@ export class DesignDetailElement {
 }
 
 export class Cake {
-    constructor(public type: Type, public color: Color, public size: Size, public flavour: Flavour, public details: Details[]) {
+    constructor(public type: Type, public color: Color, public size: Size, public flavour: Flavour, public details: CountedDetails[]) {
         this.type = type;
         this.color = color;
         this.size = size;
@@ -54,6 +54,11 @@ export class Cake {
         this.details = details;
     }
 }
+
+export type CountedDetails = {
+    detail: string,
+    count: number
+  };
 
 export type Type = 'sugar' | 'creamy';
 export type Color = 'pink' | 'blue' | 'white' | 'black' | 'green' | 'marmur';
