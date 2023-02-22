@@ -18,7 +18,6 @@ import { FooterComponent } from './footer/footer.component';
 import { TypeComponent } from './cake-designer/type/type.component';
 import { SizeComponent } from './cake-designer/size/size.component';
 import { FlavourComponent } from './cake-designer/flavour/flavour.component';
-import { DateComponent } from './cake-designer/date/date.component';
 import { ColorComponent } from './cake-designer/color/color.component';
 import { DetailsComponent } from './cake-designer/details/details.tcomponent';
 import { ShortenPipe } from './shared/shorten.pipe';
@@ -52,7 +51,6 @@ import { SummaryComponent } from './cake-designer/summary/summary.component';
     TypeComponent,
     SizeComponent,
     FlavourComponent,
-    DateComponent,
     DetailsComponent,
     ColorComponent,
     ShortenPipe,

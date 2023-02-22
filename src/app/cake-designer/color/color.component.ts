@@ -29,5 +29,6 @@ export class ColorComponent implements OnInit {
 
   onSelectColor(color: Color) {
     this.cakeDesignerService.selectColor(color)
+    console.log(this.colorOfCake)
   }
 }
