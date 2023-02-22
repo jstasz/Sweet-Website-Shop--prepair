@@ -19,7 +19,8 @@ export class CakeDesignerService {
   colorOfCake: Color = 'white';
   colorChanges = new Subject<Color>();
 
-  detailsOfCake: {detail : Details, count: number}[] = [{detail : 'topper', count: 1}, ];
+  detailsOfCake: Details[] = [];
+
 
   cake! : Cake;
 
@@ -27,30 +28,31 @@ export class CakeDesignerService {
 
   selectType(type: Type) {
     this.typeOfCake = type;
-    this.typeChanges.next(this.typeOfCake)
+    this.typeChanges.next(this.typeOfCake);
   }
 
   selectSize(size: Size) {
     this.sizeOfCake = size;
-    this.sizeChanges.next(this.sizeOfCake)
+    this.sizeChanges.next(this.sizeOfCake);
   }
 
   selectFlavour(flavour: Flavour) {
     this.flavourOfCake = flavour;
-    this.flavourChanges.next(this.flavourOfCake)
+    this.flavourChanges.next(this.flavourOfCake);
   }
 
   selectColor(color: Color) {
     this.colorOfCake = color;
-    this.colorChanges.next(this.colorOfCake)
+    this.colorChanges.next(this.colorOfCake);
   }
 
-  addDetailElement(det: Details) {
-
+  addDetailElement(detail: Details) {
+    this.detailsOfCake.push(detail);
   }
 
   removeDetailElement(detail: Details) {
-
+    const index = this.detailsOfCake.indexOf(detail);
+    this.detailsOfCake.splice(index, 1);
   }
 
   createCake() {

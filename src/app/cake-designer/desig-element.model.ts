@@ -46,7 +46,7 @@ export class DesignDetailElement {
 }
 
 export class Cake {
-    constructor(public type: Type, public color: Color, public size: Size, public flavour: Flavour, public details: {detail : Details, count: number}[]) {
+    constructor(public type: Type, public color: Color, public size: Size, public flavour: Flavour, public details: Details[]) {
         this.type = type;
         this.color = color;
         this.size = size;
