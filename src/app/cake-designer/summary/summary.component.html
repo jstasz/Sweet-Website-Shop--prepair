@@ -1,4 +1,5 @@
 <div class="cake-design wrapper">
     <p>your cake : {{createdCake.type}} {{createdCake.size}} cake in {{createdCake.color}} color with
-        {{createdCake.flavour}} flavour and details : {{createdCake.details}}</p>
+        {{createdCake.flavour}} flavour</p>
+    <p *ngIf="createdCake.details.length">Cake accessories: {{createdCake.details}}</p>
 </div>
