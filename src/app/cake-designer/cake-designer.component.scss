@@ -40,6 +40,13 @@
     align-items: center;
     justify-content: center;
 
+    &__floor {
+        width: 100%;
+        text-align: center;
+        padding: 1em 0;
+        font-weight: bold;
+    }
+
     &__item {
         margin: 1em;
         padding: 1em;
@@ -137,7 +144,7 @@
 
     .cake-design {
         &__item {
-            width: 30%;
+            width: 20%;
         }
     }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CakeDesignerService } from '../cake-designer.service';
-import { DesignFlavourElement, Flavour } from '../desig-element.model';
+import { DesignFlavourElement, Flavour, Floor, FloorsFlavour } from '../desig-element.model';
 
 @Component({
   selector: 'app-flavour',
@@ -9,7 +9,8 @@ import { DesignFlavourElement, Flavour } from '../desig-element.model';
 })
 export class FlavourComponent implements OnInit {
 
-  flavourOfCake : Flavour = 'vanilla'; 
+  flavourOfCake: FloorsFlavour[] = [{floor: 'down', flavour: 'vanilla'}];
+  florsOfCake : Floor[] = []
 
   cakeFlavours: DesignFlavourElement[] = [
     new DesignFlavourElement('vanilla', '../../../assets/img/create-cake/flavour/vanilla.webp'),
@@ -20,11 +21,16 @@ export class FlavourComponent implements OnInit {
   constructor(private cakeDesignerService: CakeDesignerService) { }
 
   ngOnInit() {
-    this.flavourOfCake = this.cakeDesignerService.flavourOfCake
+    this.onGetFloors();
+    this.flavourOfCake = this.cakeDesignerService.flavourOfCake;
     this.cakeDesignerService.flavourChanges.subscribe(flavour => this.flavourOfCake = flavour);
   }
 
-  onSelectFlavour(flavour: Flavour) {
-    this.cakeDesignerService.selectFlavour(flavour)
+  onSelectFlavour(flavour: Flavour, floor: Floor) {
+    this.cakeDesignerService.selectFlavour(flavour, floor)
+  }
+
+  onGetFloors() {
+    this.florsOfCake = this.cakeDesignerService.floorsOfCake;
   }
 }

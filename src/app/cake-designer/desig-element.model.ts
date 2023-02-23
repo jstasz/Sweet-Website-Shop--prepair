@@ -37,6 +37,11 @@ export class DesignFlavourElement {
     }
 }
 
+export type FloorsFlavour = {
+    floor: Floor, 
+    flavour: Flavour
+};
+
 export class DesignDetailElement {
     constructor(public name: Details, public imagePath: string, public price: number = 0) {
         this.name = name;
@@ -45,8 +50,13 @@ export class DesignDetailElement {
     }
 }
 
+export type CountedDetails = {
+    detail: string,
+    count: number
+};
+
 export class Cake {
-    constructor(public type: Type, public color: Color, public size: Size, public flavour: Flavour, public details: CountedDetails[]) {
+    constructor(public type: Type, public color: Color, public size: Size, public flavour: FloorsFlavour[], public details: CountedDetails[]) {
         this.type = type;
         this.color = color;
         this.size = size;
@@ -55,10 +65,7 @@ export class Cake {
     }
 }
 
-export type CountedDetails = {
-    detail: string,
-    count: number
-  };
+export type Floor = 'top' | 'middle' | 'down';
 
 export type Type = 'sugar' | 'creamy';
 export type Color = 'pink' | 'blue' | 'white' | 'black' | 'green' | 'marmur';

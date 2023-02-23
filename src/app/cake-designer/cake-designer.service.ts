@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, Color, CountedDetails, Details, Flavour, Size, Type } from './desig-element.model';
+import { Cake, Color, CountedDetails, Details, Flavour, Floor, FloorsFlavour, Size, Type } from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,10 @@ export class CakeDesignerService {
 
   sizeOfCake: Size = 'single';
   sizeChanges = new Subject<Size>();
+  floorsOfCake: Floor[] = ['down'];
 
-  flavourOfCake: Flavour = 'vanilla';
-  flavourChanges = new Subject<Flavour>();
+  flavourOfCake: FloorsFlavour[] = [];
+  flavourChanges = new Subject<FloorsFlavour[]>();
 
   colorOfCake: Color = 'white';
   colorChanges = new Subject<Color>();
@@ -26,19 +27,31 @@ export class CakeDesignerService {
 
   constructor() { }
 
+  selectSize(size: Size) {
+    this.sizeOfCake = size;
+    this.sizeChanges.next(this.sizeOfCake);
+
+    if(this.sizeOfCake === 'single')
+    this.floorsOfCake = ['down']
+    if(this.sizeOfCake === 'double')
+    this.floorsOfCake = ['top', 'down']
+    if(this.sizeOfCake === 'triple') 
+    this.floorsOfCake = ['top', 'middle', 'down']
+
+    this.floorsOfCake.forEach(floor =>{
+      this.flavourOfCake.push({floor: floor, flavour: 'vanilla'})
+    })
+  }
+
   selectType(type: Type) {
     this.typeOfCake = type;
     this.typeChanges.next(this.typeOfCake);
   }
 
-  selectSize(size: Size) {
-    this.sizeOfCake = size;
-    this.sizeChanges.next(this.sizeOfCake);
-  }
-
-  selectFlavour(flavour: Flavour) {
-    this.flavourOfCake = flavour;
-    this.flavourChanges.next(this.flavourOfCake);
+  selectFlavour(flavour: Flavour, floor: Floor) {
+    this.flavourOfCake.forEach(el => {
+      el.floor === floor ? el.flavour = flavour : ''
+    })
   }
 
   selectColor(color: Color) {

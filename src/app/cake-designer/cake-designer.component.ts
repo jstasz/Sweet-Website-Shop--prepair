@@ -11,8 +11,8 @@ import { CreateCakeElement } from './desig-element.model';
 export class CakeDesignerComponent implements OnInit {
 
   createCakeInstruction: CreateCakeElement[] = [
-    new CreateCakeElement('type', 'fa-solid fa-cake-candles'),
     new CreateCakeElement('size', 'fa-solid fa-scale-unbalanced'),
+    new CreateCakeElement('type', 'fa-solid fa-cake-candles'),
     new CreateCakeElement('flavour', 'fa-solid fa-cookie-bite'),
     new CreateCakeElement('color', 'fa-solid fa-brush'),
     new CreateCakeElement('details', 'fa-solid fa-star'),
