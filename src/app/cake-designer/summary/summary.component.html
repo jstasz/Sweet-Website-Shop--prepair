@@ -2,14 +2,14 @@
     <p>your cake : {{createdCake.type}} {{createdCake.size}} cake</p>
     <div *ngIf="createdCake.details.length">
         <p>Cake accessories:</p>
-        <p *ngFor="let detail of detailsOfCake"> {{detail.detail}} ({{detail.count}}) </p>
+        <p *ngFor="let detail of createdCake.details"> {{detail.detail}} ({{detail.count}}) </p>
     </div>
     <div *ngIf="createdCake.flavour.length">
         <p>Cake Flavours :</p>
-        <p *ngFor="let flavour of flavoursOfCake">Floor {{flavour.floor}} : {{flavour.flavour}}</p>
+        <p *ngFor="let flavour of createdCake.flavour">Floor {{flavour.floor}} : {{flavour.flavour}}</p>
     </div>
     <div *ngIf="createdCake.color.length">
         <p>Cake Colors :</p>
-        <p *ngFor="let color of colorsOfCake">Floor {{color.floor}} : {{color.color}}</p>
+        <p *ngFor="let color of createdCake.color">Floor {{color.floor}} : {{color.color}}</p>
     </div>
 </div>

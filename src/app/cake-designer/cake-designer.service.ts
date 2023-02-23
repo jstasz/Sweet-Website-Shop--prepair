@@ -38,6 +38,9 @@ export class CakeDesignerService {
     if(this.sizeOfCake === 'triple') 
     this.floorsOfCake = ['top', 'middle', 'down']
 
+    this.flavoursOfCake = [];
+    this.colorsOfCake = [];
+    
     this.floorsOfCake.forEach(floor => {
       this.flavoursOfCake.push({floor: floor, flavour: 'vanilla'})
       this.colorsOfCake.push({floor: floor, color: 'white'})
@@ -53,6 +56,7 @@ export class CakeDesignerService {
     this.flavoursOfCake.forEach(el => {
       el.floor === floor ? el.flavour = flavour : ''
     })
+    this.flavourChanges.next(this.flavoursOfCake);
   }
 
   selectColor(color: Color, floor: Floor) {

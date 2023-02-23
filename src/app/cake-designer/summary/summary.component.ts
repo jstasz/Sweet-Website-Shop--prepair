@@ -1,6 +1,6 @@
-import { Component, OnInit, Type } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CakeDesignerService } from '../cake-designer.service';
-import { Cake, CountedDetails, Details, Flavour, Floor, FloorsColor, FloorsFlavour } from '../desig-element.model';
+import { Cake } from '../desig-element.model';
 
 @Component({
   selector: 'app-summary',
@@ -10,18 +10,12 @@ import { Cake, CountedDetails, Details, Flavour, Floor, FloorsColor, FloorsFlavo
 export class SummaryComponent implements OnInit {
 
   createdCake!: Cake;
-  detailsOfCake: CountedDetails[] = [];
-  flavoursOfCake: FloorsFlavour[] = [];
-  colorsOfCake: FloorsColor[] = [];
 
   constructor(private cakeDesignerService: CakeDesignerService) { }
 
   ngOnInit(): void {
     this.onCreateNewCake();
     this.getCake();
-    this.getDetails();
-    this.getFlavours();
-    this.getColors();
   }
 
   onCreateNewCake() {
@@ -30,18 +24,6 @@ export class SummaryComponent implements OnInit {
 
   getCake() {
     this.createdCake = this.cakeDesignerService.cake;
+    console.log(this.createdCake)
   }
-
-  getDetails() {
-    this.detailsOfCake = this.cakeDesignerService.detailsOfCake;
-  }
-
-  getFlavours() {
-    this.flavoursOfCake = this.cakeDesignerService.flavoursOfCake;
-  }
-
-  getColors() {
-    this.colorsOfCake = this.cakeDesignerService.colorsOfCake;
-  }
-
 }
