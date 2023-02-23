@@ -14,7 +14,7 @@ export class CakeDesignerService {
   sizeChanges = new Subject<Size>();
   floorsOfCake: Floor[] = ['down'];
 
-  flavourOfCake: FloorsFlavour[] = [];
+  flavoursOfCake: FloorsFlavour[] = [];
   flavourChanges = new Subject<FloorsFlavour[]>();
 
   colorOfCake: Color = 'white';
@@ -39,7 +39,7 @@ export class CakeDesignerService {
     this.floorsOfCake = ['top', 'middle', 'down']
 
     this.floorsOfCake.forEach(floor =>{
-      this.flavourOfCake.push({floor: floor, flavour: 'vanilla'})
+      this.flavoursOfCake.push({floor: floor, flavour: 'vanilla'})
     })
   }
 
@@ -49,7 +49,7 @@ export class CakeDesignerService {
   }
 
   selectFlavour(flavour: Flavour, floor: Floor) {
-    this.flavourOfCake.forEach(el => {
+    this.flavoursOfCake.forEach(el => {
       el.floor === floor ? el.flavour = flavour : ''
     })
   }
@@ -84,6 +84,6 @@ export class CakeDesignerService {
   }
 
   createCake() {
-    this.cake = new Cake(this.typeOfCake, this.colorOfCake, this.sizeOfCake, this.flavourOfCake, this.detailsOfCake);
+    this.cake = new Cake(this.typeOfCake, this.colorOfCake, this.sizeOfCake, this.flavoursOfCake, this.detailsOfCake);
   }
 }

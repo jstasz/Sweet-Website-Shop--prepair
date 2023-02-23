@@ -35,7 +35,7 @@ export class SummaryComponent implements OnInit {
   }
 
   getFlavours() {
-    this.flavoursOfCake = this.cakeDesignerService.flavourOfCake
+    this.flavoursOfCake = this.cakeDesignerService.flavoursOfCake
   }
 
 }

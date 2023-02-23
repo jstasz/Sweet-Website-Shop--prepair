@@ -22,7 +22,7 @@ export class FlavourComponent implements OnInit {
 
   ngOnInit() {
     this.onGetFloors();
-    this.flavourOfCake = this.cakeDesignerService.flavourOfCake;
+    this.flavourOfCake = this.cakeDesignerService.flavoursOfCake;
     this.cakeDesignerService.flavourChanges.subscribe(flavour => this.flavourOfCake = flavour);
   }
 
