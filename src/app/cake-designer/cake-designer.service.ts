@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, Color, CountedDetails, Details, Flavour, Floor, FloorsFlavour, Size, Type } from './desig-element.model';
+import { Cake, Color, CountedDetails, Details, Flavour, Floor, FloorsColor, FloorsFlavour, Size, Type } from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,8 @@ export class CakeDesignerService {
   flavoursOfCake: FloorsFlavour[] = [];
   flavourChanges = new Subject<FloorsFlavour[]>();
 
-  colorOfCake: Color = 'white';
-  colorChanges = new Subject<Color>();
+  colorsOfCake: FloorsColor[] = [];
+  colorChanges = new Subject<FloorsColor[]>();
 
   addedDetails: Details[] = [];
   detailsOfCake: CountedDetails[] = [];
@@ -38,8 +38,9 @@ export class CakeDesignerService {
     if(this.sizeOfCake === 'triple') 
     this.floorsOfCake = ['top', 'middle', 'down']
 
-    this.floorsOfCake.forEach(floor =>{
+    this.floorsOfCake.forEach(floor => {
       this.flavoursOfCake.push({floor: floor, flavour: 'vanilla'})
+      this.colorsOfCake.push({floor: floor, color: 'white'})
     })
   }
 
@@ -54,9 +55,10 @@ export class CakeDesignerService {
     })
   }
 
-  selectColor(color: Color) {
-    this.colorOfCake = color;
-    this.colorChanges.next(this.colorOfCake);
+  selectColor(color: Color, floor: Floor) {
+    this.colorsOfCake.forEach(el => {
+      el.floor === floor ? el.color = color : ''
+    })
   }
 
   addDetailElement(detail: Details) {
@@ -84,6 +86,6 @@ export class CakeDesignerService {
   }
 
   createCake() {
-    this.cake = new Cake(this.typeOfCake, this.colorOfCake, this.sizeOfCake, this.flavoursOfCake, this.detailsOfCake);
+    this.cake = new Cake(this.typeOfCake, this.colorsOfCake, this.sizeOfCake, this.flavoursOfCake, this.detailsOfCake);
   }
 }

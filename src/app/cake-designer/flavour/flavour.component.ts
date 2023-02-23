@@ -10,7 +10,7 @@ import { DesignFlavourElement, Flavour, Floor, FloorsFlavour } from '../desig-el
 export class FlavourComponent implements OnInit {
 
   flavourOfCake: FloorsFlavour[] = [{floor: 'down', flavour: 'vanilla'}];
-  florsOfCake : Floor[] = []
+  florsOfCake : Floor[] = [];
 
   cakeFlavours: DesignFlavourElement[] = [
     new DesignFlavourElement('vanilla', '../../../assets/img/create-cake/flavour/vanilla.webp'),
