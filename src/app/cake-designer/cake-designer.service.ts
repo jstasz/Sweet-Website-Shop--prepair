@@ -22,6 +22,7 @@ export class CakeDesignerService {
 
   addedDetails: Details[] = [];
   detailsOfCake: CountedDetails[] = [];
+  detailsChanges = new Subject<CountedDetails[]>();
 
   cake! : Cake;
 
@@ -68,6 +69,7 @@ export class CakeDesignerService {
   addDetailElement(detail: Details) {
     this.addedDetails.push(detail);
     this.detailsWithCount(this.addedDetails)
+    this.detailsChanges.next(this.detailsOfCake)
   }
 
   detailsWithCount(tab: Details[]) {

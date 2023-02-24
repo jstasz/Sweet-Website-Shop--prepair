@@ -5,10 +5,11 @@
         <p class="cake-design__item-title">{{detail.name}}</p>
         <div class="cake-design__item-details">
             <div class="details-select">
-                <button class="details-select__btn details-select__btn--add"
-                    (click)="onAddDetailElement(detail.name)">+</button>
-                <button class="details-select__btn details-select__btn--remove"
-                    (click)="onRemoveDetailElement(detail.name)">-</button>
+                <i class="fa-solid fa-circle-plus details-select__btn"
+                    [ngClass]="{selected: detailCount(detail.name) > 0}" (click)="onAddDetailElement(detail.name)"></i>
+                <p>{{detailCount(detail.name)}}</p>
+                <i *ngIf="detailCount(detail.name) > 0" class="fa-solid fa-circle-minus details-select__btn"
+                    (click)="onRemoveDetailElement(detail.name)"></i>
             </div>
             <p class="details-price">+ {{detail.price}} EUR</p>
         </div>

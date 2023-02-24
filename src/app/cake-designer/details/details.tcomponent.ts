@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { count } from 'rxjs';
 import { CakeDesignerService } from '../cake-designer.service';
-import { Cake, DesignDetailElement, Details } from '../desig-element.model';
+import { Cake, CountedDetails, DesignDetailElement, Details } from '../desig-element.model';
 
 @Component({
   selector: 'app-decoration',
@@ -9,6 +9,8 @@ import { Cake, DesignDetailElement, Details } from '../desig-element.model';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+
+  detailsOfCake: CountedDetails[] = [];
 
   cakeDetails: DesignDetailElement[] = [
     new DesignDetailElement('candles', '../../../assets/img/create-cake/details/candles.jpg', 1.99),
@@ -28,13 +30,29 @@ export class DetailsComponent implements OnInit {
   constructor(private cakeDesignerService : CakeDesignerService) { }
 
   ngOnInit() {
+    this.getDetails();
+  }
+
+  getDetails() {
+    this.detailsOfCake = this.cakeDesignerService.detailsOfCake;
+    this.cakeDesignerService.detailsChanges.subscribe(details => this.detailsOfCake = details);
   }
 
   onAddDetailElement(detail: Details) {
     this.cakeDesignerService.addDetailElement(detail);
+    this.detailCount(detail)
   }
 
   onRemoveDetailElement(detail: Details) {
     this.cakeDesignerService.removeDetailElement(detail);
+  }
+
+  detailCount(detail: Details) {
+    const existingDetail = this.detailsOfCake.find(det => det.detail === detail);
+    if (existingDetail) {
+      return existingDetail.count
+    } else {
+      return ''
+    }
   }
 }
