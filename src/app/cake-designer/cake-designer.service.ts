@@ -14,10 +14,10 @@ export class CakeDesignerService {
   sizeChanges = new Subject<Size>();
   floorsOfCake: Floor[] = ['down'];
 
-  flavoursOfCake: FloorsFlavour[] = [];
+  flavoursOfCake: FloorsFlavour[] = [{floor: 'down', flavour: 'vanilla'}];
   flavourChanges = new Subject<FloorsFlavour[]>();
 
-  colorsOfCake: FloorsColor[] = [];
+  colorsOfCake: FloorsColor[] = [{floor: 'down', color: 'white'}];
   colorChanges = new Subject<FloorsColor[]>();
 
   addedDetails: Details[] = [];
@@ -40,7 +40,7 @@ export class CakeDesignerService {
 
     this.flavoursOfCake = [];
     this.colorsOfCake = [];
-    
+
     this.floorsOfCake.forEach(floor => {
       this.flavoursOfCake.push({floor: floor, flavour: 'vanilla'})
       this.colorsOfCake.push({floor: floor, color: 'white'})

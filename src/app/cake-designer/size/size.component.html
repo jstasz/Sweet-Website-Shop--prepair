@@ -1,14 +1,11 @@
 <div class="cake-design wrapper">
-    <div class="cake-design__item" *ngFor="let size of cakeSize" (click)="onSelectSize(size.name)">
+    <div class="cake-design__item" [ngClass]="{selected: sizeOfCake === size.name}" *ngFor="let size of cakeSize"
+        (click)="onSelectSize(size.name)">
         <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + size.imagePath + ')'}">
         </div>
         <p class="cake-design__item-title">{{size.name}}</p>
         <div class="cake-design__item-details">
-            <div class="details-select">
-                <button class="details-select__btn details-select__btn--add" *ngIf="sizeOfCake !== size.name">+</button>
-                <button class="details-select__btn details-select__btn--remove"
-                    *ngIf="size.name === sizeOfCake">-</button>
-            </div>
+            <p> {{sizeOfCake === size.name ? 'SELECTED' : ''}}</p>
             <p class="details-price">+ {{size.price}} EUR</p>
         </div>
     </div>

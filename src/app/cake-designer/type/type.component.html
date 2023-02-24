@@ -1,15 +1,12 @@
 <div class="cake-design wrapper">
-    <div class="cake-design__item" *ngFor="let type of cakeTypes" (click)="onSelectType(type.name)">
+    <div class="cake-design__item" [ngClass]="{selected: typeOfCake === type.name}" *ngFor="let type of cakeTypes"
+        (click)="onSelectType(type.name)">
         <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + type.imagePath + ')'}">
         </div>
         <p class="cake-design__item-title">{{type.name}}</p>
         <div class="cake-design__item-details">
-            <div class="details-select">
-                <button class="details-select__btn details-select__btn--add" *ngIf="typeOfCake !== type.name">+</button>
-                <button class="details-select__btn details-select__btn--remove"
-                    *ngIf="type.name === typeOfCake">-</button>
-            </div>
-            <p class=" details-price">+ {{type.price}} EUR</p>
+            <p> {{typeOfCake === type.name ? 'SELECTED' : ''}}</p>
+            <p class="details-price">+ {{type.price}} EUR</p>
         </div>
     </div>
 </div>

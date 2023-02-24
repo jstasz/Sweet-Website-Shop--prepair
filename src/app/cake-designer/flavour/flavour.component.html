@@ -1,16 +1,12 @@
-<div class="cake-design wrapper" *ngFor="let floor of florsOfCake">
+<div class="cake-design wrapper" *ngFor="let floor of florsOfCake, let i = index">
     <p *ngIf="florsOfCake.length > 1" class="cake-design__floor">Floor : {{floor}}</p>
-    <div class="cake-design__item" *ngFor="let flavour of cakeFlavours" (click)="onSelectFlavour(flavour.name, floor)">
+    <div class="cake-design__item" [ngClass]="{selected: flavourOfCake[i].flavour === flavour.name}"
+        *ngFor="let flavour of cakeFlavours" (click)="onSelectFlavour(flavour.name, floor)">
         <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + flavour.imagePath + ')'}">
         </div>
         <p class="cake-design__item-title">{{flavour.name}}</p>
         <div class="cake-design__item-details">
-            <!-- <div class="details-select">
-                <button class="details-select__btn details-select__btn--add"
-                    *ngIf="flavourOfCake[flavour] !== flavour.name">+</button>
-                <button class="details-select__btn details-select__btn--remove"
-                    *ngIf="flavour.name === flavourOfCake">-</button>
-            </div> -->
+            <p> {{flavourOfCake[i].flavour === flavour.name ? 'SELECTED' : ''}}</p>
             <p class="details-price">+ {{flavour.price}} EUR</p>
         </div>
     </div>

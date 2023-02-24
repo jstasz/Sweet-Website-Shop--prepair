@@ -24,6 +24,5 @@ export class SummaryComponent implements OnInit {
 
   getCake() {
     this.createdCake = this.cakeDesignerService.cake;
-    console.log(this.createdCake)
   }
 }
