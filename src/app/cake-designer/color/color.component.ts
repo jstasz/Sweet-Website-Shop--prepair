@@ -19,6 +19,8 @@ export class ColorComponent implements OnInit {
     new DesignColorElement('black', '../../../assets/img/create-cake/color/black.jpeg'),
     new DesignColorElement('green', '../../../assets/img/create-cake/color/green.jpeg'),
     new DesignColorElement('marmur', '../../../assets/img/create-cake/color/marmur.webp'),
+    new DesignColorElement('violet', '../../../assets/img/create-cake/color/violet.jpeg'),
+    new DesignColorElement('grey', '../../../assets/img/create-cake/color/grey.webp'),
   ]
 
   constructor(private cakeDesignerService: CakeDesignerService) { }

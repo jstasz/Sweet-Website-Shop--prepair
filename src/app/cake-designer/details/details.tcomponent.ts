@@ -20,6 +20,9 @@ export class DetailsComponent implements OnInit {
     new DesignDetailElement('sweets', '../../../assets/img/create-cake/details/sweets.jpeg', 9.99),
     new DesignDetailElement('alcohol', '../../../assets/img/create-cake/details/alcohol.jpeg', 11.99),
     new DesignDetailElement('ganage', '../../../assets/img/create-cake/details/ganage.jpeg', 8.99),
+    new DesignDetailElement('sprinkles', '../../../assets/img/create-cake/details/sprinkles.jpeg', 8.99),
+    new DesignDetailElement('fruits', '../../../assets/img/create-cake/details/fruits.jpeg', 8.99),
+    new DesignDetailElement('lace', '../../../assets/img/create-cake/details/lace.jpeg', 8.99),
   ]
 
   constructor(private cakeDesignerService : CakeDesignerService) { }

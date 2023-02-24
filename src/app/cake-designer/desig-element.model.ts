@@ -73,7 +73,7 @@ export class Cake {
 export type Floor = 'top' | 'middle' | 'down';
 
 export type Type = 'sugar' | 'creamy';
-export type Color = 'pink' | 'blue' | 'white' | 'black' | 'green' | 'marmur';
+export type Color = 'pink' | 'blue' | 'white' | 'black' | 'green' | 'marmur'| 'violet' | 'grey';
 export type Size = 'single' | 'double' | 'triple';
 export type Flavour = 'vanilla' | 'chocolate' | 'rainbow';
-export type Details = 'candles' | 'topper' | 'cookies' | 'balloons' | 'flare' | 'flowers' | 'sweets' | 'alcohol' | 'ganage';
+export type Details = 'candles' | 'topper' | 'cookies' | 'balloons' | 'flare' | 'flowers' | 'sweets' | 'alcohol' | 'ganage' | 'sprinkles' | 'fruits' | 'lace' ;
