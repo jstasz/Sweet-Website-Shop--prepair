@@ -1,18 +1,23 @@
 <div class="cake-design wrapper">
-    <p>your cake : {{createdCake.type}} {{createdCake.size}} cake</p>
-    <div *ngIf="createdCake.details.length">
-        <p>Cake accessories:</p>
-        <p *ngFor="let detail of createdCake.details"> {{detail}}</p>
-    </div>
-    <div>
-        <p>Flavour :</p>
-        <p *ngFor="let flavour of createdCake.flavour">{{createdCake.flavour.length > 1 ? 'Floor ' + flavour.floor + ':
-            '
-            : ''}} {{flavour.flavour}}</p>
-    </div>
-    <div>
-        <p>Color :</p>
-        <p *ngFor="let color of createdCake.color">{{createdCake.color.length > 1 ? 'Floor ' + color.floor + ': '
-            : ''}} {{color.color}}</p>
+    <div class="cake-design__summary">
+        <p class="summary__cake">your cake</p>
+        <p>{{createdCake.type}} {{createdCake.size}} cake</p>
+        <img src="" alt="">
+        <div class="summary__accessories" *ngIf="createdCake.details.length">
+            <p>Cake accessories:</p>
+            <p *ngFor="let detail of createdCake.details"> {{detail}}</p>
+        </div>
+        <div class="summary__flavour">
+            <p>Flavour :</p>
+            <p *ngFor="let flavour of createdCake.flavour">{{createdCake.flavour.length > 1 ? 'Floor ' + flavour.floor +
+                ':'
+                : ''}} {{flavour.flavour}}</p>
+        </div>
+        <div class="summary__color">
+            <p>Color :</p>
+            <p *ngFor="let color of createdCake.color">{{createdCake.color.length > 1 ? 'Floor ' + color.floor + ': '
+                : ''}} {{color.color}}</p>
+        </div>
+        <button class="btn-add">Add to Cart</button>
     </div>
 </div>

@@ -107,6 +107,18 @@
             }
         }
     }
+
+    &__summary {
+        font-size: 2rem;
+        text-align: center;
+
+        & .summary {
+            &__cake {
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
 }
 
 .pagination {
