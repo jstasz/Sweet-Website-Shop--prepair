@@ -10,7 +10,7 @@ import { DesignDetailElement, Details } from '../desig-element.model';
 })
 export class DetailsComponent implements OnInit {
 
-  detailsOfCake: Details[] = [];
+  detailsOfCake: DesignDetailElement[] = [];
 
   cakeDetails: DesignDetailElement[] = [
     new DesignDetailElement('candles', '../../../assets/img/create-cake/details/candles.jpg', 1.99),
@@ -38,12 +38,12 @@ export class DetailsComponent implements OnInit {
     this.cakeDesignerService.detailsChanges.subscribe(details => this.detailsOfCake = details);
   }
 
-  onSelectDetail(detail: Details) {
+  onSelectDetail(detail: DesignDetailElement) {
     this.cakeDesignerService.selectDetail(detail);
   }
 
-  detailIsSelected(detail: Details) {
-    const selectedDetail = this.detailsOfCake.find(det => det === detail);
+  detailIsSelected(detail: DesignDetailElement) {
+    const selectedDetail = this.detailsOfCake.find(det => det.name === detail.name);
     return selectedDetail;
   }
 }

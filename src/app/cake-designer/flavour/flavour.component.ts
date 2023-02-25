@@ -9,11 +9,11 @@ import { DesignFlavourElement, Flavour, Floor, FloorsFlavour } from '../desig-el
 })
 export class FlavourComponent implements OnInit {
 
-  flavourOfCake: FloorsFlavour[] = [{floor: 'down', flavour: 'vanilla'}];
+  flavourOfCake: FloorsFlavour[] = [];
   florsOfCake : Floor[] = [];
 
   cakeFlavours: DesignFlavourElement[] = [
-    new DesignFlavourElement('vanilla', '../../../assets/img/create-cake/flavour/vanilla.webp'),
+    new DesignFlavourElement('vanilla', '../../../assets/img/create-cake/flavour/vanilla.webp', 0),
     new DesignFlavourElement('chocolate', '../../../assets/img/create-cake/flavour/chocolate.webp', 0),
     new DesignFlavourElement('rainbow', '../../../assets/img/create-cake/flavour/rainbow.jpeg', 9.99)
   ]

@@ -9,7 +9,7 @@ import { DesignTypeElement, Type} from '../desig-element.model';
 })
 export class TypeComponent implements OnInit {
 
-  typeOfCake: Type = 'sugar'; 
+  typeOfCake!: DesignTypeElement; 
 
   cakeTypes: DesignTypeElement[] = [
     new DesignTypeElement('sugar', '../../../assets/img/create-cake/type/sugar.jpeg', 24.99),
@@ -23,7 +23,7 @@ export class TypeComponent implements OnInit {
     this.cakeDesignerService.typeChanges.subscribe(type => this.typeOfCake = type);
   }
 
-  onSelectType(type: Type) {
+  onSelectType(type: DesignTypeElement) {
     this.cakeDesignerService.selectType(type)
   }
 }

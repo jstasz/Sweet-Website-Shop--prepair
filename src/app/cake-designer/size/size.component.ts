@@ -9,10 +9,10 @@ import { DesignSizeElement, Size } from '../desig-element.model';
 })
 export class SizeComponent implements OnInit {
 
-  sizeOfCake: Size = 'single';
+  sizeOfCake!: DesignSizeElement;
 
   cakeSize: DesignSizeElement[] = [
-    new DesignSizeElement('single', '../../../assets/img/create-cake/size/single.webp'),
+    new DesignSizeElement('single', '../../../assets/img/create-cake/size/single.webp', 0),
     new DesignSizeElement('double', '../../../assets/img/create-cake/size/double.jpeg', 12.99),
     new DesignSizeElement('triple', '../../../assets/img/create-cake/size/triple.jpeg', 22.99),
   ]
@@ -24,7 +24,7 @@ export class SizeComponent implements OnInit {
     this.cakeDesignerService.sizeChanges.subscribe(size => this.sizeOfCake = size);
   }
 
-  onSelectSize(size: Size) {
+  onSelectSize(size: DesignSizeElement) {
     this.cakeDesignerService.selectSize(size)
   }
 }

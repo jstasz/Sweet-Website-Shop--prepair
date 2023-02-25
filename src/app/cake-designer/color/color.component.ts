@@ -9,7 +9,7 @@ import { Color, DesignColorElement, Floor, FloorsColor } from '../desig-element.
 })
 export class ColorComponent implements OnInit {
 
-  colorOfCake: FloorsColor[] = [{floor: 'down', color: 'white'}];
+  colorOfCake: FloorsColor[] = [{floor: 'down', color: {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}}];
   florsOfCake : Floor[] = [];
 
   cakeColors: DesignColorElement[] = [

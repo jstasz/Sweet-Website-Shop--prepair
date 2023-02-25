@@ -5,7 +5,7 @@
         </div>
         <p class="cake-design__item-title">{{flavour.name}}</p>
         <div class="cake-design__item-details">
-            <p class="details-selected"> {{flavourOfCake[i].flavour === flavour.name ? 'SELECTED' : ''}}</p>
+            <p class="details-selected"> {{flavourOfCake[i].flavour.name === flavour.name ? 'SELECTED' : ''}}</p>
             <p class="details-price">+ {{flavour.price}} EUR</p>
         </div>
     </div>

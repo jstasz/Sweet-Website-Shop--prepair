@@ -15,7 +15,7 @@ export class DesignColorElement {
 
 export type FloorsColor = {
     floor: Floor, 
-    color: Color
+    color: DesignColorElement
 };
 
 export class DesignTypeElement {
@@ -44,7 +44,7 @@ export class DesignFlavourElement {
 
 export type FloorsFlavour = {
     floor: Floor, 
-    flavour: Flavour
+    flavour: DesignFlavourElement
 };
 
 export class DesignDetailElement {
@@ -56,7 +56,7 @@ export class DesignDetailElement {
 }
 
 export class Cake {
-    constructor(public type: Type, public color: FloorsColor[], public size: Size, public flavour: FloorsFlavour[], public details: Details[]) {
+    constructor(public type: DesignTypeElement, public color: FloorsColor[], public size: DesignSizeElement, public flavour: FloorsFlavour[], public details: DesignDetailElement[]) {
         this.type = type;
         this.color = color;
         this.size = size;
