@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { count } from 'rxjs';
 import { CakeDesignerService } from '../cake-designer.service';
-import { Cake, CountedDetails, DesignDetailElement, Details } from '../desig-element.model';
+import { Cake, CountAction, CountedDetails, DesignDetailElement, Details } from '../desig-element.model';
 
 @Component({
   selector: 'app-decoration',
@@ -38,13 +38,9 @@ export class DetailsComponent implements OnInit {
     this.cakeDesignerService.detailsChanges.subscribe(details => this.detailsOfCake = details);
   }
 
-  onAddDetailElement(detail: Details) {
-    this.cakeDesignerService.addDetailElement(detail);
+  onDetailElementCount(detail: Details, action: CountAction) {
+    this.cakeDesignerService.detailElementCount(detail, action);
     this.detailCount(detail)
-  }
-
-  onRemoveDetailElement(detail: Details) {
-    this.cakeDesignerService.removeDetailElement(detail);
   }
 
   detailCount(detail: Details) {

@@ -56,7 +56,7 @@ export class DesignDetailElement {
 }
 
 export type CountedDetails = {
-    detail: string,
+    detail: Details,
     count: number
 };
 
@@ -69,6 +69,8 @@ export class Cake {
         this.details = details;
     }
 }
+
+export type CountAction = 'add' | 'remove';
 
 export type Floor = 'top' | 'middle' | 'down';
 

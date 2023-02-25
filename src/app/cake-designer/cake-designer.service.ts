@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, Color, CountedDetails, Details, Flavour, Floor, FloorsColor, FloorsFlavour, Size, Type } from './desig-element.model';
+import { Cake, Color, CountAction, CountedDetails, Details, Flavour, Floor, FloorsColor, FloorsFlavour, Size, Type } from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,6 @@ export class CakeDesignerService {
   colorsOfCake: FloorsColor[] = [{floor: 'down', color: 'white'}];
   colorChanges = new Subject<FloorsColor[]>();
 
-  addedDetails: Details[] = [];
   detailsOfCake: CountedDetails[] = [];
   detailsChanges = new Subject<CountedDetails[]>();
 
@@ -66,29 +65,25 @@ export class CakeDesignerService {
     })
   }
 
-  addDetailElement(detail: Details) {
-    this.addedDetails.push(detail);
-    this.detailsWithCount(this.addedDetails)
-    this.detailsChanges.next(this.detailsOfCake)
+  detailElementCount(detail: Details, action: CountAction) {
+    const cakeDetail = this.detailsOfCake.find((det) => det.detail === detail);
+
+    if (cakeDetail) {
+      action === 'add' ? cakeDetail.count++ : cakeDetail.count--;
+    } else {
+      this.detailsOfCake.push({ detail: detail, count: 1 });
+    }
+
+    this.removeDetail()
   }
 
-  detailsWithCount(tab: Details[]) {
-    const details: Record<string, number> = {};
-    tab.forEach(item => {
-      details[item] = details[item] ? details[item] + 1 : 1;
-    });
-
-    const detailsOfCake: CountedDetails[] = [];
-    Object.keys(details).forEach(key => {
-      detailsOfCake.push({ detail: key, count: details[key]});
-    });
+  removeDetail() {
+    const cakeDetail = this.detailsOfCake.find((det) => det.count < 1);
     
-    return this.detailsOfCake = detailsOfCake;
-  }
-
-  removeDetailElement(detail: Details) {
-    const index = this.addedDetails.indexOf(detail);
-    this.addedDetails.splice(index, 1);
+    if (cakeDetail) {
+      const index = this.detailsOfCake.indexOf(cakeDetail);
+      this.detailsOfCake.splice(index, 1)
+    }
   }
 
   createCake() {
