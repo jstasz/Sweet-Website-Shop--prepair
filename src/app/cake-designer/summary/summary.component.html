@@ -4,12 +4,15 @@
         <p>Cake accessories:</p>
         <p *ngFor="let detail of createdCake.details"> {{detail}}</p>
     </div>
-    <div *ngIf="createdCake.flavour.length">
-        <p>Cake Flavours :</p>
-        <p *ngFor="let flavour of createdCake.flavour">Floor {{flavour.floor}} : {{flavour.flavour}}</p>
+    <div>
+        <p>Flavour :</p>
+        <p *ngFor="let flavour of createdCake.flavour">{{createdCake.flavour.length > 1 ? 'Floor ' + flavour.floor + ':
+            '
+            : ''}} {{flavour.flavour}}</p>
     </div>
-    <div *ngIf="createdCake.color.length">
-        <p>Cake Colors :</p>
-        <p *ngFor="let color of createdCake.color">Floor {{color.floor}} : {{color.color}}</p>
+    <div>
+        <p>Color :</p>
+        <p *ngFor="let color of createdCake.color">{{createdCake.color.length > 1 ? 'Floor ' + color.floor + ': '
+            : ''}} {{color.color}}</p>
     </div>
 </div>
