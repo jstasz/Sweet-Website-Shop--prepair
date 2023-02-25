@@ -1,12 +1,11 @@
 <div class="cake-design wrapper" *ngFor="let floor of florsOfCake, let i = index">
     <p *ngIf="florsOfCake.length > 1" class="cake-design__floor">Floor : {{floor}}</p>
-    <div class="cake-design__item" [ngClass]="{selected: colorOfCake[i].color === color.name}"
-        *ngFor="let color of cakeColors" (click)="onSelectColor(color.name, floor)">
+    <div class="cake-design__item" *ngFor="let color of cakeColors" (click)="onSelectColor(color.name, floor)">
         <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + color.imagePath + ')'}">
         </div>
         <p class="cake-design__item-title">{{color.name}}</p>
         <div class="cake-design__item-details">
-            <p> {{colorOfCake[i].color === color.name ? 'SELECTED' : ''}}</p>
+            <p class="details-selected"> {{colorOfCake[i].color === color.name ? 'SELECTED' : ''}}</p>
             <p class="details-price">+ {{color.price}} EUR</p>
         </div>
     </div>
