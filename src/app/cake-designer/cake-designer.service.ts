@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, Color, CountAction, CountedDetails, Details, Flavour, Floor, FloorsColor, FloorsFlavour, Size, Type } from './desig-element.model';
+import { Cake, Color, Details, Flavour, Floor, FloorsColor, FloorsFlavour, Size, Type } from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,10 @@ export class CakeDesignerService {
   colorsOfCake: FloorsColor[] = [{floor: 'down', color: 'white'}];
   colorChanges = new Subject<FloorsColor[]>();
 
-  detailsOfCake: CountedDetails[] = [];
-  detailsChanges = new Subject<CountedDetails[]>();
+  detailsOfCake: Details[] = [];
+  detailsChanges = new Subject<Details[]>();
+
+  // cakedetails: Details[] = [];
 
   cake! : Cake;
 
@@ -65,23 +67,13 @@ export class CakeDesignerService {
     })
   }
 
-  detailElementCount(detail: Details, action: CountAction) {
-    const cakeDetail = this.detailsOfCake.find((det) => det.detail === detail);
+  selectDetail(detail: Details) {
+    const cakeDetail = this.detailsOfCake.find(det => det === detail);
 
-    if (cakeDetail) {
-      action === 'add' ? cakeDetail.count++ : cakeDetail.count--;
+    if(!cakeDetail) {
+      this.detailsOfCake.push(detail)
     } else {
-      this.detailsOfCake.push({ detail: detail, count: 1 });
-    }
-
-    this.removeDetail()
-  }
-
-  removeDetail() {
-    const cakeDetail = this.detailsOfCake.find((det) => det.count < 1);
-    
-    if (cakeDetail) {
-      const index = this.detailsOfCake.indexOf(cakeDetail);
+      const index = this.detailsOfCake.indexOf(detail);
       this.detailsOfCake.splice(index, 1)
     }
   }

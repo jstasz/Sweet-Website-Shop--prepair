@@ -1,17 +1,10 @@
 <div class="cake-design wrapper">
-    <div class="cake-design__item" *ngFor="let detail of cakeDetails, let i = index">
+    <div class="cake-design__item" *ngFor="let detail of cakeDetails" (click)="onSelectDetail(detail.name)">
         <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + detail.imagePath + ')'}">
         </div>
         <p class="cake-design__item-title">{{detail.name}}</p>
         <div class="cake-design__item-details">
-            <div class="details-select">
-                <i class="fa-solid fa-circle-plus details-select__btn"
-                    [ngClass]="{selected: detailCount(detail.name) > 0}"
-                    (click)="onDetailElementCount(detail.name,'add')"></i>
-                <p *ngIf="detailCount(detail.name) > 0">{{detailCount(detail.name)}}</p>
-                <i *ngIf="detailCount(detail.name) > 0" class="fa-solid fa-circle-minus details-select__btn"
-                    (click)="onDetailElementCount(detail.name,'remove')"></i>
-            </div>
+            <p class="details-selected"> {{detailIsSelected(detail.name) ? 'SELECTED' : ''}}</p>
             <p class="details-price">+ {{detail.price}} EUR</p>
         </div>
     </div>

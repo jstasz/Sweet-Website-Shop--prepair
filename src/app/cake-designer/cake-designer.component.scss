@@ -108,6 +108,11 @@
             & .details.price {
                 line-height: 2em;
             }
+
+            & .details-selected {
+                color: pink;
+                font-weight: bold;
+            }
         }
     }
 }

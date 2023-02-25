@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { count } from 'rxjs';
 import { CakeDesignerService } from '../cake-designer.service';
-import { Cake, CountAction, CountedDetails, DesignDetailElement, Details } from '../desig-element.model';
+import { DesignDetailElement, Details } from '../desig-element.model';
 
 @Component({
   selector: 'app-decoration',
@@ -10,7 +10,7 @@ import { Cake, CountAction, CountedDetails, DesignDetailElement, Details } from 
 })
 export class DetailsComponent implements OnInit {
 
-  detailsOfCake: CountedDetails[] = [];
+  detailsOfCake: Details[] = [];
 
   cakeDetails: DesignDetailElement[] = [
     new DesignDetailElement('candles', '../../../assets/img/create-cake/details/candles.jpg', 1.99),
@@ -38,17 +38,12 @@ export class DetailsComponent implements OnInit {
     this.cakeDesignerService.detailsChanges.subscribe(details => this.detailsOfCake = details);
   }
 
-  onDetailElementCount(detail: Details, action: CountAction) {
-    this.cakeDesignerService.detailElementCount(detail, action);
-    this.detailCount(detail)
+  onSelectDetail(detail: Details) {
+    this.cakeDesignerService.selectDetail(detail);
   }
 
-  detailCount(detail: Details) {
-    const existingDetail = this.detailsOfCake.find(det => det.detail === detail);
-    if (existingDetail) {
-      return existingDetail.count
-    } else {
-      return ''
-    }
+  detailIsSelected(detail: Details) {
+    const selectedDetail = this.detailsOfCake.find(det => det === detail);
+    return selectedDetail;
   }
 }

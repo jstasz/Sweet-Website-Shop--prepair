@@ -55,13 +55,8 @@ export class DesignDetailElement {
     }
 }
 
-export type CountedDetails = {
-    detail: Details,
-    count: number
-};
-
 export class Cake {
-    constructor(public type: Type, public color: FloorsColor[], public size: Size, public flavour: FloorsFlavour[], public details: CountedDetails[]) {
+    constructor(public type: Type, public color: FloorsColor[], public size: Size, public flavour: FloorsFlavour[], public details: Details[]) {
         this.type = type;
         this.color = color;
         this.size = size;
@@ -69,8 +64,6 @@ export class Cake {
         this.details = details;
     }
 }
-
-export type CountAction = 'add' | 'remove';
 
 export type Floor = 'top' | 'middle' | 'down';
 

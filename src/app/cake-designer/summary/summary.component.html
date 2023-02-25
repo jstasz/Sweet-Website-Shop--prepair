@@ -2,7 +2,7 @@
     <p>your cake : {{createdCake.type}} {{createdCake.size}} cake</p>
     <div *ngIf="createdCake.details.length">
         <p>Cake accessories:</p>
-        <p *ngFor="let detail of createdCake.details"> {{detail.detail}} ({{detail.count}}) </p>
+        <p *ngFor="let detail of createdCake.details"> {{detail}}</p>
     </div>
     <div *ngIf="createdCake.flavour.length">
         <p>Cake Flavours :</p>
