@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { CakeDesignerComponent } from "./cake-designer/cake-designer.component";
 import { ColorComponent } from "./cake-designer/color/color.component";
+import { CreamComponent } from "./cake-designer/cream/cream.component";
 import { DetailsComponent } from "./cake-designer/details/details.tcomponent";
 import { FlavourComponent } from "./cake-designer/flavour/flavour.component";
 import { SizeComponent } from "./cake-designer/size/size.component";
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
             { path: 'type', component: TypeComponent },
             { path: 'size', component: SizeComponent },
             { path: 'flavour', component: FlavourComponent },
+            { path: 'cream', component: CreamComponent },
             { path: 'color', component: ColorComponent },
             { path: 'details', component: DetailsComponent },
             { path: 'summary', component: SummaryComponent },

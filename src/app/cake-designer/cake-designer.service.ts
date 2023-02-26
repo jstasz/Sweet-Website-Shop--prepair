@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, DesignColorElement, DesignDetailElement, DesignFlavourElement, DesignSizeElement, DesignTypeElement, Floor, FloorElements} from './desig-element.model';
+import { Cake, DesignColorElement, DesignCreamElement, DesignDetailElement, DesignFlavourElement, DesignSizeElement, DesignTypeElement, Floor, FloorElements} from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class CakeDesignerService {
   sizeOfCake: DesignSizeElement = {name: 'single', imagePath: '../../../assets/img/create-cake/size/single.webp', price: 0};
   sizeChanges = new Subject<DesignSizeElement>();
 
-  floorsOfCake: FloorElements[] = [new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})];
+  floorsOfCake: FloorElements[] = [new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})];
 
   detailsOfCake: DesignDetailElement[] = [];
   detailsChanges = new Subject<DesignDetailElement[]>();
@@ -28,16 +28,16 @@ export class CakeDesignerService {
     this.sizeChanges.next(this.sizeOfCake);
 
     if(this.sizeOfCake.name === 'single')
-    this.floorsOfCake = [new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})]
+    this.floorsOfCake = [new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0} ,{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})]
     if(this.sizeOfCake.name === 'double')
     this.floorsOfCake = [
-      new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}), 
-      new FloorElements('middle', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})]
+      new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}), 
+      new FloorElements('middle', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})]
     if(this.sizeOfCake.name === 'triple') 
     this.floorsOfCake = [
-      new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}), 
-      new FloorElements('middle', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}),
-      new FloorElements('top', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})
+      new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}), 
+      new FloorElements('middle', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}),
+      new FloorElements('top', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})
     ]
   }
 
@@ -48,6 +48,10 @@ export class CakeDesignerService {
 
   selectFlavour(flavour: DesignFlavourElement, floor: Floor) {
     this.floorsOfCake.forEach(el => el.name === floor ? el.flavour = flavour : '')
+  }
+
+  selectCream(cream: DesignCreamElement, floor: Floor) {
+    this.floorsOfCake.forEach(el => el.name === floor ? el.cream = cream : '')
   }
 
   selectColor(color: DesignColorElement, floor: Floor) {
@@ -75,7 +79,8 @@ export class CakeDesignerService {
   countTotalCakePrice(cake: Cake) {
     const detailsPrice: number = cake.details.reduce((sum, detail) => sum + detail.price, 0);
     const flavoursPrice: number = cake.floor.reduce((sum, detail) => sum + detail.flavour.price, 0);
+    const creamPrice: number = cake.floor.reduce((sum, detail) => sum + detail.cream.price, 0)
 
-    return this.totalCakePrice = Number((cake.type.price + cake.size.price + detailsPrice + flavoursPrice).toFixed(2));
+    return this.totalCakePrice = Number((cake.type.price + cake.size.price + flavoursPrice + creamPrice + detailsPrice).toFixed(2));
   }
 } 

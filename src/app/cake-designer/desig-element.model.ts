@@ -22,9 +22,10 @@ export class DesignSizeElement {
 }
 
 export class FloorElements {
-    constructor(public name: Floor, public flavour: DesignFlavourElement, public color: DesignColorElement) {
+    constructor(public name: Floor, public flavour: DesignFlavourElement, public cream: DesignCreamElement, public color: DesignColorElement) {
         this.name = name;
         this.flavour = flavour;
+        this.cream = cream;
         this.color = color;
     }
 }
@@ -39,6 +40,14 @@ export class DesignFlavourElement {
 
 export class DesignColorElement {
     constructor(public name: Color, public imagePath: string, public price: number = 0) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.price = price;
+    }
+}
+
+export class DesignCreamElement {
+    constructor(public name: Cream, public imagePath: string, public price: number = 0,) {
         this.name = name;
         this.imagePath = imagePath;
         this.price = price;
@@ -64,8 +73,9 @@ export class Cake {
 
 export type Floor = 'top' | 'middle' | 'down';
 
-export type Type = 'sugar' | 'creamy';
-export type Color = 'pink' | 'blue' | 'white' | 'black' | 'green' | 'marmur'| 'violet' | 'grey';
 export type Size = 'single' | 'double' | 'triple';
+export type Type = 'sugar' | 'creamy';
 export type Flavour = 'vanilla' | 'chocolate' | 'rainbow';
+export type Cream = 'vanilla' | 'chocolate' | 'milk' | 'strawberry' | 'raspberry' | 'oreo' | 'ferrero' | 'rafaello';
+export type Color = 'pink' | 'blue' | 'white' | 'black' | 'green' | 'marmur'| 'violet' | 'grey';
 export type Details = 'candles' | 'topper' | 'cookies' | 'balloons' | 'flare' | 'flowers' | 'sweets' | 'alcohol' | 'ganage' | 'sprinkles' | 'fruits' | 'lace' ;
