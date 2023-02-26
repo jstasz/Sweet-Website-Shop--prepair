@@ -7,13 +7,20 @@ import { Cake, DesignColorElement, DesignCreamElement, DesignDetailElement, Desi
 })
 export class CakeDesignerService {
 
-  typeOfCake: DesignTypeElement = {name: 'sugar', imagePath: '../../../assets/img/create-cake/type/sugar.jpeg', price: 24.99};
+  startedSize: DesignSizeElement = {name: 'single', imagePath: '../../../assets/img/create-cake/size/single.webp', price: 0};
+  startedType: DesignTypeElement = {name: 'sugar', imagePath: '../../../assets/img/create-cake/type/sugar.jpeg', price: 24.99};
+  startedFlavour: DesignFlavourElement = {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0};
+  startedCream: DesignCreamElement = {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0};
+  startedColor: DesignColorElement = {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0};
+  startedFloors: FloorElements = new FloorElements('down', this.startedFlavour, this.startedCream, this.startedColor);
+
+  typeOfCake: DesignTypeElement = this.startedType;
   typeChanges = new Subject<DesignTypeElement>();
 
-  sizeOfCake: DesignSizeElement = {name: 'single', imagePath: '../../../assets/img/create-cake/size/single.webp', price: 0};
+  sizeOfCake: DesignSizeElement = this.startedSize;
   sizeChanges = new Subject<DesignSizeElement>();
 
-  floorsOfCake: FloorElements[] = [new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0}, {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})];
+  floorsOfCake: FloorElements[] = [this.startedFloors];
 
   detailsOfCake: DesignDetailElement[] = [];
   detailsChanges = new Subject<DesignDetailElement[]>();
@@ -28,16 +35,17 @@ export class CakeDesignerService {
     this.sizeChanges.next(this.sizeOfCake);
 
     if(this.sizeOfCake.name === 'single')
-    this.floorsOfCake = [new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0} ,{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})]
+    this.floorsOfCake = [
+      new FloorElements('down', this.startedFlavour, this.startedCream, this.startedColor)]
     if(this.sizeOfCake.name === 'double')
     this.floorsOfCake = [
-      new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}), 
-      new FloorElements('middle', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})]
+      new FloorElements('down', this.startedFlavour, this.startedCream, this.startedColor), 
+      new FloorElements('middle', this.startedFlavour, this.startedCream, this.startedColor)]
     if(this.sizeOfCake.name === 'triple') 
     this.floorsOfCake = [
-      new FloorElements('down', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}), 
-      new FloorElements('middle', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}),
-      new FloorElements('top', {name: 'vanilla', imagePath: '../../../assets/img/create-cake/flavour/vanilla.webp', price: 0}, {name: 'milk', imagePath: '../../../assets/img/create-cake/flavour/rainbow.jpeg', price: 0},{name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0})
+      new FloorElements('down', this.startedFlavour, this.startedCream, this.startedColor), 
+      new FloorElements('middle', this.startedFlavour, this.startedCream, this.startedColor),
+      new FloorElements('top', this.startedFlavour, this.startedCream, this.startedColor)
     ]
   }
 
