@@ -31,7 +31,7 @@ export class ColorComponent implements OnInit {
     this.cakeDesignerService.colorChanges.subscribe(color => this.colorOfCake = color);
   }
 
-  onSelectColor(color: Color, floor: Floor) {
+  onSelectColor(color: DesignColorElement, floor: Floor) {
     this.cakeDesignerService.selectColor(color, floor)
   }
 

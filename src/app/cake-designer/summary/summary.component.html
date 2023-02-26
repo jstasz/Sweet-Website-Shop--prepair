@@ -18,6 +18,7 @@
             <p *ngFor="let color of createdCake.color">{{createdCake.color.length > 1 ? 'Floor ' + color.floor + ': '
                 : ''}} {{color.color.name}}</p>
         </div>
+        <p>Total price : {{totalCakePrice}} EUR</p>
         <button class="btn-add">Add to Cart</button>
     </div>
 </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Cake, Color, DesignDetailElement, DesignSizeElement, DesignTypeElement, Details, Flavour, Floor, FloorsColor, FloorsFlavour, Size, Type } from './desig-element.model';
+import { Cake, Color, DesignColorElement, DesignDetailElement, DesignFlavourElement, DesignSizeElement, DesignTypeElement, Details, Flavour, Floor, FloorsColor, FloorsFlavour, Size, Type } from './desig-element.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,8 @@ export class CakeDesignerService {
 
   detailsOfCake: DesignDetailElement[] = [];
   detailsChanges = new Subject<DesignDetailElement[]>();
+
+  totalCakePrice!: number;
 
   cake! : Cake;
 
@@ -52,17 +54,18 @@ export class CakeDesignerService {
     this.typeChanges.next(this.typeOfCake);
   }
 
-  selectFlavour(flavour: Flavour, floor: Floor) {
+  selectFlavour(flavour: DesignFlavourElement, floor: Floor) {
     this.flavoursOfCake.forEach(el => {
-      el.floor === floor ? el.flavour.name = flavour : ''
+      el.floor === floor ? el.flavour = flavour : ''
     })
     this.flavourChanges.next(this.flavoursOfCake);
   }
 
-  selectColor(color: Color, floor: Floor) {
+  selectColor(color: DesignColorElement, floor: Floor) {
     this.colorsOfCake.forEach(el => {
-      el.floor === floor ? el.color.name = color : ''
+      el.floor === floor ? el.color.name = color.name : ''
     })
+    this.colorChanges.next(this.colorsOfCake);
   }
 
   selectDetail(detail: DesignDetailElement) {
@@ -80,5 +83,13 @@ export class CakeDesignerService {
 
   createCake() {
     this.cake = new Cake(this.typeOfCake, this.colorsOfCake, this.sizeOfCake, this.flavoursOfCake, this.detailsOfCake);
+    this.countTotalCakePrice(this.cake);
   }
-}
+
+  countTotalCakePrice(cake: Cake) {
+    const detailsPrice: number = cake.details.reduce((sum, detail) => sum + detail.price, 0);
+    const flavoursPrice: number = cake.flavour.reduce((sum, detail) => sum + detail.flavour.price, 0);
+
+    return this.totalCakePrice = Number((cake.type.price + cake.size.price + detailsPrice + flavoursPrice).toFixed(2));
+  }
+} 

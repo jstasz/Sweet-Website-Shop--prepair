@@ -10,6 +10,7 @@ import { Cake } from '../desig-element.model';
 export class SummaryComponent implements OnInit {
 
   createdCake!: Cake;
+  totalCakePrice!: number;
 
   constructor(private cakeDesignerService: CakeDesignerService) { }
 
@@ -24,5 +25,6 @@ export class SummaryComponent implements OnInit {
 
   getCake() {
     this.createdCake = this.cakeDesignerService.cake;
+    this.totalCakePrice = this.cakeDesignerService.totalCakePrice;
   }
 }

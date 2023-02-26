@@ -26,7 +26,7 @@ export class FlavourComponent implements OnInit {
     this.cakeDesignerService.flavourChanges.subscribe(flavour => this.flavourOfCake = flavour);
   }
 
-  onSelectFlavour(flavour: Flavour, floor: Floor) {
+  onSelectFlavour(flavour: DesignFlavourElement, floor: Floor) {
     this.cakeDesignerService.selectFlavour(flavour, floor)
   }
 
