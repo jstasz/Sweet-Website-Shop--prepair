@@ -1,24 +1,36 @@
 <div class="cake-design wrapper">
     <div class="cake-design__summary">
-        <p class="summary__cake">your cake</p>
-        <p>{{createdCake.type.name}} {{createdCake.size.name}} cake</p>
-        <img [src]="createdCake.size.imagePath" alt="">
-        <div class="summary__accessories" *ngIf="createdCake.details.length">
-            <p>Cake accessories:</p>
-            <p *ngFor="let detail of createdCake.details"> {{detail.name}}</p>
+        <div class="summary__title">
+            <p>your cake</p>
         </div>
-        <div class="summary__flavour">
-            <p>Flavour :</p>
-            <p *ngFor="let flavour of createdCake.flavour">{{createdCake.flavour.length > 1 ? 'Floor ' + flavour.floor +
-                ':'
-                : ''}} {{flavour.flavour.name}}</p>
+        <div class="summary__cake">
+            <img class="summary__cake-img" [src]="createdCake.size.imagePath" alt="created cake">
         </div>
-        <div class="summary__color">
-            <p>Color :</p>
-            <p *ngFor="let color of createdCake.color">{{createdCake.color.length > 1 ? 'Floor ' + color.floor + ': '
-                : ''}} {{color.color.name}}</p>
+        <div class="summary__informations">
+            <p>{{createdCake.type.name}} {{createdCake.size.name}} cake</p>
+            <p *ngIf="createdCake.floor.length > 1">floors</p>
+            <div class="carts-information">
+                <div *ngFor="let floor of createdCake.floor" class="cart-information">
+                    <p>{{ createdCake.floor.length > 1 ? floor.name : ''}}</p>
+                    <p>{{ 'color : ' + floor.color.name }}</p>
+                    <p>{{ 'flavour : ' + floor.flavour.name }}</p>
+                </div>
+            </div>
+            <div class="summary__informations-accessories" *ngIf="createdCake.details.length > 1; else noDetails">
+                <p>Cake accessories:</p>
+                <div class="carts-information">
+                    <div class="cart-information" *ngFor="let detail of createdCake.details">
+                        <img [src]="detail.imagePath" alt="">
+                        <p>{{detail.name}}</p>
+                    </div>
+                </div>
+            </div>
+            <ng-template #noDetails>No details added. Are you sure you don't want any details? You can simply add some
+                here.</ng-template>
         </div>
-        <p>Total price : {{totalCakePrice}} EUR</p>
-        <button class="btn-add">Add to Cart</button>
+        <div class="summary__price">
+            <p>Total price : {{totalCakePrice}} EUR</p>
+            <button class="btn-add">Add to Cart</button>
+        </div>
     </div>
 </div>

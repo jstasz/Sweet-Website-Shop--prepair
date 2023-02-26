@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CakeDesignerService } from '../cake-designer.service';
-import { Color, DesignColorElement, Floor, FloorsColor } from '../desig-element.model';
+import { DesignColorElement, Floor, FloorElements } from '../desig-element.model';
 
 @Component({
   selector: 'app-color',
@@ -9,8 +9,8 @@ import { Color, DesignColorElement, Floor, FloorsColor } from '../desig-element.
 })
 export class ColorComponent implements OnInit {
 
-  colorOfCake: FloorsColor[] = [{floor: 'down', color: {name: 'white', imagePath: '../../../assets/img/create-cake/color/white.jpeg', price: 0}}];
-  florsOfCake : Floor[] = [];
+  florsOfCake : FloorElements[] = [];
+
 
   cakeColors: DesignColorElement[] = [
     new DesignColorElement('white', '../../../assets/img/create-cake/color/white.jpeg'),
@@ -27,8 +27,6 @@ export class ColorComponent implements OnInit {
 
   ngOnInit(): void {
     this.onGetFloors()
-    this.colorOfCake = this.cakeDesignerService.colorsOfCake
-    this.cakeDesignerService.colorChanges.subscribe(color => this.colorOfCake = color);
   }
 
   onSelectColor(color: DesignColorElement, floor: Floor) {

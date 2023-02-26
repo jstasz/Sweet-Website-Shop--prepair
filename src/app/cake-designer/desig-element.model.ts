@@ -5,19 +5,6 @@ export class CreateCakeElement {
     }
   }
 
-export class DesignColorElement {
-    constructor(public name: Color, public imagePath: string, public price: number = 0) {
-        this.name = name;
-        this.imagePath = imagePath;
-        this.price = price;
-    }
-}
-
-export type FloorsColor = {
-    floor: Floor, 
-    color: DesignColorElement
-};
-
 export class DesignTypeElement {
     constructor(public name: Type, public imagePath: string, public price: number = 0) {
         this.name = name;
@@ -27,10 +14,18 @@ export class DesignTypeElement {
 }
 
 export class DesignSizeElement {
-    constructor(public name: Size, public imagePath: string, public price: number = 0) {
+    constructor(public name: Size, public imagePath: string, public price: number = 0,) {
         this.name = name;
         this.imagePath = imagePath;
         this.price = price;
+    }
+}
+
+export class FloorElements {
+    constructor(public name: Floor, public flavour: DesignFlavourElement, public color: DesignColorElement) {
+        this.name = name;
+        this.flavour = flavour;
+        this.color = color;
     }
 }
 
@@ -42,10 +37,13 @@ export class DesignFlavourElement {
     }
 }
 
-export type FloorsFlavour = {
-    floor: Floor, 
-    flavour: DesignFlavourElement
-};
+export class DesignColorElement {
+    constructor(public name: Color, public imagePath: string, public price: number = 0) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.price = price;
+    }
+}
 
 export class DesignDetailElement {
     constructor(public name: Details, public imagePath: string, public price: number = 0) {
@@ -56,11 +54,10 @@ export class DesignDetailElement {
 }
 
 export class Cake {
-    constructor(public type: DesignTypeElement, public color: FloorsColor[], public size: DesignSizeElement, public flavour: FloorsFlavour[], public details: DesignDetailElement[]) {
+    constructor(public type: DesignTypeElement, public size: DesignSizeElement, public floor: FloorElements[], public details: DesignDetailElement[]) {
         this.type = type;
-        this.color = color;
         this.size = size;
-        this.flavour = flavour;
+        this.floor = floor;
         this.details = details;
     }
 }
