@@ -1,17 +1,14 @@
 <div class="cake-design wrapper">
     <div class="cake-design__summary">
-        <div class="summary__title">
-            <p>your cake</p>
-        </div>
+        <h1 class="summary__title">your cake</h1>
         <div class="summary__cake">
             <img class="summary__cake-img" [src]="createdCake.size.imagePath" alt="created cake">
         </div>
         <div class="summary__informations">
-            <p>{{createdCake.type.name}} {{createdCake.size.name}} cake</p>
-            <p *ngIf="createdCake.floor.length > 1">floors</p>
+            <p class="summary__informations-type">{{createdCake.type.name}} {{createdCake.size.name}} cake</p>
             <div class="carts-information">
                 <div *ngFor="let floor of createdCake.floor" class="cart-information">
-                    <p>{{ createdCake.floor.length > 1 ? floor.name : ''}}</p>
+                    <p *ngIf="createdCake.floor.length > 1" class="carts-information-floors">{{floor.name}}</p>
                     <p>{{ 'color : ' + floor.color.name }}</p>
                     <p>{{ 'flavour : ' + floor.flavour.name }}</p>
                     <p>{{ 'cream : ' + floor.cream.name }}</p>
@@ -30,8 +27,8 @@
                 here.</ng-template>
         </div>
         <div class="summary__price">
-            <p>Total price : {{totalCakePrice}} EUR</p>
-            <button class="btn-add">Add to Cart</button>
+            <p class="summary__price-total">Total price : {{totalCakePrice}} EUR</p>
+            <button class="summary__price-add">Add to Cart</button>
         </div>
     </div>
 </div>
