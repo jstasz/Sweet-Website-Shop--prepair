@@ -92,4 +92,11 @@ export class CakeDesignerService {
 
     return this.totalCakePrice = Number((cake.type.price + cake.size.price + flavoursPrice + creamPrice + detailsPrice).toFixed(2));
   }
+
+  clearSelectedElements() {
+    this.typeOfCake = this.startedType;
+    this.sizeOfCake = this.startedSize;
+    this.floorsOfCake = [this.startedFloors];
+    this.detailsOfCake = [];
+  }
 } 

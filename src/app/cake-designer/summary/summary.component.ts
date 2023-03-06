@@ -56,5 +56,7 @@ export class SummaryComponent implements OnInit {
     } else {
       cakeInShop.quantity ++
     }
+
+    this.cakeDesignerService.clearSelectedElements();
   }
 }

@@ -19,9 +19,9 @@ const appRoutes: Routes = [
     { path: 'home', component: MainPageComponent },
     {
         path: 'cake-designer', component: CakeDesignerComponent, children: [
-            { path: '', redirectTo: 'type', pathMatch: 'full' },
-            { path: 'type', component: TypeComponent },
+            { path: '', redirectTo: 'size', pathMatch: 'full' },
             { path: 'size', component: SizeComponent },
+            { path: 'type', component: TypeComponent },
             { path: 'flavour', component: FlavourComponent },
             { path: 'cream', component: CreamComponent },
             { path: 'color', component: ColorComponent },
