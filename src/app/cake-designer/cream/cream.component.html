@@ -1,0 +1,12 @@
+<div class="cake-design wrapper" *ngFor="let floor of florsOfCake">
+    <p *ngIf="florsOfCake.length > 1" class="cake-design__floor">Floor : {{floor.name}}</p>
+    <div class="cake-design__item" *ngFor="let cream of cakeCreams" (click)="onSelectCream(cream, floor.name)">
+        <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + cream.imagePath + ')'}">
+        </div>
+        <p class="cake-design__item-title">{{cream.name}}</p>
+        <div class="cake-design__item-details">
+            <p class="details-selected"> {{floor.cream.name === cream.name ? 'SELECTED' : ''}}</p>
+            <p class="details-price">+ {{cream.price}} EUR</p>
+        </div>
+    </div>
+</div>

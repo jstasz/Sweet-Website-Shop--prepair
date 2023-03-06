@@ -63,3 +63,4 @@ export const shopProducts : ShopProduct[] = [
     {id: 49, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
     {id: 50, name: 'Cake6', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', imagePath: 'https://imbibemagazine.com/wp-content/uploads/2022/08/summer-drinks-neruda-crdt-john-valls.jpg', price: 200, category: 'drinks', quantity: 1},
 ];
+

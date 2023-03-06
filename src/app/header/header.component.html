@@ -31,7 +31,7 @@
                     <div class="item" *ngFor="let item of cart.items">
                         <div class="item__product">
                             <img src="{{item.imagePath}}" alt="{{item.name}}" class="item__product-img">
-                            <p class="item__product-name">{{item.name | shorten: 15}}</p>
+                            <p class="item__product-name">{{item.name | shorten: 20}}</p>
                             <p class="item__product-quantity">({{item.quantity}})</p>
                         </div>
                         <p class="item__product-price">{{ item.price| currency }}</p>

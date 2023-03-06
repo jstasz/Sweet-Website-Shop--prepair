@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DesignElement } from '../desig-element.model';
+import { CakeDesignerService } from '../cake-designer.service';
+import { DesignColorElement, Floor, FloorElements } from '../desig-element.model';
 
 @Component({
   selector: 'app-color',
@@ -8,32 +9,31 @@ import { DesignElement } from '../desig-element.model';
 })
 export class ColorComponent implements OnInit {
 
-  selectedColor = false;
-  colorOfCake = ''
+  florsOfCake : FloorElements[] = [];
 
-  cakeColors: DesignElement[] = [
-    new DesignElement('pink', '../../../assets/img/create-cake/color/pink.jpeg'),
-    new DesignElement('blue', '../../../assets/img/create-cake/color/blue.jpeg'),
-    new DesignElement('white', '../../../assets/img/create-cake/color/white.jpeg'),
-    new DesignElement('black', '../../../assets/img/create-cake/color/black.jpeg'),
-    new DesignElement('green', '../../../assets/img/create-cake/color/green.jpeg'),
-    new DesignElement('marmur', '../../../assets/img/create-cake/color/marmur.webp'),
+
+  cakeColors: DesignColorElement[] = [
+    new DesignColorElement('white', '../../../assets/img/create-cake/color/white.jpeg'),
+    new DesignColorElement('pink', '../../../assets/img/create-cake/color/pink.jpeg'),
+    new DesignColorElement('blue', '../../../assets/img/create-cake/color/blue.jpeg'),
+    new DesignColorElement('black', '../../../assets/img/create-cake/color/black.jpeg'),
+    new DesignColorElement('green', '../../../assets/img/create-cake/color/green.jpeg'),
+    new DesignColorElement('marmur', '../../../assets/img/create-cake/color/marmur.webp'),
+    new DesignColorElement('violet', '../../../assets/img/create-cake/color/violet.jpeg'),
+    new DesignColorElement('grey', '../../../assets/img/create-cake/color/grey.webp'),
   ]
 
-  constructor() { }
+  constructor(private cakeDesignerService: CakeDesignerService) { }
 
   ngOnInit(): void {
+    this.onGetFloors()
   }
 
-  onAddElement(element: DesignElement) {
-    this.selectedColor = true;
-    this.colorOfCake = element.name
-    console.log(`selected color: ${this.colorOfCake}`)
+  onSelectColor(color: DesignColorElement, floor: Floor) {
+    this.cakeDesignerService.selectColor(color, floor)
   }
 
-  onRemoveElement(element: DesignElement) {
-    this.selectedColor = false;
-    this.colorOfCake = '';
+  onGetFloors() {
+    this.florsOfCake = this.cakeDesignerService.floorsOfCake;
   }
-
 }

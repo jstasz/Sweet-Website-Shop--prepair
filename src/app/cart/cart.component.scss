@@ -2,18 +2,21 @@
     width: 70%;
     margin: 5em auto;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
 
     &__header {
         text-transform: uppercase;
         color: rgb(182, 182, 182);
         padding: 2em 0;
-        grid-column: 2 / 6;
+        grid-column: 1 / 7;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(7, 1fr);
 
         &-title {
             justify-self: center;
+
+            &--name {
+                grid-column: 2/4;
+            }
         }
     }
 
@@ -21,7 +24,7 @@
         padding: 1em 0;
         align-items: center;
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(7, 1fr);
         grid-column: 1 / 7;
         border-bottom: thin solid rgb(235, 235, 235);
 
@@ -35,6 +38,20 @@
 
         &-item {
             justify-self: center;
+
+            &--name {
+                grid-column: 2/4;
+                color: grey;
+
+                & .name {
+                    font-weight: bold;
+                    margin-bottom: 0.2em;
+                }
+
+                & .description {
+                    color: rgb(172, 172, 172);
+                }
+            }
         }
 
         & .remove-icon,

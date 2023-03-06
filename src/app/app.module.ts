@@ -18,7 +18,6 @@ import { FooterComponent } from './footer/footer.component';
 import { TypeComponent } from './cake-designer/type/type.component';
 import { SizeComponent } from './cake-designer/size/size.component';
 import { FlavourComponent } from './cake-designer/flavour/flavour.component';
-import { DateComponent } from './cake-designer/date/date.component';
 import { ColorComponent } from './cake-designer/color/color.component';
 import { DetailsComponent } from './cake-designer/details/details.tcomponent';
 import { ShortenPipe } from './shared/shorten.pipe';
@@ -31,6 +30,8 @@ import { ShopFiltersComponent } from './shop-online/shop-products/shop-filters/s
 import { ShopOnlineService } from './shop-online/shop-online.servis';
 import { CartService } from './cart/cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SummaryComponent } from './cake-designer/summary/summary.component';
+import { CreamComponent } from './cake-designer/cream/cream.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TypeComponent,
     SizeComponent,
     FlavourComponent,
-    DateComponent,
     DetailsComponent,
     ColorComponent,
     ShortenPipe,
@@ -59,7 +59,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ShopProductsComponent,
     ShopCategoriesComponent,
     ShopProductComponent,
-    ShopFiltersComponent
+    ShopFiltersComponent,
+    SummaryComponent,
+    CreamComponent
   ],
   imports: [
     BrowserModule,

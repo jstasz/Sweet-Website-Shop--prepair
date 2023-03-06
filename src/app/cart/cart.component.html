@@ -1,6 +1,6 @@
 <div class="cart" *ngIf="cart.items.length, else noItems">
     <div class="cart__header">
-        <p class="cart__header-title">Name</p>
+        <p class="cart__header-title cart__header-title--name">Name</p>
         <p class="cart__header-title">Price</p>
         <p class="cart__header-title">Quantity</p>
         <p class="cart__header-title">Total</p>
@@ -10,7 +10,10 @@
         currentPage: page, 
         totalItems: count}, let i = index">
         <img class="cart__items-img" src="{{item.imagePath}}" alt="">
-        <p class="cart__items-item">{{item.name | shorten: 15}}</p>
+        <div class="cart__items-item cart__items-item--name">
+            <p class="name">{{item.name | shorten: 20}}</p>
+            <p class="description">{{item.description}}</p>
+        </div>
         <p class="cart__items-item">{{item.price | currency}}</p>
         <p class="cart__items-item">
             <i class="fa-solid fa-circle-minus quantity-icon" (click)="onChangeQuantity(item, i)"></i>
