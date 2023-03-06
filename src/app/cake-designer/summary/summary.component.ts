@@ -46,9 +46,15 @@ export class SummaryComponent implements OnInit {
   onAddCakeToCart(cake: Cake) {
     const cakeId: number = this.generateId();
     const cakeName: string = `${cake.type.name} ${cake.size.name} cake`;
-    const cakeDescription: string = `${cake.floor.map(floor => `floor ${floor.name} : ${floor.color.name} color, ${floor.flavour.name} flavour and ${floor.cream.name} cream`)}`;
+    const cakeDescription: string = `${cake.floor.map(floor => `floor ${floor.name} : ${floor.color.name} color, ${floor.flavour.name} flavour and ${floor.cream.name} cream`)} ${cake.details.length ? ', details : ' + cake.details.map(detail => " " + detail.name) : ''}`;
 
     const cakeToShop : ShopProduct = new ShopProduct(cakeId , 1, cakeName, cakeDescription, cake.size.imagePath, this.totalCakePrice, 'cakes');
-    this.cartService.addToCart(cakeToShop)
+
+    const cakeInShop = this.cartService.cart.items.find(item => item.name === cakeToShop.name && item.description === cakeToShop.description)
+    if(!cakeInShop) {
+      this.cartService.addToCart(cakeToShop)
+    } else {
+      cakeInShop.quantity ++
+    }
   }
 }
