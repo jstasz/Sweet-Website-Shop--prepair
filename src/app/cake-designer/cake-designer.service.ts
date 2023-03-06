@@ -26,6 +26,7 @@ export class CakeDesignerService {
   detailsChanges = new Subject<DesignDetailElement[]>();
 
   cake! : Cake;
+  cakeChange = new Subject<Cake>();
   totalCakePrice!: number;
 
   constructor() { }
