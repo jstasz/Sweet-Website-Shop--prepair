@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryComponent implements OnInit {
 
+  galleryImg: string[] = [
+    'spidermanCake.jpeg',
+    'frozenCake.jpeg',
+    '18birthdayCake.jpeg',
+    'weddingCake.jpeg',
+    'travelCake.jpeg',
+    'alcoholCake.webp'
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
