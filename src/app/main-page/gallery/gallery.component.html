@@ -1,6 +1,6 @@
 <section class="gallery section">
     <h2 class="section-title">little gallery</h2>
-    <div id="carouselExampleIndicators" class="carousel slide">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false">
         <div class="carousel-indicators">
             <button *ngFor="let image of galleryImg; let i = index" type="button"
                 [attr.data-bs-target]="'#carouselExampleIndicators'" [attr.data-bs-slide-to]="i"
@@ -8,7 +8,8 @@
                 [attr.aria-label]="'Slide ' + (i + 1)"></button>
         </div>
         <div class="carousel-inner">
-            <div *ngFor="let image of galleryImg; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
+            <div *ngFor="let image of galleryImg; let i = index" class="carousel-item" data-bs-interval="2500"
+                [ngClass]="{'active': i === 0}">
                 <img src="../../../assets/img/gallery/{{image}}" class="d-block w-100" alt="{{image}}">
             </div>
         </div>
