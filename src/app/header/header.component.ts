@@ -9,9 +9,12 @@ import { ShopProduct } from '../shop-online/shop-products/shop-product/product.m
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  cartMenuIsActive = false;
+  cartMenu = false;
+  favouritesMenu = false;
   cart: Cart = {items: []};
   cartDisactiveTime: any = '';
+  favDisactiveTime: any = '';
+
 
   navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
 
@@ -21,16 +24,29 @@ export class HeaderComponent implements OnInit {
     this.cartService.cartChanges.subscribe(cart => this.cart = cart)
   }
 
-  activeCartMenu() {
+  activeMenu() {
     clearTimeout(this.cartDisactiveTime)
-    this.cartMenuIsActive = true;
+    this.cartMenu = true;
+    this.favouritesMenu = false;
   }
 
-  disactiveCartMenu() {
+  activeFavMenu() {
+    clearTimeout(this.favDisactiveTime)
+    this.favouritesMenu = true;
+    this.cartMenu = false;
+  }
+
+  disactiveMenu() {
       this.cartDisactiveTime = setTimeout(() => {
-        this.cartMenuIsActive = false
+        this.cartMenu = false
       }, 500)
   }
+
+  disactiveFavMenu() {
+    this.favDisactiveTime = setTimeout(() => {
+      this.favouritesMenu = false
+    }, 500)
+}
 
   onGetTotalCartPrice(items: ShopProduct[]) {
     return this.cartService.getTotalCartPrice(items);
@@ -42,6 +58,6 @@ export class HeaderComponent implements OnInit {
 
   onClearCart() {
     this.cartService.clearCart();
-    this.cartMenuIsActive = false;
+    this.cartMenu = false;
   }
 }

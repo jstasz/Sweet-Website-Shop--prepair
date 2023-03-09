@@ -13,15 +13,23 @@
         <div class="nav__shopping-icon nav__shopping-icon--home">
             <img [routerLink]="'/home'" class="nav__shopping-icon-img" src="assets/img/icons/home.png" alt="home" />
         </div>
-        <div class="nav__shopping-icon nav__shopping-icon--favourites">
+        <div class="nav__shopping-icon nav__shopping-icon--favourites" (mouseenter)="activeFavMenu()"
+            (mouseleave)="disactiveFavMenu()">
             <img [routerLink]="'/favourites'" class="nav__shopping-icon-img" src="assets/img/icons/favourites.png"
                 alt="favourites" />
+            <div *ngIf="favouritesMenu" class="nav__shopping-menu" (mouseenter)="activeFavMenu()">
+                <div class="nav__shopping-menu-view">
+                    <a class="view" [routerLink]="'/cart'"> {{ 'view Favourites' | uppercase }}
+                        <i class="fa-solid fa-magnifying-glass view-icon"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="nav__shopping-icon nav__shopping-icon--cart" (mouseenter)="activeCartMenu()"
-            (mouseleave)="disactiveCartMenu()">
+        <div class="nav__shopping-icon nav__shopping-icon--cart" (mouseenter)="activeMenu()"
+            (mouseleave)="disactiveMenu()">
             <div class="nav__shopping-icon--counter" *ngIf="cart.items.length">{{showCartCounter()}}</div>
             <img [routerLink]="'/cart'" class="nav__shopping-icon-img" src="assets/img/icons/cart.png" alt="cart" />
-            <div *ngIf="cartMenuIsActive" class="nav__shopping-menu" (mouseenter)="activeCartMenu()">
+            <div *ngIf="cartMenu" class="nav__shopping-menu" (mouseenter)="activeMenu()">
                 <div class="nav__shopping-menu-view">
                     <a class="view" [routerLink]="'/cart'"> {{ 'view Cart' | uppercase }}
                         <i class="fa-solid fa-magnifying-glass view-icon"></i>
