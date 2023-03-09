@@ -26,6 +26,8 @@ export class CartService {
         }
 
         this.cartChanges.next(this.cart);
+
+        console.log(item)
     }
 
     removeFromCart(index: number) {

@@ -32,6 +32,9 @@ import { CartService } from './cart/cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SummaryComponent } from './cake-designer/summary/summary.component';
 import { CreamComponent } from './cake-designer/cream/cream.component';
+import { MenuComponent } from './header/menu/menu.component';
+import { HeaderService } from './header/header.service';
+import { FavouritesService } from './favourites/favourites.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,8 @@ import { CreamComponent } from './cake-designer/cream/cream.component';
     ShopProductComponent,
     ShopFiltersComponent,
     SummaryComponent,
-    CreamComponent
+    CreamComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,7 @@ import { CreamComponent } from './cake-designer/cream/cream.component';
     FormsModule,
     NgxPaginationModule
   ],
-  providers: [ShopOnlineService, CartService],
+  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService],
   bootstrap: [AppComponent]
 })
 

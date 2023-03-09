@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../cart/cart.model';
 import { CartService } from '../cart/cart.service';
+import { FavouritesService } from '../favourites/favourites.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-product/product.model';
+import { HeaderService, Mode } from './header.service';
 
 @Component({
   selector: 'app-header',
@@ -9,55 +11,32 @@ import { ShopProduct } from '../shop-online/shop-products/shop-product/product.m
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  cartMenu = false;
-  favouritesMenu = false;
-  cart: Cart = {items: []};
-  cartDisactiveTime: any = '';
-  favDisactiveTime: any = '';
 
+  activeMode : Mode | '' = '';
+
+  cart: Cart = {items: []};
+  favourites: Cart = {items: []};
 
   navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private headerService : HeaderService, private favouritesService: FavouritesService) { }
 
   ngOnInit() {
-    this.cartService.cartChanges.subscribe(cart => this.cart = cart)
+    this.cartService.cartChanges.subscribe(cart => this.cart = cart);
+    this.headerService.modeChange.subscribe(mode => this.activeMode = mode);
+    this.favourites = this.favouritesService.favourites;
+    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites)
   }
 
-  activeMenu() {
-    clearTimeout(this.cartDisactiveTime)
-    this.cartMenu = true;
-    this.favouritesMenu = false;
+  onActivateMode(mode: Mode) {
+    this.headerService.activateMode(mode);
   }
 
-  activeFavMenu() {
-    clearTimeout(this.favDisactiveTime)
-    this.favouritesMenu = true;
-    this.cartMenu = false;
+  onDisactivateMode() {
+    this.headerService.disactivateMode();
   }
 
-  disactiveMenu() {
-      this.cartDisactiveTime = setTimeout(() => {
-        this.cartMenu = false
-      }, 500)
-  }
-
-  disactiveFavMenu() {
-    this.favDisactiveTime = setTimeout(() => {
-      this.favouritesMenu = false
-    }, 500)
-}
-
-  onGetTotalCartPrice(items: ShopProduct[]) {
-    return this.cartService.getTotalCartPrice(items);
-  }
-
-  showCartCounter() {
-    return this.cart.items.map(items => items.quantity).reduce((prev, curr) => prev + curr);
-  }
-
-  onClearCart() {
-    this.cartService.clearCart();
-    this.cartMenu = false;
+  onShowCounter(element: Cart) {
+    return this.headerService.counter(element)
   }
 }
