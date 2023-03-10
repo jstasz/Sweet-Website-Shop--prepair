@@ -2,13 +2,13 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Cart } from "../cart/cart.model";
 
-export type Mode = 'cart' | 'favourites'
+export type Mode = 'cart' | 'favourites' | null
 
 @Injectable()
 export class HeaderService {
 
-    activeMode : Mode | '' = '';
-    modeChange = new Subject<Mode | ''>();
+    activeMode : Mode = null;
+    modeChange = new Subject<Mode>();
 
     disactiveModeTime: any = '';
 
@@ -22,7 +22,7 @@ export class HeaderService {
 
     disactivateMode() {
         this.disactiveModeTime = setTimeout(() => {
-            this.activeMode = '';
+            this.activeMode = null;
             this.modeChange.next(this.activeMode)
           }, 500)
     }

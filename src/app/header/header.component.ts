@@ -12,7 +12,7 @@ import { HeaderService, Mode } from './header.service';
 })
 export class HeaderComponent implements OnInit {
 
-  activeMode : Mode | '' = '';
+  activeMode : Mode = null;
 
   cart: Cart = {items: []};
   favourites: Cart = {items: []};

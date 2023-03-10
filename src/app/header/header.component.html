@@ -17,7 +17,7 @@
             (mouseleave)="onDisactivateMode()">
             <div class="nav__shopping-icon--counter" *ngIf="favourites.items.length">{{favourites.items.length}}</div>
             <img [routerLink]="'/favourites'" class="nav__shopping-icon-img" src="assets/img/icons/favourites.png"
-                alt="favourites" />
+                alt="favourites" (click)="onActivateMode(null)" />
             <div *ngIf="activeMode === 'favourites'">
                 <app-menu></app-menu>
             </div>
@@ -25,7 +25,8 @@
         <div class="nav__shopping-icon nav__shopping-icon--cart" (mouseenter)="onActivateMode('cart')"
             (mouseleave)="onDisactivateMode()">
             <div class="nav__shopping-icon--counter" *ngIf="cart.items.length">{{onShowCounter(cart)}}</div>
-            <img [routerLink]="'/cart'" class="nav__shopping-icon-img" src="assets/img/icons/cart.png" alt="cart" />
+            <img [routerLink]="'/cart'" class="nav__shopping-icon-img" src="assets/img/icons/cart.png" alt="cart"
+                (click)="onActivateMode(null)" />
             <div *ngIf="activeMode === 'cart'">
                 <app-menu></app-menu>
             </div>
