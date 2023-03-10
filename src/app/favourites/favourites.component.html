@@ -1,4 +1,17 @@
-<div *ngFor="let item of favourites.items">
-    <p>{{item.name}}</p>
-    <p>{{item.description}}</p>
+<div *ngIf="favourites.items.length, else noItems">
+    <div *ngFor="let item of favourites.items">
+        <p>{{item.name}}</p>
+        <p>{{item.description}}</p>
+    </div>
 </div>
+<ng-template #noItems>
+    <div class="cart-empty">
+        <p>There are no items in your cart !</p>
+        <div class="cart-empty-actions">
+            <p>
+                <span [routerLink]="['/shop-online']" class="link">Start Shopping</span> or
+                <span [routerLink]="['/cake-designer']" class="link">Create Your Own Cake</span>
+            </p>
+        </div>
+    </div>
+</ng-template>
