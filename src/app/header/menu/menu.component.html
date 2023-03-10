@@ -6,14 +6,14 @@
     </div>
     <div class="nav__shopping-menu-items" *ngIf="activeMode === 'favourites'">
         <div *ngIf="favourites.items.length else noItems">
-            <div class="item" *ngFor="let item of favourites.items">
+            <div class="item" *ngFor="let item of favourites.items, let i = index">
                 <div class="item__product">
                     <img src="{{item.imagePath}}" alt="{{item.name}}" class="item__product-img">
                     <p class="item__product-name">{{item.name | shorten: 20}}</p>
                 </div>
                 <div class="item__product-add">
                     <i class="fa-solid fa-cart-shopping" (click)="onAddToCart(item)"></i>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-trash" (click)="onRemoveFromFavourites(i)"></i>
                 </div>
             </div>
             <div class="nav__shopping-menu-select">
