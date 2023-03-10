@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Cart } from "../cart/cart.model";
-import { ShopProduct } from "../shop-online/shop-products/shop-product/product.model";
 
 export type Mode = 'cart' | 'favourites'
 
@@ -9,7 +8,7 @@ export type Mode = 'cart' | 'favourites'
 export class HeaderService {
 
     activeMode : Mode | '' = '';
-    modeChange = new Subject<Mode | ''>()
+    modeChange = new Subject<Mode | ''>();
 
     disactiveModeTime: any = '';
 

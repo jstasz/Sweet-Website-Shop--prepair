@@ -23,6 +23,8 @@ export class MenuComponent implements OnInit {
     this.cartService.cartChanges.subscribe(cart => this.cart = cart);
     this.activeMode = this.headerService.activeMode;
     this.headerService.modeChange.subscribe(mode => this.activeMode = mode);
+    this.favourites = this.favouritesService.favourites;
+    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites)
   }
 
   onClearFav() {

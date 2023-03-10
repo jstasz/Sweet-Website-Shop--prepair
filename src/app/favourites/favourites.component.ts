@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from '../cart/cart.model';
+import { FavouritesService } from './favourites.service';
 
 @Component({
   selector: 'app-favourites',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavouritesComponent implements OnInit {
 
-  constructor() { }
+  favourites: Cart = {items: []};
+
+  constructor(private favouritesService: FavouritesService) { }
 
   ngOnInit(): void {
+    this.favourites = this.favouritesService.favourites;
+    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
   }
-
 }

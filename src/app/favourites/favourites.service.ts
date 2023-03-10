@@ -7,9 +7,26 @@ import { ShopProduct } from "../shop-online/shop-products/shop-product/product.m
 @Injectable()
 export class FavouritesService {
 
-    favourites: Cart = {items: [new ShopProduct(40, 1, 'Cake6', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque', 'https://static5.hurtownia-fajerwerki.pl/pol_pl_Swi…ki-urodzinowe-gladkie-zlote-6-cm-6-szt-1034_5.jpg', 100, 'cakes')]};
+    favourites: Cart = {items: []};
     favouritesChange = new Subject<Cart>();
-    
+
     constructor() {}
+
+    addToFavourites(item: ShopProduct) {
+        const productInFav = this.favourites.items.find(prod => prod.id === item.id);
+
+        if(!productInFav) {
+            this.favourites.items.push(item);
+        } 
+
+        this.favouritesChange.next(this.favourites);
+
+        console.log(item)
+    }
+
+    removeFromFavourites(index: number) {
+        this.favourites.items.splice(index, 1);
+        this.favouritesChange.next(this.favourites);
+    }
 
 }
