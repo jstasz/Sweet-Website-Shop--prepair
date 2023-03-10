@@ -49,4 +49,8 @@ export class CartService {
         this.cart.items.splice(0, this.cart.items.length);
         this.cartChanges.next(this.cart);
     }
+
+    checkCart(item: ShopProduct) {
+        return this.cart.items.includes(item);
+    }
 }

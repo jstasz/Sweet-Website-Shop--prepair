@@ -12,7 +12,7 @@
                     <p class="item__product-name">{{item.name | shorten: 20}}</p>
                 </div>
                 <div class="item__product-add">
-                    <i class="fa-solid fa-cart-shopping" (click)="onAddToCart(item, i)"></i>
+                    <i class="fa-solid fa-cart-shopping add-icon" (click)="onAddToCart(item, i)"></i>
                     <i class="fa-solid fa-trash" (click)="onRemoveFromFavourites(i)"></i>
                 </div>
             </div>

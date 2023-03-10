@@ -34,9 +34,6 @@ export class MenuComponent implements OnInit {
 
   onAddToCart(item: ShopProduct, index: number) {
     this.cartService.addToCart(item);
-    setTimeout(() => 
-      this.favouritesService.removeFromFavourites(index), 1000
-    )
   }
 
   onRemoveFromFavourites(index: number) {
