@@ -20,8 +20,6 @@ export class FavouritesService {
         } 
 
         this.favouritesChange.next(this.favourites);
-
-        console.log(item)
     }
 
     removeFromFavourites(index: number) {

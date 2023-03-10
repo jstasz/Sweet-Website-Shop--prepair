@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from 'src/app/cart/cart.model';
 import { CartService } from 'src/app/cart/cart.service';
 import { FavouritesService } from 'src/app/favourites/favourites.service';
 import { ShopOnlineService } from '../../shop-online.servis';
@@ -14,6 +15,7 @@ export class ShopProductComponent implements OnInit {
 
 layout: Layout = 'grid';
 shopProducts : ShopProduct[] = [];
+favourites: Cart = {items: []};
 
 // title: string = 'pagination';
 // POSTS: any;
@@ -21,14 +23,12 @@ page: number = 1;
 count: number = 0;
 tableSize: number = 8;
 
-
   constructor(private cartService: CartService, private shopOnlineService: ShopOnlineService, private favouritesService: FavouritesService) { }
 
   ngOnInit(): void {
-    this.shopOnlineService.productsChanges.subscribe(products => {
-      this.shopProducts = products;
-    })
+    this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products)
     this.shopOnlineService.layoutChanges.subscribe(layout => this.layout = layout);
+    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
     this.shopOnlineService.showAllProducts();
     this.getTableSize();
   }
@@ -38,7 +38,17 @@ tableSize: number = 8;
   }
 
   onAddToFavourites(product: ShopProduct){
-    this.favouritesService.addToFavourites(product)
+    const fav = this.checkFavourites(product); 
+    if(!fav) {
+      this.favouritesService.addToFavourites(product);
+    } else {
+      const index = this.favourites.items.indexOf(product)
+      this.favouritesService.removeFromFavourites(index)
+    }
+  }
+
+  checkFavourites(product: ShopProduct) {
+    return this.favourites.items.includes(product);
   }
 
   onTableDataChange(event: any) {

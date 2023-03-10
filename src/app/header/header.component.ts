@@ -37,6 +37,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onShowCounter(element: Cart) {
-    return this.headerService.counter(element)
+    return this.headerService.counter(element);
   }
 }

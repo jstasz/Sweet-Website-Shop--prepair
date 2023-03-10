@@ -32,6 +32,10 @@ export class MenuComponent implements OnInit {
     this.activeMode = '';
   }
 
+  onAddToCart(item: ShopProduct) {
+    this.cartService.addToCart(item);
+  }
+
   onGetTotalCartPrice(items: ShopProduct[]) {
     return this.cartService.getTotalCartPrice(items);
   }

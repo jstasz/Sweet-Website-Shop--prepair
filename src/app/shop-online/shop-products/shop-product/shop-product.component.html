@@ -13,7 +13,8 @@
         <p class="product__summary-price">{{ product.price | currency }}</p>
         <div>
             <i class="product__summary-icon fa-solid fa-cart-shopping" (click)="onAddToCart(product)"></i>
-            <i class="product__summary-icon fa-solid fa-heart" (click)="onAddToFavourites(product)"></i>
+            <i class="product__summary-icon fa-solid fa-heart" (click)="onAddToFavourites(product)"
+                [ngClass]="{active : checkFavourites(product)}"></i>
         </div>
     </div>
 </div>
