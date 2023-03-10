@@ -15,7 +15,7 @@
         </div>
         <div class="nav__shopping-icon nav__shopping-icon--favourites" (mouseenter)="onActivateMode('favourites')"
             (mouseleave)="onDisactivateMode()">
-            <div class="nav__shopping-icon--counter" *ngIf="favourites.items.length">{{onShowCounter(favourites)}}</div>
+            <div class="nav__shopping-icon--counter" *ngIf="favourites.items.length">{{favourites.items.length}}</div>
             <img [routerLink]="'/favourites'" class="nav__shopping-icon-img" src="assets/img/icons/favourites.png"
                 alt="favourites" />
             <div *ngIf="activeMode === 'favourites'">
