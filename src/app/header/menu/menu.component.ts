@@ -32,8 +32,11 @@ export class MenuComponent implements OnInit {
     this.activeMode = '';
   }
 
-  onAddToCart(item: ShopProduct) {
+  onAddToCart(item: ShopProduct, index: number) {
     this.cartService.addToCart(item);
+    setTimeout(() => 
+      this.favouritesService.removeFromFavourites(index), 1000
+    )
   }
 
   onRemoveFromFavourites(index: number) {
