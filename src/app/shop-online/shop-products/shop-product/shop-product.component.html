@@ -14,7 +14,7 @@
         <div>
             <i class="product__summary-icon fa-solid fa-cart-shopping" (click)="onAddToCart(product)"></i>
             <i class="product__summary-icon fa-solid fa-heart" (click)="onAddToFavourites(product)"
-                [ngClass]="{active : checkFavourites(product)}"></i>
+                [ngClass]="{active : onCheckFavourites(product)}"></i>
         </div>
     </div>
 </div>

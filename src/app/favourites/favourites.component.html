@@ -1,12 +1,27 @@
-<div *ngIf="favourites.items.length, else noItems">
-    <div *ngFor="let item of favourites.items">
-        <p>{{item.name}}</p>
-        <p>{{item.description}}</p>
+<div class="cart" *ngIf="favourites.items.length, else noItems">
+    <div class="cart__items" *ngFor="let item of favourites.items | paginate : {
+            itemsPerPage: tableSize, 
+            currentPage: page, 
+            totalItems: count}, let i = index">
+        <img class="cart__items-img" src="{{item.imagePath}}" alt="">
+        <div class="cart__items-item cart__items-item--name">
+            <p class="name">{{item.name | shorten: 20}}</p>
+            <p class="description">{{item.description}}</p>
+        </div>
+        <p class="cart__items-item">{{item.price | currency}}</p>
+        <i class="fa-solid fa-heart cart__items-item remove-icon" (click)="onRemoveFromFavourites(i)"
+            [ngClass]="{active : onCheckFavourites(item)}"></i>
+    </div>
+    <a class="cart__clear" (click)="onClearFavourites()">remove all</a>
+    <div class="pagination">
+        <pagination-controls class="pagination-controls" previouslabel='Prev' nextLabel='next'
+            (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
     </div>
 </div>
 <ng-template #noItems>
     <div class="cart-empty">
-        <p>There are no items in your cart !</p>
+        <p>There are no items in your favourites !</p>
         <div class="cart-empty-actions">
             <p>
                 <span [routerLink]="['/shop-online']" class="link">Start Shopping</span> or

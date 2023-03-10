@@ -38,7 +38,7 @@ tableSize: number = 8;
   }
 
   onAddToFavourites(product: ShopProduct){
-    const fav = this.checkFavourites(product); 
+    const fav = this.onCheckFavourites(product); 
     if(!fav) {
       this.favouritesService.addToFavourites(product);
     } else {
@@ -47,8 +47,8 @@ tableSize: number = 8;
     }
   }
 
-  checkFavourites(product: ShopProduct) {
-    return this.favourites.items.includes(product);
+  onCheckFavourites(product: ShopProduct) {
+    return this.favouritesService.checkFavourites(product)
   }
 
   onTableDataChange(event: any) {

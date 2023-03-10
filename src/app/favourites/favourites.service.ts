@@ -27,4 +27,12 @@ export class FavouritesService {
         this.favouritesChange.next(this.favourites);
     }
 
+    clearFavourites() {
+        this.favourites.items.splice(0, this.favourites.items.length);
+        this.favouritesChange.next(this.favourites);
+    }
+
+    checkFavourites(product: ShopProduct) {
+        return this.favourites.items.includes(product);
+      }
 }
