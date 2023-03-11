@@ -51,10 +51,6 @@ tableSize: number = 8;
     return this.favouritesService.checkFavourites(product)
   }
 
-  onCheckCart(product: ShopProduct) {
-    return this.cartService.checkCart(product)
-  }
-
   onTableDataChange(event: any) {
     this.page = event;
     this.shopOnlineService.productsChanges.subscribe(products => {
