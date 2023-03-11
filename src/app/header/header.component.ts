@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../cart/cart.model';
 import { CartService } from '../cart/cart.service';
+import { FavouritesService } from '../favourites/favourites.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-product/product.model';
+import { HeaderService, Mode } from './header.service';
 
 @Component({
   selector: 'app-header',
@@ -9,39 +11,32 @@ import { ShopProduct } from '../shop-online/shop-products/shop-product/product.m
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  cartMenuIsActive = false;
+
+  activeMode : Mode = null;
+
   cart: Cart = {items: []};
-  cartDisactiveTime: any = '';
+  favourites: Cart = {items: []};
 
   navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private headerService : HeaderService, private favouritesService: FavouritesService) { }
 
   ngOnInit() {
-    this.cartService.cartChanges.subscribe(cart => this.cart = cart)
+    this.cartService.cartChanges.subscribe(cart => this.cart = cart);
+    this.headerService.modeChange.subscribe(mode => this.activeMode = mode);
+    this.favourites = this.favouritesService.favourites;
+    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites)
   }
 
-  activeCartMenu() {
-    clearTimeout(this.cartDisactiveTime)
-    this.cartMenuIsActive = true;
+  onActivateMode(mode: Mode) {
+    this.headerService.activateMode(mode);
   }
 
-  disactiveCartMenu() {
-      this.cartDisactiveTime = setTimeout(() => {
-        this.cartMenuIsActive = false
-      }, 500)
+  onDisactivateMode() {
+    this.headerService.disactivateMode();
   }
 
-  onGetTotalCartPrice(items: ShopProduct[]) {
-    return this.cartService.getTotalCartPrice(items);
-  }
-
-  showCartCounter() {
-    return this.cart.items.map(items => items.quantity).reduce((prev, curr) => prev + curr);
-  }
-
-  onClearCart() {
-    this.cartService.clearCart();
-    this.cartMenuIsActive = false;
+  onShowCounter(element: Cart) {
+    return this.headerService.counter(element);
   }
 }

@@ -3,113 +3,12 @@
     z-index: 100;
 }
 
-.nav {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(243, 243, 243);
-    background-image: radial-gradient(circle,
-            rgba(241, 241, 241, 1) 31%,
-            rgba(232, 232, 232, 1) 63%,
-            rgb(255, 217, 224) 100%);
-    // border-bottom: thin solid rgb(85, 85, 85);
-    z-index: 10;
-
-    &__links {
-        // width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    &__link {
-        position: relative;
-        width: 90%;
-        margin: 0.5em;
-        padding: 0.5em;
-        font-size: 1.7rem;
-        font-weight: bold;
-        text-align: center;
-        text-decoration: none;
-        text-shadow: 2px 2px 3px rgb(253, 253, 253);
-        color: rgb(61, 61, 61);
-        border-radius: 0.5em;
-        cursor: pointer;
-
-        &.active {
-            color: rgb(133, 65, 65);
-        }
-    }
-}
-
-.main-image {
-    width: 100%;
-    height: 100vh;
-    background-image: url('../../assets/img/cream_small.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: hidden;
-    order: 0;
-
-    &__content {
-        height: 100%;
-        margin: 0 auto;
-        padding: 1em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 2.4rem;
-        color: white;
-        text-align: center;
-
-        &-title {
-            font-family: "Satisfy", cursive;
-            font-size: 5rem;
-            text-shadow: 0px 0px 19px rgba(0, 0, 0, 1);
-        }
-
-        &-description {
-            color: black;
-            text-shadow: 2px 2px 5px rgb(253, 253, 253);
-        }
-    }
-}
-
 @media (min-width: 768px) {
     .hamburger {
         display: none;
     }
 
     .nav {
-        position: fixed;
-        height: 10vh;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: transparent;
-        background-image: none;
-        // background-color: rgba(44, 44, 44, 0.3);
-
-        &__links {
-            margin: 0 0.5em;
-            flex-direction: row;
-            justify-content: flex-start;
-        }
-
-        &__link {
-            width: auto;
-            padding: 1em 1.5em;
-        }
-
         &__shopping {
             width: 30%;
             margin: 0 1em;
@@ -208,6 +107,14 @@
                                 display: flex;
                                 align-items: center;
                             }
+
+                            &-add {
+                                .add-icon {
+                                    &.active {
+                                        color: pink;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -253,22 +160,4 @@
         }
     }
 
-    .main-image {
-        height: 50vh;
-        background-image: url(../../assets/img/cream_medium.jpg);
-
-        &__content {
-            padding: 2em 0 1em 0;
-
-            &-title {
-                font-size: 8rem;
-            }
-        }
-    }
-}
-
-@media (min-width: 1200px) {
-    .main-image {
-        background-image: url(../../assets/img/cream_large.jpg);
-    }
 }

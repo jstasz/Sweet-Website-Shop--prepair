@@ -26,6 +26,8 @@ export class CartService {
         }
 
         this.cartChanges.next(this.cart);
+
+        console.log(item)
     }
 
     removeFromCart(index: number) {
@@ -46,5 +48,9 @@ export class CartService {
     clearCart() {
         this.cart.items.splice(0, this.cart.items.length);
         this.cartChanges.next(this.cart);
+    }
+
+    checkCart(item: ShopProduct) {
+        return this.cart.items.includes(item);
     }
 }

@@ -1,4 +1,15 @@
 .gallery {
     background-color: rgb(243, 243, 243);
-    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel {
+    width: 45%;
+
+    & img {
+        height: 450px;
+    }
 }
