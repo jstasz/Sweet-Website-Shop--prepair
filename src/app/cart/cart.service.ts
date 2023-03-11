@@ -22,6 +22,7 @@ export class CartService {
         if(productInCart) {
             productInCart.quantity += 1
         } else {
+            item.quantity = 1;
             this.cart.items.push(item);
         }
 
@@ -46,11 +47,12 @@ export class CartService {
     }
 
     clearCart() {
+        this.cart.items.forEach(item => item.quantity = 0);
         this.cart.items.splice(0, this.cart.items.length);
         this.cartChanges.next(this.cart);
     }
 
-    checkCart(item: ShopProduct) {
-        return this.cart.items.includes(item);
+    checkCart(product: ShopProduct) {
+        return this.cart.items.includes(product);
     }
 }
