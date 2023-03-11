@@ -24,15 +24,23 @@
     &__summary {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding-top: 2em;
 
         &-price {
             font-weight: bold;
         }
 
+        &-quantity {
+           display: inline;
+           font-size: 1.2rem;
+        }
+
         &-icon {
             cursor: pointer;
             font-size: 1.7rem;
+            margin: 0 0.2em;
+            color: grey;
 
             &:hover {
                 color: pink;

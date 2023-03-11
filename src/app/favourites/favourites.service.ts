@@ -34,5 +34,5 @@ export class FavouritesService {
 
     checkFavourites(product: ShopProduct) {
         return this.favourites.items.includes(product);
-      }
+    }
 }
