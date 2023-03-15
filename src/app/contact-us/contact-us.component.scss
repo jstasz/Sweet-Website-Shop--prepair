@@ -1,0 +1,23 @@
+.contact {
+    margin: 2em;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        & .input {
+            margin: 0.5em 2em;
+            padding: 0.5em;
+            border-radius: 5px;
+            border: thin solid grey;
+            width: 80%;
+        }
+
+        & .btn {
+            width: 50%;
+        }
+    }
+}
+

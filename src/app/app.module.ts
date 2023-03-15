@@ -24,7 +24,7 @@ import { ShortenPipe } from './shared/shorten.pipe';
 import { SpacePipe } from './header/nav-links.pipe';
 import { ShopProductsComponent } from './shop-online/shop-products/shop-products.component';
 import { ShopCategoriesComponent } from './shop-online/shop-categories/shop-categories.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopProductComponent } from './shop-online/shop-products/shop-product/shop-product.component';
 import { ShopFiltersComponent } from './shop-online/shop-products/shop-filters/shop-filters.component';
 import { ShopOnlineService } from './shop-online/shop-online.servis';
@@ -71,7 +71,8 @@ import { FavouritesService } from './favourites/favourites.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [ShopOnlineService, CartService, HeaderService, FavouritesService],
   bootstrap: [AppComponent]

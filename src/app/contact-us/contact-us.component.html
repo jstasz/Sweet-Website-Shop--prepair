@@ -1,1 +1,9 @@
-<p>contact-us works!</p>
+<div class="contact">
+    <h1 class="section-title">Contact us</h1>
+    <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <input class="input input-name" type=" text" id="username" formControlName="username">
+        <input class="input input-email" type="text" id="email" formControlName="username">
+        <textarea class="input input-message" type="text" id="message" formControlName="username"></textarea>
+        <button class="btn btn-submit" type="submit">submit</button>
+    </form>
+</div>
