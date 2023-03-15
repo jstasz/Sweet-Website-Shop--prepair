@@ -3,11 +3,17 @@
     <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <label class="label" for="name">name</label>
         <input class="input input-name" type=" text" id="username" value="name" formControlName="username">
+        <p class="alert" *ngIf="!contactForm.controls['username'].valid && contactForm.controls['username'].touched">
+            Please enter valid name </p>
         <label class="label" for="email">e-mail</label>
-        <input class="input input-email" type="text" id="email" value="email" formControlName="username">
+        <input class="input input-email" type="text" id="email" value="email" formControlName="email">
+        <p class="alert" *ngIf="!contactForm.controls['email'].valid && contactForm.controls['email'].touched">
+            Please enter valid email </p>
         <label class="label" for="message">message</label>
         <textarea class="input textarea input-message" type="text" id="message" value="message"
-            formControlName="username"></textarea>
-        <button class="btn btn-submit" type="submit">submit</button>
+            formControlName="message"></textarea>
+        <p class="alert" *ngIf="!contactForm.controls['message'].valid && contactForm.controls['message'].touched">
+            Please enter valid message </p>
+        <button class="btn btn-submit" type="submit" [disabled]="!contactForm.valid">submit</button>
     </form>
 </div>
