@@ -8,15 +8,45 @@
         align-items: center;
     
         & .input {
+            width: 80%;
             margin: 0.5em 2em;
             padding: 0.5em;
             border-radius: 5px;
             border: thin solid grey;
+
+            &:focus {
+                outline: transparent;
+            }
+        }
+
+        & .label {
             width: 80%;
+        }
+
+        & .textarea {
+            height: 200px;
+            resize: vertical;
         }
 
         & .btn {
             width: 50%;
+            border: thin solid grey;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .contact {
+        &__form {
+            & .input,
+            & .label {
+                width: 45%;
+            }
+
+            & .btn {
+                width: 25%;
+            }
         }
     }
 }
