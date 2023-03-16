@@ -5,12 +5,11 @@ export class Categories {
     }
 }
 
-export type Category = 'cookies' | 'cakes' | 'birthday cakes' | 'sweets'| 'balloons'| 'accessories' | 'drinks';
+export type Category = 'cookies' | 'cakes' | 'sweets'| 'balloons'| 'accessories' | 'drinks';
 
 export const productsCategories: Categories[] = [
   {name: 'cookies', icon: 'fa-cookie'},
   {name: 'cakes', icon: 'fa-cloud'},
-  {name: 'birthday cakes', icon: 'fa-cake-candles'},
   {name: 'sweets', icon: 'fa-ice-cream'},
   {name: 'balloons', icon: 'fa-golf-ball-tee'},
   {name: 'accessories', icon: 'fa-shapes'},
