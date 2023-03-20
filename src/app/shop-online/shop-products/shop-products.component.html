@@ -1,3 +1,7 @@
 <app-shop-filters></app-shop-filters>
-<app-shop-product class="products-box" [ngClass]="{list: selectedLayout === 'list'}">
+<app-shop-product *ngIf="shopProducts.length else noProducts" class="products-box"
+    [ngClass]="{list: selectedLayout === 'list'}">
 </app-shop-product>
+<ng-template #noProducts>
+    <p class="no-products">please select at least one product category</p>
+</ng-template>

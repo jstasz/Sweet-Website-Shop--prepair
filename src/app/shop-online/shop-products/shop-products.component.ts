@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopOnlineService } from '../shop-online.servis';
 import { Layout } from './products.model';
+import { ShopProduct } from './shop-product/product.model';
 
 @Component({
   selector: 'app-shop-products',
@@ -9,6 +10,7 @@ import { Layout } from './products.model';
 })
 export class ShopProductsComponent implements OnInit {
   selectedLayout: Layout = 'grid'
+  shopProducts : ShopProduct[] = [];
 
   constructor(private shopOnlineService : ShopOnlineService) { }
 
@@ -16,5 +18,7 @@ export class ShopProductsComponent implements OnInit {
     this.shopOnlineService.layoutChanges.subscribe(layout => {
       this.selectedLayout = layout
     })
+    this.shopProducts = this.shopOnlineService.shopProducts;
+    this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products);
   }
 }
