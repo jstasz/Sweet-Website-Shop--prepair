@@ -1,5 +1,5 @@
 <app-shop-filters></app-shop-filters>
-<app-shop-product *ngIf="shopProducts.length else noProducts" class="products-box"
+<app-shop-product *ngIf="productsToShow.length else noProducts" class="products-box"
     [ngClass]="{list: selectedLayout === 'list'}">
 </app-shop-product>
 <ng-template #noProducts>

@@ -29,7 +29,7 @@ tableSize: number = 8;
     this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products)
     this.shopOnlineService.layoutChanges.subscribe(layout => this.layout = layout);
     this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
-    this.shopOnlineService.showAllProducts();
+    this.shopOnlineService.showProducts();
     this.getTableSize();
   }
 

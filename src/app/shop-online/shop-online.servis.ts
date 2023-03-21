@@ -46,9 +46,9 @@ export class ShopOnlineService {
         }
 
         this.categoryChanges.next(this.selectedCategory);
-        this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0);
-        this.productsChanges.next(this.productsToShow);
+        this.showProducts();
         this.selectSort(this.selectedSort);
+        console.log(this.selectedCategory)
     }
 
     selectSort(sort: Sort) {
@@ -73,11 +73,15 @@ export class ShopOnlineService {
         }
     }
 
+    showProducts() {
+        this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0);
+        this.productsChanges.next(this.productsToShow);
+    }
+
     showAllProducts() {
         this.selectedCategory = this.productsCategories.map(category => category.name);
         this.categoryChanges.next(this.selectedCategory);
-        this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0);
-        this.productsChanges.next(this.productsToShow);
+        this.showProducts();
         this.selectSort(this.selectedSort);
     }
 

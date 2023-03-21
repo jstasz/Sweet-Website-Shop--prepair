@@ -10,7 +10,7 @@ import { ShopProduct } from './shop-product/product.model';
 })
 export class ShopProductsComponent implements OnInit {
   selectedLayout: Layout = 'grid'
-  shopProducts : ShopProduct[] = [];
+  productsToShow : ShopProduct[] = [];
 
   constructor(private shopOnlineService : ShopOnlineService) { }
 
@@ -18,7 +18,8 @@ export class ShopProductsComponent implements OnInit {
     this.shopOnlineService.layoutChanges.subscribe(layout => {
       this.selectedLayout = layout
     })
-    this.shopProducts = this.shopOnlineService.shopProducts;
-    this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products);
+    this.productsToShow = this.shopOnlineService.productsToShow;
+    this.shopOnlineService.productsChanges.subscribe(products => this.productsToShow = products);
+    this.shopOnlineService.showProducts();
   }
 }
