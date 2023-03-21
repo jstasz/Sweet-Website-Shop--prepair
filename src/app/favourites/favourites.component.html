@@ -14,8 +14,8 @@
     </div>
     <a class="cart__clear" (click)="onClearFavourites()">remove all</a>
     <div class="pagination">
-        <pagination-controls class="pagination-controls" previouslabel='Prev' nextLabel='next'
-            (pageChange)="onTableDataChange($event)">
+        <pagination-controls *ngIf="tableSize < favourites.items.length" class="pagination-controls"
+            previouslabel='Prev' nextLabel='next' (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
 </div>

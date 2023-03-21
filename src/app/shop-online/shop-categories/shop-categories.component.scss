@@ -34,5 +34,11 @@
 
     &__show-all {
         cursor: pointer;
+        display: inline;
+        padding: 1em 0;
+
+        &:hover {
+            font-weight: bold;
+        }
     }
 }
