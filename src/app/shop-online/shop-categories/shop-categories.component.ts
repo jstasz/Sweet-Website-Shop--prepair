@@ -9,16 +9,16 @@ import { Categories, Category } from './categories.model';
 })
 export class ShopCategoriesComponent implements OnInit {
 
-  productsCategories: Categories[] = [];
+  categories: Categories[] = [];
   selectedCategory: Category[] = [];
 
   constructor(private shopOnlineService : ShopOnlineService) { }
 
   ngOnInit(): void {
-    this.productsCategories = this.shopOnlineService.productsCategories;
+    this.categories = this.shopOnlineService.productsCategories;
+    this.shopOnlineService.setCategories();
     this.selectedCategory = this.shopOnlineService.selectedCategory;
     this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
-    this.shopOnlineService.setCategories();
   }
 
   onSelectCategory(category: Category) {
