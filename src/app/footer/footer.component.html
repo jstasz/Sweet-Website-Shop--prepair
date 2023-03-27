@@ -1,10 +1,38 @@
 <footer class="footer section">
-    <div class="footer__contact">
-        <a class="footer__contact-item" *ngFor="let contactDetail of contactDetails"><i
-                class="footer__contact-icon {{contactDetail.contactIcon}}"></i>{{contactDetail.contactInfo}}</a>
+    <div class="footer__informations">
+        <div class="footer__informations-item">
+            <p class="footer__informations-item-title">Just Sweet - best cakes</p>
+            <a class="footer__informations-item-link">Create Your Own Cake</a>
+            <a class="footer__informations-item-link">Shop Online</a>
+            <a class="footer__informations-item-link">About Us</a>
+            <a class="footer__informations-item-link">Our Places</a>
+            <a class="footer__informations-item-link">Gallery</a>
+            <a class="footer__informations-item-link">Feedback</a>
+        </div>
+        <div class="footer__informations-item">
+            <p class="footer__informations-item-title">Contact Us</p>
+            <p>20425 xxx Road</p>
+            <p>Mon-Fri 9AM-5PM, Sat-Sun 10AM-3PM</p>
+            <p><i class="fa-solid fa-phone icon"></i> 564 674 534</p>
+            <p><i class="fa-solid fa-envelope icon"></i> justsweet@gmail.com</p>
+        </div>
+        <div class="footer__informations-item">
+            <p class="footer__informations-item-title">Join the Community</p>
+            <p>Subscribe and be the first to know about our special offers</p>
+            <input type="mail">
+            <button>send</button>
+        </div>
+        <div class="footer__informations-item">
+            <p class="footer__informations-item-title">Follow Us</p>
+            <div class="social-media">
+                <i class="icon fa-brands fa-facebook"></i>
+                <i class="icon fa-brands fa-instagram"></i>
+                <i class="icon fa-brands fa-tiktok"></i>
+            </div>
+        </div>
     </div>
-    <div class="footer__description">
-        Copyright &copy; <span class="footer__year"></span> Justyna Szajuk | all
-        rights reserved
+    <div class="footer__copyright">
+        <p>Copyright &copy; <span class="footer__year">2023</span> Justyna Sz | Just Sweet Cake .</p>
+        <p>All rights reserved .</p>
     </div>
 </footer>
