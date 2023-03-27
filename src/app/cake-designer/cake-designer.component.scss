@@ -147,6 +147,25 @@
                     font-size: 1.8rem;
                 }
 
+                &-date {
+                    margin: 1em 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    & .select-date {
+                        margin: 0;
+                    }
+
+                    & .date {
+                        margin: 0 1em;
+                        padding: 0.2em 0.4em;
+                        color: rgb(169, 169, 169);
+                        border: thin solid rgb(243, 243, 243);
+                        border-radius: 5px;
+                    }
+                }
+
                 & .carts-information {
                     display: flex;
                     justify-content: center;
