@@ -1,11 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-class ContactDetail {
-  constructor(public contactIcon: string, public contactInfo: string) {
-    contactIcon = this.contactIcon;
-    contactInfo = this.contactInfo
-  }
-}
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-footer',
@@ -14,17 +8,10 @@ class ContactDetail {
 })
 export class FooterComponent implements OnInit {
 
-  contactDetails: ContactDetail[] = [
-    new ContactDetail('fa-solid fa-phone', '000 000 000'),
-    new ContactDetail('fa-solid fa-envelope', 'justsweet@gmail.com'),
-    new ContactDetail('fa-brands fa-facebook-messenger', 'just sweet')
-  ]
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
 
 
