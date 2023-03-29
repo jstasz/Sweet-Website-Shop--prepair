@@ -33,10 +33,6 @@ export class CartService {
         this.itemAddedChange.next(this.itemAdded)
     }
 
-    // showAlert(item: ShopProduct) {
-    //     console.log(item)
-    // }
-
     removeFromCart(index: number) {
         this.cart.items.splice(index, 1);
         this.cartChanges.next(this.cart);
