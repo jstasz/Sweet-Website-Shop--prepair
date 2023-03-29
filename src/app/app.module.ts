@@ -35,6 +35,7 @@ import { CreamComponent } from './cake-designer/cream/cream.component';
 import { MenuComponent } from './header/menu/menu.component';
 import { HeaderService } from './header/header.service';
 import { FavouritesService } from './favourites/favourites.service';
+import { AlertComponent } from './shop-online/shop-products/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { FavouritesService } from './favourites/favourites.service';
     SummaryComponent,
     CreamComponent,
     MenuComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

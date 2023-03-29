@@ -16,6 +16,7 @@ export class ShopProductComponent implements OnInit {
 layout: Layout = 'grid';
 shopProducts : ShopProduct[] = [];
 favourites: Cart = {items: []};
+activeAlert : boolean = false;
 
 // title: string = 'pagination';
 // POSTS: any;
@@ -31,10 +32,13 @@ tableSize: number = 8;
     this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
     this.shopOnlineService.showProducts();
     this.getTableSize();
+    this.activeAlert = this.shopOnlineService.activeAlert;
+    this.shopOnlineService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
 
   onAddToCart(product: ShopProduct) {
     this.cartService.addToCart(product);
+    this.shopOnlineService.activateAlert();
   }
 
   onAddToFavourites(product: ShopProduct){
