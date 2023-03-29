@@ -1,21 +1,32 @@
 <footer class="footer section">
     <div class="footer__informations">
         <div class="footer__informations-item">
-            <p class="footer__informations-item-title">Just Sweet</p>
-            <a class="footer__informations-item-link">Create Your Own Cake</a>
-            <a class="footer__informations-item-link">Shop Online</a>
-            <a class="footer__informations-item-link">About Us</a>
-            <a class="footer__informations-item-link">Our Places</a>
-            <a class="footer__informations-item-link">Gallery</a>
-            <a class="footer__informations-item-link">Feedback</a>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank"><i
+                        class="social-media-icon fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i
+                        class="social-media-icon fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com" target="_blank"> <i
+                        class="social-media-icon fa-brands fa-tiktok"></i></a>
+            </div>
         </div>
         <div class="footer__informations-item">
-            <p class="footer__informations-item-title">Contact Us</p>
+            <p class="footer__informations-item-title">Just Sweet</p>
+            <a class="footer__informations-item-link" [routerLink]="'/cake-designer'">Create Your Own Cake</a>
+            <a class="footer__informations-item-link" [routerLink]="'/shop-online'">Shop Online</a>
+            <a class="footer__informations-item-link" [routerLink]="'/home'" href="#about-me">About Us</a>
+            <a class="footer__informations-item-link">Gallery</a>
+            <a class="footer__informations-item-link">Delivery</a>
+            <a class="footer__informations-item-link">Statute</a>
+        </div>
+        <div class="footer__informations-item">
+            <p class="footer__informations-item-title" [routerLink]="'/contact-us'">Contact Us</p>
             <p>20425 xxx Road</p>
             <p>Mon-Fri 9AM-5PM,</p>
             <p>Sat-Sun 10AM-3PM</p>
             <p><i class="fa-solid fa-phone icon"></i> 564 674 534</p>
-            <p><i class="fa-solid fa-envelope icon"></i> justsweet@gmail.com</p>
+            <p class="footer__informations-item-email" [routerLink]="'/contact-us'"><i
+                    class="fa-solid fa-envelope icon"></i> justsweet@gmail.com</p>
         </div>
         <div class="footer__informations-item">
             <p class="footer__informations-item-title">Join the Community</p>
@@ -28,14 +39,6 @@
                 </button>
                 <p *ngIf="!f.valid && f.touched" class="subscribe-valid">Please, enter valid email</p>
             </form>
-        </div>
-        <div class="footer__informations-item">
-            <p class="footer__informations-item-title">Follow Us</p>
-            <div class="social-media">
-                <i class="icon fa-brands fa-facebook"></i>
-                <i class="icon fa-brands fa-instagram"></i>
-                <i class="icon fa-brands fa-tiktok"></i>
-            </div>
         </div>
     </div>
     <div class="footer__copyright">

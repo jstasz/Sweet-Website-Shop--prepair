@@ -26,11 +26,32 @@
                 cursor: pointer;
             }
 
+            &-email {
+                cursor: pointer;
+            }
+
+            & .social-media {
+                display: flex;
+                flex-direction: column;
+                font-size: 1.5rem;
+
+                &-icon {
+                    color: grey;
+                    padding: 0.5em;
+                    margin-bottom: 0.2em;
+
+                    &:hover {
+                        color: rgb(165, 165, 165);
+                    }
+                }
+            } 
+
             & .subscribe {
                 margin: 0.2em 0;
                 border: thin solid rgb(178, 178, 178);
                 border-radius: 5px;
-                padding: 0.2em 0.4em;
+                padding: 0.4em 0.7em;
+                color: grey;
 
                 &::placeholder {
                     color: rgb(193, 193, 193);
@@ -42,7 +63,6 @@
 
                 &-btn {
                     margin-left: 0.2em;
-                    color: grey;
 
                     &:hover {
                         background-color: rgb(204, 204, 204);
@@ -57,15 +77,6 @@
 
             & .icon {
                 margin-right: 0.3em;
-            }
-
-            & .social-media {
-                display: flex;
-                font-size: 2rem;
-
-                & .icon {
-                    padding: 0.5em;
-                }
             }
         }
     }
