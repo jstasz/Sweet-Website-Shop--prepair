@@ -65,7 +65,7 @@ import { FavouritesService } from './favourites/favourites.service';
     ShopFiltersComponent,
     SummaryComponent,
     CreamComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,35 @@
                 cursor: pointer;
             }
 
+            & .subscribe {
+                margin: 0.2em 0;
+                border: thin solid rgb(178, 178, 178);
+                border-radius: 5px;
+                padding: 0.2em 0.4em;
+
+                &::placeholder {
+                    color: rgb(193, 193, 193);
+                }
+
+                &:focus {
+                    outline: transparent;
+                }
+
+                &-btn {
+                    margin-left: 0.2em;
+                    color: grey;
+
+                    &:hover {
+                        background-color: rgb(204, 204, 204);
+                    }
+                }
+
+                &-valid {
+                    font-size: 1rem;
+                    color: red;
+                }
+            }
+
             & .icon {
                 margin-right: 0.3em;
             }

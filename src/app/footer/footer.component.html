@@ -1,7 +1,7 @@
 <footer class="footer section">
     <div class="footer__informations">
         <div class="footer__informations-item">
-            <p class="footer__informations-item-title">Just Sweet - best cakes</p>
+            <p class="footer__informations-item-title">Just Sweet</p>
             <a class="footer__informations-item-link">Create Your Own Cake</a>
             <a class="footer__informations-item-link">Shop Online</a>
             <a class="footer__informations-item-link">About Us</a>
@@ -12,15 +12,22 @@
         <div class="footer__informations-item">
             <p class="footer__informations-item-title">Contact Us</p>
             <p>20425 xxx Road</p>
-            <p>Mon-Fri 9AM-5PM, Sat-Sun 10AM-3PM</p>
+            <p>Mon-Fri 9AM-5PM,</p>
+            <p>Sat-Sun 10AM-3PM</p>
             <p><i class="fa-solid fa-phone icon"></i> 564 674 534</p>
             <p><i class="fa-solid fa-envelope icon"></i> justsweet@gmail.com</p>
         </div>
         <div class="footer__informations-item">
             <p class="footer__informations-item-title">Join the Community</p>
             <p>Subscribe and be the first to know about our special offers</p>
-            <input type="mail">
-            <button>send</button>
+            <form #f="ngForm">
+                <input class="subscribe" type="mail" id="email" placeholder="your e-mail" ngModel name="email" required
+                    email>
+                <button class="subscribe subscribe-btn" type="submit" [disabled]="!f.valid">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </button>
+                <p *ngIf="!f.valid && f.touched" class="subscribe-valid">Please, enter valid email</p>
+            </form>
         </div>
         <div class="footer__informations-item">
             <p class="footer__informations-item-title">Follow Us</p>
