@@ -16,6 +16,7 @@ export class ShopProductComponent implements OnInit {
 layout: Layout = 'grid';
 shopProducts : ShopProduct[] = [];
 favourites: Cart = {items: []};
+activeAlert : boolean = false;
 
 // title: string = 'pagination';
 // POSTS: any;
@@ -35,6 +36,7 @@ tableSize: number = 8;
 
   onAddToCart(product: ShopProduct) {
     this.cartService.addToCart(product);
+    this.activeAlert = true;
   }
 
   onAddToFavourites(product: ShopProduct){

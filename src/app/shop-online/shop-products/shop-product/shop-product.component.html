@@ -21,6 +21,7 @@
         </div>
     </div>
 </div>
+<app-alert *ngIf="activeAlert"></app-alert>
 <div class="product__pagination">
     <pagination-controls *ngIf="tableSize < shopProducts.length" class="pagination-controls" previouslabel='Prev'
         nextLabel='next' (pageChange)="onTableDataChange($event)">

@@ -48,7 +48,7 @@ export class ShopOnlineService {
         this.categoryChanges.next(this.selectedCategory);
         this.showProducts();
         this.selectSort(this.selectedSort);
-        console.log(this.selectedCategory)
+
     }
 
     selectSort(sort: Sort) {
@@ -89,5 +89,5 @@ export class ShopOnlineService {
         this.tableSize = event.target.value
         this.tableSizeChanges.next(this.tableSize);
         this.page = 1;
-      }
+    }
 }

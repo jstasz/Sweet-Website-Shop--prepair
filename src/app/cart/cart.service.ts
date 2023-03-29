@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { ShopProduct } from "../shop-online/shop-products/shop-product/product.model";
 import { Cart } from "./cart.model";
@@ -7,8 +7,10 @@ import { Cart } from "./cart.model";
     providedIn: 'root'
 })
 export class CartService {
-    cart: Cart = {items: []}
-    cartChanges = new Subject<Cart>()
+    cart: Cart = {items: []};
+    cartChanges = new Subject<Cart>();
+    itemAdded!: ShopProduct 
+    itemAddedChange = new Subject<ShopProduct>();
 
     constructor() {}
 
@@ -27,9 +29,13 @@ export class CartService {
         }
 
         this.cartChanges.next(this.cart);
-
-        console.log(item)
+        this.itemAdded = item;
+        this.itemAddedChange.next(this.itemAdded)
     }
+
+    // showAlert(item: ShopProduct) {
+    //     console.log(item)
+    // }
 
     removeFromCart(index: number) {
         this.cart.items.splice(index, 1);
