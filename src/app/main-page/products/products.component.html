@@ -6,8 +6,7 @@
             <p class="products__card-description">
                 {{card.description}}
             </p>
-            <a href="#" class="">
-                <p class="products__card-link">{{card.link}}</p>
+            <a href="#" class="products__card-link" [ngClass]="{'products__card-link--top': i % 2 !== 0}">{{card.link}}
             </a>
             <img class="products__card-img" [ngClass]="{'products__card-img--top': i % 2 !== 0}"
                 src="{{card.imagePath}}" alt="{{card.title}}" />

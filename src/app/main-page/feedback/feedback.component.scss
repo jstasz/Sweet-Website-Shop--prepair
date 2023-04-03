@@ -1,71 +1,95 @@
+$carousel-control-color: pink;
+
 .feedback {
-    background-color: rgb(228, 228, 228);
+    // background-color: rgb(228, 228, 228);
+    // background-color: rgb(243, 243, 243);
+    .carousel {
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
 
-    &__card {
-        width: 80%;
-        margin: 3em 0;
-
-        &-quote {
-            font-size: 2rem;
-            color: rgb(252, 134, 154);
+        &-inner {
+            padding-bottom: 4em;
         }
 
-        &-opinion {
-            padding: 1em 0 2em 0;
-        }
-
-        &-name {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: rgb(93, 93, 93);
-
-            &-stars {
-                margin-top: 0.5em;
-                color: rgb(250, 188, 198);
-            }
-        }
-
-        &--right {
-            margin-left: auto;
-
-            & .feedback__card-name {
-                justify-content: start;
-            }
+        &-description {
+            margin: 0 auto;
+            padding-bottom: 1em;
         }
     }
-}
 
-@media (min-width: 768px) {
-    .feedback {
-        &__card {
-            &-name {
-                flex-direction: row;
-                justify-content: end;
 
-                &-stars {
-                    margin-top: 0;
-                    margin-left: 1em;
-                    color: rgb(250, 188, 198);
-                }
-            }
-
-            &--right {
-                & .feedback__card-name {
-                    &-stars {
-                        margin: 0 1em;
-                        order: -1;
-                    }
-                }
-
-                & .feedback__card-quote,
-                & .feedback__card-opinion {
-                    text-align: end;
-                }
-            }
-        }
+    &__stars {
+        color: rgb(222, 180, 187);
     }
+
+    // &__card {
+    //     width: 80%;
+    //     margin: 3em 0;
+
+    //     &-quote {
+    //         font-size: 2rem;
+    //         color: rgb(252, 134, 154);
+    //     }
+
+    //     &-opinion {
+    //         padding: 1em 0 2em 0;
+    //     }
+
+    //     &-name {
+    //         display: flex;
+    //         flex-direction: column;
+    //         justify-content: center;
+    //         text-align: center;
+    //         font-size: 2rem;
+    //         font-weight: bold;
+    //         color: rgb(93, 93, 93);
+
+    //         &-stars {
+    //             margin-top: 0.5em;
+    //             color: rgb(250, 188, 198);
+    //         }
+    //     }
+
+    //     &--right {
+    //         margin-left: auto;
+
+    //         & .feedback__card-name {
+    //             justify-content: start;
+    //         }
+    //     }
+    // }
 }
+
+
+
+// @media (min-width: 768px) {
+//     .feedback {
+//         &__card {
+//             &-name {
+//                 flex-direction: row;
+//                 justify-content: end;
+
+//                 &-stars {
+//                     margin-top: 0;
+//                     margin-left: 1em;
+//                     color: rgb(250, 188, 198);
+//                 }
+//             }
+
+//             &--right {
+//                 & .feedback__card-name {
+//                     &-stars {
+//                         margin: 0 1em;
+//                         order: -1;
+//                     }
+//                 }
+
+//                 & .feedback__card-quote,
+//                 & .feedback__card-opinion {
+//                     text-align: end;
+//                 }
+//             }
+//         }
+//     }
+// }

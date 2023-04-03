@@ -1,8 +1,36 @@
 <section class="feedback section">
     <h2 class="section-title">feedback</h2>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false">
+        <div class="carousel-indicators">
+            <button *ngFor="let feedback of feedbackCards; let i = index" type="button"
+                [attr.data-bs-target]="'#carouselExampleIndicators'" [attr.data-bs-slide-to]="i"
+                [ngClass]="{'active': i === 0}" [attr.aria-current]="i === 0 ? 'true' : null"
+                [attr.aria-label]="'Slide ' + (i + 1)"></button>
+        </div>
+        <div class="carousel-inner">
+            <div *ngFor="let feedback of feedbackCards; let i = index" class="carousel-item" data-bs-interval="5000"
+                [ngClass]="{'active': i === 0}">
+                <p class="d-block w-75 carousel-description">{{feedback.description}}</p>
+                <p class="d-block w-100">{{feedback.userName}}</p>
+                <div class="feedback__stars" [innerHtml]="createStars(feedback.opinion)">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <!-- <span class="visually-hidden">Previous</span> -->
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" fill="black" aria-hidden="true"></span>
+            <!-- <span class="visually-hidden">Next</span> -->
+        </button>
+    </div>
+    <!-- <h2 class="section-title">feedback</h2>
     <div class="feedback__cards">
         <div class="feedback__container wrapper">
-            <div *ngFor="let feedbackCard of feedbackCards; let i = index" class="white-card feedback__card"
+            <div *ngFor="let feedbackCard of feedbackCards; let i = index" class="feedback__card"
                 [ngClass]="{'feedback__card--right': i % 2 !== 0}">
                 <div class="feedback__card-quote">
                     <i class="fas fa-quote-right"></i>
@@ -17,5 +45,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>

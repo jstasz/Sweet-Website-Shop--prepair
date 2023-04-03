@@ -1,7 +1,7 @@
 .products {
-    background-color: rgb(228, 228, 228);
 
     &__container {
+        width: 80%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -37,18 +37,20 @@
         &-title {
             margin-bottom: 1em;
             color: rgb(104, 104, 104);
-        }
-
-        & a {
-            width: 100%;
-            text-decoration: none;
-            font-weight: 600;
-            color: rgb(252, 134, 154);
-            text-align: end;
+            text-transform: uppercase;
         }
 
         &-link {
             padding: 1em 0;
+            width: 100%;
+            text-decoration: none;
+            font-weight: 600;
+            color: rgb(228, 176, 185);
+            text-align: end;
+
+            &--top {
+                padding-bottom: 0;
+            }
         }
     }
 }
@@ -62,6 +64,10 @@
         &__card {
             width: 40%;
             margin: 1em 1em;
+
+            &:hover {
+                scale: 1.05;
+            }
         }
     }
 }
