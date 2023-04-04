@@ -9,7 +9,7 @@
 }
 
 .section {
-    padding: 3em 1em;
+    padding: 1em;
 }
 
 .section-title {
@@ -60,4 +60,10 @@
     border-radius: 5px;
     padding: 0.5em 1em;
     margin: 1em;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 3em 1em;
+    }
 }
