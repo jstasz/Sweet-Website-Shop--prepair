@@ -16,7 +16,6 @@ export class CartComponent implements OnInit {
   page = 1;
   tableSize: number = 10;
 
-
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {

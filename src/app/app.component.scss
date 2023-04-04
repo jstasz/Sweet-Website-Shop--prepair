@@ -62,6 +62,16 @@
     margin: 1em;
 }
 
+.pagination {
+    grid-column: 3/5;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.pagination-controls::ng-deep .ngx-pagination .current {
+    background: rgb(223, 197, 201);
+}
+
 @media (min-width: 768px) {
     .section {
         padding: 3em 1em;

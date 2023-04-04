@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { ShopProduct } from "../shop-online/shop-products/shop-product/product.model";
 import { Cart } from "./cart.model";

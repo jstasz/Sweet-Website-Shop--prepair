@@ -1,4 +1,8 @@
 <div class="cart" *ngIf="favourites.items.length, else noItems">
+    <div class="cart__header">
+        <p class="cart__header-title cart__header-title--name">Name</p>
+        <p class="cart__header-title cart__header-title--price">Price</p>
+    </div>
     <div class="cart__items" *ngFor="let item of favourites.items | paginate : {
             itemsPerPage: tableSize, 
             currentPage: page, 
@@ -13,6 +17,7 @@
             [ngClass]="{active : onCheckFavourites(item)}"></i>
     </div>
     <a class="cart__clear" (click)="onClearFavourites()">remove all</a>
+    <a class="cart__add" [routerLink]="'/cart'">add all to cart</a>
     <div class="pagination">
         <pagination-controls *ngIf="tableSize < favourites.items.length" class="pagination-controls"
             previouslabel='Prev' nextLabel='next' (pageChange)="onTableDataChange($event)">
