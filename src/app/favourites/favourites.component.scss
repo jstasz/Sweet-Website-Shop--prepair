@@ -1,39 +1,42 @@
 .cart {
-    width: 70%;
-    margin: 5em auto;
     display: grid;
+    grid-template-columns: repeat(1fr, 7);
+    margin: 5em auto;
+    width: 70%;
 
     &__header {
-        text-transform: uppercase;
-        color: rgb(182, 182, 182);
-        padding: 2em 0;
-        grid-column: 1 / 7;
         display: grid;
+        grid-column: 1 / 7;
         grid-template-columns: repeat(7, 1fr);
+        padding: 2em 0;
+        color: rgb(182, 182, 182);
+        text-transform: uppercase;
 
         &-title {
             justify-self: center;
 
             &--name {
-                grid-column: 2/4;
+                grid-column: 2/6;
+            }
+
+            &--price {
+                grid-column: 6/7;
             }
         }
     }
 
     &__items {
-        padding: 1em 0;
-        align-items: center;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         grid-column: 1 / 7;
-        border-bottom: thin solid rgb(235, 235, 235);
-
+        align-items: center;
+        padding: 1em 0;
+        border-bottom: thin solid rgb(222, 222, 222);
 
         &-img {
+            margin: 0 auto;
             width: 6em;
             height: 6em;
-            display: block;
-            margin: 0 auto;
         }
 
         &-item {
@@ -44,8 +47,8 @@
                 color: grey;
 
                 & .name {
-                    font-weight: bold;
                     margin-bottom: 0.2em;
+                    font-weight: bold;
                 }
 
                 & .description {
@@ -57,41 +60,47 @@
         & .remove-icon,
         & .quantity-icon {
             padding: 1em;
-            cursor: pointer;
             font-size: 1.7rem;
-        }
-
-        & .quantity-icon {
             color: rgb(202, 202, 202);
+            cursor: pointer;
         }
 
         & .remove-icon {
-            color: rgb(125, 125, 125);
-
             &.active {
-                color: pink;
+                color: rgb(215, 184, 189);
             }
+        }
+    }
+
+    &__clear,
+    &__add {
+        margin: 1em 0;
+        padding: 1em 0;
+        color: grey;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(198, 198, 198);
         }
     }
 
     &__clear {
         grid-column: 1 / 2;
-        color: grey;
-        padding: 1em 0;
-        cursor: pointer;
+    }
 
-        &:hover {
-            color: rgb(245, 93, 93);
-        }
+    &__add {
+        grid-column: 6 / 7;
     }
 }
 
 .pagination {
     grid-column: 3/5;
-    text-align: center;
     padding-top: 2em;
+    text-align: center;
 }
 
 .pagination-controls::ng-deep .ngx-pagination .current {
-    background: pink;
+    background: rgb(223, 197, 201);
 }
