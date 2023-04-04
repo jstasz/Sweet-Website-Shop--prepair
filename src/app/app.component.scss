@@ -35,13 +35,15 @@
     justify-content: space-between;
 }
 
-.cart-empty {
-    width: 100%;
+.cart__empty {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 2em;
+    padding: 1em;
+    width: 100%;
+    text-align: center;
 
     &-actions {
         display: flex;

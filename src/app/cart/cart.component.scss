@@ -1,17 +1,12 @@
 .cart {
-    display: grid;
     margin: 5em auto;
-    width: 70%;
+    width: 90%;
+    font-size: 1.2rem;
 
     &__header {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        grid-column: 1 / 7;
-        padding: 2em 0;
-        text-transform: uppercase;
-        color: rgb(167, 167, 167);
+        display: none;
         
-        &-title {
+        & .title {
             justify-self: center;
 
             &--name {
@@ -22,40 +17,65 @@
 
     &__items {
         display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        grid-column: 1 / 7;
+        grid-template-columns: repeat(4, 1fr);
         align-items: center;
         padding: 1em 0;
         border-bottom: thin solid rgb(219, 219, 219);
 
         &-img {
             margin: 0 auto;
-            width: 6em;
-            height: 6em;
+            width: 2.5em;
+            height: 2.5em;
+        }
+
+        &-quantity {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: 2 / 4;
+            margin: 0;
+            // font-size: 1.2rem;
+        }
+
+        &-price {
+            display: none;
+        }
+
+        &-total {
+            grid-column: 4 / 5;
+            margin: 0;
+            // font-size: 1.2rem;
+        }
+
+        &-name {
+            grid-column: 2/4;
+            padding: 0.2em;
+            color: grey;
+
+            & .name {
+                margin-bottom: 0.2em;
+                font-weight: bold;
+            }
+
+            & .description {
+                color: rgb(172, 172, 172);
+            }
         }
 
         &-item {
             justify-self: center;
+            text-align: center;
+        }
 
-            &--name {
-                grid-column: 2/4;
-                color: grey;
-
-                & .name {
-                    margin-bottom: 0.2em;
-                    font-weight: bold;
-                }
-
-                & .description {
-                    color: rgb(172, 172, 172);
-                }
-            }
+        & .remove-icon {
+            grid-column: 4 / 5;
+            grid-row: 1/2;
         }
 
         & .remove-icon,
         & .quantity-icon {
-            padding: 1em;
-            font-size: 1.7rem;
+            padding: 0.5em;
+            font-size: 1.5rem;
             color: rgb(181, 181, 181);
             cursor: pointer;
 
@@ -66,11 +86,8 @@
     }
 
     &__clear {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        grid-column: 1 / 2;
         padding: 1em 0;
+        font-size: 1.3rem;
         text-decoration: none;
         color: grey;
         cursor: pointer;
@@ -85,10 +102,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-end;
-        grid-column: 6 / 7;
-        padding-top: 3em;
+        grid-column: 5 / 8;
 
         &-continue {
+            font-size: 1.3rem;
             color: grey;
             cursor: pointer;
 
@@ -110,6 +127,7 @@
             margin: 1em 0;
             padding: 0.5em 1em;
             width: 100%;
+            font-size: 1.4rem;
             text-transform: uppercase;
             background-color: rgb(247, 247, 247);
             border: thin solid rgb(220, 220, 220);
@@ -126,11 +144,97 @@
 }
 
 .pagination {
-    grid-column: 3/5;
+    grid-column: 1/7;
+    justify-content: center;
     padding-top: 2em;
     text-align: center;
 }
 
 .pagination-controls::ng-deep .ngx-pagination .current {
     background: rgb(223, 197, 201);
+}
+
+@media (min-width: 476px) {
+    .cart {
+        &__summary {
+            &-submit {
+                width: 50%;
+            }
+        }
+
+        &__items {
+            &-img {
+                width: 4em;
+                height: 4em;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .cart {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        width: 90%;
+
+        &__header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-column: 1 / 8;
+            padding: 2em 0;
+            text-transform: uppercase;
+            color: rgb(167, 167, 167);
+        }
+
+        &__items {
+            grid-template-columns: repeat(7, 1fr);
+            grid-column: 1 / 8;
+
+            &-img {
+                width: 5em;
+                height: 5em;
+            }
+
+            &-quantity {
+                grid-column: 5 / 6;
+            }
+
+            &-name {
+               grid-column: 2 / 4;
+            }
+
+            &-price {
+                display: block;
+                grid-column: 4 / 5;
+            }
+
+            &-total {
+                grid-column: 6 / 7;
+                font-size: 1.4rem;
+            }
+
+            & .remove-icon {
+                grid-column: 7/8;
+            }
+        }
+
+        &__clear {
+            display: block;
+            padding: 2em 0;
+        }
+
+        &__summary {
+            padding-top: 2em;
+        }
+    }
+
+    .pagination {
+        grid-column: 2/7;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cart {
+        width: 70%;
+    }
 }
