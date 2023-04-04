@@ -13,7 +13,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutMeComponent } from './main-page/about-me/about-me.component';
 import { ProductsComponent } from './main-page/products/products.component';
 import { FeedbackComponent } from './main-page/feedback/feedback.component';
-import { GalleryComponent } from './main-page/gallery/gallery.component';
 import { FooterComponent } from './footer/footer.component';
 import { TypeComponent } from './cake-designer/type/type.component';
 import { SizeComponent } from './cake-designer/size/size.component';
@@ -51,7 +50,6 @@ import { AlertComponent } from './shop-online/shop-products/alert/alert.componen
     AboutMeComponent,
     ProductsComponent,
     FeedbackComponent,
-    GalleryComponent,
     FooterComponent,
     TypeComponent,
     SizeComponent,
