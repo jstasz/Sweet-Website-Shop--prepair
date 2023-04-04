@@ -1,35 +1,25 @@
-<footer class="footer section">
+<footer class="footer">
     <div class="footer__informations">
         <div class="footer__informations-item">
-            <div class="social-media">
-                <a href="https://facebook.com" target="_blank"><i
-                        class="social-media-icon fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com" target="_blank"><i
-                        class="social-media-icon fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com" target="_blank"> <i
-                        class="social-media-icon fa-brands fa-tiktok"></i></a>
-            </div>
+            <p class="title">Just Sweet</p>
+            <a class="link" [routerLink]="'/cake-designer'">Create Your Own Cake</a>
+            <a class="link" [routerLink]="'/shop-online'">Shop Online</a>
+            <a class="link" [routerLink]="'/home'" href="#about-me">About Us</a>
+            <a class="link">Little Gallery</a>
+            <a class="link">Delivery and Payment</a>
+            <a class="link">Statute</a>
         </div>
         <div class="footer__informations-item">
-            <p class="footer__informations-item-title">Just Sweet</p>
-            <a class="footer__informations-item-link" [routerLink]="'/cake-designer'">Create Your Own Cake</a>
-            <a class="footer__informations-item-link" [routerLink]="'/shop-online'">Shop Online</a>
-            <a class="footer__informations-item-link" [routerLink]="'/home'" href="#about-me">About Us</a>
-            <a class="footer__informations-item-link">Gallery</a>
-            <a class="footer__informations-item-link">Delivery</a>
-            <a class="footer__informations-item-link">Statute</a>
+            <p class="title" [routerLink]="'/contact-us'">Contact Us</p>
+            <p>{{address}}</p>
+            <p>Mon-Fri {{openingHours.week}},</p>
+            <p>Sat-Sun {{openingHours.weekend}}</p>
+            <p><i class="fa-solid fa-phone contact-icon"></i>{{phone}}</p>
+            <p class="email" [routerLink]="'/contact-us'"><i class="fa-solid fa-envelope contact-icon"></i>
+                {{email}}</p>
         </div>
         <div class="footer__informations-item">
-            <p class="footer__informations-item-title" [routerLink]="'/contact-us'">Contact Us</p>
-            <p>20425 xxx Road</p>
-            <p>Mon-Fri 9AM-5PM,</p>
-            <p>Sat-Sun 10AM-3PM</p>
-            <p><i class="fa-solid fa-phone icon"></i> 564 674 534</p>
-            <p class="footer__informations-item-email" [routerLink]="'/contact-us'"><i
-                    class="fa-solid fa-envelope icon"></i> justsweet@gmail.com</p>
-        </div>
-        <div class="footer__informations-item">
-            <p class="footer__informations-item-title">Join the Community</p>
+            <p class=" title">Join the Community</p>
             <p>Subscribe and be the first to know about our special offers</p>
             <form #f="ngForm">
                 <input class="subscribe" type="mail" id="email" placeholder="your e-mail" ngModel name="email" required
@@ -41,8 +31,17 @@
             </form>
         </div>
     </div>
+    <div class="footer__media">
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank"><i class="social-media-icon fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i
+                    class="social-media-icon fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com" target="_blank"> <i class="social-media-icon fa-brands fa-tiktok"></i></a>
+        </div>
+    </div>
     <div class="footer__copyright">
-        <p>Copyright &copy; <span class="footer__year">2023</span> Justyna Sz | Just Sweet Cake .</p>
-        <p>All rights reserved .</p>
+        <p class="footer__copyright-content">Copyright &copy; <span class="footer__year">2023</span> Justyna Sz | Just
+            Sweet Cake .</p>
+        <p class="footer__copyright-content">All rights reserved .</p>
     </div>
 </footer>

@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +6,14 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+
+  email: string = 'justsweet@gmail.com';
+  phone: number = 573576436;
+  address: string =  '20425 xxx Road';
+  openingHours: {week : string, weekend : string} = {
+    week : '9AM-5PM',
+    weekend : '10AM-3PM'
+  };
 
   constructor() { }
 

@@ -1,93 +1,58 @@
-.hamburger {
-    position: fixed;
-    z-index: 100;
+.nav {
+    &__shopping {
+        &-menu {
+            display: none;
+        }
+    }
 }
 
 @media (min-width: 768px) {
-    .hamburger {
-        display: none;
-    }
-
     .nav {
         &__shopping {
-            width: 30%;
-            margin: 0 1em;
-            display: flex;
-            justify-content: flex-end;
-            position: relative;
-
-            &-icon {
-                margin: 1em;
-                padding: 0.5em;
-                display: block;
-                background-color: rgb(255, 224, 224);
-                border-radius: 50%;
-                position: relative;
-
-                &-img {
-                    cursor: pointer;
-                    display: block;
-                    margin: 0 auto;
-                    width: 2.5rem;
-                    height: 2.5rem;
-                }
-
-                &--cart {
-                    background-color: rgb(199, 248, 223);
-                }
-
-                &--counter {
-                    position: absolute;
-                    width: 50%;
-                    height: 50%;
-                    border-radius: 50%;
-                    background-color: rgb(247, 117, 117);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    left: 60%;
-                    top: -25%;
-                }
-            }
-
             &-menu {
-                background-color: white;
-                padding: 1em;
+                display: block;
                 position: absolute;
                 top: 50px;
-                width: 30vw;
                 right: 0;
+                padding: 1em;
+                width: 30vw;
                 max-height: 80vh;
+                font-size: 1.2rem;
+                background-color: rgb(244, 244, 244);
                 overflow: scroll;
+                border: 1px solid rgb(201, 201, 201);
                 border-radius: 5px;
-                border: 1px solid rgb(186, 186, 186);
 
                 &-view {
                     display: flex;
                     justify-content: flex-end;
+                    padding: 0.5em;
 
                     & .view {
-                        text-decoration: none;
-                        color: rgb(233, 195, 195);
                         font-weight: bold;
+                        text-decoration: none;
+                        color: grey;
                     }
 
                     & .view-icon {
                         margin-left: 0.5em;
                         font-size: 2rem;
+                        color: rgb(215, 178, 178);
                         cursor: pointer;
                     }
                 }
 
                 &-items {
-                    padding: 1em;
+                    padding: 2em;
 
                     & .item {
                         display: flex;
                         justify-content: space-between;
                         margin: 0.5em 0;
                         padding: 0.5em;
-                        background-color: rgb(246, 246, 246);
+                        background-color: rgb(245, 245, 245);
+                        border: 1px solid rgb(233, 222, 222);
+                        border-radius: 5px;
 
                         &__product {
                             display: flex;
@@ -106,6 +71,7 @@
                             &-price {
                                 display: flex;
                                 align-items: center;
+                                padding: 0 1em;
                             }
 
                             &-add {
@@ -120,10 +86,10 @@
                 }
 
                 &-summary {
-                    margin-top: 2em;
-                    padding-top: 2em;
                     display: flex;
                     justify-content: flex-end;
+                    margin-top: 2em;
+                    padding-top: 2em;
                     border-top: 1px solid rgb(220, 220, 220);
 
                     & .total {
@@ -132,32 +98,29 @@
                 }
 
                 &-select {
-                    margin-top: 1em;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    margin-top: 1em;
 
                     & .buy-icon {
                         margin-left: 0.5em;
                         font-size: 2rem;
+                        color: rgb(163, 216, 163);
                         cursor: pointer;
                     }
 
                     & .delete-icon {
+                        color: rgb(111, 111, 111);
+                        text-decoration: none;
                         cursor: pointer;
-                        color: grey;
 
                         &:hover {
-                            color: rgb(247, 117, 117);
+                            color: rgb(196, 196, 196);
                         }
-                    }
-
-                    & .buy-icon {
-                        color: rgb(115, 214, 150);
                     }
                 }
             }
         }
     }
-
 }

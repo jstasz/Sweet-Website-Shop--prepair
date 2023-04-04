@@ -13,6 +13,7 @@ import { HeaderService, Mode } from './header.service';
 export class HeaderComponent implements OnInit {
 
   activeMode : Mode = null;
+  activeMenu: boolean = false;
 
   cart: Cart = {items: []};
   favourites: Cart = {items: []};
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit {
     this.cartService.cartChanges.subscribe(cart => this.cart = cart);
     this.headerService.modeChange.subscribe(mode => this.activeMode = mode);
     this.favourites = this.favouritesService.favourites;
-    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites)
+    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
   }
 
   onActivateMode(mode: Mode) {
@@ -38,5 +39,9 @@ export class HeaderComponent implements OnInit {
 
   onShowCounter(element: Cart) {
     return this.headerService.counter(element);
+  }
+
+  onActiveMenu() {
+    this.activeMenu = !this.activeMenu;
   }
 }
