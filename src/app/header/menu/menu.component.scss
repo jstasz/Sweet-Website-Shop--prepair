@@ -40,6 +40,14 @@
                         color: rgb(215, 178, 178);
                         cursor: pointer;
                     }
+
+                    &:hover .view {
+                        color: rgb(159, 159, 159);
+                    }
+
+                    &:hover .view-icon {
+                        color: rgb(239, 205, 205);
+                    }
                 }
 
                 &-items {
@@ -64,6 +72,7 @@
                             }
     
                             &-name {
+                                margin: 0;
                                 padding: 0 2em;
                                 font-weight: bold;
                             }
@@ -75,10 +84,24 @@
                             }
 
                             &-add {
-                                .add-icon {
-                                    &.active {
-                                        color: pink;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 0 1em;
+
+                                & .add-icon,
+                                & .remove-icon {
+                                    font-size: 1.3rem;
+                                    color: rgb(102, 102, 102);
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        color: rgb(187, 187, 187);
                                     }
+                                }
+
+                                & .add-icon {
+                                    margin-right: 0.5em;
                                 }
                             }
                         }
@@ -101,13 +124,17 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin-top: 1em;
+                    margin-top: 1.5em;
 
                     & .buy-icon {
                         margin-left: 0.5em;
                         font-size: 2rem;
                         color: rgb(163, 216, 163);
                         cursor: pointer;
+
+                        &:hover {
+                            color: rgb(192, 237, 192);
+                        }
                     }
 
                     & .delete-icon {
