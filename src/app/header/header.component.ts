@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
     this.cartService.cartChanges.subscribe(cart => this.cart = cart);
     this.headerService.modeChange.subscribe(mode => this.activeMode = mode);
     this.favourites = this.favouritesService.favourites;
-    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites)
+    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
   }
 
   onActivateMode(mode: Mode) {
