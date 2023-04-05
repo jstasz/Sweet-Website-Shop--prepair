@@ -12,6 +12,8 @@ export class ShopCategoriesComponent implements OnInit {
   categories: Categories[] = [];
   selectedCategory: Category[] = [];
 
+  categoriesActive : boolean = true;
+
   constructor(private shopOnlineService : ShopOnlineService) { }
 
   ngOnInit(): void {
@@ -27,5 +29,9 @@ export class ShopCategoriesComponent implements OnInit {
 
   onShowAllProducts() {
     this.shopOnlineService.showAllProducts();
+  }
+
+  activateCategories() {
+    this.categoriesActive = !this.categoriesActive;
   }
 }
