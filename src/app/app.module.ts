@@ -25,7 +25,7 @@ import { ShopProductsComponent } from './shop-online/shop-products/shop-products
 import { ShopCategoriesComponent } from './shop-online/shop-categories/shop-categories.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopProductComponent } from './shop-online/shop-products/shop-product/shop-product.component';
-import { ShopFiltersComponent } from './shop-online/shop-products/shop-filters/shop-filters.component';
+import { ShopFiltersComponent } from './shop-online/shop-categories/shop-filters/shop-filters.component';
 import { ShopOnlineService } from './shop-online/shop-online.servis';
 import { CartService } from './cart/cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';

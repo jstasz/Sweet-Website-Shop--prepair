@@ -13,7 +13,15 @@
 }
 
 .no-products {
+    padding: 1em 0.5em;
+    margin: 1em 0.5em;
     text-align: center;
-    padding: 2em;
-    margin: 2em;
+}
+
+
+@media (min-width: 768px) {
+    .no-products {
+        padding: 2em;
+        margin: 2em;
+    }
 }

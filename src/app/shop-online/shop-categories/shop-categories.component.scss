@@ -1,13 +1,18 @@
 .categories {
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
+    font-size: 1.3rem;
+    padding: 0.5em;
+
 
     &__header {
         &-title {
             font-weight: bold;
             display: inline;
             margin-right: 1em;
+            text-transform: uppercase;
         }
     
         &-icon {
@@ -30,8 +35,8 @@
         & .item {
             display: flex;
             padding: 0.5em 0;
-            align-items: center;
-            justify-content: space-between;
+            // align-items: center;
+            // justify-content: space-between;
 
             &__icon {
                 background-color: grey;

@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ShopOnlineService } from '../../shop-online.servis';
-import { Amount, Layout, Sort } from '../products.model';
+import { Amount, Layout, Sort } from '../../shop-products/products.model';
 
 @Component({
   selector: 'app-shop-filters',
@@ -15,6 +15,8 @@ export class ShopFiltersComponent implements OnInit {
   tableSize: Amount = 8;
   page: number = 1;
   amountToSelect: Amount[] = [4, 8, 12];
+
+  filtersActive: boolean = true;
 
   constructor(private shopOnlineService: ShopOnlineService) { }
 
@@ -34,5 +36,9 @@ export class ShopFiltersComponent implements OnInit {
     this.shopOnlineService.tableSizeChange(event);
     this.tableSize = this.shopOnlineService.tableSize;
     this.page = this.shopOnlineService.page;
+  }
+
+  activateFilters() {
+    this.filtersActive = !this.filtersActive;
   }
 }

@@ -1,0 +1,29 @@
+<div class="layout">
+    <i class="fa-solid fa-list icon" (click)="onSelectLayout('list')"></i>
+    <i class="fa-solid fa-table-cells icon" (click)="onSelectLayout('grid')"></i>
+</div>
+<div class="filters">
+    <div class="filters__header">
+        <p class="filters__header-title">Filters</p>
+        <i class="fa-solid fa-caret-down filters__header-icon" *ngIf="!filtersActive" (click)="activateFilters()"></i>
+        <i class="fa-solid fa-caret-up filters__header-icon" *ngIf="filtersActive" (click)="activateFilters()"></i>
+    </div>
+    <div class="filters__items" [ngClass]="{'filters__items--disactive': !filtersActive}">
+        <div class="filters__items-sort">
+            <label for="sort">Sort by</label>
+            <select id="sort" name="sort" class="select" [(ngModel)]="selectedSort"
+                (change)="onSelectSort(selectedSort)">
+                <option value="category">category</option>
+                <option value="name">name</option>
+                <option value="price">price</option>
+            </select>
+        </div>
+        <div class="filters__items-amount">
+            <label for="amount">Show</label>
+            <select id="amount" name="amount" class="select" [(ngModel)]="selectedAmount"
+                (change)="onTableSizeChange($event)">
+                <option *ngFor="let size of amountToSelect">{{size}}</option>
+            </select>
+        </div>
+    </div>
+</div>
