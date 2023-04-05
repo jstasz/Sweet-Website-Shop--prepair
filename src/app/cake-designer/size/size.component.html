@@ -1,4 +1,4 @@
-<div class="cake-design wrapper">
+<div class="cake-design">
     <div class="cake-design__item" *ngFor="let size of cakeSize" (click)="onSelectSize(size)">
         <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + size.imagePath + ')'}">
         </div>

@@ -1,4 +1,4 @@
-<div class="cake-design wrapper">
+<div class="cake-design">
     <div class="cake-design__item" *ngFor="let detail of cakeDetails" (click)="onSelectDetail(detail)">
         <div class="cake-design__item-img" [ngStyle]="{'background-image': 'url(' + detail.imagePath + ')'}">
         </div>
