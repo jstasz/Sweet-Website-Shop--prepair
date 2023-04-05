@@ -31,3 +31,15 @@
         }
     }
 }
+
+@media (min-width: 1200px) {
+    .shop {
+        &-categories {
+            width: 20%;
+        }
+
+        &-products {
+            width: 80%;
+        }
+    }
+}
