@@ -1,13 +1,12 @@
 <div class="cake-design">
     <div class="cake-design__summary">
-        <h1 class="summary__title">your cake</h1>
         <div class="summary__cake">
             <img class="summary__cake-img" [src]="createdCake.size.imagePath" alt="created cake">
         </div>
         <div class="summary__informations">
             <p class="summary__informations-type">{{createdCake.type.name}} {{createdCake.size.name}} cake</p>
             <div class="carts-information">
-                <div *ngFor="let floor of createdCake.floor" class="cart-information">
+                <div *ngFor="let floor of createdCake.floor" class="cart-information cart-information-cake">
                     <p *ngIf="createdCake.floor.length > 1" class="carts-information-floors">{{floor.name}}</p>
                     <p>{{ 'color : ' + floor.color.name }}</p>
                     <p>{{ 'flavour : ' + floor.flavour.name }}</p>
@@ -17,8 +16,7 @@
             <div class="summary__informations-accessories" *ngIf="createdCake.details.length > 1; else noDetails">
                 <p>Cake accessories:</p>
                 <div class="carts-information">
-                    <div class="cart-information" *ngFor="let detail of createdCake.details">
-                        <img [src]="detail.imagePath" alt="">
+                    <div class="cart-information cart-information-details" *ngFor="let detail of createdCake.details">
                         <p>{{detail.name}}</p>
                     </div>
                 </div>
