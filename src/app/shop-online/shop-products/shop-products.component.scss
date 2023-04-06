@@ -6,8 +6,7 @@
         flex-wrap: wrap;
 
         &.list {
-            display: block;
-            padding: 2em 4em;
+            margin: 0 auto;
         }
     }
 }
@@ -21,7 +20,19 @@
 @media (min-width: 476px) {
     .products {
         &-box {
-            grid-template-columns: repeat(2, 1fr);
+            &.list {
+                padding: 0 2em;
+            }
+        }
+    }
+}
+
+@media (min-width: 589px) {
+    .products {
+        &-box {
+            &.list {
+                padding: 0 3em;
+            }
         }
     }
 }
@@ -30,5 +41,15 @@
     .no-products {
         margin: 2em;
         padding: 2em;
+    }
+}
+
+@media (min-width: 976px) {
+    .products {
+        &-box {
+            &.list {
+                width: 90%;
+            }
+        }
     }
 }

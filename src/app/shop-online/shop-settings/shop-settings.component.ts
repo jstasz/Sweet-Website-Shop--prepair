@@ -17,7 +17,7 @@ export class SettingsComponent implements OnInit {
   page: number = 1;
   amountToSelect: Amount[] = [4, 8, 12];
 
-  filtersActive: boolean = true;
+  filtersActive: boolean = false;
 
   categories: Categories[] = [];
   selectedCategory: Category[] = [];
