@@ -9,7 +9,7 @@ export class HeaderService {
 
     activeMode : Mode = null;
     modeChange = new Subject<Mode>();
-    
+
     disactiveModeTime: any = '';
 
     constructor() {}
@@ -24,7 +24,7 @@ export class HeaderService {
         this.disactiveModeTime = setTimeout(() => {
             this.activeMode = null;
             this.modeChange.next(this.activeMode)
-          }, 500)
+        }, 500)
     }
 
     counter(element: Cart) {

@@ -6,7 +6,8 @@
         </span>
     </button>
     <div class="nav__links">
-        <a *ngFor="let navLink of navLinks" [routerLink]="'/' + navLink" routerLinkActive="active" class="nav__link"> {{
+        <a *ngFor="let navLink of navLinks" [routerLink]="'/' + navLink" routerLinkActive="active" class="nav__link"
+            (click)="windowWidth < 768 ? onActiveMenu() : ''"> {{
             navLink | space | uppercase
             }}</a>
     </div>

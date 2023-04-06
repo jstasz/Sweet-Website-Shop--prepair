@@ -11,12 +11,14 @@ import { HeaderService, Mode } from './header.service';
 })
 export class HeaderComponent implements OnInit {
 
-  activeMode : Mode = null;
-  activeMenu: boolean = false;
-
   @ViewChild('mainImage') mainImage!: ElementRef;
   mainImageHeight: number = 0;
   scrollPosition: number = 0;
+
+  windowWidth: number = window.innerWidth;
+
+  activeMode : Mode = null;
+  activeMenu: boolean = false;
 
   cart: Cart = {items: []};
   favourites: Cart = {items: []};
@@ -47,6 +49,7 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:resize', [])
   onResize() {
     this.mainImageHeight = this.mainImage.nativeElement.offsetHeight;
+    this.windowWidth = window.innerWidth;
   }
 
   onActivateMode(mode: Mode) {
