@@ -8,7 +8,7 @@ import { Categories, Category } from './categories.model';
   templateUrl: './shop-settings.component.html',
   styleUrls: ['./shop-settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class ShopSettingsComponent implements OnInit {
 
   selectedSort: Sort = 'category';
   selectedAmount: Amount = 8;
