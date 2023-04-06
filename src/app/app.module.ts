@@ -33,7 +33,7 @@ import { MenuComponent } from './header/menu/menu.component';
 import { HeaderService } from './header/header.service';
 import { FavouritesService } from './favourites/favourites.service';
 import { AlertComponent } from './shop-online/shop-products/alert/alert.component';
-import { SettingsComponent } from './shop-online/shop-settings/shop-settings.component';
+import { ShopSettingsComponent } from './shop-online/shop-settings/shop-settings.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,7 @@ import { SettingsComponent } from './shop-online/shop-settings/shop-settings.com
     CreamComponent,
     MenuComponent,
     AlertComponent,
-    SettingsComponent
+    ShopSettingsComponent
   ],
   imports: [
     BrowserModule,
