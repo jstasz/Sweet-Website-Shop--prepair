@@ -63,7 +63,7 @@ import { SettingsComponent } from './shop-online/shop-settings/shop-settings.com
     CreamComponent,
     MenuComponent,
     AlertComponent,
-    SettingsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
