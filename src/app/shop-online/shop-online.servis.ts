@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-import { Categories, Category, productsCategories } from "./shop-categories/categories.model";
+import { Categories, Category, productsCategories } from "./shop-settings/categories.model";
 import { Amount, Layout, Sort } from "./shop-products/products.model";
 import { ShopProduct, shopProducts } from "./shop-products/shop-product/product.model";
 
