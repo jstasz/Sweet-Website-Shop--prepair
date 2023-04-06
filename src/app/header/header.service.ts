@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { ElementRef, Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Cart } from "../cart/cart.model";
 
@@ -9,7 +9,7 @@ export class HeaderService {
 
     activeMode : Mode = null;
     modeChange = new Subject<Mode>();
-
+    
     disactiveModeTime: any = '';
 
     constructor() {}

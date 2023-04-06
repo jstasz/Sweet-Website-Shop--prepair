@@ -1,4 +1,4 @@
-<nav class="nav" [ngClass]="{'nav--active': activeMenu}">
+<nav class="nav" [ngClass]="{'nav--active': activeMenu}" [ngClass]="{'nav--shadow' : scrollPosition > 90}">
     <button class=" hamburger hamburger--spin" [ngClass]="{'is-active': activeMenu}" type="button"
         (click)="onActiveMenu()">
         <span class="hamburger-box">
@@ -34,7 +34,7 @@
         </div>
     </div>
 </nav>
-<div class="main-image">
+<div class="main-image" #mainImage>
     <div class="main-image__img"></div>
     <div class="main-image__content">
         <h1 class="main-image__content-title">Just Sweet</h1>
