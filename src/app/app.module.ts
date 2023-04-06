@@ -22,10 +22,8 @@ import { DetailsComponent } from './cake-designer/details/details.tcomponent';
 import { ShortenPipe } from './shared/shorten.pipe';
 import { SpacePipe } from './header/nav-links.pipe';
 import { ShopProductsComponent } from './shop-online/shop-products/shop-products.component';
-import { ShopCategoriesComponent } from './shop-online/shop-categories/shop-categories.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopProductComponent } from './shop-online/shop-products/shop-product/shop-product.component';
-import { ShopFiltersComponent } from './shop-online/shop-products/shop-filters/shop-filters.component';
 import { ShopOnlineService } from './shop-online/shop-online.servis';
 import { CartService } from './cart/cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -35,6 +33,7 @@ import { MenuComponent } from './header/menu/menu.component';
 import { HeaderService } from './header/header.service';
 import { FavouritesService } from './favourites/favourites.service';
 import { AlertComponent } from './shop-online/shop-products/alert/alert.component';
+import { SettingsComponent } from './shop-online/shop-settings/shop-settings.component';
 
 @NgModule({
   declarations: [
@@ -59,13 +58,12 @@ import { AlertComponent } from './shop-online/shop-products/alert/alert.componen
     ShortenPipe,
     SpacePipe,
     ShopProductsComponent,
-    ShopCategoriesComponent,
     ShopProductComponent,
-    ShopFiltersComponent,
     SummaryComponent,
     CreamComponent,
     MenuComponent,
     AlertComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

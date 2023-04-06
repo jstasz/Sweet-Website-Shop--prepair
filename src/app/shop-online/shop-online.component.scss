@@ -2,15 +2,45 @@
     min-height: 150px;
     width: 100vw;
     display: flex;
+    flex-direction: column;
 
-    &-categories {
-        width: 20%;
+    &-settings {
+        width: 100%;
         padding: 2em;
-        border-right: 1px solid rgb(227, 227, 227);
+        border-bottom: 1px solid rgb(210, 210, 210);
     }
 
     &-products {
-        width: 80%;
-        padding: 2em;
+        width: 100%;
+        padding: 1em;
+    }
+}
+
+@media (min-width: 768px) {
+    .shop {
+        flex-direction: row;
+
+        &-settings {
+            width: 25%;
+            border-bottom: none;
+            border-right: 1px solid rgb(210, 210, 210);
+        }
+
+        &-products {
+            width: 75%;
+            padding: 2em;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .shop {
+        &-settings {
+            width: 20%;
+        }
+
+        &-products {
+            width: 80%;
+        }
     }
 }

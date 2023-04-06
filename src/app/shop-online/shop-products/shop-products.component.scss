@@ -1,19 +1,55 @@
 .products {
     &-box {
         padding: 2em 0;
-        display: grid;
-        gap: 1em;
-        grid-template-columns: repeat(4,1fr);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
 
         &.list {
-            display: block;
-            padding: 2em 4em;
+            margin: 0 auto;
         }
     }
 }
 
 .no-products {
+    margin: 1em 0.5em;
+    padding: 1em 0.5em;
     text-align: center;
-    padding: 2em;
-    margin: 2em;
+}
+
+@media (min-width: 476px) {
+    .products {
+        &-box {
+            &.list {
+                padding: 0 2em;
+            }
+        }
+    }
+}
+
+@media (min-width: 589px) {
+    .products {
+        &-box {
+            &.list {
+                padding: 0 3em;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .no-products {
+        margin: 2em;
+        padding: 2em;
+    }
+}
+
+@media (min-width: 976px) {
+    .products {
+        &-box {
+            &.list {
+                width: 90%;
+            }
+        }
+    }
 }

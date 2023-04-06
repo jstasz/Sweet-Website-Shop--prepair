@@ -18,8 +18,6 @@ shopProducts : ShopProduct[] = [];
 favourites: Cart = {items: []};
 activeAlert : boolean = false;
 
-// title: string = 'pagination';
-// POSTS: any;
 page: number = 1;
 count: number = 0;
 tableSize: number = 8;
