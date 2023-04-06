@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { ElementRef, Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Cart } from "../cart/cart.model";
 
@@ -24,7 +24,7 @@ export class HeaderService {
         this.disactiveModeTime = setTimeout(() => {
             this.activeMode = null;
             this.modeChange.next(this.activeMode)
-          }, 500)
+        }, 500)
     }
 
     counter(element: Cart) {
