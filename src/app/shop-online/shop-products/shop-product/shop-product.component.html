@@ -2,12 +2,12 @@
     itemsPerPage: tableSize, 
     currentPage: page, 
     totalItems: count}; let i = index" class="product" [ngClass]="{list: layout === 'list'}">
+    <div class="product__content">
+        <h2 class="product__content-title">{{product.name | shorten: 15}}</h2>
+        <p class="product__content-description">{{product.description | shorten: 50}}</p>
+    </div>
     <div class="product__img">
         <img class="img" src="{{product.imagePath}}" alt="">
-    </div>
-    <div class="product__content">
-        <h2 class="product__content-title">{{product.name}}</h2>
-        <p class="product__content-description">{{product.description}}</p>
     </div>
     <div class="product__summary">
         <p class="product__summary-price">{{ product.price | currency }}</p>
