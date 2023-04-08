@@ -1,5 +1,6 @@
 # SweetWebsiteShop
 
+A store for buying ready-made cakes and designing custom cakes to order. The user can choose the shape, size, sponge flavor, cream flavor, and decorations that will be on the ordered cake. They also select the date and delivery address for the cake. If the user has special requirements, they can contact the store through a contact form.
 
 
 Link : 
