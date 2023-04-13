@@ -37,7 +37,6 @@ tableSize: number = 8;
 
   onAddToCart(product: ShopProduct) {
     this.cartService.addToCart(product);
-    this.alertService.activateAlert(product);
   }
 
   onAddToFavourites(product: ShopProduct){

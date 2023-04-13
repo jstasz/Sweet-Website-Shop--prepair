@@ -25,10 +25,10 @@ export class CartService {
         } else {
             item.quantity = 1;
             this.cart.items.push(item);
+            this.alertService.activateAlert(item)
         }
 
         this.cartChanges.next(this.cart);
-        this.alertService.activateAlert(item)
     }
 
     removeFromCart(index: number) {
