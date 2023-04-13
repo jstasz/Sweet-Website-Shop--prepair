@@ -27,11 +27,11 @@ export class CartService {
             this.cart.items.push(item);
             this.alertService.activateAlert(item)
         }
-
         this.cartChanges.next(this.cart);
     }
 
-    removeFromCart(index: number) {
+    removeFromCart(item: ShopProduct, index: number) {
+        item.quantity = 0;
         this.cart.items.splice(index, 1);
         this.cartChanges.next(this.cart);
     }
@@ -42,7 +42,7 @@ export class CartService {
         if(productInCart && productInCart.quantity > 1) {
             productInCart.quantity -= 1;
         } else {
-            this.removeFromCart(index)
+            this.removeFromCart(item, index)
         }
     }
 

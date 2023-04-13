@@ -21,7 +21,7 @@
             <i class="fa-solid fa-circle-plus quantity-icon" (click)="onAddToCart(item)"></i>
         </p>
         <p class="cart__items-item cart__items-total">{{getTotalPrice(item) | currency}}</p>
-        <i class="fa-solid fa-trash cart__items-item remove-icon" (click)="onRemoveFromCart(i)"></i>
+        <i class="fa-solid fa-trash cart__items-item remove-icon" (click)="onRemoveFromCart(item, i)"></i>
     </div>
     <a class="cart__clear" (click)="onClearCart()">remove all</a>
     <div class="pagination">

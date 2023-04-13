@@ -39,8 +39,8 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(item)
   }
 
-  onRemoveFromCart(index: number) {
-    return this.cartService.removeFromCart(index)
+  onRemoveFromCart(item: ShopProduct,index: number) {
+    return this.cartService.removeFromCart(item, index)
   }
 
   onChangeQuantity(item: ShopProduct, index: number) {
