@@ -66,6 +66,25 @@
                 }
             }
         }
+
+        &__order {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100%;
+
+            & .title {
+                font-weight: bold;
+            }
+
+            & .team {
+                font-family: "Satisfy", cursive;
+                font-size: 1.8rem;
+                text-align: end;
+                color: rgb(170, 170, 170);
+                padding: 1em 1em 0 0;
+            }
+        }
     }
 }
 
