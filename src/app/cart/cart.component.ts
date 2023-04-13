@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopOnlineService } from '../shop-online/shop-online.servis';
-import { AlertService } from '../shop-online/shop-products/alert/alert.service';
+import { AlertService } from '../alert/alert.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-product/product.model';
 import { Cart} from './cart.model';
 import { CartService } from './cart.service';
@@ -59,5 +59,6 @@ export class CartComponent implements OnInit {
   onSubmitOrder() {
     this.activeAlert = true;
     this.alertService.activateAlert(null);
+    this.cartService.clearCart();
   }
 }

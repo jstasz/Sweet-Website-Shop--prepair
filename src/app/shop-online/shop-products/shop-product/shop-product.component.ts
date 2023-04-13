@@ -3,7 +3,7 @@ import { Cart } from 'src/app/cart/cart.model';
 import { CartService } from 'src/app/cart/cart.service';
 import { FavouritesService } from 'src/app/favourites/favourites.service';
 import { ShopOnlineService } from '../../shop-online.servis';
-import { AlertService } from '../alert/alert.service';
+import { AlertService } from '../../../alert/alert.service';
 import { Layout } from '../products.model';
 import { ShopProduct } from './product.model';
 

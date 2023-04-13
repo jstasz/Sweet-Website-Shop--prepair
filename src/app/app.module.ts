@@ -32,9 +32,9 @@ import { CreamComponent } from './cake-designer/cream/cream.component';
 import { MenuComponent } from './header/menu/menu.component';
 import { HeaderService } from './header/header.service';
 import { FavouritesService } from './favourites/favourites.service';
-import { AlertComponent } from './shop-online/shop-products/alert/alert.component';
+import { AlertComponent } from './alert/alert.component';
 import { ShopSettingsComponent } from './shop-online/shop-settings/shop-settings.component';
-import { AlertService } from './shop-online/shop-products/alert/alert.service';
+import { AlertService } from './alert/alert.service';
 
 @NgModule({
   declarations: [
