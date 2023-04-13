@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartService } from 'src/app/cart/cart.service';
-import { ShopOnlineService } from '../../shop-online.servis';
 import { ShopProduct } from '../shop-product/product.model';
+import { AlertService } from './alert.service';
 
 @Component({
   selector: 'app-alert',
@@ -10,17 +9,16 @@ import { ShopProduct } from '../shop-product/product.model';
   styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent implements OnInit {
-  product! : ShopProduct;
+  product! : ShopProduct | null;
 
-  constructor(private cartService : CartService, private shopOnlineService : ShopOnlineService, private router: Router) { }
+  constructor(private alertService: AlertService, private router: Router) { }
 
   ngOnInit(): void {
-    this.product = this.cartService.itemAdded;
-    this.cartService.itemAddedChange.subscribe(item => this.product= item);
+    this.product = this.alertService.product;
   }
 
   onCloseAlert() {
-    this.shopOnlineService.closeAlert();
+    this.alertService.closeAlert();
   }
 
   onGoToCart() {

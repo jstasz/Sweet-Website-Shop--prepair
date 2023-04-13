@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopOnlineService } from '../shop-online/shop-online.servis';
+import { AlertService } from '../shop-online/shop-products/alert/alert.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-product/product.model';
 import { Cart} from './cart.model';
 import { CartService } from './cart.service';
@@ -11,15 +13,18 @@ import { CartService } from './cart.service';
 export class CartComponent implements OnInit {
   cart: Cart = {items: []}
   totalPrice: number = 0;
+  activeAlert: boolean = false;
 
   count = 0;
   page = 1;
   tableSize: number = 10;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private alertService: AlertService ,private shopOnlineService: ShopOnlineService) { }
 
   ngOnInit(): void {
-    this.cart = this.cartService.cart
+    this.cart = this.cartService.cart;
+    this.activeAlert = this.alertService.activeAlert;
+    this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
 
   getTotalPrice(item: ShopProduct) {
@@ -49,5 +54,10 @@ export class CartComponent implements OnInit {
   onTableDataChange(event: any) {
     this.page = event;
     this.cartService.cartChanges.subscribe(cart => this.cart = cart)
+  }
+
+  onSubmitOrder() {
+    this.activeAlert = true;
+    this.alertService.activateAlert(null);
   }
 }

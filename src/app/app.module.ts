@@ -34,6 +34,7 @@ import { HeaderService } from './header/header.service';
 import { FavouritesService } from './favourites/favourites.service';
 import { AlertComponent } from './shop-online/shop-products/alert/alert.component';
 import { ShopSettingsComponent } from './shop-online/shop-settings/shop-settings.component';
+import { AlertService } from './shop-online/shop-products/alert/alert.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,7 @@ import { ShopSettingsComponent } from './shop-online/shop-settings/shop-settings
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService],
+  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService, AlertService],
   bootstrap: [AppComponent]
 })
 

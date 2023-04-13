@@ -33,12 +33,13 @@
         <p class="cart__summary-total">Total:
             <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>
         </p>
-        <button class="cart__summary-submit">submit
+        <button class="cart__summary-submit" (click)="onSubmitOrder()">submit
             <i class="fa-solid fa-circle-check buy-icon"></i>
         </button>
         <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
     </div>
 </div>
+<app-alert *ngIf="activeAlert"></app-alert>
 <ng-template #noItems>
     <div class="cart__empty">
         <p>There are no items in your cart !</p>
