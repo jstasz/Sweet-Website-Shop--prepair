@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { AlertService } from "../shop-online/shop-products/alert/alert.service";
 import { ShopProduct } from "../shop-online/shop-products/shop-product/product.model";
 import { Cart } from "./cart.model";
 
@@ -9,10 +10,8 @@ import { Cart } from "./cart.model";
 export class CartService {
     cart: Cart = {items: []};
     cartChanges = new Subject<Cart>();
-    itemAdded!: ShopProduct 
-    itemAddedChange = new Subject<ShopProduct>();
 
-    constructor() {}
+    constructor(private alertService: AlertService) {}
 
     getTotalCartPrice(items: ShopProduct[]): number {
         return items.map((item) => item.price * item.quantity).reduce((prev, cur) => prev + cur, 0)
@@ -29,8 +28,7 @@ export class CartService {
         }
 
         this.cartChanges.next(this.cart);
-        this.itemAdded = item;
-        this.itemAddedChange.next(this.itemAdded)
+        this.alertService.activateAlert(item)
     }
 
     removeFromCart(index: number) {

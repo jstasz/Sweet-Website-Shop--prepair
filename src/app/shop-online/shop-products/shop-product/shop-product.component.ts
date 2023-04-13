@@ -3,6 +3,7 @@ import { Cart } from 'src/app/cart/cart.model';
 import { CartService } from 'src/app/cart/cart.service';
 import { FavouritesService } from 'src/app/favourites/favourites.service';
 import { ShopOnlineService } from '../../shop-online.servis';
+import { AlertService } from '../alert/alert.service';
 import { Layout } from '../products.model';
 import { ShopProduct } from './product.model';
 
@@ -22,7 +23,7 @@ page: number = 1;
 count: number = 0;
 tableSize: number = 8;
 
-  constructor(private cartService: CartService, private shopOnlineService: ShopOnlineService, private favouritesService: FavouritesService) { }
+  constructor(private cartService: CartService, private alertService: AlertService, private shopOnlineService: ShopOnlineService, private favouritesService: FavouritesService) { }
 
   ngOnInit(): void {
     this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products)
@@ -30,13 +31,13 @@ tableSize: number = 8;
     this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
     this.shopOnlineService.showProducts();
     this.getTableSize();
-    this.activeAlert = this.shopOnlineService.activeAlert;
-    this.shopOnlineService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
+    this.activeAlert = this.alertService.activeAlert;
+    this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
 
   onAddToCart(product: ShopProduct) {
     this.cartService.addToCart(product);
-    this.shopOnlineService.activateAlert();
+    this.alertService.activateAlert(product);
   }
 
   onAddToFavourites(product: ShopProduct){

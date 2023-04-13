@@ -26,9 +26,6 @@ export class ShopOnlineService {
     tableSizeChanges = new Subject<Amount>();
     page: number = 1;
 
-    activeAlert : boolean = false;
-    activeAlertChange = new Subject<boolean>();
-
     constructor() {}
 
     selectLayout(layout: Layout) {
@@ -85,16 +82,6 @@ export class ShopOnlineService {
         this.categoryChanges.next(this.selectedCategory);
         this.showProducts();
         this.selectSort(this.selectedSort);
-    }
-
-    activateAlert() {
-        this.activeAlert = true;
-        this.activeAlertChange.next(this.activeAlert);
-    }
-
-    closeAlert() {
-        this.activeAlert = false;
-        this.activeAlertChange.next(this.activeAlert);
     }
 
     tableSizeChange(event: any) {
