@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ShopOnlineService } from '../shop-online.servis';
 import { Amount, Layout, Sort } from '../shop-products/products.model';
 import { Categories, Category } from './categories.model';
@@ -10,30 +11,38 @@ import { Categories, Category } from './categories.model';
 })
 export class ShopSettingsComponent implements OnInit {
 
-  selectedSort: Sort = 'category';
-  selectedAmount: Amount = 8;
+  selectedSort: Sort = 'name';
+  selectedSortSub!: Subscription;
+
   selectedLayout: Layout = 'grid';
-  tableSize: Amount = 8;
+  selectedLayoutSub!: Subscription;
+
+  selectedAmount: Amount = 8;
+  selectedAmountSub!: Subscription;
+
+  categories: Categories[] = [];
+  selectedCategory: Category[] = [];
+  selectedCategoriesSub!: Subscription;
+
   page: number = 1;
   amountToSelect: Amount[] = [4, 8, 12];
 
   filtersActive: boolean = false;
-
-  categories: Categories[] = [];
-  selectedCategory: Category[] = [];
-
   categoriesActive : boolean = true;
 
   constructor(private shopOnlineService : ShopOnlineService) { }
 
   ngOnInit(): void {
     this.categories = this.shopOnlineService.productsCategories;
-    this.shopOnlineService.setCategories();
-    this.selectedCategory = this.shopOnlineService.selectedCategory;
-    this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
-    this.onSelectSort(this.selectedSort);
+    this.selectedCategoriesSub = this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
+    this.selectedSortSub = this.shopOnlineService.sortChanges.subscribe(sort => this.selectedSort = sort);
+    this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
+    this.selectedAmountSub = this.shopOnlineService.tableSizeChanges.subscribe(amount => this.selectedAmount = amount);
   }
 
+  activateCategories() {
+    this.categoriesActive = !this.categoriesActive;
+  }
 
   onSelectCategory(category: Category) {
     this.shopOnlineService.selectCategory(category);
@@ -41,10 +50,6 @@ export class ShopSettingsComponent implements OnInit {
 
   onShowAllProducts() {
     this.shopOnlineService.showAllProducts();
-  }
-
-  activateCategories() {
-    this.categoriesActive = !this.categoriesActive;
   }
 
   onSelectLayout(layout: Layout) {
@@ -57,11 +62,21 @@ export class ShopSettingsComponent implements OnInit {
 
   onTableSizeChange(event: any) {
     this.shopOnlineService.tableSizeChange(event);
-    this.tableSize = this.shopOnlineService.tableSize;
+    this.shopOnlineService.tableSizeChanges.subscribe(amount => {
+      this.selectedAmount = amount;
+    });
+
     this.page = this.shopOnlineService.page;
   }
 
   activateFilters() {
     this.filtersActive = !this.filtersActive;
+  }
+
+  ngOnDestroy() {
+    this.selectedSortSub.unsubscribe();
+    this.selectedLayoutSub.unsubscribe();
+    this.selectedAmountSub.unsubscribe();
+    this.selectedCategoriesSub.unsubscribe();
   }
 }
