@@ -5,7 +5,6 @@ import { DesignFlavourElement, Floor, FloorElements } from '../desig-element.mod
 @Component({
   selector: 'app-flavour',
   templateUrl: './flavour.component.html',
-  styleUrls: ['./flavour.component.scss']
 })
 export class FlavourComponent implements OnInit {
 
@@ -17,14 +16,14 @@ export class FlavourComponent implements OnInit {
     new DesignFlavourElement('rainbow', '../../../assets/img/create-cake/flavour/rainbow.jpeg', 9.99)
   ]
 
-  constructor(private cakeDesignerService: CakeDesignerService) { }
+  constructor(private cakeDesignerService: CakeDesignerService) {}
 
   ngOnInit() {
     this.onGetFloors();
   }
 
   onSelectFlavour(flavour: DesignFlavourElement, floor: Floor) {
-    this.cakeDesignerService.selectFlavour(flavour, floor)
+    this.cakeDesignerService.selectFlavour(flavour, floor);
   }
 
   onGetFloors() {

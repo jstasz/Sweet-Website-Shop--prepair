@@ -5,7 +5,6 @@ import { DesignCreamElement, Floor, FloorElements } from '../desig-element.model
 @Component({
   selector: 'app-cream',
   templateUrl: './cream.component.html',
-  styleUrls: ['./cream.component.scss']
 })
 export class CreamComponent implements OnInit {
 
@@ -20,7 +19,7 @@ export class CreamComponent implements OnInit {
     new DesignCreamElement('oreo', '../../../assets/img/create-cake/cream/oreo.webp', 6.99),
     new DesignCreamElement('ferrero', '../../../assets/img/create-cake/cream/ferrero.jpeg', 6.99),
     new DesignCreamElement('rafaello', '../../../assets/img/create-cake/cream/rafaello.webp', 6.99)
-  ]
+  ];
 
   constructor(private cakeDesignerService: CakeDesignerService) { }
 
@@ -29,7 +28,7 @@ export class CreamComponent implements OnInit {
   }
 
   onSelectCream(cream: DesignCreamElement, floor: Floor) {
-    this.cakeDesignerService.selectCream(cream, floor)
+    this.cakeDesignerService.selectCream(cream, floor);
   }
 
   onGetFloors() {

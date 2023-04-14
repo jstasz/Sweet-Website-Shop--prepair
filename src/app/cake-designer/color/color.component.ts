@@ -5,7 +5,6 @@ import { DesignColorElement, Floor, FloorElements } from '../desig-element.model
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
-  styleUrls: ['./color.component.scss']
 })
 export class ColorComponent implements OnInit {
 
@@ -21,16 +20,16 @@ export class ColorComponent implements OnInit {
     new DesignColorElement('marmur', '../../../assets/img/create-cake/color/marmur.webp'),
     new DesignColorElement('violet', '../../../assets/img/create-cake/color/violet.jpeg'),
     new DesignColorElement('grey', '../../../assets/img/create-cake/color/grey.webp'),
-  ]
+  ];
 
   constructor(private cakeDesignerService: CakeDesignerService) { }
 
   ngOnInit(): void {
-    this.onGetFloors()
+    this.onGetFloors();
   }
 
   onSelectColor(color: DesignColorElement, floor: Floor) {
-    this.cakeDesignerService.selectColor(color, floor)
+    this.cakeDesignerService.selectColor(color, floor);
   }
 
   onGetFloors() {

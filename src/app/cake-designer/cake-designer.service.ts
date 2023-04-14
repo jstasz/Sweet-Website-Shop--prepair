@@ -27,6 +27,7 @@ export class CakeDesignerService {
 
   cake! : Cake;
   cakeChange = new Subject<Cake>();
+
   totalCakePrice!: number;
 
   constructor() { }
@@ -37,17 +38,17 @@ export class CakeDesignerService {
 
     if(this.sizeOfCake.name === 'single')
     this.floorsOfCake = [
-      new FloorElements('down', this.startedFlavour, this.startedCream, this.startedColor)]
+      new FloorElements('down', this.startedFlavour, this.startedCream, this.startedColor)];
     if(this.sizeOfCake.name === 'double')
     this.floorsOfCake = [
       new FloorElements('down', this.startedFlavour, this.startedCream, this.startedColor), 
-      new FloorElements('middle', this.startedFlavour, this.startedCream, this.startedColor)]
+      new FloorElements('middle', this.startedFlavour, this.startedCream, this.startedColor)];
     if(this.sizeOfCake.name === 'triple') 
     this.floorsOfCake = [
       new FloorElements('down', this.startedFlavour, this.startedCream, this.startedColor), 
       new FloorElements('middle', this.startedFlavour, this.startedCream, this.startedColor),
       new FloorElements('top', this.startedFlavour, this.startedCream, this.startedColor)
-    ]
+    ];
   }
 
   selectType(type: DesignTypeElement) {
@@ -56,28 +57,28 @@ export class CakeDesignerService {
   }
 
   selectFlavour(flavour: DesignFlavourElement, floor: Floor) {
-    this.floorsOfCake.forEach(el => el.name === floor ? el.flavour = flavour : '')
+    this.floorsOfCake.forEach(el => el.name === floor ? el.flavour = flavour : '');
   }
 
   selectCream(cream: DesignCreamElement, floor: Floor) {
-    this.floorsOfCake.forEach(el => el.name === floor ? el.cream = cream : '')
+    this.floorsOfCake.forEach(el => el.name === floor ? el.cream = cream : '');
   }
 
   selectColor(color: DesignColorElement, floor: Floor) {
-    this.floorsOfCake.forEach(el => el.name === floor ? el.color = color : '')
+    this.floorsOfCake.forEach(el => el.name === floor ? el.color = color : '');
   }
 
   selectDetail(detail: DesignDetailElement) {
     const cakeDetail = this.detailsOfCake.find(det => det.name === detail.name);
 
     if(!cakeDetail) {
-      this.detailsOfCake.push(detail)
+      this.detailsOfCake.push(detail);
     } else {
       const index = this.detailsOfCake.indexOf(cakeDetail);
-      this.detailsOfCake.splice(index, 1)
+      this.detailsOfCake.splice(index, 1);
     }
 
-    this.detailsChanges.next(this.detailsOfCake)
+    this.detailsChanges.next(this.detailsOfCake);
   }
 
   createCake() {
@@ -88,7 +89,7 @@ export class CakeDesignerService {
   countTotalCakePrice(cake: Cake) {
     const detailsPrice: number = cake.details.reduce((sum, detail) => sum + detail.price, 0);
     const flavoursPrice: number = cake.floor.reduce((sum, detail) => sum + detail.flavour.price, 0);
-    const creamPrice: number = cake.floor.reduce((sum, detail) => sum + detail.cream.price, 0)
+    const creamPrice: number = cake.floor.reduce((sum, detail) => sum + detail.cream.price, 0);
 
     return this.totalCakePrice = Number((cake.type.price + cake.size.price + flavoursPrice + creamPrice + detailsPrice).toFixed(2));
   }

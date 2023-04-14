@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AlertService } from 'src/app/alert/alert.service';
 import { CartService } from 'src/app/cart/cart.service';
 import { ShopProduct, shopProducts } from 'src/app/shop-online/shop-products/shop-products.model';
@@ -9,7 +8,6 @@ import { Cake } from '../desig-element.model';
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
 
@@ -49,8 +47,8 @@ export class SummaryComponent implements OnInit {
       randomId = Math.floor(Math.random() * 100);
     } while (usedId.includes(randomId));
 
-    usedId.push(randomId)
-    return randomId
+    usedId.push(randomId);
+    return randomId;
   }
 
   onAddCakeToCart(cake: Cake) {
@@ -60,12 +58,12 @@ export class SummaryComponent implements OnInit {
 
     const cakeToShop : ShopProduct = new ShopProduct(cakeId , 1, cakeName, cakeDescription, cake.size.imagePath, this.totalCakePrice, 'cakes');
 
-    const cakeInShop = this.cartService.cart.items.find(item => item.name === cakeToShop.name && item.description === cakeToShop.description)
+    const cakeInShop = this.cartService.cart.items.find(item => item.name === cakeToShop.name && item.description === cakeToShop.description);
     if(!cakeInShop) {
       this.cartService.addToCart(cakeToShop);
       this.alertService.activateAlert(cakeToShop);
     } else {
-      cakeInShop.quantity ++
+      cakeInShop.quantity++;
     }
 
     this.cakeDesignerService.clearSelectedElements();
