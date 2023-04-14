@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { CreateCakeElement } from './desig-element.model';
 
 @Component({
@@ -19,7 +18,7 @@ export class CakeDesignerComponent implements OnInit {
     new CreateCakeElement('details', 'fa-solid fa-star'),
     new CreateCakeElement('summary', 'fa-solid fa-calendar-days')
   ]
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
   }

@@ -149,6 +149,13 @@
 
                     & .select-date {
                         margin: 1em;
+
+                        &__alert {
+                            margin: 0.2em 0;
+                            font-size: 1rem;
+                            font-weight: bold;
+                            color: rgb(235, 112, 112);
+                        }
                     }
 
                     & .date {
@@ -206,14 +213,8 @@
                     padding: 0.5em 3em;
                     width: 70%;
                     color: grey;
-                    background-color: rgb(232, 220, 222);
                     border: thin solid rgb(211, 199, 199);
                     border-radius: 5px;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: rgb(233, 224, 224);
-                    }
                 }
             }
         } 

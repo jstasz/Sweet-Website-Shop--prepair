@@ -25,12 +25,16 @@
                 here.</ng-template>
             <div class="summary__informations-date">
                 <p class="select-date">When you need your cake ?</p>
-                <input class="date" type="date">
+                <input class="date" type="date" [(ngModel)]="selectedDate" (change)="onSelectDate(selectedDate)">
+                <p class="select-date__alert" *ngIf="!selectedDate">Select the date</p>
             </div>
         </div>
         <div class="summary__price">
             <p class="summary__price-total">Total price : {{totalCakePrice}} EUR</p>
-            <button class="summary__price-add" (click)="onAddCakeToCart(createdCake)">Add to Cart</button>
+            <button class="summary__price-add" type="submit" (click)="onAddCakeToCart(createdCake)"
+                [disabled]="!selectedDate">Add to
+                Cart</button>
         </div>
     </div>
+    <app-alert *ngIf="activeAlert"></app-alert>
 </div>

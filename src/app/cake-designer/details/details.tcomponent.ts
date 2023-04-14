@@ -6,7 +6,6 @@ import { DesignDetailElement, Details } from '../desig-element.model';
 @Component({
   selector: 'app-decoration',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
 
