@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ShopOnlineService } from '../shop-online.servis';
-import { Layout } from './products.model';
-import { ShopProduct } from './shop-product/product.model';
+import { Layout } from '../shop-settings/shop-settings.model';
+import { ShopProduct } from './shop-products.model';
 
 @Component({
   selector: 'app-shop-products',
@@ -14,17 +14,18 @@ export class ShopProductsComponent implements OnInit {
   selectedLayoutSub!: Subscription;
 
   productsToShow : ShopProduct[] = [];
+  productsSub!: Subscription;
 
-  constructor(private shopOnlineService : ShopOnlineService) { }
+  constructor(private shopOnlineService : ShopOnlineService) {}
 
   ngOnInit(): void {
-    this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout)
-    this.productsToShow = this.shopOnlineService.productsToShow;
-    this.shopOnlineService.productsChanges.subscribe(products => this.productsToShow = products);
+    this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
+    this.productsSub = this.shopOnlineService.productsChanges.subscribe(products => this.productsToShow = products);
     this.shopOnlineService.showProducts();
   }
 
   ngOnDestroy() {
     this.selectedLayoutSub.unsubscribe();
+    this.productsSub.unsubscribe();
   }
 }

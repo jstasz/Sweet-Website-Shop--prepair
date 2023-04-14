@@ -4,8 +4,8 @@ import { CartService } from 'src/app/cart/cart.service';
 import { FavouritesService } from 'src/app/favourites/favourites.service';
 import { ShopOnlineService } from '../../shop-online.servis';
 import { AlertService } from '../../../alert/alert.service';
-import { Layout } from '../products.model';
-import { ShopProduct } from './product.model';
+import { Layout } from '../../shop-settings/shop-settings.model'
+import { ShopProduct } from '../shop-products.model';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -18,22 +18,25 @@ export class ShopProductComponent implements OnInit {
 selectedLayout: Layout = 'grid';
 selectedLayoutSub!: Subscription;
 
-shopProducts : ShopProduct[] = [];
+selectedAmount: number = 8;
+selectedAmountSub!: Subscription;
+
+shopProducts: ShopProduct[] = [];
+productsSub!: Subscription;
+
 favourites: Cart = {items: []};
+
 activeAlert : boolean = false;
+
 page: number = 1;
 count: number = 0;
-tableSize: number = 8;
 
   constructor(private cartService: CartService, private alertService: AlertService, private shopOnlineService: ShopOnlineService, private favouritesService: FavouritesService) { }
 
   ngOnInit(): void {
-    this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products)
     this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
-    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
-    this.shopOnlineService.showProducts();
-    this.getTableSize();
-    this.activeAlert = this.alertService.activeAlert;
+    this.selectedAmountSub = this.shopOnlineService.amountChanges.subscribe(amount => this.selectedAmount = amount);
+    this.productsSub = this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products);
     this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
 
@@ -43,16 +46,17 @@ tableSize: number = 8;
 
   onAddToFavourites(product: ShopProduct){
     const fav = this.onCheckFavourites(product); 
+
     if(!fav) {
       this.favouritesService.addToFavourites(product);
     } else {
-      const index = this.favourites.items.indexOf(product)
-      this.favouritesService.removeFromFavourites(index)
+      const index = this.favourites.items.indexOf(product);
+      this.favouritesService.removeFromFavourites(index);
     }
   }
 
   onCheckFavourites(product: ShopProduct) {
-    return this.favouritesService.checkFavourites(product)
+    return this.favouritesService.checkFavourites(product);
   }
 
   onTableDataChange(event: any) {
@@ -62,12 +66,9 @@ tableSize: number = 8;
     })
   }
 
-  getTableSize() {
-    this.shopOnlineService.tableSizeChanges.subscribe(tableSize => this.tableSize = tableSize )
-    this.page = this.shopOnlineService.page;
-  }
-
   ngOnDestroy() {
     this.selectedLayoutSub.unsubscribe();
+    this.selectedAmountSub.unsubscribe();
+    this.productsSub.unsubscribe();
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopOnlineService } from '../shop-online/shop-online.servis';
 import { AlertService } from '../alert/alert.service';
-import { ShopProduct } from '../shop-online/shop-products/shop-product/product.model';
+import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 import { Cart} from './cart.model';
 import { CartService } from './cart.service';
 
