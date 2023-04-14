@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ShopOnlineService } from '../shop-online.servis';
 import { Amount, Layout, Sort } from '../shop-products/products.model';
 import { Categories, Category } from './categories.model';
@@ -10,9 +11,14 @@ import { Categories, Category } from './categories.model';
 })
 export class ShopSettingsComponent implements OnInit {
 
-  selectedSort: Sort = 'category';
-  selectedAmount: Amount = 8;
+  selectedSort: Sort = 'name';
+  selectedSortSub!: Subscription;
+
   selectedLayout: Layout = 'grid';
+  selectedLayoutSub!: Subscription;
+
+  selectedAmount: Amount = 8;
+  
   tableSize: Amount = 8;
   page: number = 1;
   amountToSelect: Amount[] = [4, 8, 12];
@@ -31,9 +37,13 @@ export class ShopSettingsComponent implements OnInit {
     this.shopOnlineService.setCategories();
     this.selectedCategory = this.shopOnlineService.selectedCategory;
     this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
-    this.onSelectSort(this.selectedSort);
+    this.shopOnlineService.sortChanges.subscribe(sort => this.selectedSort = sort);
+    this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
   }
 
+  activateCategories() {
+    this.categoriesActive = !this.categoriesActive;
+  }
 
   onSelectCategory(category: Category) {
     this.shopOnlineService.selectCategory(category);
@@ -41,10 +51,6 @@ export class ShopSettingsComponent implements OnInit {
 
   onShowAllProducts() {
     this.shopOnlineService.showAllProducts();
-  }
-
-  activateCategories() {
-    this.categoriesActive = !this.categoriesActive;
   }
 
   onSelectLayout(layout: Layout) {
@@ -63,5 +69,10 @@ export class ShopSettingsComponent implements OnInit {
 
   activateFilters() {
     this.filtersActive = !this.filtersActive;
+  }
+
+  ngOnDestroy() {
+    this.selectedSortSub.unsubscribe();
+    this.selectedLayoutSub.unsubscribe();
   }
 }

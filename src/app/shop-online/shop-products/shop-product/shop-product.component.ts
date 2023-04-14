@@ -6,6 +6,7 @@ import { ShopOnlineService } from '../../shop-online.servis';
 import { AlertService } from '../../../alert/alert.service';
 import { Layout } from '../products.model';
 import { ShopProduct } from './product.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shop-product',
@@ -14,11 +15,12 @@ import { ShopProduct } from './product.model';
 })
 export class ShopProductComponent implements OnInit {
 
-layout: Layout = 'grid';
+selectedLayout: Layout = 'grid';
+selectedLayoutSub!: Subscription;
+
 shopProducts : ShopProduct[] = [];
 favourites: Cart = {items: []};
 activeAlert : boolean = false;
-
 page: number = 1;
 count: number = 0;
 tableSize: number = 8;
@@ -27,7 +29,7 @@ tableSize: number = 8;
 
   ngOnInit(): void {
     this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products)
-    this.shopOnlineService.layoutChanges.subscribe(layout => this.layout = layout);
+    this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
     this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
     this.shopOnlineService.showProducts();
     this.getTableSize();
@@ -63,5 +65,9 @@ tableSize: number = 8;
   getTableSize() {
     this.shopOnlineService.tableSizeChanges.subscribe(tableSize => this.tableSize = tableSize )
     this.page = this.shopOnlineService.page;
+  }
+
+  ngOnDestroy() {
+    this.selectedLayoutSub.unsubscribe();
   }
 }

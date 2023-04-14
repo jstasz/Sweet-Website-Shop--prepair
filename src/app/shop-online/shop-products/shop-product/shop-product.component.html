@@ -1,7 +1,7 @@
 <div *ngFor="let product of shopProducts | paginate : {
     itemsPerPage: tableSize, 
     currentPage: page, 
-    totalItems: count}; let i = index" class="product" [ngClass]="{list: layout === 'list'}">
+    totalItems: count}; let i = index" class="product" [ngClass]="{list: selectedLayout === 'list'}">
     <div class="product__content">
         <h2 class="product__content-title">{{product.name | shorten: 15}}</h2>
         <p class="product__content-description">{{product.description | shorten: 50}}</p>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ShopOnlineService } from '../shop-online.servis';
 import { Layout } from './products.model';
 import { ShopProduct } from './shop-product/product.model';
@@ -9,7 +10,9 @@ import { ShopProduct } from './shop-product/product.model';
   styleUrls: ['./shop-products.component.scss']
 })
 export class ShopProductsComponent implements OnInit {
-  selectedLayout: Layout = 'grid'
+  selectedLayout: Layout = 'grid';
+  selectedLayoutSub!: Subscription;
+  
   productsToShow : ShopProduct[] = [];
 
   constructor(private shopOnlineService : ShopOnlineService) { }
@@ -21,5 +24,9 @@ export class ShopProductsComponent implements OnInit {
     this.productsToShow = this.shopOnlineService.productsToShow;
     this.shopOnlineService.productsChanges.subscribe(products => this.productsToShow = products);
     this.shopOnlineService.showProducts();
+  }
+
+  ngOnDestroy() {
+    this.selectedLayoutSub.unsubscribe();
   }
 }

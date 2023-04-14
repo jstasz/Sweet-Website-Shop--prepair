@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 import { Categories, Category, productsCategories } from "./shop-settings/categories.model";
 import { Amount, Layout, Sort } from "./shop-products/products.model";
 import { ShopProduct, shopProducts } from "./shop-products/shop-product/product.model";
@@ -10,14 +10,14 @@ export class ShopOnlineService {
     shopProducts : ShopProduct[] = shopProducts;
     productsCategories: Categories[] = productsCategories;
 
-    selectedLayout: Layout = 'grid';
-    layoutChanges = new Subject<Layout>();
+    selectedLayout = new BehaviorSubject<Layout>('grid');
+    layoutChanges = this.selectedLayout.asObservable(); 
+
+    selectedSort = new BehaviorSubject<Sort>('name');
+    sortChanges = this.selectedSort.asObservable();
 
     selectedCategory: Category[] = [];
     categoryChanges = new Subject<Category[]>();
-
-    selectedSort: Sort = 'name';
-    sortChanges = new Subject<Sort>();
 
     productsToShow: ShopProduct[] = [];
     productsChanges = new Subject<ShopProduct[]>();
@@ -29,8 +29,7 @@ export class ShopOnlineService {
     constructor() {}
 
     selectLayout(layout: Layout) {
-        this.selectedLayout = layout;
-        this.layoutChanges.next(layout);
+        this.selectedLayout.next(layout);
     }
 
     setCategories() {
@@ -39,6 +38,7 @@ export class ShopOnlineService {
     }
 
     selectCategory(category: Category) {
+
         if(this.selectedCategory.indexOf(category) < 0) {
             this.selectedCategory.push(category);
         } else {
@@ -47,11 +47,11 @@ export class ShopOnlineService {
 
         this.categoryChanges.next(this.selectedCategory);
         this.showProducts();
-        this.selectSort(this.selectedSort);
+        this.selectSort(this.selectedSort.getValue());
     }
 
     selectSort(sort: Sort) {
-        this.selectedSort = sort;
+        this.selectedSort.next(sort);
 
         if(sort === 'category') {
             this.productsToShow.sort(function(a: ShopProduct, b: ShopProduct) {
@@ -75,13 +75,16 @@ export class ShopOnlineService {
     showProducts() {
         this.productsToShow = this.shopProducts.filter(prod => this.selectedCategory.indexOf(prod.category) >= 0);
         this.productsChanges.next(this.productsToShow);
+
+        this.selectSort(this.selectedSort.getValue());
     }
 
     showAllProducts() {
         this.selectedCategory = this.productsCategories.map(category => category.name);
         this.categoryChanges.next(this.selectedCategory);
+
         this.showProducts();
-        this.selectSort(this.selectedSort);
+        this.selectSort(this.selectedSort.getValue());
     }
 
     tableSizeChange(event: any) {
