@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/cart/cart.model';
 import { CartService } from 'src/app/cart/cart.service';
 import { FavouritesService } from 'src/app/favourites/favourites.service';
-import { ShopProduct } from 'src/app/shop-online/shop-products/shop-product/product.model';
+import { ShopProduct } from 'src/app/shop-online/shop-products/shop-products.model';
 import { HeaderService, Mode } from '../header.service';
 
 @Component({

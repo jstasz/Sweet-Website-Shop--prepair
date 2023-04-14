@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Cart } from "../cart/cart.model";
-import { ShopProduct } from "../shop-online/shop-products/shop-product/product.model";
+import { ShopProduct } from "../shop-online/shop-products/shop-products.model";
 
 
 @Injectable()
