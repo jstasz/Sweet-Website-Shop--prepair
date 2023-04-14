@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from '../alert/alert.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -8,8 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactUsComponent implements OnInit {
   contactForm!: FormGroup;
+  activeAlert: boolean = false;
 
-  constructor() { }
+  constructor(private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.contactForm = new FormGroup({
@@ -17,10 +19,11 @@ export class ContactUsComponent implements OnInit {
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'message': new FormControl(null, [Validators.required, Validators.minLength(10)])
     });
+    this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
 
   onSubmit() {
-    console.log(this.contactForm.value)
+    this.alertService.activateAlert(null);
+    this.contactForm.reset();
   }
-
 }

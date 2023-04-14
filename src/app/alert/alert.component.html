@@ -23,11 +23,9 @@
     <div class="alert-box" *ngIf="!product">
         <div class="alert-box__order">
             <p class="title">Dear Customers,</p>
-            <p class="description">Your order has been accepted for processing.
-                Please be patient and wait for further information, which will be provided by email.
-                We will keep you updated on the progress of your order.
-            </p>
-            <p class="description">Thank you for choosing our products and best regards,</p>
+            <p class="description" *ngIf="activeMode === 'contact-us'">{{contactMessage}}</p>
+            <p class="description" *ngIf="activeMode === 'cart'">{{orderMessage}}</p>
+            <p class="description">Thank you for your interest in our products! Best regards,</p>
             <p class="team">Just Sweet Team</p>
         </div>
     </div>
