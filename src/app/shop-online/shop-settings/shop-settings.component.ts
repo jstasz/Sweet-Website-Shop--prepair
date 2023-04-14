@@ -18,8 +18,8 @@ export class ShopSettingsComponent implements OnInit {
   selectedLayoutSub!: Subscription;
 
   selectedAmount: Amount = 8;
+  selectedAmountSub!: Subscription;
 
-  tableSize: Amount = 8;
   page: number = 1;
   amountToSelect: Amount[] = [4, 8, 12];
 
@@ -39,6 +39,7 @@ export class ShopSettingsComponent implements OnInit {
     this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
     this.selectedSortSub = this.shopOnlineService.sortChanges.subscribe(sort => this.selectedSort = sort);
     this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
+    this.selectedAmountSub = this.shopOnlineService.tableSizeChanges.subscribe(amount => this.selectedAmount = amount);
   }
 
   activateCategories() {
@@ -63,7 +64,10 @@ export class ShopSettingsComponent implements OnInit {
 
   onTableSizeChange(event: any) {
     this.shopOnlineService.tableSizeChange(event);
-    this.tableSize = this.shopOnlineService.tableSize;
+    this.shopOnlineService.tableSizeChanges.subscribe(amount => {
+      this.selectedAmount = amount;
+    });
+
     this.page = this.shopOnlineService.page;
   }
 
@@ -74,5 +78,6 @@ export class ShopSettingsComponent implements OnInit {
   ngOnDestroy() {
     this.selectedSortSub.unsubscribe();
     this.selectedLayoutSub.unsubscribe();
+    this.selectedAmountSub.unsubscribe();
   }
 }

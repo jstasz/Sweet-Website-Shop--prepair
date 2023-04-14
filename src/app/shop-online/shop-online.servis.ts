@@ -22,8 +22,12 @@ export class ShopOnlineService {
     productsToShow: ShopProduct[] = [];
     productsChanges = new Subject<ShopProduct[]>();
 
-    tableSize: Amount = 8;
-    tableSizeChanges = new Subject<Amount>();
+    // tableSize: Amount = 8;
+    // tableSizeChanges = new Subject<Amount>();
+
+    tableSize = new BehaviorSubject<Amount>(8);
+    tableSizeChanges = this.tableSize.asObservable();
+
     page: number = 1;
 
     constructor() {}
@@ -88,8 +92,10 @@ export class ShopOnlineService {
     }
 
     tableSizeChange(event: any) {
-        this.tableSize = event.target.value
-        this.tableSizeChanges.next(this.tableSize);
+        // this.tableSize = event.target.value
+        // this.tableSizeChanges.next(this.tableSize);
+        this.tableSize.next(event.target.value);
+
         this.page = 1;
     }
 }
