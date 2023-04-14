@@ -29,7 +29,7 @@ tableSize: number = 8;
 
   ngOnInit(): void {
     this.shopOnlineService.productsChanges.subscribe(products => this.shopProducts = products)
-    this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
+    this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
     this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
     this.shopOnlineService.showProducts();
     this.getTableSize();

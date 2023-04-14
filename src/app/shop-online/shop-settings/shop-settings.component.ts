@@ -18,7 +18,7 @@ export class ShopSettingsComponent implements OnInit {
   selectedLayoutSub!: Subscription;
 
   selectedAmount: Amount = 8;
-  
+
   tableSize: Amount = 8;
   page: number = 1;
   amountToSelect: Amount[] = [4, 8, 12];
@@ -37,8 +37,8 @@ export class ShopSettingsComponent implements OnInit {
     this.shopOnlineService.setCategories();
     this.selectedCategory = this.shopOnlineService.selectedCategory;
     this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
-    this.shopOnlineService.sortChanges.subscribe(sort => this.selectedSort = sort);
-    this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
+    this.selectedSortSub = this.shopOnlineService.sortChanges.subscribe(sort => this.selectedSort = sort);
+    this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
   }
 
   activateCategories() {

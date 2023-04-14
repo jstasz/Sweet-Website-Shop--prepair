@@ -12,15 +12,13 @@ import { ShopProduct } from './shop-product/product.model';
 export class ShopProductsComponent implements OnInit {
   selectedLayout: Layout = 'grid';
   selectedLayoutSub!: Subscription;
-  
+
   productsToShow : ShopProduct[] = [];
 
   constructor(private shopOnlineService : ShopOnlineService) { }
 
   ngOnInit(): void {
-    this.shopOnlineService.layoutChanges.subscribe(layout => {
-      this.selectedLayout = layout
-    })
+    this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout)
     this.productsToShow = this.shopOnlineService.productsToShow;
     this.shopOnlineService.productsChanges.subscribe(products => this.productsToShow = products);
     this.shopOnlineService.showProducts();
