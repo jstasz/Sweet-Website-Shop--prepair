@@ -9,7 +9,7 @@
             margin: 0 auto;
         }
 
-        .product {
+        & .product {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -157,7 +157,7 @@
                 padding: 0 2em;
             }
 
-            .product {
+            & .product {
                 width: 45%;
         
                 &.list {
@@ -180,7 +180,7 @@
                 padding: 0 3em;
             }
 
-            .product {
+            & .product {
                 width: 45%;
         
                 &.list {
@@ -205,7 +205,7 @@
                 width: 90%;
             }
 
-            .product {
+            & .product {
                 padding: 2em;
                 width: 30%;
         
@@ -230,7 +230,7 @@
 @media (min-width: 1200px) {
     .products {
         &-box { 
-            .product {
+            & .product {
                 width: 23%;
             
                 &.list {
