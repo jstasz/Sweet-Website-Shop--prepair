@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/alert/alert.service';
 import { CartService } from 'src/app/cart/cart.service';
 import { ShopProduct, shopProducts } from 'src/app/shop-online/shop-products/shop-products.model';
 import { CakeDesignerService } from '../cake-designer.service';
@@ -14,12 +15,14 @@ export class SummaryComponent implements OnInit {
   createdCake!: Cake;
   totalCakePrice!: number;
   cakeAddedToCart = false;
+  activeAlert: boolean = false;
 
-  constructor(private cakeDesignerService: CakeDesignerService, private cartService: CartService) { }
+  constructor(private cakeDesignerService: CakeDesignerService, private cartService: CartService, private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.onCreateNewCake();
     this.getCake();
+    this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
 
   onCreateNewCake() {
@@ -52,7 +55,8 @@ export class SummaryComponent implements OnInit {
 
     const cakeInShop = this.cartService.cart.items.find(item => item.name === cakeToShop.name && item.description === cakeToShop.description)
     if(!cakeInShop) {
-      this.cartService.addToCart(cakeToShop)
+      this.cartService.addToCart(cakeToShop);
+      this.alertService.activateAlert(cakeToShop);
     } else {
       cakeInShop.quantity ++
     }
