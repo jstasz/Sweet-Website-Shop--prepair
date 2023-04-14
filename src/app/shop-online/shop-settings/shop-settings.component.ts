@@ -20,23 +20,21 @@ export class ShopSettingsComponent implements OnInit {
   selectedAmount: Amount = 8;
   selectedAmountSub!: Subscription;
 
+  categories: Categories[] = [];
+  selectedCategory: Category[] = [];
+  selectedCategoriesSub!: Subscription;
+
   page: number = 1;
   amountToSelect: Amount[] = [4, 8, 12];
 
   filtersActive: boolean = false;
-
-  categories: Categories[] = [];
-  selectedCategory: Category[] = [];
-
   categoriesActive : boolean = true;
 
   constructor(private shopOnlineService : ShopOnlineService) { }
 
   ngOnInit(): void {
     this.categories = this.shopOnlineService.productsCategories;
-    this.shopOnlineService.setCategories();
-    this.selectedCategory = this.shopOnlineService.selectedCategory;
-    this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
+    this.selectedCategoriesSub = this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
     this.selectedSortSub = this.shopOnlineService.sortChanges.subscribe(sort => this.selectedSort = sort);
     this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
     this.selectedAmountSub = this.shopOnlineService.tableSizeChanges.subscribe(amount => this.selectedAmount = amount);
@@ -79,5 +77,6 @@ export class ShopSettingsComponent implements OnInit {
     this.selectedSortSub.unsubscribe();
     this.selectedLayoutSub.unsubscribe();
     this.selectedAmountSub.unsubscribe();
+    this.selectedCategoriesSub.unsubscribe();
   }
 }
