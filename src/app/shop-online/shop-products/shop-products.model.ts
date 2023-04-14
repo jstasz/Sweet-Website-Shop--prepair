@@ -1,4 +1,4 @@
-import { Category } from "../shop-settings/shop-settings.model";
+import { Category } from '../shop-settings/shop-settings.model';
 
 export class ShopProduct {
     constructor(public id: number, public quantity: number = 1, public name: string, public description: string, public imagePath: string, public price: number, public category: Category) {

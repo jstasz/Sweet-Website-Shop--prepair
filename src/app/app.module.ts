@@ -23,7 +23,6 @@ import { ShortenPipe } from './shared/shorten.pipe';
 import { SpacePipe } from './header/nav-links.pipe';
 import { ShopProductsComponent } from './shop-online/shop-products/shop-products.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ShopProductComponent } from './shop-online/shop-products/shop-product/shop-product.component';
 import { ShopOnlineService } from './shop-online/shop-online.servis';
 import { CartService } from './cart/cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -59,7 +58,6 @@ import { AlertService } from './alert/alert.service';
     ShortenPipe,
     SpacePipe,
     ShopProductsComponent,
-    ShopProductComponent,
     SummaryComponent,
     CreamComponent,
     MenuComponent,
