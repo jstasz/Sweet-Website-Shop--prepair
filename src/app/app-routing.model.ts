@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { ShopOnlineComponent } from "./shop-online/shop-online.component";
 
 const appRoutes: Routes = [
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: MainPageComponent },
     {
         path: 'cake-designer', component: CakeDesignerComponent, children: [
