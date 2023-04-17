@@ -2,6 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../alert/alert.service';
 
+import { initializeApp } from 'firebase/app';
+import { getDatabase, set, ref} from 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDSRlmG7zwMfbUU9XMh-aJ9ceNp-3EjwAY",
+  authDomain: "sweet-website-contact.firebaseapp.com",
+  projectId: "sweet-website-contact",
+  storageBucket: "sweet-website-contact.appspot.com",
+  messagingSenderId: "1058781079630",
+  appId: "1:1058781079630:web:d387b9b5035f0410417b1f",
+  measurementId: "G-N6Z7FXHQ81"
+};
+
+const app = initializeApp(firebaseConfig);
+const contactMessages = getDatabase();
+
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -23,7 +39,20 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.sendMessage();
     this.alertService.activateAlert(null);
     this.contactForm.reset();
+  }
+
+  sendMessage() {
+    let name = this.contactForm.value.username;
+    let email = this.contactForm.value.email;
+    let message = this.contactForm.value.message;
+
+    set(ref(contactMessages, "message" + name), {
+      name: name,
+      email: email,
+      message: message
+    });
   }
 }
