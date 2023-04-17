@@ -4,6 +4,22 @@ import { AlertService } from "../alert/alert.service";
 import { ShopProduct } from "../shop-online/shop-products/shop-products.model";
 import { Cart } from "./cart.model";
 
+import { initializeApp } from 'firebase/app';
+import { getDatabase, set, ref} from 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDSRlmG7zwMfbUU9XMh-aJ9ceNp-3EjwAY",
+  authDomain: "sweet-website-contact.firebaseapp.com",
+  projectId: "sweet-website-contact",
+  storageBucket: "sweet-website-contact.appspot.com",
+  messagingSenderId: "1058781079630",
+  appId: "1:1058781079630:web:d387b9b5035f0410417b1f",
+  measurementId: "G-N6Z7FXHQ81"
+};
+
+const app = initializeApp(firebaseConfig);
+const orderMessage = getDatabase();
+
 @Injectable({
     providedIn: 'root'
 })
@@ -50,5 +66,14 @@ export class CartService {
         this.cart.items.forEach(item => item.quantity = 0);
         this.cart.items.splice(0, this.cart.items.length);
         this.cartChanges.next(this.cart);
+    }
+
+    sendOrder() {
+        let order = this.cart.items;
+        let randomNumber = Math.floor(Math.random() * 100) + 1
+    
+        set(ref(orderMessage, "order" + randomNumber), 
+            order
+        );
     }
 }
