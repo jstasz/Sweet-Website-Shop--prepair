@@ -20,19 +20,29 @@ export class FavouritesService {
         } 
 
         this.favouritesChange.next(this.favourites);
+        localStorage.setItem('favourites', JSON.stringify(this.favourites));
     }
 
-    removeFromFavourites(index: number) {
+    removeFromFavourites(product: ShopProduct) {
+        const index = this.favourites.items.findIndex(item => item.id === product.id);
         this.favourites.items.splice(index, 1);
         this.favouritesChange.next(this.favourites);
+        localStorage.setItem('favourites', JSON.stringify(this.favourites));
     }
 
     clearFavourites() {
         this.favourites.items.splice(0, this.favourites.items.length);
         this.favouritesChange.next(this.favourites);
+        localStorage.removeItem('favourites');
+    }
+
+    localFavourites() {
+        const favouritesFromStorageString = localStorage.getItem('favourites');
+        const favouritesFromStorage = favouritesFromStorageString ? JSON.parse(favouritesFromStorageString) : null;
+        this.favourites = favouritesFromStorage;
     }
 
     checkFavourites(product: ShopProduct) {
-        return this.favourites.items.includes(product);
+        return this.favourites.items.find(item => item.id === product.id);
     }
 }

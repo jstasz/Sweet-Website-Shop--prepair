@@ -34,6 +34,7 @@ count: number = 0;
   constructor(private shopOnlineService : ShopOnlineService, private alertService: AlertService, private cartService: CartService,  private favouritesService: FavouritesService) {}
 
   ngOnInit(): void {
+    this.favouritesService.localFavourites();
     this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
     this.selectedAmountSub = this.shopOnlineService.amountChanges.subscribe(amount => this.selectedAmount = amount);
     this.productsSub = this.shopOnlineService.productsChanges.subscribe(products => this.productsToShow = products);
@@ -51,8 +52,7 @@ count: number = 0;
     if(!fav) {
       this.favouritesService.addToFavourites(product);
     } else {
-      const index = this.favourites.items.indexOf(product);
-      this.favouritesService.removeFromFavourites(index);
+      this.favouritesService.removeFromFavourites(product);
     }
   }
 

@@ -36,8 +36,8 @@ export class MenuComponent implements OnInit {
     this.cartService.addToCart(item);
   }
 
-  onRemoveFromFavourites(index: number) {
-    this.favouritesService.removeFromFavourites(index)
+  onRemoveFromFavourites(product: ShopProduct) {
+    this.favouritesService.removeFromFavourites(product)
   }
 
   onGetTotalCartPrice(items: ShopProduct[]) {

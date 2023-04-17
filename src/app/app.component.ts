@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { FavouritesService } from './favourites/favourites.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'sweet-website-shop';
+
+  constructor(private favouritesService: FavouritesService) {}
+
+  ngOnInit() {
+    this.favouritesService.localFavourites();
+  }
 }

@@ -25,11 +25,11 @@ export class FavouritesComponent implements OnInit {
   }
 
   onAddToCart(item : ShopProduct) {
-    this.cartService.addToCart(item)
+    this.cartService.addToCart(item);
   } 
 
-  onRemoveFromFavourites(index: number) {
-    this.favouritesService.removeFromFavourites(index), 2000
+  onRemoveFromFavourites(product: ShopProduct) {
+    this.favouritesService.removeFromFavourites(product), 2000
   }
 
   onClearFavourites() {
