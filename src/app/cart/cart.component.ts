@@ -57,6 +57,7 @@ export class CartComponent implements OnInit {
   }
 
   onSubmitOrder() {
+    this.cartService.sendOrder();
     this.activeAlert = true;
     this.alertService.activateAlert(null);
     this.cartService.clearCart();
