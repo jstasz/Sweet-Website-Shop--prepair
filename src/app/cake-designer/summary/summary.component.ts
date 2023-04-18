@@ -16,18 +16,12 @@ export class SummaryComponent implements OnInit {
   cakeAddedToCart = false;
   activeAlert: boolean = false;
 
-  selectedDate: string = '';
-
   constructor(private cakeDesignerService: CakeDesignerService, private cartService: CartService, private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.onCreateNewCake();
     this.getCake();
     this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
-  }
-
-  onSelectDate(date: string) {
-    this.selectedDate = date;
   }
 
   onCreateNewCake() {
@@ -67,6 +61,5 @@ export class SummaryComponent implements OnInit {
     }
 
     this.cakeDesignerService.clearSelectedElements();
-    this.selectedDate = '';
   }
 }

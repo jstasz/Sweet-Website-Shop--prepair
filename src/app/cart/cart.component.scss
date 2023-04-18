@@ -2,6 +2,7 @@
     margin: 5em auto;
     width: 90%;
     font-size: 1.2rem;
+    color: grey;
 
     &__header {
         display: none;
@@ -34,7 +35,6 @@
             align-items: center;
             grid-column: 2 / 4;
             margin: 0;
-            // font-size: 1.2rem;
         }
 
         &-price {
@@ -44,13 +44,12 @@
         &-total {
             grid-column: 4 / 5;
             margin: 0;
-            // font-size: 1.2rem;
         }
 
         &-name {
             grid-column: 2/4;
             padding: 0.2em;
-            color: grey;
+            // color: grey;
 
             & .name {
                 margin-bottom: 0.2em;
@@ -86,6 +85,7 @@
     }
 
     &__clear {
+        grid-column: 1/8;
         padding: 1em 0;
         font-size: 1.3rem;
         text-decoration: none;
@@ -94,6 +94,24 @@
 
         &:hover {
             color: rgb(208, 208, 208);
+        }
+    }
+
+    &__date {
+        grid-column: 1/8;
+        padding: 3em 0 1em 0;
+        font-size: 1.3rem;
+        text-align: center;
+
+        &-input {
+            margin: 0.5em 0;
+            padding: 0.5em 1em;
+            text-align: center;
+            color: rgb(174, 174, 174);
+        }
+
+        &-alert {
+            color: rgb(187, 131, 141);
         }
     }
 
@@ -132,7 +150,6 @@
             background-color: rgb(247, 247, 247);
             border: thin solid rgb(220, 220, 220);
             border-radius: 3px;
-            cursor: pointer;
     
                 & .buy-icon {
                     margin-left: 0.5em;

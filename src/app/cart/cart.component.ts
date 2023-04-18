@@ -15,6 +15,8 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
   activeAlert: boolean = false;
 
+  selectedDate: string = '';
+
   count = 0;
   page = 1;
   tableSize: number = 10;
@@ -47,6 +49,10 @@ export class CartComponent implements OnInit {
     this.cartService.changeQuantity(item, index);
   }
 
+  onSelectDate(date: string) {
+    this.selectedDate = date;
+  }
+
   onClearCart() {
     this.cartService.clearCart();
   }
@@ -57,9 +63,10 @@ export class CartComponent implements OnInit {
   }
 
   onSubmitOrder() {
-    this.cartService.sendOrder();
+    this.cartService.sendOrder(this.selectedDate);
     this.activeAlert = true;
     this.alertService.activateAlert(null);
     this.cartService.clearCart();
+    this.selectedDate = '';
   }
 }

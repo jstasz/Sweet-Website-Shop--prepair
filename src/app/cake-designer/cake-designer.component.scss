@@ -139,33 +139,7 @@
                     font-size: 1.6rem;
                     font-weight: bold;
                 }
-
-                &-date {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 1em 0;
-
-                    & .select-date {
-                        margin: 1em;
-
-                        &__alert {
-                            margin: 0.2em 0;
-                            font-size: 1rem;
-                            font-weight: bold;
-                            color: rgb(235, 112, 112);
-                        }
-                    }
-
-                    & .date {
-                        margin: 0 1em;
-                        padding: 0.2em 0.4em;
-                        color: rgb(169, 169, 169);
-                        border: thin solid rgb(243, 243, 243);
-                        border-radius: 5px;
-                    }
-                }
+  
 
                 & .carts-information {
                     display: flex;

@@ -72,11 +72,11 @@ export class CartService {
         this.localStorageService.removeLocalData('cart');
     }
 
-    sendOrder() {
+    sendOrder(date: string) {
         let order = this.cart.items;
         let randomNumber = Math.floor(Math.random() * 100) + 1;
     
-        set(ref(orderMessage, "order" + randomNumber), 
+        set(ref(orderMessage, `order ${randomNumber} ${date}`), 
             order
         );
     }

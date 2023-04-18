@@ -24,6 +24,13 @@
         <i class="fa-solid fa-trash cart__items-item remove-icon" (click)="onRemoveFromCart(item, i)"></i>
     </div>
     <a class="cart__clear" (click)="onClearCart()">remove all</a>
+
+    <div class="cart__date">
+        <p class="cart__date-title">When you need your order ?</p>
+        <input class="cart__date-input" type="date" [(ngModel)]="selectedDate" (change)="onSelectDate(selectedDate)">
+        <p class="cart__date-alert" *ngIf="!selectedDate">Select the date</p>
+    </div>
+
     <div class="pagination">
         <pagination-controls *ngIf="tableSize < cart.items.length" class="pagination-controls" previouslabel='Prev'
             nextLabel='next' (pageChange)="onTableDataChange($event)">
@@ -33,7 +40,7 @@
         <p class="cart__summary-total">Total:
             <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>
         </p>
-        <button class="cart__summary-submit" (click)="onSubmitOrder()">submit
+        <button class="cart__summary-submit" (click)="onSubmitOrder()" [disabled]="!selectedDate">submit
             <i class="fa-solid fa-circle-check buy-icon"></i>
         </button>
         <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
