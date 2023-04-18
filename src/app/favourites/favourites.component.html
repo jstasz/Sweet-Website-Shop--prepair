@@ -16,19 +16,18 @@
         <div class="cart__items-item cart__items-actions">
             <i class="fa-solid fa-heart cart__items-item action-icon" (click)="onRemoveFromFavourites(item)"
                 [ngClass]="{active : onCheckFavourites(item)}"></i>
-            <i class="fa-solid fa-cart-shopping cart__items-item action-icon"
-                (click)="onRemoveFromFavourites(item)"></i>
+            <i class="fa-solid fa-cart-shopping cart__items-item action-icon" (click)="onAddToCart(item)"></i>
         </div>
 
     </div>
     <a class="cart__clear" (click)="onClearFavourites()">remove all</a>
-    <a class="cart__add" [routerLink]="'/cart'">add all to cart</a>
     <div class="pagination">
         <pagination-controls *ngIf="tableSize < favourites.items.length" class="pagination-controls"
             previouslabel='Prev' nextLabel='next' (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
 </div>
+<app-alert *ngIf="activeAlert"></app-alert>
 <ng-template #noItems>
     <div class="cart__empty">
         <p>There are no items in your favourites !</p>

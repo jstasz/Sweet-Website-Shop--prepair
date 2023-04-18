@@ -24,20 +24,12 @@ export class MenuComponent implements OnInit {
     this.activeMode = this.headerService.activeMode;
     this.headerService.modeChange.subscribe(mode => this.activeMode = mode);
     this.favourites = this.favouritesService.favourites;
-    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites)
+    this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
   }
 
   onClearFav() {
     this.favourites.items = [];
     this.activeMode = '';
-  }
-
-  onAddToCart(item: ShopProduct, index: number) {
-    this.cartService.addToCart(item);
-  }
-
-  onRemoveFromFavourites(product: ShopProduct) {
-    this.favouritesService.removeFromFavourites(product)
   }
 
   onGetTotalCartPrice(items: ShopProduct[]) {

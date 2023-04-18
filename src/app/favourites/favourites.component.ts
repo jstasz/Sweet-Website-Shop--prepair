@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from '../alert/alert.service';
 import { Cart } from '../cart/cart.model';
 import { CartService } from '../cart/cart.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
@@ -12,16 +13,18 @@ import { FavouritesService } from './favourites.service';
 export class FavouritesComponent implements OnInit {
 
   favourites: Cart = {items: []};
+  activeAlert: boolean = false;
 
   count = 0;
   page = 1;
   tableSize: number = 5;
 
-  constructor(private favouritesService: FavouritesService, private cartService : CartService) { }
+  constructor(private favouritesService: FavouritesService, private cartService : CartService, private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.favourites = this.favouritesService.favourites;
     this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
+    this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
 
   onAddToCart(item : ShopProduct) {

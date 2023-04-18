@@ -11,8 +11,11 @@
                 <p class="description">{{product.description}}</p>
             </div>
             <div class="product__added-actions">
-                <button class="btn" (click)="onCloseAlert()">{{activeMode === 'shop-online' ? 'Continue Shopping' :
-                    'Continue Designing'}}</button>
+                <button class="btn" (click)="onCloseAlert()">
+                    <p class="btn-continue" *ngIf="activeMode === 'shop-online'">Continue Shopping</p>
+                    <p class="btn-continue" *ngIf="activeMode === 'cake-designer'">Continue Designing</p>
+                    <p class="btn-continue" *ngIf="activeMode === 'favourites'">Continue</p>
+                </button>
                 <button class="btn" *ngIf="activeMode === 'cake-designer'" (click)="onRedirect('shop-online')">Go to
                     shop
                     online</button>
