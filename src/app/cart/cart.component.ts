@@ -15,6 +15,8 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
   activeAlert: boolean = false;
 
+  selectedDate: string = '';
+
   count = 0;
   page = 1;
   tableSize: number = 10;
@@ -25,6 +27,15 @@ export class CartComponent implements OnInit {
     this.cart = this.cartService.cart;
     this.activeAlert = this.alertService.activeAlert;
     this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
+  }
+
+  getCurrentDate() {
+    const today = new Date();
+    today.setDate(today.getDate() + 3);
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    return yyyy + '-' + mm + '-' + dd;
   }
 
   getTotalPrice(item: ShopProduct) {
@@ -47,6 +58,10 @@ export class CartComponent implements OnInit {
     this.cartService.changeQuantity(item, index);
   }
 
+  onSelectDate(date: string) {
+    this.selectedDate = date;
+  }
+
   onClearCart() {
     this.cartService.clearCart();
   }
@@ -57,9 +72,10 @@ export class CartComponent implements OnInit {
   }
 
   onSubmitOrder() {
-    this.cartService.sendOrder();
+    this.cartService.sendOrder(this.selectedDate);
     this.activeAlert = true;
     this.alertService.activateAlert(null);
     this.cartService.clearCart();
+    this.selectedDate = '';
   }
 }
