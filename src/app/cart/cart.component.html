@@ -27,7 +27,8 @@
 
     <div class="cart__date">
         <p class="cart__date-title">When you need your order ?</p>
-        <input class="cart__date-input" type="date" [(ngModel)]="selectedDate" (change)="onSelectDate(selectedDate)">
+        <input class="cart__date-input" type="date" [(ngModel)]="selectedDate" min="{{getCurrentDate()}}"
+            (change)="onSelectDate(selectedDate)">
         <p class="cart__date-alert" *ngIf="!selectedDate">Select the date</p>
     </div>
 
