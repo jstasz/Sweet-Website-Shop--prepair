@@ -29,11 +29,11 @@ export class FavouritesComponent implements OnInit {
   } 
 
   onRemoveFromFavourites(product: ShopProduct) {
-    this.favouritesService.removeFromFavourites(product), 2000
+    this.favouritesService.removeFromFavourites(product), 2000;
   }
 
   onClearFavourites() {
-    this.favouritesService.clearFavourites()
+    this.favouritesService.clearFavourites();
   }
 
   onTableDataChange(event: any) {
@@ -42,6 +42,6 @@ export class FavouritesComponent implements OnInit {
   }
 
   onCheckFavourites(item : ShopProduct) {
-    return this.favouritesService.checkFavourites(item)
+    return this.favouritesService.checkFavourites(item);
   }
 }

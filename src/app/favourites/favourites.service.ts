@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
-import { Cart } from "../cart/cart.model";
-import { ShopProduct } from "../shop-online/shop-products/shop-products.model";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Cart } from '../cart/cart.model';
+import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 
 
 @Injectable()
@@ -38,8 +38,7 @@ export class FavouritesService {
 
     localFavourites() {
         const favouritesFromStorageString = localStorage.getItem('favourites');
-        const favouritesFromStorage = favouritesFromStorageString ? JSON.parse(favouritesFromStorageString) : null;
-        this.favourites = favouritesFromStorage;
+        favouritesFromStorageString ? this.favourites = JSON.parse(favouritesFromStorageString) : this.favourites = {items: []};
     }
 
     checkFavourites(product: ShopProduct) {

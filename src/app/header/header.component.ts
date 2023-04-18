@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   constructor(private cartService: CartService, private headerService : HeaderService, private favouritesService: FavouritesService) { }
 
   ngOnInit() {
+    this.cart = this.cartService.cart;
     this.cartService.cartChanges.subscribe(cart => this.cart = cart);
     this.headerService.modeChange.subscribe(mode => this.activeMode = mode);
     this.favourites = this.favouritesService.favourites;
