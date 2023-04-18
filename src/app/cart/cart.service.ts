@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { AlertService } from '../alert/alert.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 import { Cart } from './cart.model';
+import { LocalStorageService } from '../shared/local-storage.service';
 
 import { initializeApp } from 'firebase/app';
 import { getDatabase, set, ref} from 'firebase/database';
@@ -20,14 +21,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const orderMessage = getDatabase();
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class CartService {
     cart: Cart = {items: []};
     cartChanges = new Subject<Cart>();
 
-    constructor(private alertService: AlertService) {}
+    constructor(private alertService: AlertService, private localStorageService: LocalStorageService) {}
 
     getTotalCartPrice(items: ShopProduct[]): number {
         return items.map((item) => item.price * item.quantity).reduce((prev, cur) => prev + cur, 0);
@@ -44,14 +43,14 @@ export class CartService {
             this.alertService.activateAlert(item);
         }
         this.cartChanges.next(this.cart);
-        localStorage.setItem('cart', JSON.stringify(this.cart));
+        this.localStorageService.saveLocalData('cart', JSON.stringify(this.cart));
     }
 
     removeFromCart(item: ShopProduct, index: number) {
         item.quantity = 0;
         this.cart.items.splice(index, 1);
         this.cartChanges.next(this.cart);
-        localStorage.setItem('cart', JSON.stringify(this.cart));
+        this.localStorageService.saveLocalData('cart', JSON.stringify(this.cart));
     }
 
     changeQuantity(item: ShopProduct, index: number) {
@@ -62,14 +61,15 @@ export class CartService {
         } else {
             this.removeFromCart(item, index);
         }
-        localStorage.setItem('cart', JSON.stringify(this.cart));
+
+        this.localStorageService.saveLocalData('cart', JSON.stringify(this.cart));
     }
 
     clearCart() {
         this.cart.items.forEach(item => item.quantity = 0);
         this.cart.items.splice(0, this.cart.items.length);
         this.cartChanges.next(this.cart);
-        localStorage.removeItem('cart');
+        this.localStorageService.removeLocalData('cart');
     }
 
     sendOrder() {
@@ -82,7 +82,7 @@ export class CartService {
     }
 
     localCart() {
-        const cartFromStorageString = localStorage.getItem('cart');
+        const cartFromStorageString = this.localStorageService.getLocalData('cart');
         cartFromStorageString ? this.cart = JSON.parse(cartFromStorageString) : this.cart = {items: []};
     }
 }

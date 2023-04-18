@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Cart } from '../cart/cart.model';
+import { LocalStorageService } from '../shared/local-storage.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 
 
@@ -10,7 +11,7 @@ export class FavouritesService {
     favourites: Cart = {items: []};
     favouritesChange = new Subject<Cart>();
 
-    constructor() {}
+    constructor(private localStorageService: LocalStorageService) {}
 
     addToFavourites(item: ShopProduct) {
         const productInFav = this.favourites.items.find(prod => prod.id === item.id);
@@ -20,24 +21,24 @@ export class FavouritesService {
         } 
 
         this.favouritesChange.next(this.favourites);
-        localStorage.setItem('favourites', JSON.stringify(this.favourites));
+        this.localStorageService.saveLocalData('favourites', JSON.stringify(this.favourites));
     }
 
     removeFromFavourites(product: ShopProduct) {
         const index = this.favourites.items.findIndex(item => item.id === product.id);
         this.favourites.items.splice(index, 1);
         this.favouritesChange.next(this.favourites);
-        localStorage.setItem('favourites', JSON.stringify(this.favourites));
+        this.localStorageService.saveLocalData('favourites', JSON.stringify(this.favourites));
     }
 
     clearFavourites() {
         this.favourites.items.splice(0, this.favourites.items.length);
         this.favouritesChange.next(this.favourites);
-        localStorage.removeItem('favourites');
+        this.localStorageService.removeLocalData('favourites');
     }
 
     localFavourites() {
-        const favouritesFromStorageString = localStorage.getItem('favourites');
+        const favouritesFromStorageString = this.localStorageService.getLocalData('favourites');
         favouritesFromStorageString ? this.favourites = JSON.parse(favouritesFromStorageString) : this.favourites = {items: []};
     }
 
