@@ -34,6 +34,7 @@ import { FavouritesService } from './favourites/favourites.service';
 import { AlertComponent } from './alert/alert.component';
 import { ShopSettingsComponent } from './shop-online/shop-settings/shop-settings.component';
 import { AlertService } from './alert/alert.service';
+import { LocalStorageService } from './shared/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,7 @@ import { AlertService } from './alert/alert.service';
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService, AlertService],
+  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService, AlertService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 

@@ -25,6 +25,7 @@ productsToShow : ShopProduct[] = [];
 productsSub!: Subscription;
 
 favourites: Cart = {items: []};
+cart: Cart = {items: []};
 
 activeAlert : boolean = false;
 
@@ -34,6 +35,8 @@ count: number = 0;
   constructor(private shopOnlineService : ShopOnlineService, private alertService: AlertService, private cartService: CartService,  private favouritesService: FavouritesService) {}
 
   ngOnInit(): void {
+    this.cart = this.cartService.cart;
+    this.cartService.cartChanges.subscribe(cart => this.cart = cart);
     this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
     this.selectedAmountSub = this.shopOnlineService.amountChanges.subscribe(amount => this.selectedAmount = amount);
     this.productsSub = this.shopOnlineService.productsChanges.subscribe(products => this.productsToShow = products);
@@ -51,8 +54,7 @@ count: number = 0;
     if(!fav) {
       this.favouritesService.addToFavourites(product);
     } else {
-      const index = this.favourites.items.indexOf(product);
-      this.favouritesService.removeFromFavourites(index);
+      this.favouritesService.removeFromFavourites(product);
     }
   }
 
@@ -65,6 +67,11 @@ count: number = 0;
     this.shopOnlineService.productsChanges.subscribe(products => {
       this.productsToShow = products;
     })
+  }
+
+  checkQuantity(product: ShopProduct) {
+    const index = this.cart.items?.findIndex(item => item.id === product.id);
+    return index >= 0 ? this.cart.items[index].quantity : '';
   }
 
   ngOnDestroy() {

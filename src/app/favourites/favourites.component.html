@@ -14,9 +14,10 @@
         </div>
         <p class="cart__items-item cart__items-price">{{item.price | currency}}</p>
         <div class="cart__items-item cart__items-actions">
-            <i class="fa-solid fa-heart cart__items-item action-icon" (click)="onRemoveFromFavourites(i)"
+            <i class="fa-solid fa-heart cart__items-item action-icon" (click)="onRemoveFromFavourites(item)"
                 [ngClass]="{active : onCheckFavourites(item)}"></i>
-            <i class="fa-solid fa-cart-shopping cart__items-item action-icon" (click)="onRemoveFromFavourites(i)"></i>
+            <i class="fa-solid fa-cart-shopping cart__items-item action-icon"
+                (click)="onRemoveFromFavourites(item)"></i>
         </div>
 
     </div>

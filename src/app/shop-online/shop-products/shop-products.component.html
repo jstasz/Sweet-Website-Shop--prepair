@@ -14,7 +14,7 @@
             <p class="product__summary-price">{{ product.price | currency }}</p>
             <div class="product__summary-add">
                 <div class="product__summary-add-cart">
-                    <p class="product__summary-quantity">{{product.quantity ? product.quantity : ' '}}</p>
+                    <p class="product__summary-quantity">{{checkQuantity(product)}}</p>
                     <i class="product__summary-icon fa-solid fa-cart-shopping" (click)="onAddToCart(product)"></i>
                 </div>
                 <i class="product__summary-icon fa-solid fa-heart" (click)="onAddToFavourites(product)"

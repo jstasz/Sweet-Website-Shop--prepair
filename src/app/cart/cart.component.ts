@@ -11,7 +11,7 @@ import { CartService } from './cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  cart: Cart = {items: []}
+  cart: Cart = {items: []};
   totalPrice: number = 0;
   activeAlert: boolean = false;
 
@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   page = 1;
   tableSize: number = 10;
 
-  constructor(private cartService: CartService, private alertService: AlertService ,private shopOnlineService: ShopOnlineService) { }
+  constructor(private cartService: CartService, private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.cart = this.cartService.cart;
@@ -28,32 +28,32 @@ export class CartComponent implements OnInit {
   }
 
   getTotalPrice(item: ShopProduct) {
-    return item.quantity * item.price
+    return item.quantity * item.price;
   }
 
   onGetTotalCartPrice(items: ShopProduct[]) {
-    return this.cartService.getTotalCartPrice(items)
+    return this.cartService.getTotalCartPrice(items);
   }
 
   onAddToCart(item: ShopProduct) {
-    this.cartService.addToCart(item)
+    this.cartService.addToCart(item);
   }
 
   onRemoveFromCart(item: ShopProduct,index: number) {
-    return this.cartService.removeFromCart(item, index)
+    return this.cartService.removeFromCart(item, index);
   }
 
   onChangeQuantity(item: ShopProduct, index: number) {
-    this.cartService.changeQuantity(item, index)
+    this.cartService.changeQuantity(item, index);
   }
 
   onClearCart() {
-    this.cartService.clearCart()
+    this.cartService.clearCart();
   }
 
   onTableDataChange(event: any) {
     this.page = event;
-    this.cartService.cartChanges.subscribe(cart => this.cart = cart)
+    this.cartService.cartChanges.subscribe(cart => this.cart = cart);
   }
 
   onSubmitOrder() {
