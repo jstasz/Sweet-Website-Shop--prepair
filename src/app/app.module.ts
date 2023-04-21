@@ -36,6 +36,7 @@ import { ShopSettingsComponent } from './shop-online/shop-settings/shop-settings
 import { AlertService } from './alert/alert.service';
 import { LocalStorageService } from './shared/local-storage.service';
 import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,7 @@ import { AuthComponent } from './auth/auth.component';
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService, AlertService, LocalStorageService],
+  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService, AlertService, LocalStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 
