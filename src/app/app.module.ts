@@ -35,6 +35,7 @@ import { AlertComponent } from './alert/alert.component';
 import { ShopSettingsComponent } from './shop-online/shop-settings/shop-settings.component';
 import { AlertService } from './alert/alert.service';
 import { LocalStorageService } from './shared/local-storage.service';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { LocalStorageService } from './shared/local-storage.service';
     CreamComponent,
     MenuComponent,
     AlertComponent,
-    ShopSettingsComponent
+    ShopSettingsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

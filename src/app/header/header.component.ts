@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   cart: Cart = {items: []};
   favourites: Cart = {items: []};
 
-  navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us'];
+  navLinks: string[] = ['shop-online', 'cake-designer', 'contact-us', 'auth'];
 
   constructor(private cartService: CartService, private headerService : HeaderService, private favouritesService: FavouritesService) { }
 
