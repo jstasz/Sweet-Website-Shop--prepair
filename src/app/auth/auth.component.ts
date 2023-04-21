@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { Subject } from 'rxjs';
+import { User } from './user.model';
 
 const auth = getAuth();
 
@@ -10,9 +12,9 @@ const auth = getAuth();
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-  isLoginMode: boolean = false;
+  isLoginMode: boolean = true;
   authForm!: FormGroup;
-  isLogged: boolean = false;
+  loggedUser: User | '' = '';
   errorMessage: string = '';
 
   constructor() { }
@@ -20,7 +22,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
     this.authForm = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(7)])
+      'password': new FormControl(null, [Validators.required, Validators.minLength(7)]),
     });
   }
 
@@ -34,7 +36,6 @@ export class AuthComponent implements OnInit {
     } else {
       this.loginUser(email, password);
     }
-
     this.authForm.reset();
   }
 
@@ -42,7 +43,7 @@ export class AuthComponent implements OnInit {
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      this.isLogged = true;
+      this.loggedUser = new User(email);
     })
     .catch((error) => {
       let errorMessage = 'something go wrong';
@@ -59,7 +60,7 @@ export class AuthComponent implements OnInit {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      this.isLogged = true;
+      this.loggedUser = new User(email);
     })
     .catch((error) => { 
       let errorMessage = 'an unknown error';

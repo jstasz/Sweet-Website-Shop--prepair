@@ -41,7 +41,7 @@
         <p class="cart__summary-total">Total:
             <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>
         </p>
-        <button class="cart__summary-submit" (click)="onSubmitOrder()" [disabled]="!selectedDate">submit
+        <button class="cart__summary-submit" (click)="onSubmitOrder()">submit
             <i class="fa-solid fa-circle-check buy-icon"></i>
         </button>
         <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>

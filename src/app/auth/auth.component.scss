@@ -1,7 +1,7 @@
 .auth {
     &__form {
         margin: 0 auto;
-        padding: 1em;
+        padding: 0 1em 1em 1em;
         color: grey;
 
         & .form-group {
@@ -12,7 +12,21 @@
             }
 
             & input {
+                display: inline;
+                margin: 0.2em 0;
                 padding: 0.7em;
+
+                &::placeholder {
+                    color: rgb(197, 197, 197);
+                }
+
+                &.post-code {
+                    width: 30%;
+                }
+
+                &.city {
+                    width: 70%;
+                }
             }
         }
 
@@ -35,6 +49,13 @@
     &__error {
         text-align: center;
         color: rgb(198, 142, 151);
+    }
+
+    &__logout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
 

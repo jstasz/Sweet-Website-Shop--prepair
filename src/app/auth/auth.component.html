@@ -1,6 +1,6 @@
 <div class="auth section wrapper">
-    <p *ngIf="!isLogged && errorMessage" class="auth__error">{{errorMessage}}</p>
-    <form [formGroup]="authForm" *ngIf="!isLogged" class="auth__form" (ngSubmit)="onSubmit()">
+    <p *ngIf="!loggedUser && errorMessage" class="auth__error">{{errorMessage}}</p>
+    <form [formGroup]="authForm" *ngIf="!loggedUser" class="auth__form" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="email">e-mail</label>
             <input type="text" id="email" class="form-control" formControlName="email">
@@ -20,4 +20,8 @@
                 'login'}}</button>
         </div>
     </form>
+    <div class="auth__logout" *ngIf="loggedUser">
+        <p>Logged User: {{loggedUser.email}}</p>
+        <button type="button" class="btn" (click)="loggedUser = ''"> Log Out</button>
+    </div>
 </div>
