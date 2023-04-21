@@ -1,9 +1,8 @@
 .auth {
-    padding: 2em 0.5em;
-
     &__form {
         margin: 0 auto;
         padding: 1em;
+        color: grey;
 
         & .form-group {
             margin: 0.5em 0;
@@ -31,6 +30,11 @@
             font-size: 1rem;
             color: rgb(198, 142, 151);
         }
+    }
+
+    &__error {
+        text-align: center;
+        color: rgb(198, 142, 151);
     }
 }
 

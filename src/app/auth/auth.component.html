@@ -1,5 +1,6 @@
-<div class="auth">
-    <form [formGroup]="authForm" class="auth__form" (ngSubmit)="onSubmit()">
+<div class="auth section wrapper">
+    <p *ngIf="!isLogged && errorMessage" class="auth__error">{{errorMessage}}</p>
+    <form [formGroup]="authForm" *ngIf="!isLogged" class="auth__form" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="email">e-mail</label>
             <input type="text" id="email" class="form-control" formControlName="email">
