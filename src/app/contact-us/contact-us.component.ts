@@ -4,6 +4,8 @@ import { AlertService } from '../alert/alert.service';
 
 import { initializeApp } from 'firebase/app';
 import { getDatabase, set, ref} from 'firebase/database';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../auth/user.model';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSRlmG7zwMfbUU9XMh-aJ9ceNp-3EjwAY",
@@ -26,16 +28,18 @@ const contactMessages = getDatabase();
 export class ContactUsComponent implements OnInit {
   contactForm!: FormGroup;
   activeAlert: boolean = false;
+  loggedUser: User | '' = '';
 
-  constructor(private alertService: AlertService) { }
+  constructor(private alertService: AlertService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.loggedUser = this.authService.loggedUser;
+    this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
     this.contactForm = new FormGroup({
       'username': new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'email': new FormControl(this.loggedUser ? this.loggedUser.email : '', [Validators.required, Validators.email]),
       'message': new FormControl(null, [Validators.required, Validators.minLength(10)])
     });
-    this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
 
   onSubmit() {

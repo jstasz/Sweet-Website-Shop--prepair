@@ -7,6 +7,7 @@ import { LocalStorageService } from '../shared/local-storage.service';
 
 import { initializeApp } from 'firebase/app';
 import { getDatabase, set, ref} from 'firebase/database';
+import { User } from '../auth/user.model';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSRlmG7zwMfbUU9XMh-aJ9ceNp-3EjwAY",
@@ -72,11 +73,10 @@ export class CartService {
         this.localStorageService.removeLocalData('cart');
     }
 
-    sendOrder(date: string) {
+    sendOrder(date: string, userEmail: string) {
         let order = this.cart.items;
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
     
-        set(ref(orderMessage, `order ${randomNumber} ${date}`), 
+        set(ref(orderMessage, `order ${userEmail.replace('.', ',')} ${date}`), 
             order
         );
     }

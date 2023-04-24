@@ -35,6 +35,8 @@ import { AlertComponent } from './alert/alert.component';
 import { ShopSettingsComponent } from './shop-online/shop-settings/shop-settings.component';
 import { AlertService } from './alert/alert.service';
 import { LocalStorageService } from './shared/local-storage.service';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import { LocalStorageService } from './shared/local-storage.service';
     CreamComponent,
     MenuComponent,
     AlertComponent,
-    ShopSettingsComponent
+    ShopSettingsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,7 @@ import { LocalStorageService } from './shared/local-storage.service';
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService, AlertService, LocalStorageService],
+  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService, AlertService, LocalStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 

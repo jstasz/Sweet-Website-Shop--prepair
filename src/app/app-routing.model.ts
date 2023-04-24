@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthComponent } from "./auth/auth.component";
 import { CakeDesignerComponent } from "./cake-designer/cake-designer.component";
 import { ColorComponent } from "./cake-designer/color/color.component";
 import { CreamComponent } from "./cake-designer/cream/cream.component";
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     },
     { path: 'shop-online', component: ShopOnlineComponent },
     { path: 'contact-us', component: ContactUsComponent },
+    { path: 'auth', component: AuthComponent },
     { path: 'favourites', component: FavouritesComponent },
     { path: 'cart', component: CartComponent },
     { path: 'not-found', component: PageNotFoundComponent },
