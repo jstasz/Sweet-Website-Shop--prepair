@@ -3,7 +3,7 @@ import { AlertService } from '../alert/alert.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 import { Cart} from './cart.model';
 import { CartService } from './cart.service';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../auth/user.model';
 import { AuthService } from '../auth/auth.service';
 
