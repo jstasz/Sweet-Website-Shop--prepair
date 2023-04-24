@@ -1,4 +1,4 @@
-<div class="cart" *ngIf="cart.items.length, else noItems">
+<div class="cart wrapper" *ngIf="cart.items.length, else noItems">
     <div class="cart__header">
         <p class="title title--name">Name</p>
         <p class="title">Price</p>
@@ -24,28 +24,36 @@
         <i class="fa-solid fa-trash cart__items-item remove-icon" (click)="onRemoveFromCart(item, i)"></i>
     </div>
     <a class="cart__clear" (click)="onClearCart()">remove all</a>
-
-    <div class="cart__date">
-        <p class="cart__date-title">When you need your order ?</p>
-        <input class="cart__date-input" type="date" [(ngModel)]="selectedDate" min="{{getCurrentDate()}}"
-            (change)="onSelectDate(selectedDate)">
-        <p class="cart__date-alert" *ngIf="!selectedDate">Select the date</p>
-    </div>
-
     <div class="pagination">
         <pagination-controls *ngIf="tableSize < cart.items.length" class="pagination-controls" previouslabel='Prev'
             nextLabel='next' (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
-    <div class="cart__summary">
-        <p class="cart__summary-total">Total:
-            <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>
-        </p>
-        <button class="cart__summary-submit" (click)="onSubmitOrder()">submit
-            <i class="fa-solid fa-circle-check buy-icon"></i>
-        </button>
-        <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
-    </div>
+    <form class="cart__order" [formGroup]="orderForm" (ngSubmit)="onSubmitOrder()">
+        <div class="form-group cart__order-date">
+            <label for="date" class="cart__order-title">When you need your order ?</label>
+            <input type="date" id="date" class="form-control" formControlName="date" min="{{getCurrentDate()}}">
+            <p class="cart__order-alert"
+                *ngIf="!orderForm.controls['date'].valid && orderForm.controls['date'].touched">
+                Please select the date</p>
+        </div>
+        <div class="form-group cart__order-user">
+            <label for="userEmail" class="cart__order-title">Please enter your email or log in here</label>
+            <input type="email" id="userEmail" class="form-control" formControlName="userEmail">
+            <p class="cart__order-alert"
+                *ngIf="!orderForm.controls['userEmail'].valid && orderForm.controls['userEmail'].touched">Please enter
+                valid email </p>
+        </div>
+        <div class="form-group cart__summary">
+            <p class="cart__summary-total">Total:
+                <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>
+            </p>
+            <button class="cart__summary-submit" type="submit" [disabled]="!orderForm.valid">submit
+                <i class="fa-solid fa-circle-check buy-icon"></i>
+            </button>
+            <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
+        </div>
+    </form>
 </div>
 <app-alert *ngIf="activeAlert"></app-alert>
 <ng-template #noItems>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopOnlineService } from '../shop-online/shop-online.servis';
 import { AlertService } from '../alert/alert.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 import { Cart} from './cart.model';
 import { CartService } from './cart.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
   activeAlert: boolean = false;
 
-  selectedDate: string = '';
+  orderForm!: FormGroup;
 
   count = 0;
   page = 1;
@@ -24,6 +24,10 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService, private alertService: AlertService) { }
 
   ngOnInit(): void {
+    this.orderForm = new FormGroup({
+      'date': new FormControl(null, [Validators.required]),
+      'userEmail': new FormControl(null, [Validators.required, Validators.email])
+    });
     this.cart = this.cartService.cart;
     this.activeAlert = this.alertService.activeAlert;
     this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
@@ -58,10 +62,6 @@ export class CartComponent implements OnInit {
     this.cartService.changeQuantity(item, index);
   }
 
-  onSelectDate(date: string) {
-    this.selectedDate = date;
-  }
-
   onClearCart() {
     this.cartService.clearCart();
   }
@@ -72,10 +72,12 @@ export class CartComponent implements OnInit {
   }
 
   onSubmitOrder() {
-    this.cartService.sendOrder(this.selectedDate);
+    let date = this.orderForm.value.date;
+    let userEmail = (this.orderForm.value.userEmail);
+    this.cartService.sendOrder(date, userEmail);
+
     this.activeAlert = true;
     this.alertService.activateAlert(null);
     this.cartService.clearCart();
-    this.selectedDate = '';
   }
 }

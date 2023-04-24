@@ -49,7 +49,6 @@
         &-name {
             grid-column: 2/4;
             padding: 0.2em;
-            // color: grey;
 
             & .name {
                 margin-bottom: 0.2em;
@@ -85,29 +84,35 @@
     }
 
     &__clear {
-        grid-column: 1/8;
+        display: block;
         padding: 1em 0;
         font-size: 1.3rem;
         text-decoration: none;
-        color: grey;
+        color: rgb(173, 173, 173);
         cursor: pointer;
 
         &:hover {
-            color: rgb(208, 208, 208);
+            color: rgb(123, 123, 123);
         }
     }
 
-    &__date {
-        grid-column: 1/8;
-        padding: 3em 0 1em 0;
+    &__order {
+        grid-column: 1/4;
+        padding: 2em;
         font-size: 1.3rem;
         text-align: center;
 
-        &-input {
-            margin: 0.5em 0;
+        & .form-group {
+            margin-bottom: 1em;
+        }
+
+        & input {
+            margin: 0.5em auto;
             padding: 0.5em 1em;
+            width: 70%;
             text-align: center;
             color: rgb(174, 174, 174);
+            background-color: rgb(245, 245, 245);
         }
 
         &-alert {
@@ -121,14 +126,15 @@
         justify-content: center;
         align-items: flex-end;
         grid-column: 5 / 8;
+        margin-top: 4em;
 
         &-continue {
             font-size: 1.3rem;
-            color: grey;
+            color: rgb(173, 173, 173);
             cursor: pointer;
 
             &:hover {
-                color: rgb(208, 208, 208);
+                color: rgb(132, 132, 132);
             }
         }
 
@@ -151,11 +157,11 @@
             border: thin solid rgb(220, 220, 220);
             border-radius: 3px;
     
-                & .buy-icon {
-                    margin-left: 0.5em;
-                    font-size: 2rem;
-                    color: rgb(115, 214, 150);
-                }
+            & .buy-icon {
+                margin-left: 0.5em;
+                font-size: 2rem;
+                color: rgb(115, 214, 150);
+            }
         }
     }
 }
@@ -173,16 +179,22 @@
 
 @media (min-width: 476px) {
     .cart {
-        &__summary {
-            &-submit {
-                width: 50%;
-            }
-        }
-
         &__items {
             &-img {
                 width: 4em;
                 height: 4em;
+            }
+        }
+
+        &__order {
+            input {
+                width: 50%;
+            }
+        }
+
+        &__summary {
+            &-submit {
+                width: 50%;
             }
         }
     }
@@ -237,11 +249,25 @@
 
         &__clear {
             display: block;
+            grid-column: 1/2;
             padding: 2em 0;
+        }
+
+        &__order {
+            grid-column: 1/8;
+
+            & input {
+                padding: 1em 2em;
+                width: 30%;
+            }
         }
 
         &__summary {
             padding-top: 2em;
+
+            &-submit {
+                width: 25%;
+            }
         }
     }
 
