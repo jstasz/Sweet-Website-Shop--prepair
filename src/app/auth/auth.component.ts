@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { getAuth } from 'firebase/auth'
-import { Subscription } from 'rxjs';
 import { AuthService } from './auth.service';
 import { User } from './user.model';
 
@@ -15,10 +14,7 @@ export class AuthComponent implements OnInit {
   authForm!: FormGroup;
 
   loggedUser: User | '' = '';
-  loggedUserSub!: Subscription; 
-
   errorMessage: string = '';
-  errorMessageSub!: Subscription;
 
   constructor(private authService: AuthService) { }
 
@@ -27,6 +23,7 @@ export class AuthComponent implements OnInit {
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(7)]),
     });
+    this.loggedUser = this.authService.loggedUser;
     this.authService.loggedUserChanges.subscribe(user => this.loggedUser = user);
     this.authService.errorMessageChanges.subscribe(message => this.errorMessage = message);
   }
@@ -42,6 +39,10 @@ export class AuthComponent implements OnInit {
       this.authService.loginUser(email, password);
     }
     this.authForm.reset();
+  }
+
+  onLogOut() {
+    this.authService.logOutUser();
   }
 
   onSwitchMode() {

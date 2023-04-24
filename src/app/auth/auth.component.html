@@ -22,6 +22,6 @@
     </form>
     <div class="auth__logout" *ngIf="loggedUser">
         <p>Logged User: {{loggedUser.email}}</p>
-        <button type="button" class="btn" (click)="loggedUser = ''"> Log Out</button>
+        <button type="button" class="btn" (click)="onLogOut()"> Log Out</button>
     </div>
 </div>
