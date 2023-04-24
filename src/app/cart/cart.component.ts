@@ -3,7 +3,7 @@ import { AlertService } from '../alert/alert.service';
 import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 import { Cart} from './cart.model';
 import { CartService } from './cart.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { User } from '../auth/user.model';
 import { AuthService } from '../auth/auth.service';
 
@@ -27,15 +27,15 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService, private alertService: AlertService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.orderForm = new FormGroup({
-      'date': new FormControl(null, [Validators.required]),
-      'userEmail': new FormControl(null, [Validators.required, Validators.email])
-    });
-    this.cart = this.cartService.cart;
     this.loggedUser = this.authService.loggedUser;
     this.authService.loggedUserChanges.subscribe(user => this.loggedUser = user);
+    this.cart = this.cartService.cart;
     this.activeAlert = this.alertService.activeAlert;
     this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
+    this.orderForm = new FormGroup({
+      'date': new FormControl(null, [Validators.required]),
+      'userEmail': new FormControl(this.loggedUser ? this.loggedUser.email : null, [Validators.required, Validators.email])
+    });
   }
 
   getCurrentDate() {
