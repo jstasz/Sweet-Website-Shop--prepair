@@ -30,6 +30,10 @@
         </pagination-controls>
     </div>
     <form class="cart__order" [formGroup]="orderForm" (ngSubmit)="onSubmitOrder()">
+        <p class="cart__order-loggedUser" *ngIf="loggedUser, else noLoggedUser">You place an order as a
+            <span class="email">{{loggedUser.email}}</span>. If you want to use a different address, log out <span
+                class="link" (click)="onLogOut()">here</span>.
+        </p>
         <div class="form-group cart__order-date">
             <label for="date" class="cart__order-title">When you need your order ?</label>
             <input type="date" id="date" class="form-control" formControlName="date" min="{{getCurrentDate()}}">
@@ -37,13 +41,14 @@
                 *ngIf="!orderForm.controls['date'].valid && orderForm.controls['date'].touched">
                 Please select the date</p>
         </div>
-        <div class="form-group cart__order-user">
-            <label for="userEmail" class="cart__order-title">Please enter your email or log in here</label>
+        <ng-template class="form-group cart__order-user" #noLoggedUser>
+            <label for="userEmail" class="cart__order-title">Please enter your email or log in <span class="link"
+                    [routerLink]="['/auth']">here</span>.</label>
             <input type="email" id="userEmail" class="form-control" formControlName="userEmail">
             <p class="cart__order-alert"
                 *ngIf="!orderForm.controls['userEmail'].valid && orderForm.controls['userEmail'].touched">Please enter
                 valid email </p>
-        </div>
+        </ng-template>
         <div class="form-group cart__summary">
             <p class="cart__summary-total">Total:
                 <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>

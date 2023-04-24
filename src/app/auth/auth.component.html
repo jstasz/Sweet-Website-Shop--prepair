@@ -21,7 +21,10 @@
         </div>
     </form>
     <div class="auth__logout" *ngIf="loggedUser">
-        <p>Logged User: {{loggedUser.email}}</p>
-        <button type="button" class="btn" (click)="onLogOut()"> Log Out</button>
+        <div class="auth__logout-user">
+            <p>You are logged in as <span class="email">{{loggedUser.email}}</span>.</p>
+            <p>If you want to use a different address, please log out.</p>
+        </div>
+        <button type="button" class="btn" (click)="onLogOut()">Log Out</button>
     </div>
 </div>

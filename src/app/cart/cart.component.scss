@@ -115,8 +115,21 @@
             background-color: rgb(245, 245, 245);
         }
 
+        &-loggedUser {
+            padding-bottom: 3em;
+
+            & .email {
+                color: rgb(187, 138, 146);
+            }
+        }
+
         &-alert {
             color: rgb(187, 131, 141);
+        }
+
+        & .link {
+            text-decoration: underline;
+            cursor: pointer;
         }
     }
 

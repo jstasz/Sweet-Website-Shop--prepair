@@ -56,6 +56,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        &-user {
+            margin: 1em 0;
+            text-align: center;
+
+            & .email {
+                color: rgb(197, 135, 146);
+            }
+        }
     }
 }
 

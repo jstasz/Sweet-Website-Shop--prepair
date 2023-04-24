@@ -4,6 +4,8 @@ import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 import { Cart} from './cart.model';
 import { CartService } from './cart.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../auth/user.model';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,6 +16,7 @@ export class CartComponent implements OnInit {
   cart: Cart = {items: []};
   totalPrice: number = 0;
   activeAlert: boolean = false;
+  loggedUser: User | '' = '';
 
   orderForm!: FormGroup;
 
@@ -21,7 +24,7 @@ export class CartComponent implements OnInit {
   page = 1;
   tableSize: number = 10;
 
-  constructor(private cartService: CartService, private alertService: AlertService) { }
+  constructor(private cartService: CartService, private alertService: AlertService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.orderForm = new FormGroup({
@@ -29,6 +32,8 @@ export class CartComponent implements OnInit {
       'userEmail': new FormControl(null, [Validators.required, Validators.email])
     });
     this.cart = this.cartService.cart;
+    this.loggedUser = this.authService.loggedUser;
+    this.authService.loggedUserChanges.subscribe(user => this.loggedUser = user);
     this.activeAlert = this.alertService.activeAlert;
     this.alertService.activeAlertChange.subscribe(alert => this.activeAlert = alert);
   }
@@ -71,9 +76,13 @@ export class CartComponent implements OnInit {
     this.cartService.cartChanges.subscribe(cart => this.cart = cart);
   }
 
+  onLogOut() {
+    this.authService.logOutUser();
+  }
+
   onSubmitOrder() {
     let date = this.orderForm.value.date;
-    let userEmail = (this.orderForm.value.userEmail);
+    let userEmail = this.loggedUser ? this.loggedUser.email : (this.orderForm.value.userEmail);
     this.cartService.sendOrder(date, userEmail);
 
     this.activeAlert = true;

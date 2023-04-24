@@ -7,6 +7,7 @@ import { LocalStorageService } from '../shared/local-storage.service';
 
 import { initializeApp } from 'firebase/app';
 import { getDatabase, set, ref} from 'firebase/database';
+import { User } from '../auth/user.model';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSRlmG7zwMfbUU9XMh-aJ9ceNp-3EjwAY",
