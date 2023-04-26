@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ShopOnlineService } from '../shop-online.servis';
 import { Amount, Layout, Sort } from '../shop-settings/shop-settings.model'
@@ -10,6 +10,7 @@ import { Categories, Category } from './shop-settings.model';
   styleUrls: ['./shop-settings.component.scss']
 })
 export class ShopSettingsComponent implements OnInit {
+  windowWidth: number = window.innerWidth;
 
   shopCategories: Categories[] = [];
   sortToSelect: Sort[] = ['category', 'name', 'price'];
@@ -35,11 +36,20 @@ export class ShopSettingsComponent implements OnInit {
   constructor(private shopOnlineService : ShopOnlineService) { }
 
   ngOnInit(): void {
+    this.startingSettings();
     this.shopCategories = this.shopOnlineService.shopCategories;
     this.selectedLayoutSub = this.shopOnlineService.layoutChanges.subscribe(layout => this.selectedLayout = layout);
     this.selectedSortSub = this.shopOnlineService.sortChanges.subscribe(sort => this.selectedSort = sort);
     this.selectedAmountSub = this.shopOnlineService.amountChanges.subscribe(amount => this.selectedAmount = amount);
     this.selectedCategoriesSub = this.shopOnlineService.categoryChanges.subscribe(categories => this.selectedCategory = categories);
+  }
+
+  startingSettings() {
+    this.windowWidth = window.innerWidth;
+    if (this.windowWidth >= 768) {
+      this.filtersActive = true; 
+      this.categoriesActive = true;
+    }
   }
 
   onSelectLayout(layout: Layout) {

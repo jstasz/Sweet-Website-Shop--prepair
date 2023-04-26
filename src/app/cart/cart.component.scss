@@ -157,13 +157,11 @@
             }
         }
 
-        &-submit {
+        & .btn {
             margin: 1em 0;
-            padding: 0.5em 1em;
             width: 100%;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
-            border-radius: 3px;
         }
     }
 }
@@ -197,7 +195,7 @@
         }
 
         &__summary {
-            &-submit {
+            & .btn {
                 width: 50%;
             }
         }
@@ -268,7 +266,7 @@
         &__summary {
             padding-top: 2em;
 
-            &-submit {
+            & .btn {
                 width: 25%;
             }
         }
