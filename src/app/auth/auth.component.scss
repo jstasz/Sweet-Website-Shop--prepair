@@ -1,8 +1,10 @@
+@import '../../_colors.scss';
+
 .auth {
     &__form {
         margin: 0 auto;
         padding: 0 1em 1em 1em;
-        color: grey;
+        color: $grey;
 
         & .form-group {
             margin: 0.5em 0;
@@ -15,18 +17,6 @@
                 display: inline;
                 margin: 0.2em 0;
                 padding: 0.7em;
-
-                &::placeholder {
-                    color: rgb(197, 197, 197);
-                }
-
-                &.post-code {
-                    width: 30%;
-                }
-
-                &.city {
-                    width: 70%;
-                }
             }
         }
 
@@ -42,13 +32,13 @@
             padding: 0.5px 0;
             width: 100%;
             font-size: 1rem;
-            color: rgb(198, 142, 151);
+            color: $dark-pink;
         }
     }
 
     &__error {
         text-align: center;
-        color: rgb(198, 142, 151);
+        color: $dark-pink;
     }
 
     &__logout {
@@ -62,7 +52,7 @@
             text-align: center;
 
             & .email {
-                color: rgb(197, 135, 146);
+                color: $primary-pink;
             }
         }
     }
