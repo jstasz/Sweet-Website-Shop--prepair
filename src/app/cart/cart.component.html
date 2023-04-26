@@ -1,4 +1,4 @@
-<div class="cart wrapper" *ngIf="cart.items.length, else noItems">
+<div class="cart section wrapper" *ngIf="cart.items.length, else noItems">
     <div class="cart__header">
         <p class="title title--name">Name</p>
         <p class="title">Price</p>
@@ -53,8 +53,7 @@
             <p class="cart__summary-total">Total:
                 <span class="total-price">{{onGetTotalCartPrice(cart.items) | currency}}</span>
             </p>
-            <button class="cart__summary-submit" type="submit" [disabled]="!orderForm.valid">submit
-                <i class="fa-solid fa-circle-check buy-icon"></i>
+            <button class="cart__summary-submit btn" type="submit" [disabled]="!orderForm.valid">submit
             </button>
             <p class="cart__summary-continue" [routerLink]="['/shop-online']">continue shopping</p>
         </div>
@@ -62,7 +61,7 @@
 </div>
 <app-alert *ngIf="activeAlert"></app-alert>
 <ng-template #noItems>
-    <div class="cart__empty">
+    <div class="cart__empty section wrapper">
         <p>There are no items in your cart !</p>
         <div class="cart__empty-actions">
             <p>

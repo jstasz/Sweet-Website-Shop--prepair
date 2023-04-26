@@ -1,8 +1,9 @@
+@import '../../_colors.scss';
+
 .cart {
-    margin: 5em auto;
     width: 90%;
     font-size: 1.2rem;
-    color: grey;
+    color: $grey;
 
     &__header {
         display: none;
@@ -21,7 +22,7 @@
         grid-template-columns: repeat(4, 1fr);
         align-items: center;
         padding: 1em 0;
-        border-bottom: thin solid rgb(219, 219, 219);
+        border-bottom: thin solid $light-grey;
 
         &-img {
             margin: 0 auto;
@@ -54,10 +55,6 @@
                 margin-bottom: 0.2em;
                 font-weight: bold;
             }
-
-            & .description {
-                color: rgb(172, 172, 172);
-            }
         }
 
         &-item {
@@ -74,11 +71,10 @@
         & .quantity-icon {
             padding: 0.5em;
             font-size: 1.5rem;
-            color: rgb(181, 181, 181);
             cursor: pointer;
 
             &:hover {
-                color: rgb(217, 188, 188);
+                color: $primary-pink;
             }
         }
     }
@@ -88,11 +84,11 @@
         padding: 1em 0;
         font-size: 1.3rem;
         text-decoration: none;
-        color: rgb(173, 173, 173);
+        color: $grey;
         cursor: pointer;
 
         &:hover {
-            color: rgb(123, 123, 123);
+            color: $dark-grey;
         }
     }
 
@@ -111,21 +107,21 @@
             padding: 0.5em 1em;
             width: 70%;
             text-align: center;
-            color: rgb(174, 174, 174);
-            background-color: rgb(245, 245, 245);
+            color: $grey;
+            background-color: $almost-white;
         }
 
         &-loggedUser {
             padding-bottom: 3em;
 
             & .email {
-                color: rgb(187, 138, 146);
+                color: $primary-pink;
             }
         }
 
         &-alert {
             font-size: 1rem;
-            color: rgb(187, 131, 141);
+            color: $dark-pink;
         }
 
         & .link {
@@ -144,11 +140,11 @@
 
         &-continue {
             font-size: 1.3rem;
-            color: rgb(173, 173, 173);
+            color: $grey;
             cursor: pointer;
 
             &:hover {
-                color: rgb(132, 132, 132);
+                color: $dark-grey;
             }
         }
 
@@ -167,14 +163,16 @@
             width: 100%;
             font-size: 1.4rem;
             text-transform: uppercase;
-            background-color: rgb(247, 247, 247);
-            border: thin solid rgb(220, 220, 220);
             border-radius: 3px;
-    
-            & .buy-icon {
-                margin-left: 0.5em;
-                font-size: 2rem;
-                color: rgb(115, 214, 150);
+        }
+    }
+
+    &__empty {
+        &-actions {
+            & .link {
+                &:hover {
+                    color: greenyellow;
+                }
             }
         }
     }
@@ -188,11 +186,13 @@
 }
 
 .pagination-controls::ng-deep .ngx-pagination .current {
-    background: rgb(223, 197, 201);
+    background: $primary-pink;
 }
 
 @media (min-width: 476px) {
     .cart {
+        width: 90%;
+
         &__items {
             &-img {
                 width: 4em;
@@ -218,7 +218,6 @@
     .cart {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        width: 90%;
 
         &__header {
             display: grid;
@@ -226,7 +225,7 @@
             grid-column: 1 / 8;
             padding: 2em 0;
             text-transform: uppercase;
-            color: rgb(167, 167, 167);
+            color: $almost-black;
         }
 
         &__items {
@@ -290,8 +289,8 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 976px) {
     .cart {
-        width: 70%;
+        width: 80%;
     }
 }

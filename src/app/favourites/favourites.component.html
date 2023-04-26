@@ -1,4 +1,4 @@
-<div class="cart" *ngIf="favourites.items.length, else noItems">
+<div class="cart section wrapper" *ngIf="favourites.items.length, else noItems">
     <div class="cart__header">
         <p class="title title--name">Name</p>
         <p class="title title--price">Price</p>
@@ -14,9 +14,9 @@
         </div>
         <p class="cart__items-item cart__items-price">{{item.price | currency}}</p>
         <div class="cart__items-item cart__items-actions">
-            <i class="fa-solid fa-heart cart__items-item action-icon" (click)="onRemoveFromFavourites(item)"
+            <i class="fa-solid fa-heart action-icon" (click)="onRemoveFromFavourites(item)"
                 [ngClass]="{active : onCheckFavourites(item)}"></i>
-            <i class="fa-solid fa-cart-shopping cart__items-item action-icon" (click)="onAddToCart(item)"></i>
+            <i class="fa-solid fa-cart-shopping action-icon remove-icon" (click)="onAddToCart(item)"></i>
         </div>
 
     </div>

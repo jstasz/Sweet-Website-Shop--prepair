@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../alert/alert.service';
-
 import { initializeApp } from 'firebase/app';
 import { getDatabase, set, ref} from 'firebase/database';
 import { AuthService } from '../auth/auth.service';
