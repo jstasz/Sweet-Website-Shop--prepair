@@ -1,6 +1,7 @@
+@import '../../../_colors.scss';
+
 .products {
     &-box {
-        padding: 2em 0;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -16,7 +17,7 @@
             margin: 0.5em;
             padding: 1em;
             width: 100%;
-            border: thin solid rgb(206, 206, 206);
+            border: thin solid $light-grey;
             border-radius: 5px;
         
             &__content {
@@ -26,7 +27,7 @@
                     padding-bottom: 0.7em;
                     font-size: 1.6rem;
                     font-weight: bold;
-                    color: grey;
+                    color: $grey;
                 }
         
                 &-description {
@@ -34,16 +35,13 @@
                 }
             }
         
-            &__img {
-                width: 100%;
-                height: 50%;
-                
+            &__img { 
                 & .img {
                     display: block;
-                    margin: 0 auto;
+                    margin: 0.5em auto;
                     padding: 1em;
-                    width: 80%;
-                    height: 100%;
+                    width: 10em;
+                    height: 10em;
                     filter: grayscale(0.5);
                 }
             }
@@ -52,7 +50,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-end;
-                padding-top: 2em;
+                padding-top: 1em;
                 height: 20%;
         
                 &-add {
@@ -65,12 +63,12 @@
                 }
         
                 &-price {
-                    margin: 0;
+                    font-size: 1.5rem;
                 }
         
                 &-quantity {
                    position: absolute;
-                   bottom: 0;
+                   bottom: 12px;
                    left: 50%;
                    transform: translate(-50%, -50%);
                    display: inline;
@@ -80,12 +78,12 @@
                 &-icon {
                     margin: 0 0.2em;
                     font-size: 1.7rem;
-                    color: rgb(169, 169, 169);
+                    color: $grey;
                     cursor: pointer;
         
                     &:hover,
                     &.active {
-                        color: rgb(224, 200, 204);
+                        color: $primary-pink;
                     }
                 }
             }
@@ -93,16 +91,19 @@
             &.list {
                 flex-direction: row;
                 flex-wrap: wrap;
+                padding: 0.5em;
                 height: 100%;
         
                 & .product__img {
+                    display: flex;
+                    justify-content: end;
                     width: 50%;
-                    height: 130px;
         
                     & .img {
-                        padding: 0 0 0 1em;
-                        width: 100%;
-                        height: 100%;
+                        margin: 0;
+                        padding: 0;
+                        width: 6em;
+                        height: 6em;
                         filter: grayscale(0.5);
                     }
                 }
@@ -119,6 +120,7 @@
         
                     &-price {
                         margin: 0;
+                        order: 1;
                     }
                 }
             }
@@ -147,7 +149,7 @@
 }
 
 .pagination-controls::ng-deep .ngx-pagination .current {
-    background: rgb(223, 197, 201);
+    background: $primary-pink;
 }
 
 @media (min-width: 476px) {
@@ -165,7 +167,16 @@
         
                     & .product__img {
                         width: 40%;
-                        height: 130px;
+
+                        & .img {
+                            width: 8em;
+                            height: 8em;
+                            filter: grayscale(0.5);
+                        }
+                    }
+
+                    & .product__content {
+                        width: 60%;
                     }
                 }
             }
@@ -180,9 +191,7 @@
                 padding: 0 3em;
             }
 
-            & .product {
-                width: 45%;
-        
+            & .product {        
                 &.list {
                     width: 100%;
                 }
@@ -192,6 +201,22 @@
 }
 
 @media (min-width: 768px) {
+
+    .products {
+        &-box {
+            & .product {        
+                &.list {
+                    padding: 1em;
+                    width: 100%;
+
+                    & .product__summary {
+                        margin-top: 1em;
+                    }
+                }
+            }
+        }
+    }
+
     .no-products {
         margin: 2em;
         padding: 2em;
@@ -201,27 +226,16 @@
 @media (min-width: 976px) {
     .products {
         &-box {
-            &.list {
-                width: 90%;
-            }
-
             & .product {
-                padding: 2em;
                 width: 30%;
         
                 &__pagination {
                     margin-top: 3em;
                 }
-        
-                &.list {
-                    width: 100%;
-        
-                    & .product__img {
-                        padding: 0 0 1em 1em;
-                        width: 40%;
-                    }
-                }
-        
+            }
+
+            &.list {
+                width: 75%;
             }
         }
     }
