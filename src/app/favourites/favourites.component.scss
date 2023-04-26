@@ -1,9 +1,11 @@
+@import '../../_colors.scss';
+
 .cart {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin: 5em auto;
     width: 90%;
     font-size: 1.2rem;
+    color: $grey;
 
     &__header {
         display: none;
@@ -15,7 +17,7 @@
         grid-column: 1 / 5;
         align-items: center;
         padding: 1em 0;
-        border-bottom: thin solid rgb(222, 222, 222);
+        border-bottom: thin solid $light-grey;
 
         &-img {
             margin: 0 auto;
@@ -26,15 +28,10 @@
         &-name {
             grid-column: 2/4;
             padding: 0.2em;
-            color: grey;
 
             & .name {
                 margin-bottom: 0.2em;
                 font-weight: bold;
-            }
-
-            & .description {
-                color: rgb(172, 172, 172);
             }
         }
 
@@ -53,7 +50,6 @@
 
         &-name {
             grid-column: 2/4;
-            color: grey;
 
             & .name {
                 margin-bottom: 0.2em;
@@ -69,26 +65,31 @@
         & .action-icon {
             padding: 0.5em;
             font-size: 1.5rem;
-            color: rgb(205, 205, 205);
             cursor: pointer;
 
             &.active {
-                color: rgb(203, 183, 186);
+                color: $primary-pink;
+            }
+
+            &.remove-icon {
+                &:hover {
+                    color: $dark-grey;
+                }
             }
         }
     }
 
-    &__clear,
-    &__add {
+    &__clear {
         margin: 1em 0;
         padding: 1em 0;
-        color: grey;
+        color: $grey;
+
         text-align: center;
         text-decoration: none;
         cursor: pointer;
 
         &:hover {
-            color: rgb(198, 198, 198);
+            color: $dark-grey;
         }
     }
 
@@ -109,11 +110,13 @@
 }
 
 .pagination-controls::ng-deep .ngx-pagination .current {
-    background: rgb(223, 197, 201);
+    background: $primary-pink;
 }
 
 @media (min-width: 476px) {
     .cart {
+        width: 90%;
+
         &__items {
             &-img {
                 width: 4em;
@@ -134,7 +137,7 @@
             grid-column: 1 / 6;
             padding: 2em 0;
             text-transform: uppercase;
-            color: rgb(167, 167, 167);
+            color: $almost-black;
 
             & .title {
                 justify-self: center;
@@ -188,8 +191,8 @@
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 976px) {
     .cart {
-        width: 70%;
+        width: 80%;
     }
 }

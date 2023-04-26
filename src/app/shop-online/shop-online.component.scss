@@ -1,3 +1,5 @@
+@import '../../_colors.scss';
+
 .shop {
     min-height: 150px;
     width: 100vw;
@@ -7,12 +9,11 @@
     &-settings {
         width: 100%;
         padding: 2em;
-        border-bottom: 1px solid rgb(210, 210, 210);
+        border-bottom: 1px solid $light-grey;
     }
 
     &-products {
         width: 100%;
-        padding: 1em;
     }
 }
 
@@ -23,7 +24,7 @@
         &-settings {
             width: 25%;
             border-bottom: none;
-            border-right: 1px solid rgb(210, 210, 210);
+            border-right: 1px solid $light-grey;
         }
 
         &-products {

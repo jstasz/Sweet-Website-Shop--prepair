@@ -1,6 +1,6 @@
-.contact {
-    margin: 2em;
+@import '../../_colors.scss';
 
+.contact {
     &__form {
         display: flex;
         flex-direction: column;
@@ -13,8 +13,8 @@
             margin: 0.5em 2em;
             padding: 0.5em;
             width: 100%;
-            background-color: rgb(244, 244, 244);
-            border: thin solid rgb(181, 181, 181);
+            background-color: $almost-white;
+            border: thin solid $light-grey;
             border-radius: 5px;
 
             &:focus {
@@ -34,7 +34,7 @@
         & .btn {
             width: 50%;
             font-size: 1.4rem;
-            border: thin solid grey;
+            border: thin solid $grey;
         }
 
         & .alert {
@@ -42,7 +42,16 @@
             padding: 0.5px 0;
             width: 100%;
             font-size: 1rem;
-            color: rgb(198, 142, 151);
+            color: $dark-pink;
+        }
+    }
+}
+
+
+@media (min-width: 476px) {
+    .contact {
+        &__form {
+            width: 80%;
         }
     }
 }

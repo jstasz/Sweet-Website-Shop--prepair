@@ -1,3 +1,5 @@
+@import '../../../_colors.scss';
+
 .settings {
     &__layout {
         width: 100%;
@@ -8,11 +10,11 @@
         & .icon {
             padding: 0.5em;
             font-size: 2rem;
-            color: rgb(85, 85, 85);
+            color: $dark-grey;
             cursor: pointer;
             
             &:hover {
-                color: grey;
+                color: $grey;
             }
         }
     }
@@ -22,6 +24,7 @@
         padding: 0.5em;
         font-size: 1.3rem;
         text-transform: uppercase;
+        color: $dark-grey;
 
         &-header {
             & .title {
@@ -32,11 +35,7 @@
         
             & .icon {
                 padding: 0.5em;
-    
-                &:hover {
-                    color: grey;
-                    cursor: pointer;
-                }
+                cursor: pointer;
             }
         }
 
@@ -53,17 +52,17 @@
                 flex-direction: column;
                 width: 100%;
 
-                & .select {
-                    margin: 0.5em 0;
-                    padding: 0.5em 1em;
-                    font-family: "Open Sans", sans-serif;
-                    font-size: 1.2rem;
-                    text-align: center;
-                    text-transform: uppercase;
-                    background-color: rgb(235, 235, 235);
-                    border: thin solid rgb(218, 217, 217);
-                    border-radius: 2px;
-                }
+                // & .select {
+                    // margin: 0.5em 0;
+                    // padding: 0.5em 1em;
+                    // font-family: "Open Sans", sans-serif;
+                    // font-size: 1.2rem;
+                    // text-align: center;
+                    // text-transform: uppercase;
+                    // background-color: $almost-white;
+                    // border: thin solid $light-grey;
+                    // border-radius: 2px;
+                // }
             }
 
             & .item__category {
@@ -72,7 +71,7 @@
                 padding: 0.5em 0;
 
                 &-icon {
-                    background-color: grey;
+                    background-color: $grey;
                     border-radius: 50%;
                     width: 2em;
                     height: 2em;
@@ -81,12 +80,16 @@
                     justify-content: center;
                     align-items: center;
                     margin-right: 1em;
-                    background-color: rgb(210, 210, 210);
+                    background-color: $light-grey;
                     cursor: pointer;
-                    color: rgb(70, 70, 70);
+                    color: $grey;
                     
                     &.active {
-                        background-color: rgb(228, 208, 212);
+                        background-color: $light-pink;
+
+                        & i {
+                            color: $dark-grey;
+                        }
                     }
                 }
 
@@ -95,13 +98,13 @@
                 }
 
                 &-all {
-                    cursor: pointer;
                     margin-top: 2em;
                     padding: 1em 0;
-                    color: rgb(138, 138, 138);
+                    color: $grey;
+                    cursor: pointer;
             
                     &:hover {
-                        color: rgb(161, 161, 161);
+                        color: $dark-grey;
                     }
                 }
             }

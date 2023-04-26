@@ -6,7 +6,8 @@
             <p class="products__card-description">
                 {{card.description}}
             </p>
-            <a href="#" class="products__card-link" [ngClass]="{'products__card-link--top': i % 2 !== 0}">{{card.link}}
+            <a href="#" class="products__card-link" [routerLink]="'/' + card.link"
+                [ngClass]="{'products__card-link--top': i % 2 !== 0}">{{(card.link).replace('-',' ')}}
             </a>
             <img class="products__card-img" [ngClass]="{'products__card-img--top': i % 2 !== 0}"
                 src="{{card.imagePath}}" alt="{{card.title}}" />

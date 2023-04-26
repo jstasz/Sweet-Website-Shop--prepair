@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { count } from 'rxjs';
 import { CakeDesignerService } from '../cake-designer.service';
-import { DesignDetailElement, Details } from '../desig-element.model';
+import { DesignDetailElement } from '../desig-element.model';
 
 @Component({
   selector: 'app-decoration',

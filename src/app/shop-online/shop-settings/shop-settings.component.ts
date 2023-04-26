@@ -28,7 +28,7 @@ export class ShopSettingsComponent implements OnInit {
   selectedCategoriesSub!: Subscription;
 
   filtersActive: boolean = false;
-  categoriesActive : boolean = true;
+  categoriesActive : boolean = false;
 
   page: number = 1;
 

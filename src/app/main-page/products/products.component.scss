@@ -1,3 +1,5 @@
+@import '../../../_colors.scss';
+
 .products {
     &__container {
         display: flex;
@@ -30,7 +32,7 @@
 
         &-title {
             margin-bottom: 1em;
-            color: rgb(104, 104, 104);
+            color: $almost-black;
             text-transform: uppercase;
         }
 
@@ -40,7 +42,11 @@
             font-weight: 600;
             text-align: end;
             text-decoration: none;
-            color: rgb(228, 176, 185);
+            color: $primary-pink;
+
+            &:hover {
+                color: $light-pink;
+            }
         }
     }
 }

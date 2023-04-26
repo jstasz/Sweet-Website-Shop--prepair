@@ -1,7 +1,9 @@
+@import '../../_colors.scss';
+
 .footer {
     padding: 1em;
-    color: rgb(108, 108, 108);
-    background-color: rgb(222, 222, 222);
+    color: $grey;
+    background-color: $light-grey;
 
     &__informations {
         display: flex;
@@ -21,6 +23,10 @@
             width: 100%;
             text-align: center;
 
+            & p {
+                margin-bottom: 0.5em;
+            }
+
             & .title {
                 font-weight: bold;
             }
@@ -28,11 +34,10 @@
             & .link {
                 margin-bottom: 0.5em;
                 text-decoration: none;
-                color: grey;
-                cursor: pointer;
+                color: $grey;
 
                 &:hover {
-                    color: rgb(192, 142, 142);
+                    color: $primary-pink;
                 }
             }
 
@@ -42,6 +47,10 @@
 
             & .email {
                 cursor: pointer;
+
+                &:hover .contact-icon {
+                    color: $primary-pink;
+                }
             }
 
             & .subscribe {
@@ -49,27 +58,21 @@
                 padding: 0.4em 0.7em;
                 width: 100%;
                 text-align: center;
-                color: grey;
-                border: thin solid rgb(178, 178, 178);
+                color: $grey;
+                border: thin solid $grey;
                 border-radius: 5px;
 
                 &::placeholder {
-                    color: rgb(193, 193, 193);
+                    color: $grey;
                 }
 
                 &:focus {
                     outline: transparent;
                 }
 
-                &-btn {
-                    &:hover {
-                        background-color: rgb(237, 231, 231);
-                    }
-                }
-
                 &-valid {
                     font-size: 1rem;
-                    color: rgb(192, 142, 142)
+                    color: $dark-pink;
                 }
             }
         }
@@ -88,10 +91,10 @@
             &-icon {
                 margin-bottom: 0.2em;
                 padding: 0.5em;
-                color: rgb(163, 98, 98);
+                color: $grey;
 
                 &:hover {
-                    color: rgb(165, 165, 165);
+                    color: $primary-pink;
                 }
             }
         } 

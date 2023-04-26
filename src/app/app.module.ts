@@ -75,7 +75,14 @@ import { AuthService } from './auth/auth.service';
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [ShopOnlineService, CartService, HeaderService, FavouritesService, AlertService, LocalStorageService, AuthService],
+  providers: [
+    ShopOnlineService, 
+    CartService, 
+    HeaderService, 
+    FavouritesService, 
+    AlertService, 
+    LocalStorageService, 
+    AuthService],
   bootstrap: [AppComponent]
 })
 

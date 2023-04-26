@@ -11,14 +11,14 @@
     <div class="settings__box-items" [ngClass]="{'settings__box-items--disactive': !filtersActive}">
         <div class="item__sort">
             <label for="sort">Sort by</label>
-            <select id="sort" name="sort" class="select" [(ngModel)]="selectedSort"
+            <select id="sort" name="sort" class="select input" [(ngModel)]="selectedSort"
                 (change)="onSelectSort(selectedSort)">
                 <option *ngFor="let sort of sortToSelect">{{sort}}</option>
             </select>
         </div>
         <div class="item__amount">
             <label for="amount">Show</label>
-            <select id="amount" name="amount" class="select" [(ngModel)]="selectedAmount"
+            <select id="amount" name="amount" class="select input" [(ngModel)]="selectedAmount"
                 (change)="onSelectAmount($event)">
                 <option *ngFor="let amount of amountToSelect">{{amount}}</option>
             </select>
@@ -34,7 +34,7 @@
     <div class="settings__box-items" [ngClass]="{'settings__box-items--disactive': !categoriesActive}">
         <div class="item__category" *ngFor="let category of shopCategories" (click)="onSelectCategory(category.name)">
             <div class="item__category-icon" [ngClass]="{'active': selectedCategory.indexOf(category.name) >= 0}">
-                <i class="fa-solid {{category.icon}} "></i>
+                <i class="fa-solid {{category.icon}}"></i>
             </div>
             <p class="item__category-name">{{category.name}}</p>
         </div>

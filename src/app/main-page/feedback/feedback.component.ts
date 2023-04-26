@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-class FeedbackCard {
-  constructor(public userName: string, public description: string, public opinion: number) {
-    this.userName = userName;
-    this.description = description
-    this.opinion = opinion
-  }
-}
+import { FeedbackCard } from './feedback-card.model';
 
 @Component({
   selector: 'app-feedback',
@@ -16,9 +9,17 @@ class FeedbackCard {
 export class FeedbackComponent implements OnInit {
 
   feedbackCards: FeedbackCard[] = [
-    new FeedbackCard('Ania Cz.', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem sapiente optio nulla error earum eum temporibus voluptatem nostrum repellendus explicabo!', 5),
-    new FeedbackCard('Kalina M.', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem sapiente optio nulla error earum eum temporibus voluptatem nostrum', 5),
-    new FeedbackCard('Stefan K.', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem sapiente optio nulla error earum eum temporibus', 5)
+    new FeedbackCard(
+      'Ana C.', 
+      `Everything is great, the service is top-notch, good communication, delicious cake, I recommend it to everyone. Thank You so much!`,
+      5),
+    new FeedbackCard(
+      'Caroline M.', 
+      `The best cake I've ever eaten in my life, and it looked stunning too. My daughter was delighted, I will definitely order again.`,
+      5),
+    new FeedbackCard('Steven K.', 
+      `"I ordered a sweet table for our wedding on the recommendation of a friend. Mrs. Justyna asked me about everything and created a masterpiece. Everyone was delighted. Me too!"`,
+      5)
   ]
 
   constructor() { }

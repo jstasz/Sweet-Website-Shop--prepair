@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
-import { ShopProduct } from "../shop-online/shop-products/shop-products.model";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
 
 @Injectable()
 export class AlertService {
