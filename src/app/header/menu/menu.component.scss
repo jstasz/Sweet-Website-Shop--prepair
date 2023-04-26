@@ -1,3 +1,5 @@
+@import '../../../_colors.scss';
+
 .nav {
     &__shopping {
         &-menu {
@@ -15,12 +17,12 @@
                 top: 50px;
                 right: 0;
                 padding: 1em;
-                width: 30vw;
+                width: 50vw;
                 max-height: 80vh;
                 font-size: 1.2rem;
-                background-color: rgb(244, 244, 244);
+                background-color: $almost-white;
                 overflow: scroll;
-                border: 1px solid rgb(201, 201, 201);
+                border: 1px solid $light-grey;
                 border-radius: 5px;
 
                 &-view {
@@ -31,35 +33,35 @@
                     & .view {
                         font-weight: bold;
                         text-decoration: none;
-                        color: grey;
+                        color: $grey;
                     }
 
                     & .view-icon {
                         margin-left: 0.5em;
                         font-size: 2rem;
-                        color: rgb(215, 178, 178);
+                        color: $primary-pink;
                         cursor: pointer;
                     }
 
                     &:hover .view {
-                        color: rgb(159, 159, 159);
+                        color: $light-grey;
                     }
 
                     &:hover .view-icon {
-                        color: rgb(239, 205, 205);
+                        color: $light-pink;
                     }
                 }
 
                 &-items {
-                    padding: 2em;
+                    padding: 0.3em;
 
                     & .item {
                         display: flex;
                         justify-content: space-between;
                         margin: 0.5em 0;
                         padding: 0.5em;
-                        background-color: rgb(245, 245, 245);
-                        border: 1px solid rgb(233, 222, 222);
+                        background-color: $almost-white;
+                        border: 1px solid $light-grey;
                         border-radius: 5px;
 
                         &__product {
@@ -82,28 +84,6 @@
                                 align-items: center;
                                 padding: 0 1em;
                             }
-
-                            &-add {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                padding: 0 1em;
-
-                                & .add-icon,
-                                & .remove-icon {
-                                    font-size: 1.3rem;
-                                    color: rgb(102, 102, 102);
-                                    cursor: pointer;
-
-                                    &:hover {
-                                        color: rgb(187, 187, 187);
-                                    }
-                                }
-
-                                & .add-icon {
-                                    margin-right: 0.5em;
-                                }
-                            }
                         }
                     }
                 }
@@ -113,7 +93,7 @@
                     justify-content: flex-end;
                     margin-top: 2em;
                     padding-top: 2em;
-                    border-top: 1px solid rgb(220, 220, 220);
+                    border-top: 1px solid $light-grey;
 
                     & .total {
                         font-weight: bold;
@@ -129,21 +109,21 @@
                     & .buy-icon {
                         margin-left: 0.5em;
                         font-size: 2rem;
-                        color: rgb(163, 216, 163);
+                        color: $green;
                         cursor: pointer;
 
                         &:hover {
-                            color: rgb(192, 237, 192);
+                            color: $light-green;
                         }
                     }
 
                     & .delete-icon {
-                        color: rgb(111, 111, 111);
+                        color: $dark-grey;
                         text-decoration: none;
                         cursor: pointer;
 
                         &:hover {
-                            color: rgb(196, 196, 196);
+                            color: $grey;
                         }
                     }
                 }
@@ -151,3 +131,30 @@
         }
     }
 }
+
+@media (min-width: 978px) {
+    .nav {
+        &__shopping {
+            &-menu {
+                width: 40vw;
+
+                &-items {
+                    padding: 1em;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 978px) {
+    .nav {
+        &__shopping {
+            &-menu {
+                width: 30vw;
+            }
+        }
+    }
+}
+
+
+

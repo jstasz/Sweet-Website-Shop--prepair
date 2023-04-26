@@ -27,13 +27,13 @@ export class MenuComponent implements OnInit {
     this.favouritesService.favouritesChange.subscribe(favourites => this.favourites = favourites);
   }
 
+  onGetTotalCartPrice(items: ShopProduct[]) {
+    return this.cartService.getTotalCartPrice(items);
+  }
+
   onClearFav() {
     this.favourites.items = [];
     this.activeMode = '';
-  }
-
-  onGetTotalCartPrice(items: ShopProduct[]) {
-    return this.cartService.getTotalCartPrice(items);
   }
 
   onClearCart() {

@@ -1,9 +1,10 @@
+@import '../../_colors.scss';
+
 .nav {
     position: fixed;
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 12vh;
     z-index: 10;
 
     &__links {
@@ -15,15 +16,15 @@
     }
 
     &--shadow {
-        box-shadow: inset 0px 0px 40px 14px rgba(169, 169, 169, 0.9);
+        box-shadow: inset 0px 0px 70px 34px rgba(94, 94, 94, 0.9);
     }
 
     &--active {
         align-items: flex-start;
         padding: 0.5em 0;
         height: 100vh;
-        background-color: rgb(208, 184, 184);
-        background-image: radial-gradient(circle, rgb(210, 176, 176) 0%, rgb(142, 97, 97) 100%);
+        background-color: $primary-pink;
+        background-image: radial-gradient(circle, rgb(216, 190, 190) 0%, rgb(230, 217, 217) 100%);
        
         & .nav__links {
             position: absolute;
@@ -40,7 +41,7 @@
             margin: 0.5em;
             padding: 1em;
             text-align: center;
-            color: rgb(134, 81, 81);
+            color: $claret;
             letter-spacing: 0.2rem;
             text-shadow: 0px 0px 10px rgb(167, 130, 130);
             box-shadow: inset 0px 0px 34px 7px rgb(203, 179, 179);
@@ -66,7 +67,7 @@
             margin: 0.5em;
             padding: 0.5em;
             font-size: 1rem;
-            background-color: rgb(222, 222, 222);
+            background-color: $light-grey;
             border-radius: 50%;
 
             &-img {
@@ -86,7 +87,7 @@
                 align-items: center;
                 width: 50%;
                 height: 50%;
-                background-color: rgb(199, 145, 145);
+                background-color: $primary-pink;
                 border-radius: 50%;
             }
         }
@@ -112,18 +113,18 @@
         padding: 1em;
         height: 100%;
         text-align: center;
-        color: white;
 
         &-title {
             font-family: "Satisfy", cursive;
             font-size: 5rem;
             text-shadow: 0px 0px 19px rgba(0, 0, 0, 1);
+            color: $almost-white;
         }
 
         &-description {
             font-size: 2rem;
             font-style: italic;
-            color: rgb(32, 32, 32);
+            color: $almost-black;
             text-shadow: 2px 2px 5px rgb(253, 253, 253);
         }
     }
@@ -155,21 +156,36 @@
     .nav {
         &__links {
             display: block;
-            margin: 0 1em;
+            margin: 0 2em;
         }
 
         &__link {
             margin: 0 0.5em;
             padding: 0.5em;
             width: auto;
-            font-size: 1.6rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: rgb(73, 70, 70);
-            text-shadow: 2px 2px 3px rgb(253, 253, 253);
+            color: $dark-grey;
+            text-shadow: 2px 2px 3px rgb(190, 189, 189);
 
             &.active {
                 color: rgb(133, 65, 65);
             }
+        }
+
+        &--shadow {
+            & .nav__link {
+                color: rgb(235, 235, 235);
+                text-shadow: 2px 2px 3px rgb(119, 119, 119);
+
+                &.active {
+                    color: $primary-pink;
+                }
+            }
+        }
+
+        &__shopping {
+            margin: 0.5em 2em;
         }
     }
 
@@ -179,6 +195,14 @@
 
         &__content {
             padding: 2em 0 1em 0;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .nav {
+        &__link {
+            font-size: 1.4rem;
         }
     }
 }

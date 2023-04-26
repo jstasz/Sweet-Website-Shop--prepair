@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   @ViewChild('mainImage') mainImage!: ElementRef;
   mainImageHeight: number = 0;
   scrollPosition: number = 0;
-
   windowWidth: number = window.innerWidth;
 
   activeMode : Mode = null;
@@ -43,7 +42,7 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollY = window.scrollY || window.pageYOffset;
-    const scrollPosition = (scrollY / this.mainImageHeight) * 100;
+    const scrollPosition = (scrollY / (this.mainImageHeight / 4)) * 100;
     this.scrollPosition = scrollPosition;
   }
 
@@ -62,10 +61,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onShowCounter(element: Cart) {
-    return this.headerService.counter(element);
-  }
-
-  onActiveMenu() {
-    this.activeMenu = !this.activeMenu;
+    return this.headerService.cartCounter(element);
   }
 }

@@ -1,13 +1,13 @@
 <nav class="nav" [ngClass]="{'nav--active': activeMenu}" [ngClass]="{'nav--shadow' : scrollPosition > 90}">
     <button class=" hamburger hamburger--spin" [ngClass]="{'is-active': activeMenu}" type="button"
-        (click)="onActiveMenu()">
+        (click)="activeMenu = !activeMenu">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
     </button>
     <div class="nav__links">
         <a *ngFor="let navLink of navLinks" [routerLink]="'/' + navLink" routerLinkActive="active" class="nav__link"
-            (click)="windowWidth < 768 ? onActiveMenu() : ''"> {{
+            (click)="windowWidth < 768 ? activeMenu = !activeMenu : ''"> {{
             navLink === 'auth' ? 'LOG IN / SIGN UP' : navLink | space | uppercase
             }}</a>
     </div>

@@ -1,6 +1,6 @@
-import { ElementRef, Injectable } from "@angular/core";
-import { Subject } from "rxjs";
-import { Cart } from "../cart/cart.model";
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Cart } from '../cart/cart.model';
 
 export type Mode = 'cart' | 'favourites' | null
 
@@ -9,7 +9,6 @@ export class HeaderService {
 
     activeMode : Mode = null;
     modeChange = new Subject<Mode>();
-
     disactiveModeTime: any = '';
 
     constructor() {}
@@ -27,7 +26,7 @@ export class HeaderService {
         }, 500)
     }
 
-    counter(element: Cart) {
+    cartCounter(element: Cart) {
         return element.items.map(item => item.quantity).reduce((prev, curr) => prev + curr);
     }
 }
