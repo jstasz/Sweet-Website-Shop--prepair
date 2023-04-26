@@ -1,7 +1,9 @@
+@import '../_colors.scss';
+
 .wrapper {
+    margin: 0 auto;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
 }
 
 .hidden {
@@ -12,31 +14,27 @@
     padding: 3em 1em;
 }
 
-p {
-    margin: 0;
-}
-
 .section-title {
     padding-bottom: 1.5em;
     font-family: "Satisfy", cursive;
     font-size: 3rem;
     text-align: center;
-    color: rgb(107, 105, 106);
+    color: $dark-grey;
 }
 
 .white-card {
     margin: 1em 0;
     padding: 2em;
-    background-color: rgb(243, 243, 243);
+    background-color: $almost-white;
     box-shadow: 0px 0px 24px 0px rgb(197, 197, 197);
     border-radius: 10px;
 }
 
 .web {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 100vh;
 }
 
 .cart__empty {
@@ -51,35 +49,50 @@ p {
 
     &-actions {
         display: flex;
-        color: grey;
         padding: 2em 0;
+        color: $grey;
 
         & .link {
-            cursor: pointer;
             font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                color: $dark-grey;
+            }
         }
     }
 }
 
 .btn {
-    background-color: rgb(214, 198, 201);
-    border-radius: 5px;
-    padding: 0.5em 1em;
     margin: 1em;
+    padding: 0.7em 1em;
+    background-color: $light-grey;
+    border: thin solid $grey;
+    border-radius: 5px;
 
     &:hover {
-        background-color: rgb(227, 216, 217);
+        color: $dark-pink;
+        border: thin solid $primary-pink;
     }
+}
+
+.input {
+    display: inline;
+    margin: 0.5em 0;
+    padding: 0.7em;
+    background-color: $almost-white;
+    border: thin solid $light-grey;
+    border-radius: 5px;
 }
 
 .pagination {
     grid-column: 3/5;
-    text-align: center;
     padding-top: 2em;
+    text-align: center;
 }
 
 .pagination-controls::ng-deep .ngx-pagination .current {
-    background: rgb(223, 197, 201);
+    background: $primary-pink;
 }
 
 @media (min-width: 768px) {

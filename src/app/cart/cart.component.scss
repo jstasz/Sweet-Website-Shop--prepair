@@ -166,16 +166,6 @@
             border-radius: 3px;
         }
     }
-
-    &__empty {
-        &-actions {
-            & .link {
-                &:hover {
-                    color: greenyellow;
-                }
-            }
-        }
-    }
 }
 
 .pagination {

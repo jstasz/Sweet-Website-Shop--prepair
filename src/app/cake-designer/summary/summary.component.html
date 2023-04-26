@@ -26,9 +26,8 @@
         </div>
         <div class="summary__price">
             <p class="summary__price-total">Total price : {{totalCakePrice}} EUR</p>
-            <button class="btn summary__price-add" type="submit" (click)="onAddCakeToCart(createdCake)">
-                Add to
-                Cart</button>
+            <button class="btn summary__price-add" type="submit" (click)="onAddCakeToCart(createdCake)">add to
+                cart</button>
         </div>
     </div>
     <app-alert *ngIf="activeAlert"></app-alert>
