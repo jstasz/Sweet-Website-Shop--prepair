@@ -24,7 +24,7 @@
             <form #f="ngForm">
                 <input class="subscribe" type="mail" id="email" placeholder="your e-mail" ngModel name="email" required
                     email>
-                <button class="subscribe subscribe-btn" type="submit" [disabled]="!f.valid">
+                <button class="subscribe btn" type="submit" [disabled]="!f.valid">
                     <i class="fa-solid fa-thumbs-up"></i>
                 </button>
                 <p *ngIf="!f.valid && f.touched" class="subscribe-valid">Please, enter valid email</p>

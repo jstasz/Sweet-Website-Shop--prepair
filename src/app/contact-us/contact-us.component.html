@@ -14,7 +14,7 @@
             formControlName="message"></textarea>
         <p class="alert" *ngIf="!contactForm.controls['message'].valid && contactForm.controls['message'].touched">
             Please enter valid message. At least 10 characters.</p>
-        <button class="btn btn-submit" type="submit" [disabled]="!contactForm.valid">submit</button>
+        <button class="btn" type="submit" [disabled]="!contactForm.valid">submit</button>
     </form>
 </div>
 <app-alert *ngIf="activeAlert"></app-alert>

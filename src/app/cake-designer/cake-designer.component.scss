@@ -20,6 +20,7 @@
             height: 60px;
             background-color: $light-grey;
             border-radius: 50%;
+            cursor: pointer;
 
             &.active {
                 background-color: $light-pink;
