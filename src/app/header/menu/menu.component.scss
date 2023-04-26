@@ -58,10 +58,10 @@
                     & .item {
                         display: flex;
                         justify-content: space-between;
-                        margin: 0.5em 0;
-                        padding: 0.5em;
+                        margin: 1em 0;
+                        padding: 1em;
                         background-color: $almost-white;
-                        border: 1px solid $light-grey;
+                        border-bottom: 1px solid $light-grey;
                         border-radius: 5px;
 
                         &__product {
@@ -93,7 +93,6 @@
                     justify-content: flex-end;
                     margin-top: 2em;
                     padding-top: 2em;
-                    border-top: 1px solid $light-grey;
 
                     & .total {
                         font-weight: bold;
@@ -106,24 +105,30 @@
                     align-items: center;
                     margin-top: 1.5em;
 
-                    & .buy-icon {
-                        margin-left: 0.5em;
-                        font-size: 2rem;
-                        color: $green;
-                        cursor: pointer;
+                    & .buy {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
 
-                        &:hover {
-                            color: $light-green;
+                        & .buy-icon {
+                            margin-left: 0.5em;
+                            font-size: 2rem;
+                            color: $green;
+                            cursor: pointer;
+    
+                            &:hover {
+                                color: $light-green;
+                            }
                         }
                     }
 
                     & .delete-icon {
-                        color: $dark-grey;
+                        color: $grey;
                         text-decoration: none;
                         cursor: pointer;
 
                         &:hover {
-                            color: $grey;
+                            color: $dark-grey;
                         }
                     }
                 }
