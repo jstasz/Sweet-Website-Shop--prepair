@@ -1,3 +1,5 @@
+@import '../../_colors.scss';
+
 .cake {
     font-size: 1.4rem;
 
@@ -16,21 +18,21 @@
             padding: 1em;
             width: 60px;
             height: 60px;
-            background-color: rgb(216, 216, 216);
+            background-color: $light-grey;
             border-radius: 50%;
 
             &.active {
-                background-color: rgb(228, 208, 212);
+                background-color: $light-pink;
+
+                & .icon {
+                    color: $dark-grey;
+                }
             }
 
-            &-icon {
+            & .icon {
                 padding-bottom: 0.5em;
                 font-size: 1em;
-                color: rgb(89, 89, 89);
-            }
-
-            &-title {
-                margin: 0;
+                color: $grey;
             }
         }
     }
@@ -49,6 +51,7 @@
         width: 100%;
         font-weight: bold;
         text-align: center;
+        color: $dark-grey;
     }
 
     &__item {
@@ -76,7 +79,7 @@
             margin: 0.5em 0;
             font-size: 1.8rem;
             text-align: center;
-            color: grey;
+            color: $grey;
         }
 
         &-details {
@@ -88,18 +91,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                &__btn {
-                    margin: 0 0.6em;
-                    font-size: 1.5rem;
-                    color: rgb(222, 222, 222);
-                    cursor: pointer;
-
-                    &:hover,
-                    &.selected{
-                        color: pink;
-                    }
-                }
             }
 
             & .details.price {
@@ -107,7 +98,7 @@
             }
 
             & .details-selected {
-                color: rgb(219, 192, 197);
+                color: $primary-pink;
                 font-weight: bold;
             }
         }

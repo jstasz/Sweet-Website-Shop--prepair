@@ -1,9 +1,11 @@
+@import '../../../_colors.scss';
+
 .cake-design {
     &__summary {
         display: flex;
         flex-direction: column;
         text-align: center;
-        color: grey;
+        color: $grey;
 
         & .summary {
             &__cake {
@@ -12,7 +14,7 @@
                 &-img {
                     padding: 1em;
                     width: 80%;
-                    border: 1px solid rgb(243, 243, 243);
+                    border: 1px solid $light-grey;
                 }
             }
 
@@ -44,7 +46,7 @@
                 & .cart-information {
                     margin: 0.5em;
                     padding: 1em;
-                    border: 1px solid rgb(217, 217, 217);
+                    border: 1px solid $light-grey;
 
                     &-cake {
                         width: 60%;
@@ -69,12 +71,7 @@
                 margin-top: 3em;
 
                 &-add {
-                    margin: 0.5em 0;
-                    padding: 0.5em 3em;
                     width: 70%;
-                    color: grey;
-                    border: thin solid rgb(211, 199, 199);
-                    border-radius: 5px;
                 }
             }
         } 
@@ -110,7 +107,6 @@
             flex-wrap: wrap;
 
             & .summary {
-
                 &__cake {
                     display: flex;
                     justify-content: center;
@@ -140,6 +136,10 @@
 
                 &__price {
                     width: 100%;
+
+                    &-add {
+                        width: 30%;
+                    }
                 }
             }
         }
