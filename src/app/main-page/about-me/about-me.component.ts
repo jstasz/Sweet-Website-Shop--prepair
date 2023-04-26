@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutMeComponent implements OnInit {
   title: string = `Hi, I'm Justyna`;
-  description: string = ` Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-  asperiores commodi illum voluptatibus quisquam earum veniam minus at
-  similique quis alias nulla soluta voluptatem, ea dignissimos quasi
-  repellendus dolorem fugit. Quia rem nostrum nemo mollitia expedita.`
+  descriptionMe: string = ` Hi, I'm Justyna. For the past 5 years, 
+  I've been involved in selling various types of sweets and baked goods. 
+  For over 3 years, my hobby has also become designing and making artistic cakes. 
+  I provide both individual orders and comprehensive services for various occasions.`
+  descriptionContact: string = `If you have an idea to turn your party into a sweet paradise, 
+  contact me and we will definitely come up with something.`
 
   constructor() { }
 

@@ -1,3 +1,5 @@
+@import '../../../_colors.scss';
+
 .feedback {
     .carousel {
         margin: 0 auto;
@@ -15,7 +17,8 @@
     }
 
     &__stars {
-        color: rgb(222, 180, 187);
+        margin-top: 0.5em;
+        color: $primary-pink;
     }
 }
 
