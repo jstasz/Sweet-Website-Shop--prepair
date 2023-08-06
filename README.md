@@ -30,7 +30,7 @@ The cart and favorites of users are stored in localstorage so that they do not l
 |                                                   | 
 | ------------------------------------------------------- |
 | HTML                         
-| SCSS
+| CSS (SCSS)
 | JavaScript  
 | TypeScript
 | Angular
