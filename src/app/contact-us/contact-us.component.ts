@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../alert/alert.service';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, set, ref} from 'firebase/database';
+import { getDatabase, set, ref, push} from 'firebase/database';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../auth/user.model';
 
@@ -17,7 +17,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const contactMessages = getDatabase();
+const messagesRef = ref(getDatabase(), "messages"); 
 
 @Component({
   selector: 'app-contact-us',
@@ -52,10 +52,13 @@ export class ContactUsComponent implements OnInit {
     let email = this.contactForm.value.email;
     let message = this.contactForm.value.message;
 
-    set(ref(contactMessages, "message" + name), {
+
+    const newMessageRef = push(messagesRef);
+    set(newMessageRef, {
       name: name,
       email: email,
-      message: message
+      message: message,
+      status: "received"
     });
   }
 }
