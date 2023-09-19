@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { AlertService } from '../alert/alert.service';
-import { ShopProduct } from '../shop-online/shop-products/shop-products.model';
-import { Cart } from './cart.model';
-import { LocalStorageService } from '../shared/local-storage.service';
+import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
+import { AlertService } from "../alert/alert.service";
+import { ShopProduct } from "../shop-online/shop-products/shop-products.model";
+import { Cart } from "./cart.model";
+import { LocalStorageService } from "../shared/local-storage.service";
 
-import { initializeApp } from 'firebase/app';
-import { getDatabase, set, ref} from 'firebase/database';
+import { initializeApp } from "firebase/app";
+import { getDatabase, set, ref, push } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSRlmG7zwMfbUU9XMh-aJ9ceNp-3EjwAY",
@@ -19,69 +19,80 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const orderMessage = getDatabase();
+const orderRef = ref(getDatabase(), "orders");
 
 @Injectable()
 export class CartService {
-    cart: Cart = {items: []};
-    cartChanges = new Subject<Cart>();
+  cart: Cart = { items: [] };
+  cartChanges = new Subject<Cart>();
 
-    constructor(private alertService: AlertService, private localStorageService: LocalStorageService) {}
+  constructor(
+    private alertService: AlertService,
+    private localStorageService: LocalStorageService
+  ) {}
 
-    getTotalCartPrice(items: ShopProduct[]): number {
-        return items.map((item) => item.price * item.quantity).reduce((prev, cur) => prev + cur, 0);
+  getTotalCartPrice(items: ShopProduct[]): number {
+    return items
+      .map(item => item.price * item.quantity)
+      .reduce((prev, cur) => prev + cur, 0);
+  }
+
+  addToCart(item: ShopProduct) {
+    const productInCart = this.cart.items.find(prod => prod.id === item.id);
+
+    if (productInCart) {
+      productInCart.quantity += 1;
+    } else {
+      item.quantity = 1;
+      this.cart.items.push(item);
+      this.alertService.activateAlert(item);
+    }
+    this.cartChanges.next(this.cart);
+    this.localStorageService.saveLocalData("cart", JSON.stringify(this.cart));
+  }
+
+  removeFromCart(item: ShopProduct, index: number) {
+    item.quantity = 0;
+    this.cart.items.splice(index, 1);
+    this.cartChanges.next(this.cart);
+    this.localStorageService.saveLocalData("cart", JSON.stringify(this.cart));
+  }
+
+  changeQuantity(item: ShopProduct, index: number) {
+    const productInCart = this.cart.items.find(prod => prod.id === item.id);
+
+    if (productInCart && productInCart.quantity > 1) {
+      productInCart.quantity -= 1;
+    } else {
+      this.removeFromCart(item, index);
     }
 
-    addToCart(item: ShopProduct) {
-        const productInCart = this.cart.items.find(prod => prod.id === item.id);
+    this.localStorageService.saveLocalData("cart", JSON.stringify(this.cart));
+  }
 
-        if(productInCart) {
-            productInCart.quantity += 1;
-        } else {
-            item.quantity = 1;
-            this.cart.items.push(item);
-            this.alertService.activateAlert(item);
-        }
-        this.cartChanges.next(this.cart);
-        this.localStorageService.saveLocalData('cart', JSON.stringify(this.cart));
-    }
+  clearCart() {
+    this.cart.items.forEach(item => (item.quantity = 0));
+    this.cart.items.splice(0, this.cart.items.length);
+    this.cartChanges.next(this.cart);
+    this.localStorageService.removeLocalData("cart");
+  }
 
-    removeFromCart(item: ShopProduct, index: number) {
-        item.quantity = 0;
-        this.cart.items.splice(index, 1);
-        this.cartChanges.next(this.cart);
-        this.localStorageService.saveLocalData('cart', JSON.stringify(this.cart));
-    }
+  sendOrder(date: string, userEmail: string) {
+    let order = this.cart.items;
 
-    changeQuantity(item: ShopProduct, index: number) {
-        const productInCart = this.cart.items.find(prod => prod.id === item.id);
+    const newOrderRef = push(orderRef);
+    set(newOrderRef, {
+      email: userEmail,
+      date: date,
+      order: order,
+      status: "received"
+    });
+  }
 
-        if(productInCart && productInCart.quantity > 1) {
-            productInCart.quantity -= 1;
-        } else {
-            this.removeFromCart(item, index);
-        }
-
-        this.localStorageService.saveLocalData('cart', JSON.stringify(this.cart));
-    }
-
-    clearCart() {
-        this.cart.items.forEach(item => item.quantity = 0);
-        this.cart.items.splice(0, this.cart.items.length);
-        this.cartChanges.next(this.cart);
-        this.localStorageService.removeLocalData('cart');
-    }
-
-    sendOrder(date: string, userEmail: string) {
-        let order = this.cart.items;
-    
-        set(ref(orderMessage, `order ${userEmail.replace('.', ',')} ${date}`), 
-            order
-        );
-    }
-
-    localCart() {
-        const cartFromStorageString = this.localStorageService.getLocalData('cart');
-        cartFromStorageString ? this.cart = JSON.parse(cartFromStorageString) : this.cart = {items: []};
-    }
+  localCart() {
+    const cartFromStorageString = this.localStorageService.getLocalData("cart");
+    cartFromStorageString
+      ? (this.cart = JSON.parse(cartFromStorageString))
+      : (this.cart = { items: [] });
+  }
 }
