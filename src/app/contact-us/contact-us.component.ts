@@ -58,7 +58,8 @@ export class ContactUsComponent implements OnInit {
       name: name,
       email: email,
       message: message,
-      status: "received"
+      status: "received",
+      answer: "",
     });
   }
 }
