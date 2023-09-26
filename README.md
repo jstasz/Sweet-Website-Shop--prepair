@@ -2,13 +2,18 @@
 
 <br>
 
-<p align="center">available at https://sweet-website-shop.netlify.app/home/</p>
+<p align="center">online store available at https://sweet-website-shop.netlify.app</p>
+<p align="center">Admin panel for managing orders and contact messages available at https://sweet-website-dashboard.netlify.app</p>
 <br>
 <br>
 
 ## Project Overview 🎉
 
 A store for buying ready-made cakes accessories and also designing custom cakes to order. The user can choose the shape, size, sponge flavor, cream flavor, and decorations that will be on the ordered cake. They also select the date and delivery address for the products. If the user has special requirements, they can contact the store through a contact form. The site is written in Angular and uses Firebase to store users and order data.
+
+The project also includes a dashboard for the manager to manage contact messages and orders.
+
+https://github.com/jstasz/sweet-website-dashboard
 
 #### Buying products
 
